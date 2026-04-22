@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
+
+const services = [
+  { label: "Residential Services", href: "#services-residential" },
+  { label: "Commercial Repair", href: "#services-commercial" },
+  { label: "Roofing Repair", href: "#services-roofing-repair" },
+];
 
 const links = [
   { label: "Storm Damage", href: "#storm-damage" },
