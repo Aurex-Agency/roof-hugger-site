@@ -38,6 +38,38 @@ const Navigation = () => {
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
+          <li
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={servicesOpen}
+              onClick={() => setServicesOpen((v) => !v)}
+              className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary"
+            >
+              Services <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+            </button>
+            <div
+              role="menu"
+              className={`absolute left-0 top-full min-w-[16rem] overflow-hidden rounded-md border border-white/10 bg-secondary shadow-lg transition-all ${
+                servicesOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"
+              }`}
+            >
+              {services.map((s) => (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  role="menuitem"
+                  className="block px-5 py-3 text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:bg-white/5 hover:text-primary"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
+          </li>
           {links.map((l) => (
             <li key={l.href}>
               <a href={l.href} className="text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary">
