@@ -1,0 +1,56 @@
+import heroImg from "@/assets/hero-roof.jpg";
+import { Phone } from "lucide-react";
+
+const Hero = () => {
+  return (
+    <section id="top" className="relative isolate overflow-hidden bg-dark text-dark-foreground">
+      <img
+        src={heroImg}
+        alt="Crew installing dark architectural shingle roof at golden hour in Starkville MS"
+        width={1920}
+        height={1080}
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 -z-10 bg-hero-overlay" aria-hidden />
+
+      <div className="container relative grid min-h-[88vh] items-end pb-24 pt-20 md:min-h-[92vh] md:items-center md:pb-32 md:pt-24">
+        <div className="max-w-[55%] animate-hero-rise md:max-w-[55%] [@media(max-width:768px)]:max-w-full">
+          <p className="mb-5 inline-block rounded-sm border-l-4 border-primary bg-dark/70 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-[0.25em] text-dark-foreground/80">
+            Residential · Commercial · Storm Damage
+          </p>
+          <h1 className="font-display text-[44px] leading-[1.02] tracking-tight text-dark-foreground md:text-[64px] lg:text-[72px]">
+            Mississippi Storms Don't Wait.
+            <span className="block text-primary">Neither Do We.</span>
+          </h1>
+          <p className="mt-6 max-w-xl font-body text-base text-dark-foreground/75 md:text-xl">
+            Voted Starkville's Best Roofing Business Since 2015. We inspect, repair, replace, and handle your insurance claim — start to finish.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-md bg-primary px-7 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-cta"
+            >
+              Get a Free Roof Inspection
+            </a>
+            <a
+              href="tel:6625499165"
+              className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-dark-foreground/90 bg-transparent px-7 py-4 font-display text-sm uppercase tracking-wide text-dark-foreground transition-all hover:scale-[1.03] hover:bg-dark-foreground hover:text-dark"
+            >
+              <Phone className="h-4 w-4" /> Call 662-549-9165
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating trust badge */}
+      <div className="pointer-events-none absolute bottom-6 left-4 z-10 md:bottom-8 md:left-8">
+        <div className="rounded-full border-l-4 border-primary bg-dark/85 px-4 py-2 font-body text-xs font-bold uppercase tracking-wider text-dark-foreground backdrop-blur md:text-sm">
+          Serving the Golden Triangle Since 2015
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
