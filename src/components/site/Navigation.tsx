@@ -108,6 +108,32 @@ const Navigation = () => {
           </button>
         </div>
         <ul className="flex flex-col gap-2 px-6 pt-6">
+          <li>
+            <button
+              type="button"
+              aria-expanded={mobileServicesOpen}
+              onClick={() => setMobileServicesOpen((v) => !v)}
+              className="flex w-full items-center justify-between border-b border-white/10 py-5 font-display text-2xl"
+            >
+              Services
+              <ChevronDown className={`h-6 w-6 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
+            </button>
+            {mobileServicesOpen && (
+              <ul className="flex flex-col">
+                {services.map((s) => (
+                  <li key={s.href}>
+                    <a
+                      href={s.href}
+                      onClick={() => setOpen(false)}
+                      className="block border-b border-white/10 py-4 pl-4 font-display text-lg text-dark-foreground/85"
+                    >
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
           {links.map((l) => (
             <li key={l.href}>
               <a
