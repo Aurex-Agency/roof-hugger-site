@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
+
+const services = [
+  { label: "Residential Services", href: "#services-residential" },
+  { label: "Commercial Repair", href: "#services-commercial" },
+  { label: "Roofing Repair", href: "#services-roofing-repair" },
+];
 
 const links = [
   { label: "Storm Damage", href: "#storm-damage" },
@@ -13,6 +19,8 @@ const TEL = "tel:6625499165";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -30,6 +38,38 @@ const Navigation = () => {
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
+          <li
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={servicesOpen}
+              onClick={() => setServicesOpen((v) => !v)}
+              className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary"
+            >
+              Services <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+            </button>
+            <div
+              role="menu"
+              className={`absolute left-0 top-full min-w-[16rem] overflow-hidden rounded-md border border-white/10 bg-secondary shadow-lg transition-all ${
+                servicesOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"
+              }`}
+            >
+              {services.map((s) => (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  role="menuitem"
+                  className="block px-5 py-3 text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:bg-white/5 hover:text-primary"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
+          </li>
           {links.map((l) => (
             <li key={l.href}>
               <a href={l.href} className="text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary">
@@ -68,6 +108,32 @@ const Navigation = () => {
           </button>
         </div>
         <ul className="flex flex-col gap-2 px-6 pt-6">
+          <li>
+            <button
+              type="button"
+              aria-expanded={mobileServicesOpen}
+              onClick={() => setMobileServicesOpen((v) => !v)}
+              className="flex w-full items-center justify-between border-b border-white/10 py-5 font-display text-2xl"
+            >
+              Services
+              <ChevronDown className={`h-6 w-6 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
+            </button>
+            {mobileServicesOpen && (
+              <ul className="flex flex-col">
+                {services.map((s) => (
+                  <li key={s.href}>
+                    <a
+                      href={s.href}
+                      onClick={() => setOpen(false)}
+                      className="block border-b border-white/10 py-4 pl-4 font-display text-lg text-dark-foreground/85"
+                    >
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
           {links.map((l) => (
             <li key={l.href}>
               <a
