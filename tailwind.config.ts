@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Archivo Black"', "system-ui", "sans-serif"],
-        body: ['"Nunito"', "system-ui", "sans-serif"],
+        display: ['"Barlow Condensed"', "system-ui", "sans-serif"],
+        body: ['"Barlow Condensed"', "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
