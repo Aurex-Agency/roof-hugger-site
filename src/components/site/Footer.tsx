@@ -1,5 +1,6 @@
 import { Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/shurdens-roofing-logo.svg";
+import gafBadge from "@/assets/gaf-master-elite.webp";
 
 const Footer = () => {
   return (
@@ -31,9 +32,21 @@ const Footer = () => {
               Starkville · West Point · Columbus · Maben · Oktibbeha County
             </p>
           </div>
-          <div>
-            <h3 className="font-display text-sm uppercase tracking-widest text-primary">Fully Licensed & Insured</h3>
-            <p className="mt-3 font-body text-sm text-dark-foreground/75">Serving Mississippi Since 2015</p>
+          <div className="flex items-start gap-4">
+            <img
+              src={gafBadge}
+              alt="GAF Master Elite Certified"
+              className="h-14 w-auto shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <h3 className="font-display text-sm uppercase tracking-widest text-primary">
+                GAF Master Elite<sup>®</sup>
+              </h3>
+              <p className="mt-3 font-body text-sm text-dark-foreground/75">
+                Licensed &amp; Insured · Serving MS Since 2015
+              </p>
+            </div>
           </div>
         </div>
 
