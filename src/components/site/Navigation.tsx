@@ -9,7 +9,7 @@ const services = [
 ];
 
 const links = [
-  { label: "Storm Damage", href: "#storm-damage" },
+  { label: "About", href: "#about" },
   { label: "Our Work", href: "#our-work" },
   { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
