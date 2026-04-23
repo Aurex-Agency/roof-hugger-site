@@ -45,12 +45,12 @@ const Counter = ({ stat }: { stat: Stat }) => {
   }, [stat.value]);
 
   return (
-    <div ref={ref} className="text-left">
-      <div className="font-display text-5xl leading-none text-secondary-foreground md:text-6xl">
-        {formatVal(val, stat.value)}
+    <div ref={ref} className="flex h-full flex-col text-left">
+      <div className="flex min-h-[3.5rem] items-baseline font-display text-5xl leading-none text-secondary-foreground md:min-h-[4rem] md:text-6xl">
+        <span>{formatVal(val, stat.value)}</span>
         <span className="text-primary">{stat.suffix}</span>
       </div>
-      <p className="mt-3 font-body text-sm text-muted-foreground md:text-[15px]">{stat.label}</p>
+      <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground md:text-[15px]">{stat.label}</p>
     </div>
   );
 };
