@@ -1,20 +1,19 @@
 
 
-## Loosen Hero headline letter-spacing
+## Fix Hero CTA buttons overlapping bottom trust badges
 
-The Hero `h1` ("Mississippi Storms Don't Wait. Neither Do We.") still has `tracking-tight` applied locally on the element, which overrides the global `0.01em` we set on all headings. We'll remove that and add a small positive tracking so the ExtraBold condensed letters breathe.
+On mobile (390×844), the Hero content is bottom-aligned (`items-end`) with only `pb-24` of bottom padding, so the "Call 662-549-9165" button collides with the floating "Serving the Golden Triangle" / "GAF Master Elite" badges pinned at `bottom-6`.
 
 ### Change
 
-**`src/components/site/Hero.tsx`** — update the `<h1>` className:
+**`src/components/site/Hero.tsx`** — increase mobile bottom padding on the content grid so CTAs clear the floating badges:
 
-- Remove `tracking-tight`
-- Add `tracking-[0.02em]` (slightly looser than the global 0.01em since the Hero text is the largest on the page at 64–72px)
+- Update line 17: change `pb-24` → `pb-44` (keeps `md:pb-32` for desktop, where layout is centered and there's no collision).
 
 Result:
 ```tsx
-<h1 className="font-display font-extrabold text-[44px] leading-[1.02] tracking-[0.02em] text-dark-foreground md:text-[64px] lg:text-[72px]">
+<div className="container relative grid min-h-[88vh] items-end pb-44 pt-20 md:min-h-[92vh] md:items-center md:pb-32 md:pt-24">
 ```
 
-No other files change. The orange accent line ("Neither Do We.") inherits the same tracking automatically.
+That adds ~80px of breathing room below the call button on mobile, leaving the two pill badges visible underneath without touching the CTAs. Desktop is unchanged.
 
