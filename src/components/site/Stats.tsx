@@ -6,7 +6,7 @@ const stats: Stat[] = [
   { value: 10, suffix: "+ Years", label: "Roofing the Golden Triangle" },
   { value: 500, suffix: "+ Roofs", label: "Installed & Repaired" },
   { value: 3, suffix: "+ Counties", label: "Starkville · West Point · Columbus and more!" },
-  { value: 5.0, suffix: " Stars", label: "On Google Reviews" },
+  { value: 5, suffix: " Stars", label: "On Google Reviews" },
 ];
 
 const formatVal = (v: number, target: number) =>
