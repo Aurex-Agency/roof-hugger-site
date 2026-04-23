@@ -1,50 +1,37 @@
 
 
-## Fix the Stats Section Below the Hero
+## Fix Stats Section Mobile Layout
 
-The "10+ Years / 500+ Roofs / 3+ Counties / 5 Stars" row is broken: the orange suffix is so large it wraps onto a second line ("+" sits on row 1, "Years" on row 2), the labels below land at different heights, and "5 Stars" is missing the "+" so it visually drifts left.
+The Stats section currently works on desktop but needs polish on mobile (375–414px) and small tablets where the 2-column grid can still feel cramped, suffix text may crowd the value, and longer labels ("Starkville · West Point · Columbus") wrap awkwardly.
 
 ### What you'll see after the fix
 
-- Four perfectly aligned stat blocks in a single neat row on desktop, two columns on tablet, two columns on mobile.
-- Number and suffix sit on the **same line** at every breakpoint — no more "+" floating above "Years".
-- All four subtext labels start at the **same vertical baseline**.
-- "5 Stars" updated to "5★" so it visually matches the weight of the other stats.
-
-### Visual target
-
-```text
-10+      500+      3+         5★
-Years    Roofs     Counties   Stars
-Roofing  Installed Starkville On Google
-the      & Repair  · West Pt  Reviews
-Triangle           · Columbus
-```
-
-Each column: large white number + smaller orange suffix on the same baseline, then a single short label below.
+- Clean 2-column grid on phones with comfortable spacing — no edge bleeding.
+- Number + orange suffix stay on a single line at every width down to 320px.
+- All four labels start at the same vertical baseline on mobile (just like desktop).
+- Label text wraps consistently so each card has the same height in a row.
 
 ### Technical changes (single file: `src/components/site/Stats.tsx`)
 
-1. **Make the suffix smaller than the value** so it fits on one line:
-   - Value: `text-4xl sm:text-5xl lg:text-6xl` (unchanged)
-   - Suffix: roughly half-size — `text-2xl sm:text-3xl lg:text-4xl`
-   - Add `whitespace-nowrap` to the value+suffix flex row to guarantee no wrap.
+1. **Right-size mobile typography** so "500+ Roofs" and "3+ Counties" never wrap at 320–414px:
+   - Value: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl` (drop one step on the smallest breakpoint).
+   - Suffix unit ("Years"/"Roofs"/etc.): `text-xl sm:text-2xl md:text-3xl lg:text-4xl`.
+   - Tighten the inline gap on mobile: `gap-1 sm:gap-1.5`.
 
-2. **Restructure the suffix data** to merge the unit cleanly:
-   - "10" + "+" / "Years" → render as one row: `10+` (large) then `Years` as part of suffix at smaller size, OR keep current shape but shrink suffix so `+ Years` fits inline.
-   - Cleaner: split into `value`, `plus` (boolean), and `unit`. Render: `<big>10</big><big-orange>+</big-orange> <medium-orange>Years</medium-orange>`. This gives uniform spacing.
+2. **Lock mobile baseline alignment**:
+   - Value row height: `h-12 sm:h-14 lg:h-20` so labels share the same Y on phones.
+   - Keep `items-baseline` and `whitespace-nowrap`.
 
-3. **Replace " Stars" with "★ Stars"** and shorten labels for consistent line counts:
-   - "Starkville · West Point · Columbus and more!" → "Starkville · West Point · Columbus" (drop "and more!" so it wraps the same as siblings, or constrain all labels to `line-clamp-2`).
+3. **Tighten container + grid for phones**:
+   - Grid: `grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-10`.
+   - Section padding: `py-12 sm:py-16 md:py-20` (less vertical padding on small screens).
 
-4. **Lock label baseline alignment**:
-   - Wrap the value row in a fixed-height container (`h-14 lg:h-20`) so every label starts at the exact same Y position regardless of suffix length.
-   - Keep `items-baseline` on the value row so number + suffix sit on a shared baseline.
+4. **Normalize label wrapping**:
+   - Add `min-h-[2.5rem] sm:min-h-[3rem]` to the label `<p>` so 1-line and 2-line labels still produce equal-height cards.
+   - Slightly smaller mobile label: `text-xs sm:text-sm md:text-[15px]`.
+   - Add `break-words` to prevent any overflow on the longest label.
 
-5. **Tighten the grid gaps** so 4 columns breathe on 1280–1440px viewports:
-   - `gap-x-6 lg:gap-x-10` and add `lg:px-4` on each cell to prevent crowding.
+5. **Counter logic untouched** — IntersectionObserver, animation easing, and the `Stat` data shape stay exactly as they are.
 
-6. **Mobile (2-column) sanity check**: confirm the smaller suffix size (`text-2xl`) keeps "500+ Roofs" on one line at 375px width; if not, drop value to `text-3xl` on the smallest breakpoint.
-
-No other files change. The Counter animation logic and IntersectionObserver behavior stay exactly as they are.
+No other files change.
 
