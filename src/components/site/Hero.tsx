@@ -19,11 +19,11 @@ const Hero = () => {
           <p className="mb-5 inline-block rounded-sm border-l-4 border-primary bg-dark/70 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-[0.25em] text-dark-foreground/80">
             Residential · Commercial · Storm Damage
           </p>
-          <h1 className="font-display text-[44px] leading-[1.02] tracking-tight text-dark-foreground md:text-[64px] lg:text-[72px]">
+          <h1 className="font-display font-extrabold text-[44px] leading-[1.02] tracking-tight text-dark-foreground md:text-[64px] lg:text-[72px]">
             Mississippi Storms Don't Wait.
             <span className="block text-primary">Neither Do We.</span>
           </h1>
-          <p className="mt-6 max-w-xl font-body text-base text-dark-foreground/75 md:text-xl">
+          <p className="mt-6 max-w-xl font-body font-medium text-base text-dark-foreground/90 md:text-xl">
             Voted Starkville's Best Roofing Business Since 2015. We inspect, repair, replace, and handle your insurance claim — start to finish.
           </p>
 
