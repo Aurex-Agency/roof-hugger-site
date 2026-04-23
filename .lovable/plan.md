@@ -1,37 +1,40 @@
 
+## Add GAF Master Elite Certification Across the Site
 
-## Fix Stats Section Mobile Layout
+Shurden's is a GAF Master Elite Residential Roofing Contractor — a credential held by less than 2% of roofers nationwide. We'll feature the badge in three high-visibility spots and weave the certification into the trust messaging.
 
-The Stats section currently works on desktop but needs polish on mobile (375–414px) and small tablets where the 2-column grid can still feel cramped, suffix text may crowd the value, and longer labels ("Starkville · West Point · Columbus") wrap awkwardly.
+### What you'll see after the change
 
-### What you'll see after the fix
+1. **Hero section** — small "GAF Master Elite Certified" pill chip added next to (or under) the existing "Serving the Golden Triangle" badge so it's visible above the fold.
 
-- Clean 2-column grid on phones with comfortable spacing — no edge bleeding.
-- Number + orange suffix stay on a single line at every width down to 320px.
-- All four labels start at the same vertical baseline on mobile (just like desktop).
-- Label text wraps consistently so each card has the same height in a row.
+2. **New dedicated certification strip** — slim band placed between `Stats` and `StormDamage` containing:
+   - The GAF Master Elite diamond badge (left, ~140px)
+   - Headline: "GAF Master Elite® Certified Contractor"
+   - Sub-copy: "We're one of less than 2% of roofers in North America to earn GAF's highest factory certification — meaning longer warranties, factory-trained crews, and proven craftsmanship on every job."
+   - Two-tone background using the existing dark navy + a thin orange top accent line so it visually breaks up the page.
 
-### Technical changes (single file: `src/components/site/Stats.tsx`)
+3. **Footer** — replace the "Fully Licensed & Insured / Serving Mississippi Since 2015" text column with a small badge + "GAF Master Elite® · Licensed & Insured · Serving MS Since 2015".
 
-1. **Right-size mobile typography** so "500+ Roofs" and "3+ Counties" never wrap at 320–414px:
-   - Value: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl` (drop one step on the smallest breakpoint).
-   - Suffix unit ("Years"/"Roofs"/etc.): `text-xl sm:text-2xl md:text-3xl lg:text-4xl`.
-   - Tighten the inline gap on mobile: `gap-1 sm:gap-1.5`.
+### Technical changes
 
-2. **Lock mobile baseline alignment**:
-   - Value row height: `h-12 sm:h-14 lg:h-20` so labels share the same Y on phones.
-   - Keep `items-baseline` and `whitespace-nowrap`.
+1. **Add the badge asset**
+   - Copy `user-uploads://master-elite.webp` → `src/assets/gaf-master-elite.webp`.
 
-3. **Tighten container + grid for phones**:
-   - Grid: `grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-10`.
-   - Section padding: `py-12 sm:py-16 md:py-20` (less vertical padding on small screens).
+2. **New component: `src/components/site/Certifications.tsx`**
+   - Section with `bg-dark text-dark-foreground`, top border `border-t-2 border-primary`.
+   - Two-column layout (image left, copy right) on desktop; stacked + centered on mobile.
+   - Uses existing `font-display` / `font-body` tokens to match the rest of the site.
 
-4. **Normalize label wrapping**:
-   - Add `min-h-[2.5rem] sm:min-h-[3rem]` to the label `<p>` so 1-line and 2-line labels still produce equal-height cards.
-   - Slightly smaller mobile label: `text-xs sm:text-sm md:text-[15px]`.
-   - Add `break-words` to prevent any overflow on the longest label.
+3. **`src/pages/Index.tsx`**
+   - Import and insert `<Certifications />` between `<Stats />` and `<StormDamage />`.
 
-5. **Counter logic untouched** — IntersectionObserver, animation easing, and the `Stat` data shape stay exactly as they are.
+4. **`src/components/site/Hero.tsx`**
+   - Add a second small chip next to the existing "Serving the Golden Triangle" badge: `GAF Master Elite® Certified` (same pill style, but with a tiny inline image of the badge at ~20px).
 
-No other files change.
+5. **`src/components/site/Footer.tsx`**
+   - Replace the third column ("Fully Licensed & Insured") heading/body with a horizontal layout: small GAF badge (~56px) + heading "GAF Master Elite®" + line "Licensed & Insured · Serving MS Since 2015".
 
+6. **`index.html`**
+   - Add `"hasCredential": { "@type": "EducationalOccupationalCredential", "name": "GAF Master Elite Certified Residential Roofing Contractor" }` to the existing `RoofingContractor` JSON-LD schema for SEO.
+
+No other files change. No new dependencies.
