@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import logo from "@/assets/shurdens-roofing-logo.svg";
 
 const services = [
   { label: "Residential Services", href: "#services-residential" },
@@ -30,11 +31,8 @@ const Navigation = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-secondary text-secondary-foreground border-b border-white/5">
       <nav className="container flex h-16 items-center justify-between md:h-20" aria-label="Primary">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-sm bg-primary font-display text-primary-foreground">S</span>
-          <span className="font-display text-lg leading-none tracking-wide">
-            SHURDEN'S<span className="block text-[10px] font-body font-bold tracking-[0.2em] text-muted-foreground">ROOFING LLC</span>
-          </span>
+        <a href="#top" className="flex items-center" aria-label="Shurden's Roofing LLC">
+          <img src={logo} alt="Shurden's Roofing LLC" className="h-10 w-auto md:h-12" />
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
