@@ -49,17 +49,17 @@ const Counter = ({ stat }: { stat: Stat }) => {
 
   return (
     <div ref={ref} className="flex h-full flex-col text-left lg:px-2">
-      <div className="flex h-14 items-baseline gap-1.5 whitespace-nowrap font-display leading-none text-secondary-foreground lg:h-20">
-        <span className="text-4xl sm:text-5xl lg:text-6xl">
+      <div className="flex h-12 items-baseline gap-1 whitespace-nowrap font-display leading-none text-secondary-foreground sm:h-14 sm:gap-1.5 lg:h-20">
+        <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
           {Math.floor(val)}
           {stat.plus && <span className="text-primary">+</span>}
           {stat.symbol && <span className="text-primary">{stat.symbol}</span>}
         </span>
-        <span className="text-primary text-2xl sm:text-3xl lg:text-4xl">
+        <span className="text-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl">
           {stat.unit}
         </span>
       </div>
-      <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground md:text-[15px]">
+      <p className="mt-3 min-h-[2.5rem] break-words font-body text-xs leading-relaxed text-muted-foreground sm:min-h-[3rem] sm:text-sm md:text-[15px]">
         {stat.label}
       </p>
     </div>
@@ -68,8 +68,8 @@ const Counter = ({ stat }: { stat: Stat }) => {
 
 const Stats = () => {
   return (
-    <section className="bg-secondary py-16 text-secondary-foreground md:py-20">
-      <div className="container grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-x-10">
+    <section className="bg-secondary py-12 text-secondary-foreground sm:py-16 md:py-20">
+      <div className="container grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-10">
         {stats.map((s) => (
           <Counter key={s.label} stat={s} />
         ))}
