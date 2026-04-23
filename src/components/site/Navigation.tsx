@@ -79,7 +79,7 @@ const Navigation = () => {
 
         <a
           href={TEL}
-          className="hidden items-center gap-2 rounded-full bg-accent px-5 py-2.5 font-display text-sm text-accent-foreground transition-transform hover:scale-[1.03] hover:shadow-cta md:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display text-sm text-primary-foreground transition-transform hover:scale-[1.03] hover:shadow-cta md:inline-flex"
         >
           <Phone className="h-4 w-4" /> Call {PHONE}
         </a>
