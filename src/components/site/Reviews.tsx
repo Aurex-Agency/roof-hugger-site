@@ -1,65 +1,90 @@
 import { Star, Quote } from "lucide-react";
 
-const smallReviews = [
+const reviews = [
   {
-    quote: "Shurden's Roofing does great work and is there when he says he will be. Josh is a Christian man and keeps his word.",
-    name: "Shelia R.",
-    city: "Maben, MS",
+    quote:
+      "Shurden did a seamless job from start to finish when I was informed there was hail damage to my roof while doing some remodeling. They worked quickly with my insurance company and contractor to get a quote, schedule their crew, and start/finish the job in a timely way. They are very efficient and also cleaned the site after finishing as if they were never there.",
+    name: "Natalie Morgan",
   },
   {
-    quote: "Quick response after the storm, professional crew, and they handled the whole insurance claim. Roof looks incredible.",
-    name: "Daniel P.",
-    city: "Starkville, MS",
+    quote:
+      "Really pleased with their response to my call for re-roofing my three buildings. It was less than a week and a half after I called. Their crew was on site with the required quoted materials and their work crew was really efficient — cleaned up very well.",
+    name: "Scotty Allen",
+  },
+  {
+    quote:
+      "Incredible service! Good, hardworking folks that got the job done quickly and efficiently. The day they came to start on our roof, we had to go out of town for a family funeral. We left before they arrived and returned at the end of the day and they were done. The roof looks amazing and it's like no one was ever here. Exceptional and unmatched service. Highly recommend!",
+    name: "Brittany McCool",
+  },
+  {
+    quote:
+      "He did all the things he said, called to keep me posted, and was always there when he said he would be. He worked in a very professional manner and did a very good job. It was a pleasure to have him for this project.",
+    name: 'Alice "Cotton" Swords',
+  },
+  {
+    quote:
+      "Shurden's Roofing does great work and is there when he says he will be. Josh is a Christian man and keeps his word.",
+    name: "Shelia R.",
   },
 ];
 
+const ReviewCard = ({ quote, name }: { quote: string; name: string }) => (
+  <article className="relative flex w-[320px] shrink-0 flex-col rounded-lg bg-dark/90 p-6 shadow-[var(--shadow-card)] sm:w-[380px] md:w-[420px]">
+    <Quote
+      aria-hidden
+      className="pointer-events-none absolute right-4 top-4 h-10 w-10 text-primary/30"
+      strokeWidth={1.5}
+    />
+    <div className="mb-3 flex items-center gap-1 text-accent" aria-label="5 star rating">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <Star key={i} className="h-4 w-4 fill-accent" />
+      ))}
+    </div>
+    <p className="font-body text-[15px] italic leading-relaxed text-dark-foreground/90">
+      "{quote}"
+    </p>
+    <p className="mt-5 font-display text-xs uppercase tracking-wider text-accent">
+      — {name}
+    </p>
+  </article>
+);
+
 const Reviews = () => {
+  // Duplicate the list so the marquee loops seamlessly
+  const loop = [...reviews, ...reviews];
+
   return (
-    <section id="reviews" className="relative overflow-hidden bg-secondary py-20 text-secondary-foreground md:py-28">
-      <div className="container grid gap-12 md:grid-cols-12 md:gap-16">
-        <div className="relative md:col-span-8">
-          <Quote
-            aria-hidden
-            className="pointer-events-none absolute -left-2 -top-6 h-32 w-32 text-primary/20 md:-left-6 md:-top-10 md:h-48 md:w-48"
-            strokeWidth={1.5}
-          />
-          <div className="relative">
-            <div className="mb-6 flex items-center gap-1 text-accent" aria-label="5 star rating">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <Star key={i} className="h-5 w-5 fill-accent" />
-              ))}
-            </div>
-            <blockquote className="font-body text-2xl italic leading-snug text-secondary-foreground md:text-[28px]">
-              "He did all the things he said, called to keep me posted, and was always there when he said he would be. He worked in a very professional manner and did a very good job. It was a pleasure to have him for this project."
-            </blockquote>
-            <p className="mt-6 font-display text-base uppercase tracking-wider text-secondary-foreground/90">
-              — Alice "Cotton" Swords, West Point, MS
-            </p>
-
-            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-dark/60 px-4 py-2 font-body text-sm font-bold leading-none">
-              <span className="text-accent">5.0</span>
-              <span className="text-accent inline-flex items-center" aria-hidden>★★★★★</span>
-              <span className="text-secondary-foreground/80">— Rated on Google</span>
-            </div>
-          </div>
+    <section
+      id="reviews"
+      className="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark py-16 text-primary-foreground md:py-24"
+    >
+      <div className="container mb-10 text-center md:mb-14">
+        <p className="font-display text-xs uppercase tracking-[0.25em] text-primary-foreground/80 md:text-sm">
+          What Our Customers Say
+        </p>
+        <h2 className="mt-3 font-display text-3xl uppercase leading-tight md:text-5xl">
+          Trusted Across the Golden Triangle
+        </h2>
+        <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-dark/30 px-4 py-2 font-body text-sm font-bold leading-none">
+          <span className="text-accent">5.0</span>
+          <span className="text-accent inline-flex items-center" aria-hidden>★★★★★</span>
+          <span className="text-primary-foreground/90">— Rated on Google</span>
         </div>
+      </div>
 
-        <div className="space-y-5 md:col-span-4">
-          {smallReviews.map((r) => (
-            <article
-              key={r.name}
-              className="rounded-md border-l-4 border-primary bg-dark/70 p-6 shadow-[var(--shadow-card)]"
-            >
-              <div className="mb-3 flex items-center gap-1 text-accent" aria-label="5 star rating">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <Star key={i} className="h-4 w-4 fill-accent" />
-                ))}
-              </div>
-              <p className="font-body text-[15px] italic text-secondary-foreground/90">"{r.quote}"</p>
-              <p className="mt-4 font-display text-xs uppercase tracking-wider text-secondary-foreground/70">
-                — {r.name}, {r.city}
-              </p>
-            </article>
+      {/* Marquee */}
+      <div
+        className="group relative w-full"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%)",
+        }}
+      >
+        <div className="flex w-max animate-marquee gap-6 group-hover:[animation-play-state:paused]">
+          {loop.map((r, idx) => (
+            <ReviewCard key={`${r.name}-${idx}`} quote={r.quote} name={r.name} />
           ))}
         </div>
       </div>
