@@ -14,7 +14,7 @@ const Hero = () => {
       />
       <div className="absolute inset-0 -z-10 bg-hero-overlay" aria-hidden />
 
-      <div className="container relative grid min-h-[88vh] items-end pb-24 pt-20 md:min-h-[92vh] md:items-center md:pb-32 md:pt-24">
+      <div className="container relative grid min-h-[88vh] items-end pb-44 pt-20 md:min-h-[92vh] md:items-center md:pb-32 md:pt-24">
         <div className="max-w-[55%] animate-hero-rise md:max-w-[55%] [@media(max-width:768px)]:max-w-full">
           <p className="mb-5 inline-block rounded-sm border-l-4 border-primary bg-dark/70 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-[0.25em] text-dark-foreground/80">
             Residential · Commercial · Storm Damage
