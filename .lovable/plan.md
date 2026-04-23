@@ -1,24 +1,20 @@
 
 
-## Loosen heading letter-spacing
+## Loosen Hero headline letter-spacing
 
-The Barlow Condensed ExtraBold headings are running together because of the default `tracking-tight` (-0.025em) applied globally to all `h1`–`h6` elements. We'll switch to a slightly positive tracking so condensed letters breathe without losing their tight, industrial feel.
+The Hero `h1` ("Mississippi Storms Don't Wait. Neither Do We.") still has `tracking-tight` applied locally on the element, which overrides the global `0.01em` we set on all headings. We'll remove that and add a small positive tracking so the ExtraBold condensed letters breathe.
 
 ### Change
 
-**`src/index.css`** — update the global heading rule:
+**`src/components/site/Hero.tsx`** — update the `<h1>` className:
 
-```css
-h1, h2, h3, h4, h5, h6 {
-  @apply font-display;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-}
+- Remove `tracking-tight`
+- Add `tracking-[0.02em]` (slightly looser than the global 0.01em since the Hero text is the largest on the page at 64–72px)
+
+Result:
+```tsx
+<h1 className="font-display font-extrabold text-[44px] leading-[1.02] tracking-[0.02em] text-dark-foreground md:text-[64px] lg:text-[72px]">
 ```
 
-Replaces `tracking-tight` (which was forcing -0.025em) with a subtle +0.01em spread. This applies site-wide (Hero, About, Stats, Certifications, Reviews, FAQ, Footer, etc.) in one change.
-
-### Optional follow-up
-
-If after the change the very large Hero headline (`text-[64px]`/`[72px]`) feels too loose, we can scope a tighter override (e.g. `0.005em`) on the Hero `h1` only — but starting site-wide keeps it consistent.
+No other files change. The orange accent line ("Neither Do We.") inherits the same tracking automatically.
 
