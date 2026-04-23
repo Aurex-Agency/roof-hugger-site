@@ -36,9 +36,9 @@ const Reviews = () => {
               — Alice "Cotton" Swords, West Point, MS
             </p>
 
-            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-dark/60 px-4 py-2 font-body text-sm font-bold">
+            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-dark/60 px-4 py-2 font-body text-sm font-bold leading-none">
               <span className="text-accent">5.0</span>
-              <span className="text-accent" aria-hidden>★★★★★</span>
+              <span className="text-accent inline-flex items-center" aria-hidden>★★★★★</span>
               <span className="text-secondary-foreground/80">— Rated on Google</span>
             </div>
           </div>
