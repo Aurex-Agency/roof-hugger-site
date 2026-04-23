@@ -19,7 +19,7 @@ const Hero = () => {
           <p className="mb-5 inline-block rounded-sm border-l-4 border-primary bg-dark/70 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-[0.25em] text-dark-foreground/80">
             Residential · Commercial · Storm Damage
           </p>
-          <h1 className="font-display font-extrabold text-[44px] leading-[1.02] tracking-tight text-dark-foreground md:text-[64px] lg:text-[72px]">
+          <h1 className="font-display font-extrabold text-[44px] leading-[1.02] tracking-[0.02em] text-dark-foreground md:text-[64px] lg:text-[72px]">
             Mississippi Storms Don't Wait.
             <span className="block text-primary">Neither Do We.</span>
           </h1>
