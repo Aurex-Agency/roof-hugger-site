@@ -1,16 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 
-type Stat = { value: number; suffix: string; label: string };
+type Stat = {
+  value: number;
+  plus?: boolean;
+  unit: string;
+  label: string;
+  symbol?: string;
+};
 
 const stats: Stat[] = [
-  { value: 10, suffix: "+ Years", label: "Roofing the Golden Triangle" },
-  { value: 500, suffix: "+ Roofs", label: "Installed & Repaired" },
-  { value: 3, suffix: "+ Counties", label: "Starkville · West Point · Columbus and more!" },
-  { value: 5, suffix: " Stars", label: "On Google Reviews" },
+  { value: 10, plus: true, unit: "Years", label: "Roofing the Golden Triangle" },
+  { value: 500, plus: true, unit: "Roofs", label: "Installed & Repaired" },
+  { value: 3, plus: true, unit: "Counties", label: "Starkville · West Point · Columbus" },
+  { value: 5, symbol: "★", unit: "Stars", label: "On Google Reviews" },
 ];
-
-const formatVal = (v: number, target: number) =>
-  Number.isInteger(target) ? Math.floor(v).toString() : v.toFixed(1);
 
 const Counter = ({ stat }: { stat: Stat }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -45,12 +48,18 @@ const Counter = ({ stat }: { stat: Stat }) => {
   }, [stat.value]);
 
   return (
-    <div ref={ref} className="flex h-full min-h-[9rem] flex-col justify-start text-left">
-      <div className="flex min-h-[3.5rem] items-baseline gap-1 font-display text-4xl leading-none text-secondary-foreground sm:text-5xl lg:min-h-[4rem] lg:text-6xl">
-        <span>{formatVal(val, stat.value)}</span>
-        <span className="text-primary">{stat.suffix}</span>
+    <div ref={ref} className="flex h-full flex-col text-left lg:px-2">
+      <div className="flex h-14 items-baseline gap-1.5 whitespace-nowrap font-display leading-none text-secondary-foreground lg:h-20">
+        <span className="text-4xl sm:text-5xl lg:text-6xl">
+          {Math.floor(val)}
+          {stat.plus && <span className="text-primary">+</span>}
+          {stat.symbol && <span className="text-primary">{stat.symbol}</span>}
+        </span>
+        <span className="text-primary text-2xl sm:text-3xl lg:text-4xl">
+          {stat.unit}
+        </span>
       </div>
-      <p className="mt-3 max-w-[24ch] font-body text-sm leading-relaxed text-muted-foreground md:text-[15px]">
+      <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground md:text-[15px]">
         {stat.label}
       </p>
     </div>
@@ -60,7 +69,7 @@ const Counter = ({ stat }: { stat: Stat }) => {
 const Stats = () => {
   return (
     <section className="bg-secondary py-16 text-secondary-foreground md:py-20">
-      <div className="container grid grid-cols-2 gap-x-8 gap-y-10 md:gap-x-10 lg:grid-cols-4 lg:gap-8">
+      <div className="container grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-x-10">
         {stats.map((s) => (
           <Counter key={s.label} stat={s} />
         ))}
