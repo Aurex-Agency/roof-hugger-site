@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import logo from "@/assets/shurdens-roofing-logo.svg";
+import gafBadge from "@/assets/gaf-master-elite.webp";
 
 const services = [
-  { label: "Residential Services", href: "#services-residential" },
-  { label: "Commercial Repair", href: "#services-commercial" },
-  { label: "Roofing Repair", href: "#services-roofing-repair" },
+  { label: "Residential Roofing", href: "#services-residential" },
+  { label: "Commercial Roofing", href: "#services-commercial" },
+  { label: "Emergency Roof Repair", href: "#services-roofing-repair" },
+  { label: "Insurance Claim Help", href: "#services-insurance" },
 ];
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Our Work", href: "#our-work" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "Roofing Services", href: "#services" },
+  { label: "Project Gallery", href: "#our-work" },
+  { label: "Real Reviews", href: "#reviews" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
 const PHONE = "662-549-9165";
@@ -77,12 +79,23 @@ const Navigation = () => {
           ))}
         </ul>
 
-        <a
-          href={TEL}
-          className="hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display text-sm text-primary-foreground transition-transform hover:scale-[1.03] hover:shadow-cta md:inline-flex"
-        >
-          <Phone className="h-4 w-4" /> Call {PHONE}
-        </a>
+        <div className="hidden items-center gap-4 md:flex">
+          <a
+            href="https://www.gaf.com/en-us/roofing-contractors/residential/shurden-s-roofing-llc-1106104"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GAF Master Elite Certified, opens in new tab"
+            className="hidden lg:inline-flex"
+          >
+            <img src={gafBadge} alt="GAF Master Elite Certified" className="h-9 w-auto" />
+          </a>
+          <a
+            href={TEL}
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display text-sm font-semibold uppercase tracking-wide text-primary-foreground transition-transform hover:scale-[1.03] hover:shadow-cta"
+          >
+            <Phone className="h-4 w-4" /> Call {PHONE}
+          </a>
+        </div>
 
         <button
           type="button"
@@ -147,7 +160,7 @@ const Navigation = () => {
         <div className="px-6 pt-8">
           <a
             href={TEL}
-            className="flex w-full items-center justify-center gap-3 rounded-full bg-accent px-6 py-4 font-display text-lg text-accent-foreground"
+            className="flex w-full items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 font-display text-lg font-semibold text-primary-foreground"
           >
             <Phone className="h-5 w-5" /> Call {PHONE}
           </a>

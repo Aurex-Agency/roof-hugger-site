@@ -24,7 +24,7 @@ const Hero = () => {
             <span className="block text-primary">Neither Do We.</span>
           </h1>
           <p className="mt-6 max-w-xl font-body font-medium text-base text-dark-foreground/90 md:text-xl">
-            Voted Starkville's Best Roofing Business Since 2015. We inspect, repair, replace, and handle your insurance claim — start to finish.
+            Voted Starkville's Best Roofing Business Since 2015. We inspect, repair, replace, and handle your insurance claim from start to finish.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

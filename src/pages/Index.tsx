@@ -3,6 +3,7 @@ import Hero from "@/components/site/Hero";
 import Stats from "@/components/site/Stats";
 import Certifications from "@/components/site/Certifications";
 import About from "@/components/site/About";
+import Services from "@/components/site/Services";
 import Work from "@/components/site/Work";
 import Reviews from "@/components/site/Reviews";
 import Contact from "@/components/site/Contact";
@@ -19,6 +20,7 @@ const Index = () => {
         <Stats />
         <Certifications />
         <About />
+        <Services />
         <Work />
         <Reviews />
         <Contact />
@@ -31,3 +33,4 @@ const Index = () => {
 };
 
 export default Index;
+

@@ -1,57 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Barlow Condensed — local font family */
-@font-face {
-  font-family: 'Barlow Condensed';
-  src: url('/src/assets/fonts/BarlowCondensed-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Barlow Condensed';
-  src: url('/src/assets/fonts/BarlowCondensed-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Barlow Condensed';
-  src: url('/src/assets/fonts/BarlowCondensed-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Barlow Condensed';
-  src: url('/src/assets/fonts/BarlowCondensed-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Barlow Condensed';
-  src: url('/src/assets/fonts/BarlowCondensed-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Barlow Condensed';
-  src: url('/src/assets/fonts/BarlowCondensed-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Barlow Condensed';
-  src: url('/src/assets/fonts/BarlowCondensed-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Shurden's Roofing — Industrial-modern design system. All colors HSL. */
 
@@ -67,11 +18,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 24% 12%;
 
-    /* Industrial Safety Orange #D35400 */
-    --primary: 25 100% 41%;
+    /* Vibrant Orange #ff6600 */
+    --primary: 24 100% 50%;
     --primary-foreground: 0 0% 100%;
-    /* Deep Burnt Orange #A04000 */
-    --primary-dark: 25 100% 31%;
+    /* Deep Orange #cc5200 */
+    --primary-dark: 24 100% 40%;
 
     /* Dark Slate Charcoal #1C2833 */
     --secondary: 210 29% 15%;
@@ -93,14 +44,14 @@
 
     --border: 210 16% 88%;
     --input: 210 16% 88%;
-    --ring: 25 100% 41%;
+    --ring: 24 100% 50%;
 
     --radius: 0.5rem;
 
     /* Gradients & shadows */
     --gradient-hero: linear-gradient(90deg, hsl(207 35% 6% / 0.92) 0%, hsl(207 35% 6% / 0.65) 55%, hsl(207 35% 6% / 0.25) 100%);
     --gradient-orange: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-dark)));
-    --shadow-cta: 0 10px 30px -10px hsl(25 100% 41% / 0.55);
+    --shadow-cta: 0 10px 30px -10px hsl(24 100% 50% / 0.55);
     --shadow-card: 0 8px 24px -12px hsl(207 35% 6% / 0.4);
 
     --sidebar-background: 0 0% 98%;
@@ -120,7 +71,7 @@
     --card-foreground: 0 0% 97%;
     --popover: 210 29% 15%;
     --popover-foreground: 0 0% 97%;
-    --primary: 25 100% 41%;
+    --primary: 24 100% 50%;
     --primary-foreground: 0 0% 100%;
     --secondary: 210 29% 15%;
     --secondary-foreground: 0 0% 97%;
@@ -132,7 +83,7 @@
     --destructive-foreground: 0 0% 97%;
     --border: 210 25% 22%;
     --input: 210 25% 22%;
-    --ring: 25 100% 41%;
+    --ring: 24 100% 50%;
   }
 }
 

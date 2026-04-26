@@ -25,13 +25,12 @@ const Certifications = () => {
             </p>
             <h2
               id="cert-heading"
-              className="font-display text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl"
+              className="font-display text-3xl font-bold leading-tight md:text-4xl lg:text-5xl"
             >
-              GAF Master Elite<sup className="text-base">®</sup> Certified Contractor
+              GAF Master Elite<sup className="text-base">®</sup> Certified Roofing Contractor
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl font-body text-base text-dark-foreground/80 md:mx-0 md:text-lg">
-              We're one of less than 2% of roofers in North America to earn GAF's highest factory certification —
-              meaning longer warranties, factory-trained crews, and proven craftsmanship on every job.
+            <p className="mx-auto mt-5 max-w-2xl font-body text-base text-dark-foreground/85 md:mx-0 md:text-lg">
+              Shurden's Roofing is one of less than 2% of roofers in North America to earn GAF's highest factory certification. That means longer warranties on every roof we install, factory-trained roofing crews, and proven craftsmanship on every job in Starkville and the Golden Triangle.
             </p>
           </div>
         </div>

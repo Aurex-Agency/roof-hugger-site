@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Barlow Condensed"', "system-ui", "sans-serif"],
-        body: ['"Barlow Condensed"', "system-ui", "sans-serif"],
+        display: ['"Oswald"', "system-ui", "sans-serif"],
+        body: ['"Source Sans 3"', "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
