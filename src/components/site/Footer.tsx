@@ -38,20 +38,22 @@ const Footer = () => {
               Shurden's Roofing LLC
             </h3>
             <p className="mt-3 font-body text-sm text-dark-foreground/75">
-              Serving the Golden Triangle since 2015.
+              Roofing North Mississippi since 2015.
             </p>
-            <p className="mt-3 font-body text-sm text-dark-foreground/75">Starkville, MS 39759</p>
+            <p className="mt-3 font-body text-sm text-dark-foreground/75">Maben, MS 39750</p>
           </div>
 
           <div>
             <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-primary">
-              Service Areas
+              Service Area
             </h3>
-            <ul className="mt-3 space-y-1 font-body text-sm text-dark-foreground/75">
-              <li>Starkville, MS</li>
-              <li>Columbus, MS</li>
-              <li>West Point, MS</li>
-              <li>Maben, MS</li>
+            <p className="mt-3 font-body text-sm text-dark-foreground/75">
+              Serving North Mississippi within roughly 60 miles of Maben, including:
+            </p>
+            <ul className="mt-2 space-y-1 font-body text-sm text-dark-foreground/75">
+              <li>Maben, Starkville, West Point, Columbus</li>
+              <li>Louisville, Ackerman, Eupora, Houston</li>
+              <li>Tupelo and surrounding counties</li>
             </ul>
           </div>
 
@@ -88,7 +90,7 @@ const Footer = () => {
                 GAF Master Elite<sup>®</sup>
               </h3>
               <p className="mt-3 font-body text-sm text-dark-foreground/75">
-                Mississippi Licensed and Fully Insured. Roofing the Golden Triangle since 2015.
+                Mississippi Licensed and Fully Insured. Roofing North Mississippi since 2015.
               </p>
             </div>
           </div>
