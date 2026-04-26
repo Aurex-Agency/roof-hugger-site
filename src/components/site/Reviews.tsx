@@ -91,6 +91,17 @@ const Reviews = () => {
           ))}
         </div>
       </div>
+
+      <div className="container mt-10 text-center md:mt-14">
+        <a
+          href="https://www.google.com/maps/place/Shurden%27s+Roofing+LLC"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-dark px-6 py-3 font-display text-sm font-semibold uppercase tracking-wider text-dark-foreground transition-transform hover:scale-[1.03] hover:bg-dark/90"
+        >
+          Read More Reviews on Google →
+        </a>
+      </div>
     </section>
   );
 };
