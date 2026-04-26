@@ -9,9 +9,9 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  { value: 10, plus: true, unit: "Years", label: "Roofing the Golden Triangle" },
+  { value: 10, plus: true, unit: "Years", label: "Roofing North Mississippi" },
   { value: 500, plus: true, unit: "Roofs", label: "Installed & Repaired" },
-  { value: 3, plus: true, unit: "Counties", label: "Starkville · West Point · Columbus" },
+  { value: 60, plus: false, unit: "Mile Radius", label: "Out of our Maben, MS office" },
   { value: 5, symbol: "★", unit: "Stars", label: "On Google Reviews" },
 ];
 

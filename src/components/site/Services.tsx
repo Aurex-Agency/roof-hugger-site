@@ -11,7 +11,7 @@ const Services = () => {
           Roofing Built for Mississippi Weather. Backed by a Local Crew.
         </h2>
         <p className="mt-5 max-w-2xl font-body text-base text-muted-foreground md:text-lg">
-          From a single missing shingle to a full roof replacement, Shurden's Roofing handles every kind of roofing job across Starkville and the Golden Triangle. One local crew. One point of contact. No subcontractors.
+          From a single missing shingle to a full roof replacement, Shurden's Roofing handles every kind of roofing job across North Mississippi. We work out of Maben and travel up to 60 miles to roof for our neighbors. One local crew. One point of contact. No subcontractors.
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3 md:auto-rows-[280px]">
@@ -52,7 +52,7 @@ const Services = () => {
               Emergency Roof Repair
             </h3>
             <p className="mt-3 font-body text-base text-muted-foreground">
-              Fast response after storm, wind, and hail damage across Starkville, West Point, and Columbus. Tarping, leak stops, and full repair in one call.
+              Fast response after storm, wind, and hail damage across North Mississippi, from Maben and Starkville to West Point, Columbus, Louisville, and Eupora. Tarping, leak stops, and full repair in one call.
             </p>
           </article>
 
@@ -68,7 +68,7 @@ const Services = () => {
               Commercial Roofing
             </h3>
             <p className="mt-3 font-body text-base text-muted-foreground">
-              Protecting local businesses across the Golden Triangle with TPO, metal, and shingle systems sized for storefronts, offices, and multi-tenant buildings.
+              Protecting local businesses across North Mississippi with TPO, metal, and shingle systems sized for storefronts, offices, churches, and multi-tenant buildings.
             </p>
           </article>
 
