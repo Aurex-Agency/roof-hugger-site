@@ -2,9 +2,9 @@ import aboutImg from "@/assets/storm-damage.jpg";
 import { Home, Users, Award } from "lucide-react";
 
 const values = [
-  { icon: Home, title: "Locally Owned & Operated", body: "Born and raised in Mississippi — your neighbors, not a national chain." },
-  { icon: Users, title: "Crews You Can Trust", body: "Factory-trained, background-checked, and on every job from start to finish." },
-  { icon: Award, title: "Built on Reputation", body: "Voted Starkville's Best Roofer with 500+ roofs and a 5-star track record." },
+  { icon: Home, title: "Locally Owned and Operated in Starkville", body: "Born and raised in Mississippi. Your neighbors, not a national chain. Every roof we touch is in our own backyard." },
+  { icon: Users, title: "Factory Trained and Background Checked Crews", body: "Real Shurden's Roofing crews on every job. No subcontractors, no rotating faces, no surprises on your roof." },
+  { icon: Award, title: "Voted Starkville's Best Roofer with 500+ Roofs Installed", body: "Five hundred Mississippi roofs and counting, with a 5-star track record across Starkville, West Point, and Columbus." },
 ];
 
 const About = () => {
@@ -24,12 +24,15 @@ const About = () => {
         </div>
 
         <div className="order-2 px-6 py-16 md:order-1 md:px-12 md:py-24 lg:px-20">
-          <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">About Shurden's Roofing</p>
-          <h2 className="font-display text-3xl leading-tight md:text-5xl">
-            A Mississippi Family Business Built on Honest Work.
+          <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">A Mississippi Family Roofing Business</p>
+          <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
+            A Mississippi Family Business Built on Honest Roofing Work.
           </h2>
-          <p className="mt-6 font-body text-base text-dark-foreground/75 md:text-lg">
-            Since 2015, Shurden's Roofing has protected homes and businesses across the Golden Triangle with craftsmanship that lasts. We're a locally owned, GAF Master Elite® certified contractor — a designation held by less than 2% of roofers in North America. From the first inspection to the final shingle, every job is handled by our own crew with the care we'd give our own homes.
+          <p className="mt-6 font-body text-base text-dark-foreground/80 md:text-lg">
+            Since 2015, Shurden's Roofing has protected homes and businesses across Starkville and the Golden Triangle with roofing craftsmanship that lasts. We are a locally owned, GAF Master Elite® certified roofing contractor, a designation held by less than 2% of roofers in North America.
+          </p>
+          <p className="mt-4 font-body text-base text-dark-foreground/80 md:text-lg">
+            From the first roof inspection to the final shingle, every roofing job is handled by our own crew with the care we would give our own homes. Whether you need a small repair in Starkville, a full replacement in West Point, or a commercial roof in Columbus, you get the same local roofer, the same crew, and the same standard of work.
           </p>
 
           <ul className="mt-10 space-y-7">
