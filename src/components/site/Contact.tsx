@@ -56,7 +56,7 @@ const Contact = () => {
             <Phone className="h-7 w-7" /> 662-549-9165
           </a>
           <p className="mt-4 flex items-center gap-2 font-body text-sm text-secondary-foreground/70">
-            <Clock className="h-4 w-4" /> Mon–Sat: 7am–7pm · Emergency Service Available
+            <Clock className="h-4 w-4" /> Mon to Sat: 7am to 7pm · Emergency Roofing Service Available
           </p>
         </div>
 

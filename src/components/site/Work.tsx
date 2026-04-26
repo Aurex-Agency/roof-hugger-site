@@ -20,12 +20,12 @@ const Work = () => {
   return (
     <section id="our-work" className="bg-background py-20 md:py-28">
       <div className="container">
-        <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Real Jobs. Real Results.</p>
-        <h2 className="max-w-3xl font-display text-3xl leading-tight text-foreground md:text-[52px]">
-          Don't Take Our Word For It — Look at the Drone Footage.
+        <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Real Jobs. Real Results in the Golden Triangle.</p>
+        <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight text-foreground md:text-[52px]">
+          Recent Projects in Your Area.
         </h2>
         <p className="mt-5 max-w-2xl font-body text-base text-muted-foreground md:text-lg">
-          We don't hide behind stock photos. Every image below is a real roof we've installed for your neighbors in Starkville, West Point, and Columbus.
+          We don't hide behind stock photos. Every roof you see below is a real roofing job we've completed for your neighbors in Starkville, West Point, and Columbus. Drag the slider to see what a new roof from Shurden's Roofing looks like before and after.
         </p>
 
         <div className="mx-auto mt-12 max-w-[900px] overflow-hidden rounded-lg border border-border shadow-[var(--shadow-card)]">
