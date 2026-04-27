@@ -5,7 +5,7 @@ const faqs = [
   },
   {
     q: "What areas does Shurden's Roofing serve?",
-    a: "Shurden's Roofing serves North Mississippi within roughly a 60 mile radius of our Maben, MS office. That includes Maben, Starkville, West Point, Columbus, Louisville, Ackerman, Eupora, Houston, Tupelo, and the surrounding counties. If you are not sure whether we cover your roof, just call and ask.",
+    a: "Shurden's Roofing serves North Mississippi from our Maben, MS office. That includes Maben, Starkville, West Point, Columbus, Louisville, Ackerman, Eupora, Houston, Tupelo, and the surrounding counties. If you are not sure whether we cover your roof, just call and ask.",
   },
   {
     q: "How much does a roof inspection in North Mississippi cost?",
