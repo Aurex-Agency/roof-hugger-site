@@ -2,7 +2,7 @@ import aboutImg from "@/assets/storm-damage.jpg";
 import { Home, Users, Award } from "lucide-react";
 
 const values = [
-  { icon: Home, title: "Locally Owned and Operated in Maben, MS", body: "Born and raised in Mississippi. Your neighbors, not a national chain. We roof North Mississippi out of Maben, up to 60 miles in any direction." },
+  { icon: Home, title: "Locally Owned and Operated in Maben, MS", body: "Born and raised in Mississippi. Your neighbors, not a national chain. We roof homes and businesses all across North Mississippi from our Maben headquarters." },
   { icon: Users, title: "Factory Trained and Background Checked Crews", body: "Real Shurden's Roofing crews on every job. No subcontractors, no rotating faces, no surprises on your roof." },
   { icon: Award, title: "Voted Starkville's Best Roofer with 500+ Roofs Installed", body: "Five hundred Mississippi roofs and counting, with a 5-star track record across Maben, Starkville, West Point, Columbus, and beyond." },
 ];
@@ -29,7 +29,7 @@ const About = () => {
             A Mississippi Family Business Built on Honest Roofing Work.
           </h2>
           <p className="mt-6 font-body text-base text-dark-foreground/80 md:text-lg">
-            Since 2015, Shurden's Roofing has protected homes and businesses across North Mississippi with roofing craftsmanship that lasts. Headquartered in Maben, we travel up to 60 miles to roof for our neighbors, and we are a locally owned, GAF Master Elite® certified roofing contractor, a designation held by less than 2% of roofers in North America.
+            Since 2015, Shurden's Roofing has protected homes and businesses across North Mississippi with roofing craftsmanship that lasts. Headquartered in Maben, we travel across North Mississippi to roof for our neighbors, and we are a locally owned, GAF Master Elite® certified roofing contractor, a designation held by less than 2% of roofers in North America.
           </p>
           <p className="mt-4 font-body text-base text-dark-foreground/80 md:text-lg">
             From the first roof inspection to the final shingle, every roofing job is handled by our own crew with the care we would give our own homes. Whether you need a small repair in Starkville, a full replacement in West Point, a commercial roof in Columbus, or storm work out in Louisville, Eupora, or Tupelo, you get the same local roofer, the same crew, and the same standard of work.

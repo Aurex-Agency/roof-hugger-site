@@ -48,7 +48,7 @@ const Footer = () => {
               Service Area
             </h3>
             <p className="mt-3 font-body text-sm text-dark-foreground/75">
-              Serving North Mississippi within roughly 60 miles of Maben, including:
+              Serving North Mississippi from our Maben office, including:
             </p>
             <ul className="mt-2 space-y-1 font-body text-sm text-dark-foreground/75">
               <li>Maben, Starkville, West Point, Columbus</li>

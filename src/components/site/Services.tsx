@@ -11,7 +11,7 @@ const Services = () => {
           Roofing Built for Mississippi Weather. Backed by a Local Crew.
         </h2>
         <p className="mt-5 max-w-2xl font-body text-base text-muted-foreground md:text-lg">
-          From a single missing shingle to a full roof replacement, Shurden's Roofing handles every kind of roofing job across North Mississippi. We work out of Maben and travel up to 60 miles to roof for our neighbors. One local crew. One point of contact. No subcontractors.
+          From a single missing shingle to a full roof replacement, Shurden's Roofing handles every kind of roofing job across North Mississippi. We work out of Maben and travel across North Mississippi to roof for our neighbors. One local crew. One point of contact. No subcontractors.
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3 md:auto-rows-[280px]">
