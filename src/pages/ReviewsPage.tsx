@@ -110,7 +110,7 @@ const ReviewsPage = () => {
               Honest reviews from real customers help other North Mississippi families find a roofer they can trust.
             </p>
             <a
-              href="https://www.google.com/maps/place/Shurden%27s+Roofing+LLC"
+              href="https://www.google.com/search?q=shurdens+roofing#lrd=0x88813925dbdd0ebd:0xac6a4b451d99c379,1"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-cta"

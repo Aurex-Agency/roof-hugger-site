@@ -100,7 +100,7 @@ const Reviews = () => {
           See All Reviews →
         </a>
         <a
-          href="https://www.google.com/maps/place/Shurden%27s+Roofing+LLC"
+          href="https://www.google.com/search?q=shurdens+roofing#lrd=0x88813925dbdd0ebd:0xac6a4b451d99c379,1"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full border-2 border-dark-foreground/40 px-6 py-3 font-display text-sm font-semibold uppercase tracking-wider text-dark-foreground transition-colors hover:border-dark-foreground hover:bg-dark-foreground/10"
