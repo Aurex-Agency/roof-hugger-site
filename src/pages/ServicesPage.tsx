@@ -156,6 +156,12 @@ const ServicesPage = () => {
           </div>
         </section>
 
+        <CrewVideo
+          eyebrow="See The Crew In Action"
+          heading="The Same Local Crew On Every North Mississippi Roof."
+          body="Watch our team at work. No subcontractors, no shortcuts. Just Shurden's Roofing crews installing the kind of roof we'd put on our own homes."
+        />
+
         <CtaBanner
           eyebrow="Free, No-Obligation"
           title="Need a Roof Evaluation?"
