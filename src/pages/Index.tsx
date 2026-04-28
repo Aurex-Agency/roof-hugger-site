@@ -4,6 +4,7 @@ import Stats from "@/components/site/Stats";
 import Certifications from "@/components/site/Certifications";
 import About from "@/components/site/About";
 import Services from "@/components/site/Services";
+import CrewVideo from "@/components/site/CrewVideo";
 import Work from "@/components/site/Work";
 import Reviews from "@/components/site/Reviews";
 import Contact from "@/components/site/Contact";
