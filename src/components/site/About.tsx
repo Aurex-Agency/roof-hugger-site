@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import aboutImg from "@/assets/storm-damage.jpg";
 import { Home, Users, Award } from "lucide-react";
 
@@ -49,12 +50,12 @@ const About = () => {
             ))}
           </ul>
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="mt-12 inline-flex items-center justify-center rounded-md bg-primary px-7 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-cta"
           >
             Get in Touch With Our Team
-          </a>
+          </Link>
         </div>
       </div>
     </section>

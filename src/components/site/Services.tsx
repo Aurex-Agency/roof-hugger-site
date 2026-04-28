@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Home, AlertTriangle, Building2, FileText } from "lucide-react";
 
 const Services = () => {
@@ -88,12 +89,12 @@ const Services = () => {
                 <p className="mt-3 font-body text-base text-secondary-foreground/80 md:text-lg">
                   We handle the paperwork so you don't have to. Documentation, adjuster meetings, scope review, and a finished roof. Start to finish, with one local roofer.
                 </p>
-                <a
-                  href="#contact"
+                <Link
+                  to="/services"
                   className="mt-5 inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-primary transition-colors hover:text-primary-foreground"
                 >
-                  Start a Free Claim Review →
-                </a>
+                  See All Roofing Services →
+                </Link>
               </div>
             </div>
           </article>

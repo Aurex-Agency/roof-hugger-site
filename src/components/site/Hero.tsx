@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-roof.jpg";
 import gafBadge from "@/assets/gaf-master-elite.webp";
 import { Phone } from "lucide-react";
@@ -28,12 +29,12 @@ const Hero = () => {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center justify-center rounded-md bg-primary px-7 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-cta"
             >
               Get a Free Roof Inspection
-            </a>
+            </Link>
             <a
               href="tel:6625499165"
               className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-dark-foreground/90 bg-transparent px-7 py-4 font-display text-sm uppercase tracking-wide text-dark-foreground transition-all hover:scale-[1.03] hover:bg-dark-foreground hover:text-dark"
