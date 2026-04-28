@@ -36,12 +36,12 @@ const Navigation = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-secondary text-secondary-foreground border-b border-white/5">
-      <nav className="container flex h-16 items-center justify-between md:h-20" aria-label="Primary">
-        <Link to="/" className="flex items-center" aria-label="Shurden's Roofing LLC">
-          <img src={logo} alt="Shurden's Roofing LLC" className="h-10 w-auto md:h-12" />
+      <nav className="container flex h-16 items-center justify-between gap-4 md:h-20" aria-label="Primary">
+        <Link to="/" className="flex shrink-0 items-center" aria-label="Shurden's Roofing LLC">
+          <img src={logo} alt="Shurden's Roofing LLC" className="h-10 w-auto md:h-11 lg:h-12" />
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-5 lg:flex lg:gap-7 xl:gap-8">
           <li>
             <Link to="/" className="text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary">
               Home
@@ -87,28 +87,30 @@ const Navigation = () => {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a
             href="https://www.gaf.com/en-us/roofing-contractors/residential/shurden-s-roofing-llc-1106104"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GAF Master Elite Certified, opens in new tab"
-            className="hidden lg:inline-flex"
+            className="hidden xl:inline-flex"
           >
             <img src={gafBadge} alt="GAF Master Elite Certified" className="h-9 w-auto" />
           </a>
           <a
             href={TEL}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display text-sm font-semibold uppercase tracking-wide text-primary-foreground transition-transform hover:scale-[1.03] hover:shadow-cta"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-4 py-2.5 font-display text-sm font-semibold uppercase tracking-wide text-primary-foreground transition-transform hover:scale-[1.03] hover:shadow-cta xl:px-5"
           >
-            <Phone className="h-4 w-4" /> Call {PHONE}
+            <Phone className="h-4 w-4" />
+            <span className="xl:hidden">Call Now</span>
+            <span className="hidden xl:inline">Call {PHONE}</span>
           </a>
         </div>
 
         <button
           type="button"
           aria-label="Open menu"
-          className="grid h-10 w-10 place-items-center rounded-md text-secondary-foreground md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-md text-secondary-foreground lg:hidden"
           onClick={() => setOpen(true)}
         >
           <Menu className="h-6 w-6" />
