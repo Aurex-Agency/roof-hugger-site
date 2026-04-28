@@ -7,7 +7,6 @@ import Services from "@/components/site/Services";
 import Work from "@/components/site/Work";
 import Reviews from "@/components/site/Reviews";
 import Contact from "@/components/site/Contact";
-import FAQ from "@/components/site/FAQ";
 import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
 
@@ -24,7 +23,6 @@ const Index = () => {
         <Work />
         <Reviews />
         <Contact />
-        <FAQ />
       </main>
       <Footer />
       <MobileCallBar />
@@ -33,4 +31,3 @@ const Index = () => {
 };
 
 export default Index;
-
