@@ -36,12 +36,12 @@ const Navigation = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-secondary text-secondary-foreground border-b border-white/5">
-      <nav className="container flex h-16 items-center justify-between md:h-20" aria-label="Primary">
-        <Link to="/" className="flex items-center" aria-label="Shurden's Roofing LLC">
-          <img src={logo} alt="Shurden's Roofing LLC" className="h-10 w-auto md:h-12" />
+      <nav className="container flex h-16 items-center justify-between gap-4 md:h-20" aria-label="Primary">
+        <Link to="/" className="flex shrink-0 items-center" aria-label="Shurden's Roofing LLC">
+          <img src={logo} alt="Shurden's Roofing LLC" className="h-10 w-auto md:h-11 lg:h-12" />
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-5 lg:flex lg:gap-7 xl:gap-8">
           <li>
             <Link to="/" className="text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary">
               Home
