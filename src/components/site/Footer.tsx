@@ -1,15 +1,24 @@
 import { Facebook, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/shurdens-roofing-logo.svg";
 import gafBadge from "@/assets/gaf-master-elite.webp";
+
+const quickLinks = [
+  { label: "Home", to: "/" },
+  { label: "Roofing Services", to: "/services" },
+  { label: "Project Gallery", to: "/gallery" },
+  { label: "Real Reviews", to: "/reviews" },
+  { label: "Contact Us", to: "/contact" },
+];
 
 const Footer = () => {
   return (
     <footer className="bg-dark text-dark-foreground">
       <div className="container py-14 md:py-16">
         <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-8">
-          <a href="#top" className="flex items-center" aria-label="Shurden's Roofing LLC">
+          <Link to="/" className="flex items-center" aria-label="Shurden's Roofing LLC">
             <img src={logo} alt="Shurden's Roofing LLC" className="h-10 w-auto md:h-12" />
-          </a>
+          </Link>
           <div className="flex items-center gap-3">
             <a
               aria-label="Shurden's Roofing on Facebook"
@@ -32,7 +41,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="grid gap-10 py-12 md:grid-cols-4">
+        <div className="grid gap-10 py-12 md:grid-cols-5">
           <div className="md:col-span-1">
             <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-primary">
               Shurden's Roofing LLC
@@ -45,15 +54,31 @@ const Footer = () => {
 
           <div>
             <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-primary">
-              Service Area
+              Quick Links
             </h3>
-            <p className="mt-3 font-body text-sm text-dark-foreground/75">
-              Serving North Mississippi from our Maben office, including:
-            </p>
-            <ul className="mt-2 space-y-1 font-body text-sm text-dark-foreground/75">
-              <li>Maben, Starkville, West Point, Columbus</li>
-              <li>Louisville, Ackerman, Eupora, Houston</li>
-              <li>Tupelo and surrounding counties</li>
+            <ul className="mt-3 space-y-2 font-body text-sm text-dark-foreground/75">
+              {quickLinks.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className="transition-colors hover:text-primary">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-primary">
+              Service Areas
+            </h3>
+            <ul className="mt-3 space-y-1 font-body text-sm text-dark-foreground/75">
+              <li>Starkville, MS</li>
+              <li>Columbus, MS</li>
+              <li>West Point, MS</li>
+              <li>Maben, MS</li>
+              <li>Louisville, MS</li>
+              <li>Eupora, MS</li>
+              <li>And surrounding North Mississippi</li>
             </ul>
           </div>
 
