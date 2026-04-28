@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import logo from "@/assets/shurdens-roofing-logo.svg";
 import gafBadge from "@/assets/gaf-master-elite.webp";
 
 const services = [
-  { label: "Residential Roofing", href: "#services-residential" },
-  { label: "Commercial Roofing", href: "#services-commercial" },
-  { label: "Emergency Roof Repair", href: "#services-roofing-repair" },
-  { label: "Insurance Claim Help", href: "#services-insurance" },
+  { label: "Residential Roofing", to: "/services#residential" },
+  { label: "Commercial Roofing", to: "/services#commercial" },
+  { label: "Roof Repair", to: "/services#repair" },
 ];
 
 const links = [
-  { label: "Roofing Services", href: "#services" },
-  { label: "Project Gallery", href: "#our-work" },
-  { label: "Real Reviews", href: "#reviews" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "Project Gallery", to: "/gallery" },
+  { label: "Real Reviews", to: "/reviews" },
+  { label: "Contact Us", to: "/contact" },
 ];
 
 const PHONE = "662-549-9165";
@@ -24,34 +24,42 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  // Close mobile drawer on route change
+  useEffect(() => { setOpen(false); }, [location.pathname]);
+
   return (
     <header className="sticky top-0 z-50 w-full bg-secondary text-secondary-foreground border-b border-white/5">
       <nav className="container flex h-16 items-center justify-between md:h-20" aria-label="Primary">
-        <a href="#top" className="flex items-center" aria-label="Shurden's Roofing LLC">
+        <Link to="/" className="flex items-center" aria-label="Shurden's Roofing LLC">
           <img src={logo} alt="Shurden's Roofing LLC" className="h-10 w-auto md:h-12" />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
+          <li>
+            <Link to="/" className="text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary">
+              Home
+            </Link>
+          </li>
           <li
             className="relative"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button
-              type="button"
+            <Link
+              to="/services"
               aria-haspopup="menu"
               aria-expanded={servicesOpen}
-              onClick={() => setServicesOpen((v) => !v)}
               className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary"
             >
-              Services <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
-            </button>
+              Roofing Services <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+            </Link>
             <div
               role="menu"
               className={`absolute left-0 top-full min-w-[16rem] overflow-hidden rounded-md border border-white/10 bg-secondary shadow-lg transition-all ${
@@ -59,22 +67,22 @@ const Navigation = () => {
               }`}
             >
               {services.map((s) => (
-                <a
-                  key={s.href}
-                  href={s.href}
+                <Link
+                  key={s.to}
+                  to={s.to}
                   role="menuitem"
                   className="block px-5 py-3 text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:bg-white/5 hover:text-primary"
                 >
                   {s.label}
-                </a>
+                </Link>
               ))}
             </div>
           </li>
-          {links.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className="text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary">
+          {links.slice(1).map((l) => (
+            <li key={l.to}>
+              <Link to={l.to} className="text-sm font-bold uppercase tracking-wider text-secondary-foreground/85 transition-colors hover:text-primary">
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -120,40 +128,50 @@ const Navigation = () => {
         </div>
         <ul className="flex flex-col gap-2 px-6 pt-6">
           <li>
+            <Link to="/" onClick={() => setOpen(false)} className="block border-b border-white/10 py-5 font-display text-2xl">
+              Home
+            </Link>
+          </li>
+          <li>
             <button
               type="button"
               aria-expanded={mobileServicesOpen}
               onClick={() => setMobileServicesOpen((v) => !v)}
               className="flex w-full items-center justify-between border-b border-white/10 py-5 font-display text-2xl"
             >
-              Services
+              Roofing Services
               <ChevronDown className={`h-6 w-6 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
             </button>
             {mobileServicesOpen && (
               <ul className="flex flex-col">
+                <li>
+                  <Link to="/services" onClick={() => setOpen(false)} className="block border-b border-white/10 py-4 pl-4 font-display text-lg text-dark-foreground/85">
+                    All Services
+                  </Link>
+                </li>
                 {services.map((s) => (
-                  <li key={s.href}>
-                    <a
-                      href={s.href}
+                  <li key={s.to}>
+                    <Link
+                      to={s.to}
                       onClick={() => setOpen(false)}
                       className="block border-b border-white/10 py-4 pl-4 font-display text-lg text-dark-foreground/85"
                     >
                       {s.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             )}
           </li>
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
+          {links.slice(1).map((l) => (
+            <li key={l.to}>
+              <Link
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="block border-b border-white/10 py-5 font-display text-2xl"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
