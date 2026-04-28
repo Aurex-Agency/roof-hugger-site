@@ -5,6 +5,7 @@ import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
 import PageHero from "@/components/site/PageHero";
 import CtaBanner from "@/components/site/CtaBanner";
+import CrewVideo from "@/components/site/CrewVideo";
 import residentialImg from "@/assets/storm-damage.jpg";
 import commercialImg from "@/assets/gallery-5.jpg";
 
