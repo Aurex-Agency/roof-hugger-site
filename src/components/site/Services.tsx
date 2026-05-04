@@ -6,13 +6,13 @@ const Services = () => {
     <section id="services" className="bg-background py-20 md:py-28">
       <div className="container">
         <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">
-          The Work We Do
+          Roofing We Handle Every Week
         </p>
         <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight text-foreground md:text-[52px]">
-          Roofing Built for Mississippi Weather. Backed by a Local Crew.
+          Residential. Commercial. Storm Damage. One Local Crew.
         </h2>
         <p className="mt-5 max-w-2xl font-body text-base text-muted-foreground md:text-lg">
-          From a single missing shingle to a full roof replacement, Shurden's Roofing handles every kind of roofing job across North Mississippi. We work out of Maben and travel across North Mississippi to roof for our neighbors. One local crew. One point of contact. No subcontractors.
+          From a single missing shingle to a full commercial system, Shurden's Roofing handles every kind of roofing job across North Mississippi. We work out of Maben and travel across the region to roof for our neighbors. One local crew. One point of contact. No subcontractors.
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3 md:auto-rows-[280px]">
@@ -27,16 +27,16 @@ const Services = () => {
                 <Home className="h-7 w-7" />
               </span>
               <h3 className="mt-8 font-display text-3xl font-bold leading-tight md:text-[40px]">
-                Complete Roof Replacements
+                Residential Roofing
               </h3>
               <ul className="mt-6 space-y-3 font-body text-base text-dark-foreground/85 md:text-lg">
-                <li>30-year architectural and lifetime shingle systems</li>
-                <li>Full tear-off, deck inspection, and proper underlayment</li>
-                <li>GAF Master Elite certified install with extended warranty</li>
-                <li>Color matching to fit your Starkville home or business</li>
+                <li>Complete tear-offs and full deck inspection</li>
+                <li>GAF Timberline HDZ, UHDZ, Camelot II, Slateline shingles</li>
+                <li>FeltBuster underlayment, Cobra ventilation, ridge & drip edge</li>
+                <li>Gold Pledge & Silver Pledge warranty options</li>
               </ul>
               <p className="mt-auto pt-8 font-body text-sm text-dark-foreground/70">
-                The right roof, installed right the first time, by a local roofer who answers the phone.
+                Complete GAF roof systems built for North Mississippi homes, installed by our own local crew.
               </p>
             </div>
           </article>
@@ -50,10 +50,10 @@ const Services = () => {
               <AlertTriangle className="h-6 w-6" />
             </span>
             <h3 className="mt-6 font-display text-2xl font-bold leading-tight text-foreground">
-              Emergency Roof Repair
+              Storm Damage & Roof Repair
             </h3>
             <p className="mt-3 font-body text-base text-muted-foreground">
-              Fast response after storm, wind, and hail damage across North Mississippi, from Maben and Starkville to West Point, Columbus, Louisville, and Eupora. Tarping, leak stops, and full repair in one call.
+              Tarping, leak stops, hail documentation, wind damage repair, insurance claim support, and honest guidance on whether you need a repair or a replacement.
             </p>
           </article>
 
@@ -69,7 +69,7 @@ const Services = () => {
               Commercial Roofing
             </h3>
             <p className="mt-3 font-body text-base text-muted-foreground">
-              Protecting local businesses across North Mississippi with TPO, metal, and shingle systems sized for storefronts, offices, churches, and multi-tenant buildings.
+              SBS self-adhering systems, GAF Liberty Roofing System, Mule-Hide TPO, metal, and shingle work for storefronts, offices, churches, and multi-tenant buildings.
             </p>
           </article>
 

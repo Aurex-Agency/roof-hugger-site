@@ -43,10 +43,10 @@ const Contact = () => {
 
       <div className="container relative grid gap-12 py-20 md:grid-cols-2 md:gap-16 md:py-28">
         <div>
-          <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Estimate · No Obligation</p>
+          <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Inspection · No Obligation</p>
           <h2 className="font-display text-3xl leading-tight md:text-5xl">Need Us Out There?</h2>
           <p className="mt-6 max-w-md font-body text-base text-secondary-foreground/75 md:text-lg">
-            Fill out the short form and we'll call you back within the hour to schedule your free estimate. No pressure. No obligation. Just a straight answer about what your roof needs.
+            Send the form or call the number. We will inspect the roof, tell you what we see, and explain the right next step without pushing you into work you do not need.
           </p>
 
           <a
@@ -88,7 +88,7 @@ const Contact = () => {
               disabled={submitting}
               className="w-full rounded-md bg-primary px-6 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.01] hover:shadow-cta disabled:opacity-70"
             >
-              {submitting ? "Submitting..." : "Request My Free Estimate →"}
+              {submitting ? "Submitting..." : "Request My Free Inspection →"}
             </button>
             <p className="text-center font-body text-[11px] text-dark-foreground/45">
               Protected by reCAPTCHA. We never share your info.
