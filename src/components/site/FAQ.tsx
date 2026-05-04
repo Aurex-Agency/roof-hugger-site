@@ -1,31 +1,35 @@
 const faqs = [
   {
     q: "Does Shurden's Roofing handle insurance claims for storm damage?",
-    a: "Yes. Shurden's Roofing handles the entire insurance claim process for storm, wind, and hail damage on roofs across North Mississippi. We document the roof damage with drone photography, meet with your adjuster, review the scope, and make sure no part of your roofing system gets missed. You stay focused on your family while our roofer handles the paperwork.",
+    a: "Yes. We document wind and hail damage, take photos, review the scope, and help coordinate with your insurance adjuster so you understand the process from inspection to finished roof. You stay focused on your family while our roofer handles the paperwork.",
   },
   {
-    q: "What areas does Shurden's Roofing serve?",
-    a: "Shurden's Roofing serves North Mississippi from our Maben, MS office. That includes Maben, Starkville, West Point, Columbus, Louisville, Ackerman, Eupora, Houston, Tupelo, and the surrounding counties. If you are not sure whether we cover your roof, just call and ask.",
+    q: "What areas do you serve?",
+    a: "We are headquartered in Maben and serve North Mississippi, including Starkville, West Point, Columbus, Louisville, Eupora, Tupelo, and nearby communities. If you are not sure whether we cover your roof, just call and ask.",
   },
   {
-    q: "How much does a roof inspection in North Mississippi cost?",
-    a: "Roof inspections from Shurden's Roofing are 100% free. We use high-resolution drone photography to document every part of your roof at no cost. You get a clear, honest report on what your roof actually needs, with no pressure to buy anything.",
+    q: "How much does a roof inspection cost?",
+    a: "Roof inspections are free and no-obligation. We use high-resolution drone photography to document every part of your roof, and we will tell you whether the roof needs repair, replacement, a commercial quote, or no immediate work.",
   },
   {
-    q: "How long has Shurden's Roofing been in business?",
-    a: "We have been roofing North Mississippi out of Maben since 2015, with over 500 roofs installed and repaired across Maben, Starkville, West Point, Columbus, and beyond.",
+    q: "What shingles do you install?",
+    a: "We install GAF systems including Timberline HDZ, Timberline UHDZ, Natural Shadow, Camelot II, and Slateline, along with GAF underlayments (FeltBuster and WeatherWatch), Cobra ventilation, GAF Pro-Start starter, Seal-A-Ridge, hip and ridge, Master Flow Pivot Pipe Boot Flashing, and drip edge.",
+  },
+  {
+    q: "What commercial systems do you install?",
+    a: "We install commercial SBS self-adhering roofing systems, the GAF Liberty Roofing System, Mule-Hide TPO, metal, and shingle systems for businesses, churches, offices, and low-slope roofs across North Mississippi.",
+  },
+  {
+    q: "What makes GAF Master Elite® important?",
+    a: "GAF Master Elite® is a top factory certification held by less than 2% of roofers in North America. As a Master Elite® contractor and GAF President's Club Member, Shurden's Roofing can offer Gold Pledge and Silver Pledge warranty options that most local roofers cannot.",
+  },
+  {
+    q: "How fast can you respond to leaks or storm damage?",
+    a: "Call as soon as you see the issue. Emergency roofing service is available, and we prioritize tarping, leak stops, and storm damage inspections when weather hits North Mississippi. We typically respond the same day or next day.",
   },
   {
     q: "Are you a licensed and insured roofer in Mississippi?",
     a: "Yes. Shurden's Roofing LLC is fully licensed and insured to perform residential and commercial roofing work in the state of Mississippi. We carry general liability and workers' compensation on every roofing crew on every job.",
-  },
-  {
-    q: "What kind of shingles do you install on North Mississippi roofs?",
-    a: "We install GAF architectural and lifetime shingle systems on most North Mississippi roofing projects, including Timberline HDZ and other 30-year and lifetime products. As a GAF Master Elite roofer, we can offer extended warranties most local roofers cannot.",
-  },
-  {
-    q: "How fast can you respond to a roof leak or storm damage?",
-    a: "For active leaks and storm damage anywhere in our North Mississippi service area, we typically respond the same day or next day. We can tarp the roof, stop the leak, and get the full roofing repair scheduled quickly.",
   },
 ];
 
@@ -35,7 +39,7 @@ const FAQ = () => {
       <div className="container max-w-4xl">
         <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Quick Answers</p>
         <h2 className="font-display text-3xl font-bold leading-tight text-foreground md:text-5xl">
-          Straight Answers to Real Roofing Questions.
+          Straight Answers Before We Climb the Ladder.
         </h2>
         <p className="mt-5 max-w-2xl font-body text-base text-muted-foreground md:text-lg">
           Common questions from North Mississippi homeowners about hiring a roofer, filing insurance claims, and what to expect from your new roof.

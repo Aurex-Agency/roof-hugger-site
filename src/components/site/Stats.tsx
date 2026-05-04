@@ -11,8 +11,8 @@ type Stat = {
 const stats: Stat[] = [
   { value: 10, plus: true, unit: "Years", label: "Roofing North Mississippi" },
   { value: 500, plus: true, unit: "Roofs", label: "Installed & Repaired" },
-  { value: 100, plus: true, unit: "Cities", label: "Served Across North Mississippi" },
-  { value: 5, symbol: "★", unit: "Stars", label: "On Google Reviews" },
+  { value: 40, plus: true, unit: "Cities", label: "Served Across North Mississippi" },
+  { value: 5, symbol: "★", unit: "Stars", label: "Google Rating From Local Customers" },
 ];
 
 const Counter = ({ stat }: { stat: Stat }) => {

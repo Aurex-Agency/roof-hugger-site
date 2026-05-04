@@ -60,13 +60,13 @@ const Reviews = () => {
     >
       <div className="container mb-10 text-center md:mb-14">
         <p className="font-display text-xs font-semibold uppercase tracking-[0.25em] text-primary-foreground/85 md:text-sm">
-          Look at the 5-Star Reviews from Your Neighbors
+          Real Reviews · Real Roofs
         </p>
         <h2 className="mt-3 font-display text-3xl font-bold uppercase leading-tight md:text-5xl">
-          Trusted Across North Mississippi
+          Your Neighbors Already Put Us on Their Roof.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl font-body text-base text-primary-foreground/90 md:text-lg">
-          We let our roofing work speak for itself. See what homeowners across North Mississippi, from Maben and Starkville to West Point and Columbus, have to say about our roofers and our roofing services.
+          Read what homeowners and business owners across Starkville, Maben, West Point, Columbus, Louisville, Eupora, and Tupelo say about Shurden's Roofing.
         </p>
         <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-dark/30 px-4 py-2 font-body text-sm font-bold leading-none">
           <span className="text-accent">5.0</span>

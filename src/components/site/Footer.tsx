@@ -78,6 +78,7 @@ const Footer = () => {
               <li>Maben, MS</li>
               <li>Louisville, MS</li>
               <li>Eupora, MS</li>
+              <li>Tupelo, MS</li>
               <li>And surrounding North Mississippi</li>
             </ul>
           </div>
@@ -115,7 +116,20 @@ const Footer = () => {
                 GAF Master Elite<sup>®</sup>
               </h3>
               <p className="mt-3 font-body text-sm text-dark-foreground/75">
-                Mississippi Licensed and Fully Insured. Roofing North Mississippi since 2015.
+                GAF President's Club Member · Gold Pledge & Silver Pledge warranty options.
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {["Gold Pledge", "Silver Pledge", "President's Club"].map((b) => (
+                  <li
+                    key={b}
+                    className="rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 font-display text-[10px] font-bold uppercase tracking-wider text-accent"
+                  >
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 font-body text-xs text-dark-foreground/60">
+                Mississippi licensed & fully insured. Roofing North Mississippi since 2015.
               </p>
             </div>
           </div>

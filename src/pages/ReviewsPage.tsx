@@ -3,6 +3,7 @@ import Navigation from "@/components/site/Navigation";
 import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
 import PageHero from "@/components/site/PageHero";
+import ReviewThemes from "@/components/site/ReviewThemes";
 
 const reviews = [
   {
@@ -66,8 +67,8 @@ const ReviewsPage = () => {
       <main>
         <PageHero
           eyebrow="Real Reviews"
-          title={<>Trusted Across <span className="text-primary">North Mississippi</span>.</>}
-          subtitle="We let our roofing work speak for itself. Read what homeowners and business owners across North Mississippi say about Shurden's Roofing."
+          title={<>North Mississippi Homeowners Say It Better Than <span className="text-primary">We Can</span>.</>}
+          subtitle="The best proof is what happens after the roof is finished: clean yards, handled claims, returned calls, and customers who recommend us to their neighbors."
         />
 
         <section className="bg-background py-16 md:py-20">
@@ -79,10 +80,10 @@ const ReviewsPage = () => {
                 ))}
               </div>
               <p className="font-display text-3xl font-bold uppercase leading-none text-foreground md:text-4xl">
-                5.0 on Google
+                5.0 on Google From Local Customers
               </p>
               <p className="font-body text-sm text-muted-foreground">
-                Based on verified reviews from customers across Maben, Starkville, Columbus, West Point, Louisville, and Eupora.
+                These reviews come from homeowners and business owners across Maben, Starkville, Columbus, West Point, Louisville, Eupora, and the surrounding North Mississippi area.
               </p>
             </div>
           </div>
@@ -100,6 +101,8 @@ const ReviewsPage = () => {
           </div>
         </section>
 
+        <ReviewThemes />
+
         <section className="bg-secondary py-16 text-secondary-foreground md:py-20">
           <div className="container text-center">
             <p className="font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Share Your Experience</p>
@@ -107,7 +110,7 @@ const ReviewsPage = () => {
               Worked With Us? Tell Your Neighbors.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl font-body text-base text-secondary-foreground/80 md:text-lg">
-              Honest reviews from real customers help other North Mississippi families find a roofer they can trust.
+              Honest reviews help North Mississippi families find a roofer they can trust when the roof starts leaking or the storm damage shows up.
             </p>
             <a
               href="https://www.google.com/search?q=shurdens+roofing#lrd=0x88813925dbdd0ebd:0xac6a4b451d99c379,1"
