@@ -63,9 +63,9 @@ const ContactPage = () => {
       <Navigation />
       <main>
         <PageHero
-          eyebrow="Contact Us"
-          title={<>Ready to Talk About <span className="text-primary">Your Next Project?</span></>}
-          subtitle="Free, no-obligation roof inspections across North Mississippi. We'll call you back within the hour during business hours."
+          eyebrow="Contact Shurden's Roofing"
+          title={<>Need a Roofer Out There? <span className="text-primary">Call Shurden's.</span></>}
+          subtitle="Free roof inspections across North Mississippi. We will look at the roof, explain what is happening, and give you the next step without pressure."
         />
 
         <section className="bg-secondary text-secondary-foreground">
@@ -74,7 +74,7 @@ const ContactPage = () => {
               <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Get in Touch</p>
               <h2 className="font-display text-3xl leading-tight md:text-5xl">One Call. Honest Answers.</h2>
               <p className="mt-6 max-w-md font-body text-base text-secondary-foreground/75 md:text-lg">
-                Call, email, or fill out the form. Either way, you get the same local roofer, not a national call center.
+                Call, email, or send the form. You get a local roofing company in Maben, not a national call center or a salesperson reading a script.
               </p>
 
               <div className="mt-10 space-y-6">
@@ -127,8 +127,11 @@ const ContactPage = () => {
               className="self-start rounded-lg border border-white/5 bg-dark p-6 shadow-[var(--shadow-card)] md:p-8"
               noValidate
             >
-              <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Estimate</p>
-              <h3 className="mb-6 font-display text-2xl text-dark-foreground md:text-3xl">Request a Free Inspection</h3>
+              <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Roof Inspection</p>
+              <h3 className="mb-3 font-display text-2xl text-dark-foreground md:text-3xl">Request a Free Roof Inspection</h3>
+              <p className="mb-6 font-body text-sm text-dark-foreground/70">
+                Tell us where you are and what you are seeing. Leaks, missing shingles, hail damage, commercial roof issues, or a roof that is just old — we will help you sort it out.
+              </p>
               <div className="space-y-5">
                 <Field label="Full Name" name="name" type="text" required autoComplete="name" />
                 <Field label="Phone Number" name="phone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
@@ -151,7 +154,7 @@ const ContactPage = () => {
                   disabled={submitting}
                   className="w-full rounded-md bg-primary px-6 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.01] hover:shadow-cta disabled:opacity-70"
                 >
-                  {submitting ? "Submitting..." : "Request My Free Estimate →"}
+                  {submitting ? "Submitting..." : "Request My Free Inspection →"}
                 </button>
                 <p className="text-center font-body text-[11px] text-dark-foreground/45">
                   Protected by reCAPTCHA. We never share your info.
