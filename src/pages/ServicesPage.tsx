@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import { Wind, CloudHail, Wrench, ArrowRight, Building2, FileText, Layers } from "lucide-react";
+import { Wind, CloudHail, Wrench, ArrowRight, Building2, FileText, AlertCircle, CheckCircle2 } from "lucide-react";
 import Navigation from "@/components/site/Navigation";
-import TrustBar from "@/components/site/TrustBar";
 import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
 import PageHero from "@/components/site/PageHero";
 import CtaBanner from "@/components/site/CtaBanner";
-import CrewVideo from "@/components/site/CrewVideo";
-import GafSystem from "@/components/site/GafSystem";
-import ShingleComparison from "@/components/site/ShingleComparison";
-import WarrantyBand from "@/components/site/WarrantyBand";
+import ServiceNav from "@/components/site/ServiceNav";
+import RoofingProcess from "@/components/site/RoofingProcess";
+import ServiceArea from "@/components/site/ServiceArea";
+import ServicesFAQ from "@/components/site/ServicesFAQ";
+import MaintenanceSection from "@/components/site/MaintenanceSection";
 import residentialImg from "@/assets/storm-damage.jpg";
 import commercialImg from "@/assets/gallery-5.jpg";
 
@@ -38,6 +38,29 @@ const commercialSystems = [
   { name: "Metal & Shingle Systems", body: "For buildings that need slope-specific roof sections, transitions, and repairs handled by one crew." },
 ];
 
+const buildingTypes = [
+  "Churches", "Schools", "Retail storefronts", "Offices",
+  "Warehouses", "Multi-tenant buildings", "Ag & farm buildings", "Restaurants",
+];
+
+const claimSteps = [
+  { n: "01", t: "Free Inspection", b: "We climb the roof and document what we find with photos before you call your carrier." },
+  { n: "02", t: "Damage Documentation", b: "Wind, hail, and impact damage marked, measured, and photographed for the claim file." },
+  { n: "03", t: "You File The Claim", b: "You stay in control of the claim. We hand you everything you need to file a clean one." },
+  { n: "04", t: "Adjuster Meeting", b: "We meet your adjuster on the roof and walk every hit with them so nothing gets missed." },
+  { n: "05", t: "Scope Review", b: "We review the carrier's scope line by line and flag anything that's missing before approval." },
+  { n: "06", t: "Install", b: "Our local crew installs the new GAF system. Same crew, start to finish." },
+  { n: "07", t: "Final Invoicing", b: "We invoice the approved scope, register your warranty, and you close out the claim." },
+];
+
+const residentialBullets = [
+  "Most homes torn off, dried-in, and re-roofed in 1–2 days",
+  "Full deck inspection — rotted decking replaced and itemized on the invoice",
+  "GAF Master Elite® install with Gold Pledge & Silver Pledge warranty options",
+  "Color and shingle profile selection from full GAF lineup (HDZ, UHDZ, Camelot II, Slateline)",
+  "Magnet-sweep cleanup and same local crew from first knock to final walkthrough",
+];
+
 const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
@@ -45,10 +68,11 @@ const ServicesPage = () => {
       <main>
         <PageHero
           eyebrow="Roofing Services"
-          title={<>Roof Repair, Replacement, and Commercial Systems for <span className="text-primary">North Mississippi</span>.</>}
-          subtitle="Shurden's Roofing handles the whole roof: shingles, underlayment, ventilation, edge metal, low-slope systems, storm documentation, and clean installation from a local crew."
+          title={<>Every Service. One Local Crew. <span className="text-primary">North Mississippi</span>.</>}
+          subtitle="Residential replacements, commercial systems, storm damage, insurance claims, and maintenance — handled in-house by Shurden's Roofing. No subcontractors, no handoffs."
         />
-        <TrustBar />
+
+        <ServiceNav />
 
         {/* Residential */}
         <section id="residential" className="bg-background scroll-mt-24">
@@ -67,17 +91,12 @@ const ServicesPage = () => {
                 Residential Roofs We'd Put on Our Own Homes.
               </h2>
               <p className="mt-6 font-body text-base text-muted-foreground md:text-lg">
-                Most of our work is on Mississippi homes that need a roof tough enough for heat, hail, wind, and hard rain. We tear off the old roof, inspect the deck, install the right GAF underlayment and accessories, and finish with the shingle system that fits your house and budget.
+                Most of our work is on Mississippi homes that need a roof tough enough for heat, hail, wind, and hard rain. We tear off the old roof, inspect every square foot of decking, install the right GAF underlayment and accessories, and finish with the shingle system that fits your house and budget. You'll see the same crew on day one and the day we hand you the warranty paperwork.
               </p>
               <ul className="mt-8 space-y-4 font-body text-base text-foreground">
-                {[
-                  "Full tear-off, deck inspection, and proper underlayment on every roof",
-                  "GAF Master Elite® install with Gold Pledge & Silver Pledge warranty options",
-                  "Ask us about colors, profiles, hail ratings, and warranty options",
-                  "Same local crew from first knock to final cleanup",
-                ].map((b) => (
+                {residentialBullets.map((b) => (
                   <li key={b} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 flex-none rounded-full bg-primary" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-primary" />
                     {b}
                   </li>
                 ))}
@@ -91,12 +110,6 @@ const ServicesPage = () => {
             </div>
           </div>
         </section>
-
-        <ShingleComparison />
-
-        <GafSystem variant="services" />
-
-        <WarrantyBand />
 
         {/* Commercial */}
         <section id="commercial" className="bg-dark text-dark-foreground scroll-mt-24 py-20 md:py-28">
@@ -123,7 +136,21 @@ const ServicesPage = () => {
               ))}
             </div>
 
-            <div className="mt-12 grid gap-6 rounded-lg border border-white/10 bg-secondary/40 p-6 md:grid-cols-[auto_1fr] md:items-center md:p-8">
+            <div className="mt-12 rounded-lg border border-white/10 bg-secondary/40 p-6 md:p-8">
+              <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-primary">
+                Buildings We Roof
+              </h3>
+              <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 font-body text-sm text-dark-foreground/85 sm:grid-cols-4">
+                {buildingTypes.map((b) => (
+                  <li key={b} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 grid gap-6 rounded-lg border border-white/10 bg-secondary/40 p-6 md:grid-cols-[auto_1fr] md:items-center md:p-8">
               <img
                 src={commercialImg}
                 alt="Aerial view of a commercial roof Shurden's Roofing installed in North Mississippi"
@@ -172,32 +199,67 @@ const ServicesPage = () => {
                 </article>
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* Insurance Help */}
-        <section className="bg-secondary py-20 text-secondary-foreground md:py-24">
-          <div className="container grid gap-10 md:grid-cols-[auto_1fr] md:items-center md:gap-14">
-            <span className="grid h-20 w-20 place-items-center rounded-md bg-primary text-primary-foreground">
-              <FileText className="h-10 w-10" />
-            </span>
-            <div>
-              <p className="mb-3 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Insurance Claim Support</p>
-              <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
-                Insurance Help Without the Runaround.
-              </h2>
-              <p className="mt-5 max-w-3xl font-body text-base text-secondary-foreground/85 md:text-lg">
-                If a storm caused the damage, we document what we find, take photos, meet with the adjuster when needed, review the scope, and help you understand what your roof actually needs. You stay informed without having to become a roofing expert overnight.
-              </p>
+            <div className="mt-10 grid gap-6 rounded-lg border-l-4 border-primary bg-card p-6 md:grid-cols-[auto_1fr] md:items-start md:gap-8 md:p-8">
+              <span className="grid h-12 w-12 flex-none place-items-center rounded-md bg-primary/10 text-primary">
+                <AlertCircle className="h-6 w-6" />
+              </span>
+              <div>
+                <h3 className="font-display text-xl font-bold text-foreground md:text-2xl">
+                  Active Leak Right Now? Do This Before You Call.
+                </h3>
+                <ol className="mt-4 grid gap-2 font-body text-base text-muted-foreground md:grid-cols-3">
+                  <li><span className="font-bold text-foreground">1.</span> Move belongings out of the drip path and contain water with a bucket.</li>
+                  <li><span className="font-bold text-foreground">2.</span> Photograph the ceiling and any visible roof damage from the ground.</li>
+                  <li><span className="font-bold text-foreground">3.</span> Call us at <a href="tel:6629414866" className="text-primary underline">(662) 941-4866</a>. We tarp, document, and stop the leak.</li>
+                </ol>
+              </div>
             </div>
           </div>
         </section>
 
-        <CrewVideo
-          eyebrow="See The Crew In Action"
-          heading="The Same Local Crew On Every North Mississippi Roof."
-          body="Watch our team at work. No subcontractors, no shortcuts. Just Shurden's Roofing crews installing the kind of roof we'd put on our own homes."
-        />
+        {/* Insurance */}
+        <section id="insurance" className="scroll-mt-24 bg-secondary py-20 text-secondary-foreground md:py-24">
+          <div className="container">
+            <div className="grid gap-10 md:grid-cols-[auto_1fr] md:items-center md:gap-14">
+              <span className="grid h-20 w-20 place-items-center rounded-md bg-primary text-primary-foreground">
+                <FileText className="h-10 w-10" />
+              </span>
+              <div>
+                <p className="mb-3 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Insurance Claim Support</p>
+                <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
+                  Insurance Help Without the Runaround.
+                </h2>
+                <p className="mt-5 max-w-3xl font-body text-base text-secondary-foreground/85 md:text-lg">
+                  If a storm caused the damage, we walk every step of the claim with you. Here's exactly how it goes from the first phone call to a completed roof.
+                </p>
+              </div>
+            </div>
+
+            <ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {claimSteps.map((s) => (
+                <li
+                  key={s.n}
+                  className="rounded-lg border border-white/10 bg-secondary/40 p-6"
+                >
+                  <span className="font-display text-3xl font-extrabold text-primary">{s.n}</span>
+                  <h3 className="mt-3 font-display text-lg font-bold leading-tight text-secondary-foreground">
+                    {s.t}
+                  </h3>
+                  <p className="mt-2 font-body text-sm text-secondary-foreground/80">{s.b}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <MaintenanceSection />
+
+        <RoofingProcess />
+
+        <ServiceArea />
+
+        <ServicesFAQ />
 
         <CtaBanner
           eyebrow="Free, No-Obligation"
