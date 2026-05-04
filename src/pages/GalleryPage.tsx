@@ -42,8 +42,8 @@ const GalleryPage = () => {
       <main>
         <PageHero
           eyebrow="Project Gallery"
-          title={<>Real Jobs. <span className="text-primary">Real Results.</span></>}
-          subtitle="See the craftsmanship that makes us Starkville's best roofing business. Every roof below is a real Shurden's Roofing project across North Mississippi."
+          title={<>Real Shurden's Roofs Across <span className="text-primary">North Mississippi</span>.</>}
+          subtitle="No fake stock-photo roofs. These are homes and businesses we have worked on in Starkville, Maben, West Point, Columbus, Louisville, Eupora, Tupelo, and nearby communities."
         />
 
         {/* Before / After */}
@@ -51,8 +51,11 @@ const GalleryPage = () => {
           <div className="container">
             <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Before & After</p>
             <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight text-foreground md:text-[44px]">
-              Drag the Slider. See the Difference.
+              Drag the Slider. Look at the Difference.
             </h2>
+            <p className="mt-5 max-w-2xl font-body text-base text-muted-foreground md:text-lg">
+              A finished roof should look clean from the driveway, but the real value is in the layers you cannot see: deck inspection, underlayment, starter, flashing, ventilation, ridge protection, and proper cleanup.
+            </p>
             <div className="mx-auto mt-10 max-w-[1000px] overflow-hidden rounded-lg border border-border shadow-[var(--shadow-card)]">
               <ReactCompareSlider
                 itemOne={<ReactCompareSliderImage src={beforeImg} alt="Old worn streaky roof before Shurden's Roofing replacement in Starkville MS" />}
@@ -125,7 +128,7 @@ const GalleryPage = () => {
 
         <CtaBanner
           title="Want Your Roof on This Page Next?"
-          body="Free inspection, honest scope, real photos. Let's get started."
+          body="We will inspect it, explain the options, and install the roof system that makes sense for your home or building. Real work. Real photos. Real cleanup."
           buttonLabel="Start My Project"
         />
       </main>
