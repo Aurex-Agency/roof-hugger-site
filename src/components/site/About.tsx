@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import aboutImg from "@/assets/storm-damage.jpg";
+import aboutImg from "@/assets/about-shingle-roof.jpg";
 import { Home, Users, Award } from "lucide-react";
 
 const values = [
