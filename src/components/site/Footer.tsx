@@ -7,7 +7,7 @@ const quickLinks = [
   { label: "Home", to: "/" },
   { label: "Roofing Services", to: "/services" },
   { label: "Project Gallery", to: "/gallery" },
-  { label: "Real Reviews", to: "/reviews" },
+  { label: "About Us", to: "/reviews" },
   { label: "Contact Us", to: "/contact" },
 ];
 
