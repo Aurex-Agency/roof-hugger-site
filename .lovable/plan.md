@@ -1,56 +1,49 @@
-# Make /services Distinct from the Home Page
+## Goal
 
-Right now `/services` reuses several of the same sections that define the home page (`ShingleComparison`, `GafSystem`, `WarrantyBand`, `CrewVideo`, `TrustBar`). The page reads as a near-duplicate of `/`. The fix is to strip the home-page sections out of `/services` and replace them with content that only belongs on a services page: a service navigator, deeper per-service detail, process, materials specifics, pricing/scope expectations, and service-area info.
+Replace the `/reviews` page with an **About** page that mirrors the content from shurdensroofing.com/about, while keeping the existing site's layout/design language (PageHero + section blocks + CTA banner + Footer).
 
-## What to remove from `/services`
+## Routing decision
 
-- `TrustBar` (already on home and global feel)
-- `ShingleComparison` (keep on home only)
-- `GafSystem` (keep on home only)
-- `WarrantyBand` (keep on home only)
-- `CrewVideo` (keep on home only)
+The user said "replace this page /reviews and take this same page layout but replicate this page". I'll interpret that as:
+- Convert `/reviews` route to render the new About page content
+- Keep the URL `/reviews` unchanged (no rename requested)
+- Update `ReviewsPage.tsx` in place
+- Update Navigation/Footer link labels from "Reviews" to "About" so the menu reflects the new content
 
-The home page (`Index.tsx`) stays exactly as it is.
+If you'd prefer to keep "/reviews" labeled as Reviews and add About at `/about` instead, say the word and I'll adjust.
 
-## New `/services` structure
+## Asset handling
 
-```text
-PageHero  (existing, refined subtitle)
-ServiceNav        (sticky in-page jump nav: Residential | Commercial | Repair | Insurance | Maintenance)
-Residential       (expanded — keep current section, add materials + process detail)
-Commercial        (expanded — keep current section, add building-type list)
-Repair            (expanded — keep cards, add response-time + what-to-do-now block)
-Insurance         (expanded — add step-by-step claim timeline)
-Maintenance & Inspections   (NEW — annual inspections, gutter/flashing checkups, tune-ups)
-RoofingProcess    (NEW — 5-step process: Inspect → Quote → Schedule → Install → Walkthrough)
-ServiceArea       (NEW — towns/counties served, with "don't see your town? call us")
-ServicesFAQ       (NEW — 5–6 service-specific Q&A: cost ranges, timeline, permits, warranty transfer, etc.)
-CtaBanner         (existing)
-```
+Copy the 5 uploaded images into `src/assets/team/`:
+- `josh-shurden.jpg` (Staff-4)
+- `garrett-shurden.jpg` (Staff-3)
+- `parker-shurden.jpg` (Staff-2)
+- `cameron-shurden.jpg` (Staff-1)
+- `office-exterior.jpg` (Hero-Office)
 
-## New components to create
+Note: The source page labels Staff-3 as Garrett and Staff-1 as Cameron — I'll match that mapping. Job titles for the sons are listed as "Job Title Here" on the source; I'll use **"Sales & Service"** as a sensible placeholder (and you can correct any name).
 
-1. `src/components/site/ServiceNav.tsx` — sticky anchor nav with 5 links, highlights active section on scroll.
-2. `src/components/site/RoofingProcess.tsx` — numbered 5-step process with icons.
-3. `src/components/site/ServiceArea.tsx` — grid of cities/counties (Maben, Starkville, Tupelo, Columbus, West Point, Louisville, Eupora, Ackerman, Houston, Aberdeen, Winona, Grenada) + Oktibbeha/Webster/Clay/Lowndes/Choctaw/Lee counties.
-4. `src/components/site/ServicesFAQ.tsx` — accordion using existing `ui/accordion`, scoped to services questions (different from the general `FAQ` on home).
-5. `src/components/site/MaintenanceSection.tsx` — annual inspection plans, gutter cleaning, tune-ups, flashing/sealant checkups.
+## Page structure (replaces ReviewsPage.tsx)
 
-## Edits to existing files
+1. **PageHero** — eyebrow "About Shurden's Roofing", title "A Mississippi Family Business Built on Honest Roofing Work", subtitle one-liner.
+2. **About the Business** — two-column: long-form copy (Josh's story, GAF Master Elite, family team) on the left, office exterior photo on the right.
+3. **Owner statement** — pull-quote style block from Josh ("I personally stand behind our services 100%…") with a "Call Now" CTA button (tel: link).
+4. **Why Work With Us** — 6-item bullet/icon grid (30 yrs experience, 100 yrs combined, family owned, GAF Master Elite, 25-yr warranty, 600-mile service radius). Reuse Lucide icons + the same card style used in About.tsx.
+5. **Meet Our Team** — 4-card grid (Josh as Owner; Garrett, Parker, Cameron as Sales & Service). Square portrait, name, title. Responsive: 1 col mobile / 2 col md / 4 col lg.
+6. **CtaBanner** — reuse existing component: "Want To Be Next In Line For A Brand New Roof?" → /contact.
 
-- `src/pages/ServicesPage.tsx`
-  - Remove imports + usages of `TrustBar`, `ShingleComparison`, `GafSystem`, `WarrantyBand`, `CrewVideo`.
-  - Add the 5 new components in the order above.
-  - Expand the residential section copy with: typical timeline (1–2 days), tear-off process detail, color/profile selection, deck repair pricing transparency.
-  - Expand the commercial section with a "Buildings we roof" sub-list (churches, schools, retail, warehouses, multi-tenant, ag buildings).
-  - Add a small "What to do right now" callout to the Repair section (tarp safely, document, call us).
-  - Replace the Insurance section's prose with a numbered claim timeline (1. Free inspection → 2. Documentation → 3. File claim → 4. Adjuster meeting → 5. Scope review → 6. Install → 7. Final invoicing).
+Keep the existing Navigation, MobileCallBar, and Footer wrappers.
 
-- `src/components/site/PageHero.tsx` — no change.
+## Files
 
-## Result
+- **Edit** `src/pages/ReviewsPage.tsx` — full rewrite to About content
+- **Edit** `src/components/site/Navigation.tsx` — rename "Reviews" link label to "About"
+- **Edit** `src/components/site/Footer.tsx` — rename "Real Reviews" quick link to "About Us"
+- **Copy** 5 user-uploaded images into `src/assets/team/`
+- Leave the existing `Reviews` homepage section component untouched (still used on `/`)
 
-- Home page = brand story (trust, GAF system, shingle comparison, warranty, crew video, services overview, work, reviews).
-- Services page = operational detail (what we do, how we do it, where we do it, how the process works, service-specific FAQs).
+## Out of scope
 
-No overlap of major sections between the two pages.
+- No change to the `Reviews` component on the homepage
+- No new route added; URL stays `/reviews`
+- No backend changes
