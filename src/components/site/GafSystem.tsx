@@ -1,5 +1,5 @@
 import { Layers } from "lucide-react";
-import systemImg from "@/assets/storm-damage.jpg";
+import systemImg from "@/assets/gaf-shingle-roof.jpg";
 
 const components = [
   { name: "Master Flow Pivot Pipe Boot Flashing", body: "Helps seal plumbing penetrations where leaks often start." },
