@@ -10,7 +10,7 @@ import RoofingProcess from "@/components/site/RoofingProcess";
 import ServiceArea from "@/components/site/ServiceArea";
 import ServicesFAQ from "@/components/site/ServicesFAQ";
 import MaintenanceSection from "@/components/site/MaintenanceSection";
-import residentialImg from "@/assets/storm-damage.jpg";
+import residentialImg from "@/assets/residential-shingle-roof.jpg";
 import commercialImg from "@/assets/gallery-5.jpg";
 
 const repairCards = [
