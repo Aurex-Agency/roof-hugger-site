@@ -211,7 +211,7 @@ const ServicesPage = () => {
                 <ol className="mt-4 grid gap-2 font-body text-base text-muted-foreground md:grid-cols-3">
                   <li><span className="font-bold text-foreground">1.</span> Move belongings out of the drip path and contain water with a bucket.</li>
                   <li><span className="font-bold text-foreground">2.</span> Photograph the ceiling and any visible roof damage from the ground.</li>
-                  <li><span className="font-bold text-foreground">3.</span> Call us at <a href="tel:6629414866" className="text-primary underline">(662) 941-4866</a>. We tarp, document, and stop the leak.</li>
+                  <li><span className="font-bold text-foreground">3.</span> Call us at <a href="tel:6625499165" className="text-primary underline">662.549.9165</a>. We tarp, document, and stop the leak.</li>
                 </ol>
               </div>
             </div>
