@@ -1,49 +1,107 @@
 ## Goal
 
-Replace the `/reviews` page with an **About** page that mirrors the content from shurdensroofing.com/about, while keeping the existing site's layout/design language (PageHero + section blocks + CTA banner + Footer).
+Win the city + service queries Semrush shows you ranking #30–90 for (e.g. `roofing starkville ms`, `roofers columbus ms`, `roof repair eupora`) by giving each priority city its own dedicated landing page instead of routing all local intent to `/`.
 
-## Routing decision
+## Cities to launch (priority tier)
 
-The user said "replace this page /reviews and take this same page layout but replicate this page". I'll interpret that as:
-- Convert `/reviews` route to render the new About page content
-- Keep the URL `/reviews` unchanged (no rename requested)
-- Update `ReviewsPage.tsx` in place
-- Update Navigation/Footer link labels from "Reviews" to "About" so the menu reflects the new content
+These are the markets with the most search demand and the best chance of a quick win:
 
-If you'd prefer to keep "/reviews" labeled as Reviews and add About at `/about` instead, say the word and I'll adjust.
+1. Starkville
+2. Columbus
+3. West Point
+4. Tupelo
+5. Louisville
+6. Eupora
+7. Maben (HQ)
+8. Ackerman
 
-## Asset handling
+Eight pages. We can extend the same template to the remaining cities later.
 
-Copy the 5 uploaded images into `src/assets/team/`:
-- `josh-shurden.jpg` (Staff-4)
-- `garrett-shurden.jpg` (Staff-3)
-- `parker-shurden.jpg` (Staff-2)
-- `cameron-shurden.jpg` (Staff-1)
-- `office-exterior.jpg` (Hero-Office)
+## URL structure
 
-Note: The source page labels Staff-3 as Garrett and Staff-1 as Cameron — I'll match that mapping. Job titles for the sons are listed as "Job Title Here" on the source; I'll use **"Sales & Service"** as a sensible placeholder (and you can correct any name).
+`/roofing/<city-slug>-ms` — for example `/roofing/starkville-ms`, `/roofing/columbus-ms`. This keyword-rich pattern matches how people search and lets each page own its own SEO.
 
-## Page structure (replaces ReviewsPage.tsx)
+## Page template (one component, data-driven)
 
-1. **PageHero** — eyebrow "About Shurden's Roofing", title "A Mississippi Family Business Built on Honest Roofing Work", subtitle one-liner.
-2. **About the Business** — two-column: long-form copy (Josh's story, GAF Master Elite, family team) on the left, office exterior photo on the right.
-3. **Owner statement** — pull-quote style block from Josh ("I personally stand behind our services 100%…") with a "Call Now" CTA button (tel: link).
-4. **Why Work With Us** — 6-item bullet/icon grid (30 yrs experience, 100 yrs combined, family owned, GAF Master Elite, 25-yr warranty, 600-mile service radius). Reuse Lucide icons + the same card style used in About.tsx.
-5. **Meet Our Team** — 4-card grid (Josh as Owner; Garrett, Parker, Cameron as Sales & Service). Square portrait, name, title. Responsive: 1 col mobile / 2 col md / 4 col lg.
-6. **CtaBanner** — reuse existing component: "Want To Be Next In Line For A Brand New Roof?" → /contact.
+A single `CityPage` component reads from a `cities` data file and renders:
 
-Keep the existing Navigation, MobileCallBar, and Footer wrappers.
+1. **Hero** — "Roofing in {City}, MS" headline, distance from Maben HQ, phone CTA, free-inspection CTA.
+2. **Local trust strip** — years serving the city, GAF Master Elite badge, license/insurance, Google rating.
+3. **Services offered in {City}** — residential replacement, commercial systems, storm/insurance, repairs. Each links to `/services#<anchor>`.
+4. **Why {City} homes need a strong roof** — 2–3 short paragraphs grounded in local context (heat, hail, storm season, common housing stock). Hand-written per city, ~120 words, NOT spun copy.
+5. **Recent work near {City}** — pulls 3–4 photos from existing gallery filtered/tagged by region. Falls back to general gallery photos if none tagged.
+6. **Service area around {City}** — list of nearby smaller towns also served from this city's drive radius.
+7. **Local FAQ** — 3–4 questions per city (cost, insurance carriers common locally, permit notes if applicable).
+8. **CTA banner** — reuses existing `CtaBanner`.
+9. **Per-page SEO** — unique title, description, canonical, og tags, plus `LocalBusiness` JSON-LD with the city in `areaServed` and a `BreadcrumbList` schema.
 
-## Files
+## Data file
 
-- **Edit** `src/pages/ReviewsPage.tsx` — full rewrite to About content
-- **Edit** `src/components/site/Navigation.tsx` — rename "Reviews" link label to "About"
-- **Edit** `src/components/site/Footer.tsx` — rename "Real Reviews" quick link to "About Us"
-- **Copy** 5 user-uploaded images into `src/assets/team/`
-- Leave the existing `Reviews` homepage section component untouched (still used on `/`)
+`src/data/cities.ts` exports an array of city records:
+
+```text
+{
+  slug: "starkville-ms",
+  name: "Starkville",
+  state: "MS",
+  county: "Oktibbeha",
+  distanceFromHq: "20 miles east of Maben",
+  intro: "<hand-written 2 paragraph block>",
+  nearbyTowns: ["Sturgis","Mathiston","Bradley"],
+  faqs: [{q,a}, ...],
+  galleryTags: ["starkville"],
+}
+```
+
+Adding a new city later = adding one record. No new components.
+
+## Routing & internal linking
+
+- Add `<Route path="/roofing/:slug" element={<CityPage />} />` to `App.tsx`, above the catch-all.
+- Update `ServiceArea.tsx` so the existing city chips link to `/roofing/{slug}-ms` when a page exists. This builds internal-link equity into every page that already mentions the city.
+- Add a "Service areas" link in the footer pointing to a simple `/service-areas` index that lists every city page (also helps Google discover them).
+
+## Sitemap & llms.txt
+
+- Add each city URL to `public/sitemap.xml` (priority 0.8).
+- Add a `## Service Areas` section to `public/llms.txt` with one bullet per city.
+
+## Structured data per page
+
+Each city page emits two JSON-LD blocks:
+
+- `LocalBusiness` with `name`, `address` (HQ in Maben), `areaServed: { "@type": "City", "name": "<City>, MS" }`, `telephone`, `priceRange`.
+- `BreadcrumbList`: Home → Service Areas → {City}.
 
 ## Out of scope
 
-- No change to the `Reviews` component on the homepage
-- No new route added; URL stays `/reviews`
-- No backend changes
+- No CMS or database — copy lives in the data file, fully version-controlled.
+- No AI-generated city descriptions; you (or I, with your inputs) write each intro and FAQ block. Google penalizes obvious doorway pages with spun content.
+- No design system changes — reuses existing `PageHero`, `CtaBanner`, `ServicesFAQ` patterns.
+- No backend — pure static React routes.
+
+## Deliverables
+
+1. `src/data/cities.ts` with all 8 city records.
+2. `src/pages/CityPage.tsx` rendering the template above.
+3. `src/pages/ServiceAreasPage.tsx` index page.
+4. New routes in `src/App.tsx` (`/roofing/:slug`, `/service-areas`).
+5. Updated `ServiceArea.tsx` linking chips to city pages.
+6. Updated `Footer.tsx` with a Service Areas link.
+7. Updated `public/sitemap.xml` and `public/llms.txt`.
+
+## What I need from you to write good copy
+
+For each of the 8 cities, a quick line or two on:
+- Anything notable about the housing stock or roof types you see most there
+- Any specific neighborhoods, schools, or landmarks you'd want named
+- Whether you've had a memorable insurance/storm job there worth referencing
+
+If you'd rather I draft generic-but-local copy first and you edit, that's also fine — just say so and I'll proceed.
+
+## Realistic timeline for SEO impact
+
+These are new URLs Google has never seen. Expect:
+- Indexed within 1–2 weeks (faster with GSC connected and sitemap submitted).
+- First measurable ranking movement at 4–8 weeks.
+- Meaningful traffic at 3–6 months, assuming the copy is genuinely useful and you accumulate a few local citations alongside.
