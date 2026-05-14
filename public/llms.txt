@@ -6,6 +6,18 @@
 
 - [Home](/): Overview of Shurden's Roofing services, certifications, and service area in North Mississippi.
 - [Services](/services): Residential roofing, commercial systems (SBS, GAF Liberty, Mule-Hide TPO, metal), storm damage repair, and insurance claim help.
-- [Gallery](/gallery): Before/after photos of completed roofing projects across Starkville, Maben, West Point, Columbus, Louisville, Eupora, and Tupelo.
+- [Gallery](/gallery): Before/after photos of completed roofing projects across North Mississippi.
 - [About & Reviews](/reviews): Family team, company history, and customer reviews.
 - [Contact](/contact): Phone 662-549-9165, free roof inspection request form, and FAQ.
+- [Service Areas](/service-areas): Index of all North Mississippi cities served.
+
+## Service Areas
+
+- [Roofing in Starkville, MS](/roofing/starkville-ms): GAF Master Elite roofer for Starkville and Oktibbeha County.
+- [Roofing in Columbus, MS](/roofing/columbus-ms): Residential and commercial roofing for Columbus and Lowndes County.
+- [Roofing in West Point, MS](/roofing/west-point-ms): Roofing for West Point and Clay County, including ag and metal roofs.
+- [Roofing in Tupelo, MS](/roofing/tupelo-ms): Storm damage and insurance claim specialists for Tupelo and Lee County.
+- [Roofing in Louisville, MS](/roofing/louisville-ms): Residential and commercial roofing for Louisville and Winston County.
+- [Roofing in Eupora, MS](/roofing/eupora-ms): Local roofer for Eupora and Webster County.
+- [Roofing in Maben, MS](/roofing/maben-ms): Our home base — roofing for Maben since 2015.
+- [Roofing in Ackerman, MS](/roofing/ackerman-ms): Roofing for Ackerman and Choctaw County.
