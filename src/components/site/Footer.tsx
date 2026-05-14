@@ -6,9 +6,21 @@ import gafBadge from "@/assets/gaf-master-elite.webp";
 const quickLinks = [
   { label: "Home", to: "/" },
   { label: "Roofing Services", to: "/services" },
+  { label: "Service Areas", to: "/service-areas" },
   { label: "Project Gallery", to: "/gallery" },
   { label: "About Us", to: "/reviews" },
   { label: "Contact Us", to: "/contact" },
+];
+
+const serviceAreaLinks = [
+  { label: "Starkville, MS", slug: "starkville-ms" },
+  { label: "Columbus, MS", slug: "columbus-ms" },
+  { label: "West Point, MS", slug: "west-point-ms" },
+  { label: "Tupelo, MS", slug: "tupelo-ms" },
+  { label: "Louisville, MS", slug: "louisville-ms" },
+  { label: "Eupora, MS", slug: "eupora-ms" },
+  { label: "Maben, MS", slug: "maben-ms" },
+  { label: "Ackerman, MS", slug: "ackerman-ms" },
 ];
 
 const Footer = () => {
@@ -72,14 +84,18 @@ const Footer = () => {
               Service Areas
             </h3>
             <ul className="mt-3 space-y-1 font-body text-sm text-dark-foreground/75">
-              <li>Starkville, MS</li>
-              <li>Columbus, MS</li>
-              <li>West Point, MS</li>
-              <li>Maben, MS</li>
-              <li>Louisville, MS</li>
-              <li>Eupora, MS</li>
-              <li>Tupelo, MS</li>
-              <li>And surrounding North Mississippi</li>
+              {serviceAreaLinks.map((s) => (
+                <li key={s.slug}>
+                  <Link to={`/roofing/${s.slug}`} className="transition-colors hover:text-primary">
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/service-areas" className="transition-colors hover:text-primary">
+                  All North Mississippi areas
+                </Link>
+              </li>
             </ul>
           </div>
 
