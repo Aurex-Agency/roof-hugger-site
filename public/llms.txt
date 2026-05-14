@@ -1,0 +1,11 @@
+# Shurden's Roofing
+
+> Family-owned roofing contractor based in Maben, Mississippi. GAF Master Elite® certified. Residential roof replacements, commercial roofing systems, storm damage repair, and insurance claim support across North Mississippi since 2015.
+
+## Pages
+
+- [Home](/): Overview of Shurden's Roofing services, certifications, and service area in North Mississippi.
+- [Services](/services): Residential roofing, commercial systems (SBS, GAF Liberty, Mule-Hide TPO, metal), storm damage repair, and insurance claim help.
+- [Gallery](/gallery): Before/after photos of completed roofing projects across Starkville, Maben, West Point, Columbus, Louisville, Eupora, and Tupelo.
+- [About & Reviews](/reviews): Family team, company history, and customer reviews.
+- [Contact](/contact): Phone 662-549-9165, free roof inspection request form, and FAQ.
