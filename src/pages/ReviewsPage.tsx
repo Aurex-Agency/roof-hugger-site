@@ -1,4 +1,5 @@
 import { Phone, Award, Users, Home as HomeIcon, ShieldCheck, Calendar, MapPin } from "lucide-react";
+import SEO from "@/components/SEO";
 import Navigation from "@/components/site/Navigation";
 import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
@@ -29,6 +30,11 @@ const team = [
 const ReviewsPage = () => {
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
+      <SEO
+        title="About Shurden's Roofing | Family-Owned Roofer in Maben, MS"
+        description="Family-owned in Maben since 2015. Meet the Shurden family, GAF Master Elite® certified, serving North Mississippi homes and businesses."
+        path="/reviews"
+      />
       <Navigation />
       <main>
         <PageHero

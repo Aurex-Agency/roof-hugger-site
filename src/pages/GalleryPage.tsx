@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ReactCompareSlider, ReactCompareSliderImage } from "react-compare-slider";
 import { ChevronsLeftRight } from "lucide-react";
+import SEO from "@/components/SEO";
 import Navigation from "@/components/site/Navigation";
 import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
@@ -38,6 +39,11 @@ const GalleryPage = () => {
 
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
+      <SEO
+        title="Roofing Project Gallery | Shurden's Roofing North Mississippi"
+        description="Real before-and-after roof photos from Starkville, Maben, West Point, Columbus, Louisville, Eupora, and Tupelo. Residential and commercial projects."
+        path="/gallery"
+      />
       <Navigation />
       <main>
         <PageHero
