@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Wind, CloudHail, Wrench, ArrowRight, Building2, FileText, AlertCircle, CheckCircle2 } from "lucide-react";
+import SEO from "@/components/SEO";
 import Navigation from "@/components/site/Navigation";
 import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
