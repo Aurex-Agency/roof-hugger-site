@@ -36,7 +36,7 @@ const CityPage = () => {
   const path = `/roofing/${city.slug}`;
   const fullName = `${city.name}, ${city.state}`;
   const title = `Roofing in ${fullName} | Shurden's Roofing`;
-  const description = `GAF Master Elite® roofer serving ${fullName}. Residential replacements, commercial systems, storm damage, and insurance claim support. Free inspections — call 662-549-9165.`;
+  const description = `GAF Master Elite® roofer serving ${fullName}. Residential, commercial, storm damage, and insurance claim support. Call 662-549-9165.`;
 
   const localBusiness = {
     "@context": "https://schema.org",
