@@ -22,7 +22,7 @@ const ServiceAreasPage = () => {
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <SEO
         title="Service Areas | Shurden's Roofing North Mississippi"
-        description="Cities Shurden's Roofing serves across North Mississippi — Starkville, Columbus, West Point, Tupelo, Louisville, Eupora, Maben, Ackerman, and surrounding communities."
+        description="Roofing across North Mississippi. Starkville, Columbus, West Point, Tupelo, Louisville, Eupora, Maben, Ackerman, and nearby towns."
         path="/service-areas"
         jsonLd={breadcrumbs}
       />
