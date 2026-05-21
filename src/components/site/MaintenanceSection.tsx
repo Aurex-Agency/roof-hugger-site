@@ -26,7 +26,7 @@ const items = [
 
 const MaintenanceSection = () => {
   return (
-    <section id="maintenance" className="scroll-mt-24 bg-background py-20 md:py-28">
+    <section id="maintenance" className="scroll-mt-32 bg-background py-20 md:py-28">
       <div className="container">
         <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">
           Maintenance & Inspections
