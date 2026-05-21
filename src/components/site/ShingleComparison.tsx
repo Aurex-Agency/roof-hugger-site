@@ -73,15 +73,15 @@ const ShingleComparison = () => {
                 )}
               </div>
               <span className="font-body text-sm text-dark-foreground/80 md:text-base">
-                <span className="md:hidden font-bold uppercase text-dark-foreground/50 mr-2 text-xs">Best Fit:</span>
+                <span className="md:hidden font-bold uppercase text-dark-foreground/75 mr-2 text-xs">Best Fit:</span>
                 {s.fit}
               </span>
               <span className="font-body text-sm text-dark-foreground/80 md:text-base">
-                <span className="md:hidden font-bold uppercase text-dark-foreground/50 mr-2 text-xs">Warranty:</span>
+                <span className="md:hidden font-bold uppercase text-dark-foreground/75 mr-2 text-xs">Warranty:</span>
                 {s.coverage}
               </span>
               <span className="font-display text-sm uppercase tracking-wide text-primary">
-                <span className="md:hidden font-bold text-dark-foreground/50 mr-2 text-xs">Hail:</span>
+                <span className="md:hidden font-bold text-dark-foreground/75 mr-2 text-xs">Hail:</span>
                 {s.rating}
               </span>
             </div>

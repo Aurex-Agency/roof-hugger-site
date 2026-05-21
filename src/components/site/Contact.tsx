@@ -57,7 +57,7 @@ const Contact = () => {
           >
             <Phone className="h-7 w-7" /> 662-549-9165
           </a>
-          <p className="mt-4 flex items-center gap-2 font-body text-sm text-secondary-foreground/70">
+          <p className="mt-4 flex items-center gap-2 font-body text-sm text-secondary-foreground/85">
             <Clock className="h-4 w-4" /> Mon to Sat: 7am to 7pm · Emergency Roofing Service Available
           </p>
         </div>
@@ -80,7 +80,7 @@ const Contact = () => {
                 name="message"
                 rows={3}
                 required
-                className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 placeholder="Storm damage, leak, full replacement..."
               />
             </div>
@@ -92,7 +92,7 @@ const Contact = () => {
             >
               {submitting ? "Submitting..." : "Request My Free Inspection →"}
             </button>
-            <p className="text-center font-body text-[11px] text-dark-foreground/45">
+            <p className="text-center font-body text-[11px] text-dark-foreground/75">
               Protected by reCAPTCHA. We never share your info.
             </p>
           </div>
@@ -120,7 +120,7 @@ const Field = ({
       id={name}
       name={name}
       type={type}
-      className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+      className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
       {...rest}
     />
   </div>
