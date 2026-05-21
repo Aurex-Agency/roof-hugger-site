@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="container py-14 md:py-16">
         <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-8">
           <Link to="/" className="flex items-center" aria-label="Shurden's Roofing LLC">
-            <img src={logo} alt="Shurden's Roofing LLC" className="h-10 w-auto md:h-12" />
+            <img src={logo} alt="Shurden's Roofing LLC" width={200} height={48} className="h-10 w-auto md:h-12" />
           </Link>
           <div className="flex items-center gap-3">
             <a
