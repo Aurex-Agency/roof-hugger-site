@@ -99,6 +99,8 @@ const ServicesPage = () => {
               <img
                 src={residentialImg}
                 alt="Architectural shingle residential roof installed by Shurden's Roofing in Starkville MS"
+                width={1200}
+                height={900}
                 className="h-72 w-full object-cover sm:h-96 md:h-full md:min-h-[560px]"
                 loading="lazy"
               />
