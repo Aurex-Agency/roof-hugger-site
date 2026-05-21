@@ -36,6 +36,8 @@ const Contact = () => {
       <img
         src={contactBg}
         alt="Shurden's Roofing work truck parked in front of a Southern brick home"
+        width={1920}
+        height={1080}
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover opacity-15"
       />

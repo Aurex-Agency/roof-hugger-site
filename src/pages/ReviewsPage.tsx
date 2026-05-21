@@ -67,6 +67,8 @@ const ReviewsPage = () => {
               <img
                 src={office}
                 alt="The exterior of Shurden's Roofing office in Maben, MS"
+                width={1200}
+                height={800}
                 loading="lazy"
                 className="w-full rounded-lg object-cover shadow-[var(--shadow-card)]"
               />
@@ -137,6 +139,8 @@ const ReviewsPage = () => {
                   <img
                     src={m.img}
                     alt={`${m.name}, ${m.role} at Shurden's Roofing`}
+                    width={600}
+                    height={800}
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />

@@ -54,6 +54,8 @@ const Work = () => {
               <img
                 src={p.src}
                 alt={p.alt}
+                width={1200}
+                height={800}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

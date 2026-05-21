@@ -25,6 +25,8 @@ const GafSystem = ({ variant = "home" }: Props) => {
             <img
               src={systemImg}
               alt="Close-up of GAF underlayment, drip edge and starter shingles being installed on a North Mississippi roof"
+              width={800}
+              height={1000}
               loading="lazy"
               className="aspect-[4/5] w-full rounded-lg object-cover shadow-[var(--shadow-card)]"
             />

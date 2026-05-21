@@ -15,6 +15,8 @@ const PageHero = ({ eyebrow, title, subtitle, image = heroImg, imageAlt = "Shurd
       <img
         src={image}
         alt={imageAlt}
+        width={1920}
+        height={1080}
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
       <div className="absolute inset-0 -z-10 bg-hero-overlay" aria-hidden />
