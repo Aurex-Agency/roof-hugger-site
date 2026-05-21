@@ -26,7 +26,7 @@ const Field = ({
       id={name}
       name={name}
       type={type}
-      className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+      className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
       {...rest}
     />
   </div>
@@ -103,7 +103,7 @@ const ContactPage = () => {
                     <Phone className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/60">Phone</p>
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Phone</p>
                     <p className="font-display text-2xl text-primary transition-colors group-hover:text-accent md:text-3xl">662-549-9165</p>
                   </div>
                 </a>
@@ -113,7 +113,7 @@ const ContactPage = () => {
                     <Mail className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/60">Email</p>
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Email</p>
                     <p className="font-display text-lg transition-colors group-hover:text-primary md:text-xl">shurdensroofing@gmail.com</p>
                   </div>
                 </a>
@@ -123,7 +123,7 @@ const ContactPage = () => {
                     <Clock className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/60">Hours</p>
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Hours</p>
                     <p className="font-body text-base">Mon to Sat: 7am to 7pm</p>
                     <p className="font-body text-sm text-primary">Emergency Roofing Service Available</p>
                   </div>
@@ -134,9 +134,9 @@ const ContactPage = () => {
                     <MapPin className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/60">Headquarters</p>
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Headquarters</p>
                     <p className="font-body text-base">Maben, MS 39750</p>
-                    <p className="font-body text-sm text-secondary-foreground/70">Serving all of North Mississippi</p>
+                    <p className="font-body text-sm text-secondary-foreground/85">Serving all of North Mississippi</p>
                   </div>
                 </div>
               </div>
@@ -165,7 +165,7 @@ const ContactPage = () => {
                     name="message"
                     rows={4}
                     required
-                    className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                     placeholder="Storm damage, leak, full replacement..."
                   />
                 </div>
@@ -176,7 +176,7 @@ const ContactPage = () => {
                 >
                   {submitting ? "Submitting..." : "Request My Free Inspection →"}
                 </button>
-                <p className="text-center font-body text-[11px] text-dark-foreground/45">
+                <p className="text-center font-body text-[11px] text-dark-foreground/75">
                   Protected by reCAPTCHA. We never share your info.
                 </p>
               </div>
