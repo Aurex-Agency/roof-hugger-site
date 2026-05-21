@@ -95,7 +95,7 @@ const Navigation = () => {
             aria-label="GAF Master Elite Certified, opens in new tab"
             className="hidden xl:inline-flex"
           >
-            <img src={gafBadge} alt="GAF Master Elite Certified" className="h-9 w-auto" />
+            <img src={gafBadge} alt="GAF Master Elite Certified" width={160} height={160} className="h-9 w-auto" />
           </a>
           <a
             href={TEL}
