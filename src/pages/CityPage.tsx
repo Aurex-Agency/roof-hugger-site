@@ -165,6 +165,8 @@ const CityPage = () => {
                   key={i}
                   src={src}
                   alt={`Completed Shurden's Roofing project near ${fullName}`}
+                  width={1200}
+                  height={900}
                   className="aspect-[4/3] w-full rounded-md object-cover"
                   loading="lazy"
                 />
