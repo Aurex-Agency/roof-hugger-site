@@ -139,6 +139,8 @@ const ReviewsPage = () => {
                   <img
                     src={m.img}
                     alt={`${m.name}, ${m.role} at Shurden's Roofing`}
+                    width={600}
+                    height={800}
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />
