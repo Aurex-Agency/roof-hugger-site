@@ -22,6 +22,8 @@ const WarrantyBand = () => {
           <img
             src={gafBadge}
             alt="GAF Master Elite Certified Residential Roofing Contractor badge"
+            width={160}
+            height={160}
             className="h-32 w-auto md:h-40"
             loading="lazy"
           />
