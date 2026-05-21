@@ -93,7 +93,7 @@ const ServicesPage = () => {
         <ServiceNav />
 
         {/* Residential */}
-        <section id="residential" className="bg-background scroll-mt-24">
+        <section id="residential" className="bg-background scroll-mt-32">
           <div className="grid md:grid-cols-2">
             <div className="order-1">
               <img
@@ -130,7 +130,7 @@ const ServicesPage = () => {
         </section>
 
         {/* Commercial */}
-        <section id="commercial" className="bg-dark text-dark-foreground scroll-mt-24 py-20 md:py-28">
+        <section id="commercial" className="bg-dark text-dark-foreground scroll-mt-32 py-20 md:py-28">
           <div className="container">
             <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Commercial Roofing</p>
             <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight md:text-5xl">
@@ -191,7 +191,7 @@ const ServicesPage = () => {
         </section>
 
         {/* Repair */}
-        <section id="repair" className="bg-background py-20 md:py-28 scroll-mt-24">
+        <section id="repair" className="bg-background py-20 md:py-28 scroll-mt-32">
           <div className="container">
             <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Storm Damage & Roof Repair</p>
             <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight text-foreground md:text-[52px]">
@@ -237,7 +237,7 @@ const ServicesPage = () => {
         </section>
 
         {/* Insurance */}
-        <section id="insurance" className="scroll-mt-24 bg-secondary py-20 text-secondary-foreground md:py-24">
+        <section id="insurance" className="scroll-mt-32 bg-secondary py-20 text-secondary-foreground md:py-24">
           <div className="container">
             <div className="grid gap-10 md:grid-cols-[auto_1fr] md:items-center md:gap-14">
               <span className="grid h-20 w-20 place-items-center rounded-md bg-primary text-primary-foreground">
