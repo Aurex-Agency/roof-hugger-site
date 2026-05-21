@@ -67,6 +67,8 @@ const ReviewsPage = () => {
               <img
                 src={office}
                 alt="The exterior of Shurden's Roofing office in Maben, MS"
+                width={1200}
+                height={800}
                 loading="lazy"
                 className="w-full rounded-lg object-cover shadow-[var(--shadow-card)]"
               />
