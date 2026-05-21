@@ -123,6 +123,8 @@ const Footer = () => {
               <img
                 src={gafBadge}
                 alt="GAF Master Elite Certified"
+                width={160}
+                height={160}
                 className="h-14 w-auto shrink-0"
                 loading="lazy"
               />
