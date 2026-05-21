@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
   { id: "residential", label: "Residential" },
@@ -10,31 +10,41 @@ const links = [
 
 const ServiceNav = () => {
   const [active, setActive] = useState<string>("residential");
+  const suspendUntilRef = useRef<number>(0);
+  const tickingRef = useRef(false);
 
   useEffect(() => {
-    const handler = () => {
+    const compute = () => {
+      tickingRef.current = false;
+      if (performance.now() < suspendUntilRef.current) return;
       const y = window.scrollY + 160;
       let current = links[0].id;
       for (const l of links) {
         const el = document.getElementById(l.id);
         if (el && el.offsetTop <= y) current = l.id;
       }
-      setActive(current);
+      setActive((prev) => (prev === current ? prev : current));
     };
-    handler();
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
+    const onScroll = () => {
+      if (tickingRef.current) return;
+      tickingRef.current = true;
+      requestAnimationFrame(compute);
+    };
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const el = document.getElementById(id);
     if (!el) return;
-    const navEl = document.querySelector('[data-service-nav]') as HTMLElement | null;
-    const headerEl = document.querySelector('header') as HTMLElement | null;
-    const offset = (navEl?.offsetHeight ?? 0) + (headerEl?.offsetHeight ?? 0) + 8;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: "smooth" });
+    // Lock the active chip and suspend the observer for the duration of the
+    // smooth scroll so the highlight doesn't flicker through intermediate sections.
+    suspendUntilRef.current = performance.now() + 800;
+    setActive(id);
+    // Let the browser handle sticky offset via the section's scroll-margin-top.
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
     history.replaceState(null, "", `#${id}`);
   };
 
