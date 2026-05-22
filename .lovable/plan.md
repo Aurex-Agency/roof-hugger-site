@@ -1,23 +1,10 @@
-## Content updates from client feedback
+## Fix before/after slider on mobile
 
-Update copy across the homepage to reflect 17+ years in business and 4,000+ roofs.
+The `ReactCompareSlider` in `src/components/site/Work.tsx` is unresponsive to touch because dragging anywhere on the image competes with vertical page scroll, and the custom handle markup doesn't reserve a clear hit target.
 
-### Stats section (`src/components/site/Stats.tsx`)
-- "10+ Years Roofing North Mississippi" → "17+ Years Roofing North Mississippi"
-- "500+ Roofs Installed & Repaired" → "4000+ Roofs Installed & Repaired"
+### Changes (`src/components/site/Work.tsx`)
+1. Add `onlyHandleDraggable` to `ReactCompareSlider` so the slider only responds to touches on the handle itself. This lets users scroll the page by swiping the image, and ensures the handle reliably drags on touch.
+2. Wrap the handle's circular button with `touch-action: none` (via `style={{ touchAction: 'none' }}`) and give the handle wrapper a slightly wider invisible hit area so it's easy to grab with a finger on small screens.
+3. Keep the existing visual design (vertical bar + pulsing circular chevron button) unchanged.
 
-### About section (`src/components/site/About.tsx`)
-- Heading: "A Mississippi Family Business Built on Honest Roofing Work." → "A Mississippi Family Business Built on Honest Roofing Work Since 2010."
-- Value card 2 title: "Factory Trained and Background Checked Crews" → "Factory Trained with Real World Experience"
-  - Body: replace "Real Shurden's Roofing crews" → "Real Shurden's Roofing crews" (remove "one"-style phrasing if present); update body to reference "local crews" and drop the background-check line.
-- Value card 3 title: "Voted Starkville's Best Roofer with 500+ Roofs Installed" → "Voted Starkville's Best Roofer for 9+ Years with 4000+ Roofs Installed"
-  - Body: update "Five hundred Mississippi roofs" → "Four thousand Mississippi roofs"
-- Intro paragraph: "Since 2015" → "Since 2010" (to stay consistent with new heading)
-
-### Other "since 2015" / "500+" references to align
-- `src/components/site/Hero.tsx` floating badge: "Serving North Mississippi Since 2015" → "Serving North Mississippi Since 2010"
-- `src/components/site/TrustBar.tsx`: "Serving North Mississippi Since 2015" → "Serving North Mississippi Since 2010"
-- `src/components/site/About.tsx` intro: "Since 2015" → "Since 2010"
-
-### Out of scope
-- SEO meta descriptions, JSON-LD, `public/llms.txt`, city pages, and other "since 2015" / "500 roofs" mentions across the site — confirm if you'd like those updated too in a follow-up.
+No other files need changes.

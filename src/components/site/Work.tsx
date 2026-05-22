@@ -32,10 +32,11 @@ const Work = () => {
           <ReactCompareSlider
             itemOne={<ReactCompareSliderImage src={beforeImg} alt="Old worn streaky roof before Shurden's Roofing replacement in Starkville MS" />}
             itemTwo={<ReactCompareSliderImage src={afterImg} alt="New charcoal architectural shingle roof after Shurden's Roofing installation in Starkville MS" />}
+            onlyHandleDraggable
             handle={
-              <div className="flex h-full items-center justify-center">
+              <div className="flex h-full items-center justify-center" style={{ touchAction: "none" }}>
                 <div className="h-full w-[3px] bg-primary" />
-                <div className="absolute grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground compare-handle-pulse">
+                <div className="absolute grid h-14 w-14 cursor-grab place-items-center rounded-full bg-primary text-primary-foreground compare-handle-pulse active:cursor-grabbing">
                   <ChevronsLeftRight className="h-6 w-6" />
                 </div>
               </div>
