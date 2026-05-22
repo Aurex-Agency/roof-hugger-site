@@ -93,13 +93,12 @@
     <script src="https://www.videoask.com/embed/embed.js"></script>
 
     <style>
-      /* Lift the VideoAsk widget above the full-width CALL NOW bar on mobile */
+      /* Hide the VideoAsk widget on mobile */
       @media (max-width: 768px) {
         iframe[src*="videoask.com"],
         div[class*="videoask"],
         #videoask-embed__backdrop {
-          bottom: 80px !important;
-          right: 12px !important;
+          display: none !important;
         }
       }
     </style>
