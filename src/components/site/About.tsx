@@ -4,8 +4,8 @@ import { Home, Users, Award } from "lucide-react";
 
 const values = [
   { icon: Home, title: "Locally Owned and Operated in Maben, MS", body: "Born and raised in Mississippi. Your neighbors, not a national chain. We roof homes and businesses all across North Mississippi from our Maben headquarters." },
-  { icon: Users, title: "Factory Trained and Background Checked Crews", body: "Real Shurden's Roofing crews on every job. No subcontractors, no rotating faces, no surprises on your roof." },
-  { icon: Award, title: "Voted Starkville's Best Roofer with 500+ Roofs Installed", body: "Five hundred Mississippi roofs and counting, with a 5-star track record across Maben, Starkville, West Point, Columbus, and beyond." },
+  { icon: Users, title: "Factory Trained with Real World Experience", body: "Real Shurden's Roofing local crews on every job. No subcontractors, no rotating faces, no surprises on your roof." },
+  { icon: Award, title: "Voted Starkville's Best Roofer for 9+ Years with 4000+ Roofs Installed", body: "Four thousand Mississippi roofs and counting, with a 5-star track record across Maben, Starkville, West Point, Columbus, and beyond." },
 ];
 
 const About = () => {

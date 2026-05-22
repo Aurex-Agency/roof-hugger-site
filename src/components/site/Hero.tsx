@@ -50,7 +50,7 @@ const Hero = () => {
       {/* Floating trust badges */}
       <div className="pointer-events-none absolute bottom-6 left-4 z-10 flex flex-col items-start gap-2 md:bottom-8 md:left-8">
         <div className="rounded-full border-l-4 border-primary bg-dark/85 px-4 py-2 font-body text-xs font-bold uppercase tracking-wider text-dark-foreground backdrop-blur md:text-sm">
-          Serving North Mississippi Since 2015
+          Serving North Mississippi Since 2010
         </div>
         <div className="flex items-center gap-2 rounded-full border-l-4 border-primary bg-dark/85 py-1.5 pl-3 pr-4 font-body text-xs font-bold uppercase tracking-wider text-dark-foreground backdrop-blur md:text-sm">
           <img src={gafBadge} alt="" className="h-5 w-5 md:h-6 md:w-6" aria-hidden />

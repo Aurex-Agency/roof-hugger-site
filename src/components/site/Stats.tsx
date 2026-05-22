@@ -9,8 +9,8 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  { value: 10, plus: true, unit: "Years", label: "Roofing North Mississippi" },
-  { value: 500, plus: true, unit: "Roofs", label: "Installed & Repaired" },
+  { value: 17, plus: true, unit: "Years", label: "Roofing North Mississippi" },
+  { value: 4000, plus: true, unit: "Roofs", label: "Installed & Repaired" },
   { value: 40, plus: true, unit: "Cities", label: "Served Across North Mississippi" },
   { value: 5, symbol: "★", unit: "Stars", label: "Google Rating From Local Customers" },
 ];

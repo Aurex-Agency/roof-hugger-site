@@ -2,7 +2,7 @@ const items = [
   "GAF Master Elite® Contractor",
   "GAF President's Club Member",
   "Gold Pledge & Silver Pledge Warranty Options",
-  "Serving North Mississippi Since 2015",
+  "Serving North Mississippi Since 2010",
 ];
 
 const TrustBar = () => {
