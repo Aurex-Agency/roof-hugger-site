@@ -1,8 +1,7 @@
-Update the mobile VideoAsk override so it targets the actual fixed widget element rendered in the DOM: a fixed `<button>` at `bottom: 24px; right: 24px; z-index: 9999`, not only iframe/div selectors.
+I’ll apply your provided VideoAsk snippet exactly where the widget is currently loaded.
 
 Implementation plan:
-1. Edit `src/index.css` only.
-2. Replace the current mobile selector with a stronger mobile-specific rule that matches the VideoAsk fixed button by accessible text/icon structure and fixed positioning.
-3. Set the mobile bottom offset to `96px !important` so the widget sits fully above the Call Now bar with breathing room.
-4. Keep desktop unchanged.
-5. Re-check the 390x844 mobile preview to confirm the widget no longer overlaps the bottom bar.
+1. Keep the existing `window.VIDEOASK_EMBED_CONFIG` and embed script in `index.html` because they already match your provided widget config.
+2. Add your provided mobile `<style>` block directly after the VideoAsk embed script in `index.html`.
+3. Remove the broader custom VideoAsk override from `src/index.css` so the site uses the CSS from your provided snippet instead.
+4. Re-check the 390x844 mobile preview to confirm the widget clears the bottom Call Now bar.

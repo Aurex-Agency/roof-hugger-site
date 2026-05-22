@@ -90,6 +90,17 @@
       }
     </script>
     <script src="https://www.videoask.com/embed/embed.js"></script>
+
+    <style>
+      /* Push the VideoAsk widget up on mobile so it clears the bottom call button */
+      @media (max-width: 768px) {
+        iframe[src*="videoask.com"],
+        #videoask-embed__backdrop,
+        div[class*="videoask"] {
+          bottom: 90px !important;
+        }
+      }
+    </style>
   </body>
 </html>
 
