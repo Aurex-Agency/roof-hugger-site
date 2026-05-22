@@ -1,29 +1,25 @@
-# Fix: Services page nav scroll glitch on mobile
+## Add VideoAsk widget to the site
 
-## Problem
-On `/services`, tapping a chip in `ServiceNav` (Residential, Commercial, etc.) then scrolling causes a visible jump/lag on mobile. Two root causes:
+Embed the VideoAsk "Get help now!" widget in the bottom-right corner across every page, with adjustments so it doesn't collide with existing UI on mobile.
 
-1. **Scroll listener fights the smooth scroll.** `ServiceNav` runs a non-throttled `scroll` handler that recalculates `active` on every frame during the programmatic `window.scrollTo({ behavior: "smooth" })`. On mobile this rerenders the sticky bar mid-animation, causing the visible jitter.
-2. **Sticky offset is measured at click time, then changes.** The sticky `ServiceNav` sits under the sticky `<header>`. When the browser starts smooth-scrolling, address-bar collapse on mobile changes viewport height and the header/nav heights momentarily, so the final scroll position is off by a few px and the page "settles" with a small jump.
+### Implementation
 
-`ScrollToTop` is not involved (only fires on pathname/hash change from router, and we use `history.replaceState`), so the fix stays inside `ServiceNav`.
+1. **Inject the VideoAsk scripts globally** by adding them to `index.html` just before `</body>`:
+   - An inline `<script>` that sets `window.VIDEOASK_EMBED_CONFIG` with the config you pasted (widget kind, URL, `VideoThumbnailWindowTall`, "Get help now!", `#FA6B05`, `bottom-right`, dismissible).
+   - The `<script src="https://www.videoask.com/embed/embed.js">` loader.
+   
+   Placing it in `index.html` (not a React component) ensures it loads once for the whole SPA and doesn't get torn down on route changes.
 
-## Changes (frontend only)
+2. **Prevent mobile overlap with the existing "Call Now" bar.** The site already renders `MobileCallBar` fixed to the bottom on screens `<md`. The VideoAsk widget in `bottom-right` would sit on top of it. Add a small CSS rule in `src/index.css` that lifts the VideoAsk iframe above the call bar on mobile:
+   ```css
+   @media (max-width: 767px) {
+     iframe[src*="videoask.com"] { bottom: 72px !important; }
+   }
+   ```
+   This keeps the widget clean on phones while leaving desktop placement untouched.
 
-**File: `src/components/site/ServiceNav.tsx`**
+3. **No other layout changes.** The widget is self-contained (renders its own fixed-position iframe) and works on any viewport without extra responsive code.
 
-- Throttle the scroll listener with `requestAnimationFrame` and only `setActive` when the value actually changes (prevents re-render storm during smooth scroll).
-- During programmatic navigation, suspend the active-section observer for ~600ms so the chip highlight doesn't flicker between sections while animating past them.
-- Compute the scroll target using `scrollIntoView` with a CSS `scroll-margin-top` on each section instead of manual offset math. This makes the browser handle the sticky-header offset natively and avoids the address-bar-collapse miscalculation. Set `scroll-margin-top` inline via a small effect that reads header+nav height once on mount and on resize, or simpler: apply a Tailwind `scroll-mt-[...]` utility on the section anchors.
-- Keep `history.replaceState` so the URL hash updates without triggering `ScrollToTop`.
-
-**File: `src/pages/ServicesPage.tsx`** (only if sections need `scroll-mt-*`)
-
-- Add `scroll-mt-32 md:scroll-mt-36` (or equivalent matching header+nav height) to each section with an `id` that `ServiceNav` targets: `residential`, `commercial`, `repair`, `insurance`, `maintenance`. No layout changes.
-
-## Out of scope
-- No design changes, no new sections, no routing changes.
-- No changes to `ScrollToTop` or `Navigation`.
-
-## Validation
-- On mobile viewport (430px), tap each chip in `ServiceNav` and confirm: smooth scroll lands exactly at the section top under the sticky bars, no late "settle" jump, chip highlight updates once at the end rather than flickering through intermediate sections.
+### Notes
+- Requires the published site to be served over HTTPS so the widget opens inline (Lovable preview + published domain both are).
+- No new dependencies; pure HTML/CSS additions.
