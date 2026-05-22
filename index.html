@@ -75,12 +75,13 @@
     <div id="root"></div>
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- VideoAsk Widget -->
     <script>
       window.VIDEOASK_EMBED_CONFIG = {
         "kind": "widget",
         "url": "https://www.videoask.com/fbc238zal",
         "options": {
-          "widgetType": "VideoThumbnailWindowTall",
+          "widgetType": "VideoThumbnailSmall",
           "text": "Get help now!",
           "backgroundColor": "#FA6B05",
           "position": "bottom-right",
@@ -92,12 +93,13 @@
     <script src="https://www.videoask.com/embed/embed.js"></script>
 
     <style>
-      /* Push the VideoAsk widget up on mobile so it clears the bottom call button */
+      /* Lift the VideoAsk widget above the full-width CALL NOW bar on mobile */
       @media (max-width: 768px) {
         iframe[src*="videoask.com"],
-        #videoask-embed__backdrop,
-        div[class*="videoask"] {
-          bottom: 90px !important;
+        div[class*="videoask"],
+        #videoask-embed__backdrop {
+          bottom: 80px !important;
+          right: 12px !important;
         }
       }
     </style>
