@@ -1,10 +1,11 @@
-## Fix before/after slider on mobile
+Plan to fix the home page before/after slider:
 
-The `ReactCompareSlider` in `src/components/site/Work.tsx` is unresponsive to touch because dragging anywhere on the image competes with vertical page scroll, and the custom handle markup doesn't reserve a clear hit target.
+1. Update the home page slider in `src/components/site/Work.tsx` so the visible handle and its touch target actually receive pointer events.
+2. Keep `onlyHandleDraggable` enabled to avoid mobile scroll conflicts, but override the custom handle wrapper from the library’s default `pointer-events: none` behavior.
+3. Add a larger invisible hit area around the handle with `touch-action: none`, `pointer-events: auto`, and cursor states so it works reliably on mobile and desktop.
+4. Leave the existing visual design unchanged: same images, divider line, primary-colored circular handle, and pulse effect.
 
-### Changes (`src/components/site/Work.tsx`)
-1. Add `onlyHandleDraggable` to `ReactCompareSlider` so the slider only responds to touches on the handle itself. This lets users scroll the page by swiping the image, and ensures the handle reliably drags on touch.
-2. Wrap the handle's circular button with `touch-action: none` (via `style={{ touchAction: 'none' }}`) and give the handle wrapper a slightly wider invisible hit area so it's easy to grab with a finger on small screens.
-3. Keep the existing visual design (vertical bar + pulsing circular chevron button) unchanged.
-
-No other files need changes.
+Technical details:
+- The current custom handle is rendered inside the slider’s handle root, which the library styles with `pointer-events: none`.
+- With `onlyHandleDraggable`, pointer events are attached to that handle root; the custom child needs an explicit pointer-enabled hit target so touch/drag events can start properly.
+- I will only change the home page slider component unless the gallery page is also reported broken.
