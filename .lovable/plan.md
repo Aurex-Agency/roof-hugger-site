@@ -1,7 +1,23 @@
-I’ll apply your provided VideoAsk snippet exactly where the widget is currently loaded.
+## Content updates from client feedback
 
-Implementation plan:
-1. Keep the existing `window.VIDEOASK_EMBED_CONFIG` and embed script in `index.html` because they already match your provided widget config.
-2. Add your provided mobile `<style>` block directly after the VideoAsk embed script in `index.html`.
-3. Remove the broader custom VideoAsk override from `src/index.css` so the site uses the CSS from your provided snippet instead.
-4. Re-check the 390x844 mobile preview to confirm the widget clears the bottom Call Now bar.
+Update copy across the homepage to reflect 17+ years in business and 4,000+ roofs.
+
+### Stats section (`src/components/site/Stats.tsx`)
+- "10+ Years Roofing North Mississippi" → "17+ Years Roofing North Mississippi"
+- "500+ Roofs Installed & Repaired" → "4000+ Roofs Installed & Repaired"
+
+### About section (`src/components/site/About.tsx`)
+- Heading: "A Mississippi Family Business Built on Honest Roofing Work." → "A Mississippi Family Business Built on Honest Roofing Work Since 2010."
+- Value card 2 title: "Factory Trained and Background Checked Crews" → "Factory Trained with Real World Experience"
+  - Body: replace "Real Shurden's Roofing crews" → "Real Shurden's Roofing crews" (remove "one"-style phrasing if present); update body to reference "local crews" and drop the background-check line.
+- Value card 3 title: "Voted Starkville's Best Roofer with 500+ Roofs Installed" → "Voted Starkville's Best Roofer for 9+ Years with 4000+ Roofs Installed"
+  - Body: update "Five hundred Mississippi roofs" → "Four thousand Mississippi roofs"
+- Intro paragraph: "Since 2015" → "Since 2010" (to stay consistent with new heading)
+
+### Other "since 2015" / "500+" references to align
+- `src/components/site/Hero.tsx` floating badge: "Serving North Mississippi Since 2015" → "Serving North Mississippi Since 2010"
+- `src/components/site/TrustBar.tsx`: "Serving North Mississippi Since 2015" → "Serving North Mississippi Since 2010"
+- `src/components/site/About.tsx` intro: "Since 2015" → "Since 2010"
+
+### Out of scope
+- SEO meta descriptions, JSON-LD, `public/llms.txt`, city pages, and other "since 2015" / "500 roofs" mentions across the site — confirm if you'd like those updated too in a follow-up.

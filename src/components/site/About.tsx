@@ -4,8 +4,8 @@ import { Home, Users, Award } from "lucide-react";
 
 const values = [
   { icon: Home, title: "Locally Owned and Operated in Maben, MS", body: "Born and raised in Mississippi. Your neighbors, not a national chain. We roof homes and businesses all across North Mississippi from our Maben headquarters." },
-  { icon: Users, title: "Factory Trained and Background Checked Crews", body: "Real Shurden's Roofing crews on every job. No subcontractors, no rotating faces, no surprises on your roof." },
-  { icon: Award, title: "Voted Starkville's Best Roofer with 500+ Roofs Installed", body: "Five hundred Mississippi roofs and counting, with a 5-star track record across Maben, Starkville, West Point, Columbus, and beyond." },
+  { icon: Users, title: "Factory Trained with Real World Experience", body: "Real Shurden's Roofing local crews on every job. No subcontractors, no rotating faces, no surprises on your roof." },
+  { icon: Award, title: "Voted Starkville's Best Roofer for 9+ Years with 4000+ Roofs Installed", body: "Four thousand Mississippi roofs and counting, with a 5-star track record across Maben, Starkville, West Point, Columbus, and beyond." },
 ];
 
 const About = () => {
@@ -27,10 +27,10 @@ const About = () => {
         <div className="order-2 px-6 py-16 md:order-1 md:px-12 md:py-24 lg:px-20">
           <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">A Mississippi Family Roofing Business</p>
           <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
-            A Mississippi Family Business Built on Honest Roofing Work.
+            A Mississippi Family Business Built on Honest Roofing Work Since 2010.
           </h2>
           <p className="mt-6 font-body text-base text-dark-foreground/80 md:text-lg">
-            Since 2015, Shurden's Roofing has protected homes and businesses across North Mississippi with roofing craftsmanship that lasts. Headquartered in Maben, we travel across North Mississippi to roof for our neighbors, and we are a locally owned, GAF Master Elite® certified roofing contractor, a designation held by less than 2% of roofers in North America.
+            Since 2010, Shurden's Roofing has protected homes and businesses across North Mississippi with roofing craftsmanship that lasts. Headquartered in Maben, we travel across North Mississippi to roof for our neighbors, and we are a locally owned, GAF Master Elite® certified roofing contractor, a designation held by less than 2% of roofers in North America.
           </p>
           <p className="mt-4 font-body text-base text-dark-foreground/80 md:text-lg">
             From the first roof inspection to the final shingle, every roofing job is handled by our own crew with the care we would give our own homes. Whether you need a small repair in Starkville, a full replacement in West Point, a commercial roof in Columbus, or storm work out in Louisville, Eupora, or Tupelo, you get the same local roofer, the same crew, and the same standard of work.
