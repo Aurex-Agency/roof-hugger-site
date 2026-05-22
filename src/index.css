@@ -133,12 +133,17 @@
 
 /* Lift VideoAsk widget above mobile call bar */
 @media (max-width: 767px) {
+  body > button,
+  body > div[style*="position: fixed"],
+  body > div[style*="position:fixed"],
+  body > iframe,
   iframe[src*="videoask.com"],
   iframe[id^="videoask"],
   div[id^="videoask"],
+  button[class*="bottom-6"][class*="right-6"],
   [class*="videoask"][style*="position: fixed"],
   [class*="videoask"][style*="position:fixed"] {
-    bottom: 88px !important;
+    bottom: 96px !important;
   }
 }
 
