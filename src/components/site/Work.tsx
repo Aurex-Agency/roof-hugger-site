@@ -34,10 +34,18 @@ const Work = () => {
             itemTwo={<ReactCompareSliderImage src={afterImg} alt="New charcoal architectural shingle roof after Shurden's Roofing installation in Starkville MS" />}
             onlyHandleDraggable
             handle={
-              <div className="flex h-full items-center justify-center" style={{ touchAction: "none" }}>
-                <div className="h-full w-[3px] bg-primary" />
-                <div className="absolute grid h-14 w-14 cursor-grab place-items-center rounded-full bg-primary text-primary-foreground compare-handle-pulse active:cursor-grabbing">
-                  <ChevronsLeftRight className="h-6 w-6" />
+              <div className="relative flex h-full items-center justify-center">
+                <div
+                  className="h-full w-[3px] bg-primary"
+                  style={{ pointerEvents: "auto", touchAction: "none" }}
+                />
+                <div
+                  className="absolute grid h-16 w-16 cursor-grab place-items-center rounded-full active:cursor-grabbing"
+                  style={{ pointerEvents: "auto", touchAction: "none" }}
+                >
+                  <div className="grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground compare-handle-pulse">
+                    <ChevronsLeftRight className="h-6 w-6" />
+                  </div>
                 </div>
               </div>
             }
