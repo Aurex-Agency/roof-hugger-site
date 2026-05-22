@@ -133,9 +133,10 @@
 
 /* Lift VideoAsk widget above mobile call bar */
 @media (max-width: 767px) {
-  body > button:has(img[src*="VideoAsk"]),
-  body > button:has(source[src*="icon-ani-cut-short"]),
-  body > button[style*="position: fixed"]:has(img[src*="VideoAsk"]),
+  body > button,
+  body > div[style*="position: fixed"],
+  body > div[style*="position:fixed"],
+  body > iframe,
   iframe[src*="videoask.com"],
   iframe[id^="videoask"],
   div[id^="videoask"],
