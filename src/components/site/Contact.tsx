@@ -10,9 +10,15 @@ const Contact = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const phone = String(data.get("phone") ?? "");
-    const zip = String(data.get("zip") ?? "");
+    const name = String(data.get("name") ?? "").trim().slice(0, 100);
+    const phone = String(data.get("phone") ?? "").trim();
+    const zip = String(data.get("zip") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim().slice(0, 2000);
 
+    if (!name) {
+      toast({ title: "Name required", description: "Please enter your full name.", variant: "destructive" });
+      return;
+    }
     if (!/^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(phone)) {
       toast({ title: "Invalid phone number", description: "Please enter a 10-digit US phone number.", variant: "destructive" });
       return;
@@ -21,14 +27,20 @@ const Contact = () => {
       toast({ title: "Invalid ZIP code", description: "ZIP must be 5 digits.", variant: "destructive" });
       return;
     }
+    if (!message) {
+      toast({ title: "Message required", description: "Please tell us briefly what's going on with your roof.", variant: "destructive" });
+      return;
+    }
 
     setSubmitting(true);
-    // Placeholder: invisible reCAPTCHA v3 + backend submission to be wired up.
+    const subject = `Free Roof Inspection Request — ${name}`;
+    const body = `Name: ${name}\nPhone: ${phone}\nZip: ${zip}\n\nWhat's going on with the roof:\n${message}`;
+    const mailto = `mailto:shurdensroofing@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
     setTimeout(() => {
       setSubmitting(false);
-      form.reset();
-      toast({ title: "Request received", description: "We'll call you back within the hour during business hours." });
-    }, 800);
+      toast({ title: "Opening your email app", description: "Send the prefilled email to finish your request, or call 662-549-9165." });
+    }, 400);
   };
 
   return (
@@ -93,7 +105,7 @@ const Contact = () => {
               {submitting ? "Submitting..." : "Request My Free Inspection →"}
             </button>
             <p className="text-center font-body text-[11px] text-dark-foreground/75">
-              Protected by reCAPTCHA. We never share your info.
+              Submitting opens your email app with your request prefilled. We never share your info.
             </p>
           </div>
         </form>
