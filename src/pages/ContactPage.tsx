@@ -32,8 +32,23 @@ const Field = ({
   </div>
 );
 
+const SERVICE_OPTIONS = [
+  "Roof Replacement",
+  "Roof Repair",
+  "Storm Damage",
+  "Inspection",
+  "Gutter",
+  "Other",
+];
+
 const ContactPage = () => {
   const [submitting, setSubmitting] = useState(false);
+  const [services, setServices] = useState<string[]>([]);
+  const [optIn, setOptIn] = useState(false);
+
+  const toggleService = (s: string) => {
+    setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
+  };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +56,6 @@ const ContactPage = () => {
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim().slice(0, 100);
     const phone = String(data.get("phone") ?? "").trim();
-    const zip = String(data.get("zip") ?? "").trim();
     const message = String(data.get("message") ?? "").trim().slice(0, 2000);
 
     if (!name) {
@@ -52,18 +66,22 @@ const ContactPage = () => {
       toast({ title: "Invalid phone number", description: "Please enter a 10-digit US phone number.", variant: "destructive" });
       return;
     }
-    if (!/^\d{5}$/.test(zip)) {
-      toast({ title: "Invalid ZIP code", description: "ZIP must be 5 digits.", variant: "destructive" });
+    if (services.length === 0) {
+      toast({ title: "Select a service", description: "Pick at least one service you're interested in.", variant: "destructive" });
       return;
     }
     if (!message) {
       toast({ title: "Message required", description: "Please tell us briefly what's going on with your roof.", variant: "destructive" });
       return;
     }
+    if (!optIn) {
+      toast({ title: "Opt-in required", description: "Please confirm we can contact you about your request.", variant: "destructive" });
+      return;
+    }
 
     setSubmitting(true);
     const subject = `Free Roof Inspection Request — ${name}`;
-    const body = `Name: ${name}\nPhone: ${phone}\nZip: ${zip}\n\nWhat's going on with the roof:\n${message}`;
+    const body = `Name: ${name}\nPhone: ${phone}\nService Interest: ${services.join(", ")}\nOpt-in to contact: Yes\n\nWhat's going on with the roof:\n${message}`;
     const mailto = `mailto:shurdensroofing@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
     setTimeout(() => {
