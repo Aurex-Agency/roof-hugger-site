@@ -208,9 +208,11 @@ const ContactPage = () => {
                     {SERVICE_OPTIONS.map((s) => (
                       <label key={s} className="flex cursor-pointer items-center gap-2 rounded-md border border-white/10 bg-secondary/40 px-3 py-2 font-body text-sm text-dark-foreground hover:border-primary/50">
                         <input
-                          type="checkbox"
-                          checked={services.includes(s)}
-                          onChange={() => toggleService(s)}
+                          type="radio"
+                          name="service"
+                          value={s}
+                          checked={service === s}
+                          onChange={() => setService(s)}
                           className="h-4 w-4 accent-primary"
                         />
                         {s}
