@@ -46,7 +46,7 @@ const ContactPage = () => {
   const [service, setService] = useState<string>("");
   const [optIn, setOptIn] = useState(false);
 
-  };
+
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -64,8 +64,8 @@ const ContactPage = () => {
       toast({ title: "Invalid phone number", description: "Please enter a 10-digit US phone number.", variant: "destructive" });
       return;
     }
-    if (services.length === 0) {
-      toast({ title: "Select a service", description: "Pick at least one service you're interested in.", variant: "destructive" });
+    if (!service) {
+      toast({ title: "Select a service", description: "Pick the service you're interested in.", variant: "destructive" });
       return;
     }
     if (!message) {
@@ -85,7 +85,7 @@ const ContactPage = () => {
         body: JSON.stringify({
           full_name: name,
           phone,
-          service_interest: services,
+          service_interest: service,
           message,
           opt_in: true,
           source: "shurdensroofing.com — Contact Page",
@@ -94,7 +94,7 @@ const ContactPage = () => {
       });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
       form.reset();
-      setServices([]);
+      setService("");
       setOptIn(false);
       toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-549-9165." });
     } catch (err) {
