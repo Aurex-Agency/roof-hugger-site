@@ -14,11 +14,11 @@ const SERVICE_OPTIONS = [
 
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
-  const [services, setServices] = useState<string[]>([]);
+  const [service, setService] = useState<string>("");
   const [optIn, setOptIn] = useState(false);
 
-  const toggleService = (s: string) => {
-    setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
+  const _unused = (s: string) => {
+    void s;
   };
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
