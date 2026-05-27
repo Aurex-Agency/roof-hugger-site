@@ -50,7 +50,7 @@ const ContactPage = () => {
     setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
   };
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -80,14 +80,30 @@ const ContactPage = () => {
     }
 
     setSubmitting(true);
-    const subject = `Free Roof Inspection Request — ${name}`;
-    const body = `Name: ${name}\nPhone: ${phone}\nService Interest: ${services.join(", ")}\nOpt-in to contact: Yes\n\nWhat's going on with the roof:\n${message}`;
-    const mailto = `mailto:shurdensroofing@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setTimeout(() => {
+    try {
+      const res = await fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/4c2e69fd-37d3-4a83-ad28-e07bcec714b9", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          full_name: name,
+          phone,
+          service_interest: services,
+          message,
+          opt_in: true,
+          source: "shurdensroofing.com — Contact Page",
+          submitted_at: new Date().toISOString(),
+        }),
+      });
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      form.reset();
+      setServices([]);
+      setOptIn(false);
+      toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-549-9165." });
+    } catch (err) {
+      toast({ title: "Could not send request", description: "Please try again or call 662-549-9165.", variant: "destructive" });
+    } finally {
       setSubmitting(false);
-      toast({ title: "Opening your email app", description: "Send the prefilled email to finish your request, or call 662-549-9165." });
-    }, 400);
+    }
   };
 
   return (
