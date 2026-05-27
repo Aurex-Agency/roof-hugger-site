@@ -32,8 +32,23 @@ const Field = ({
   </div>
 );
 
+const SERVICE_OPTIONS = [
+  "Roof Replacement",
+  "Roof Repair",
+  "Storm Damage",
+  "Inspection",
+  "Gutter",
+  "Other",
+];
+
 const ContactPage = () => {
   const [submitting, setSubmitting] = useState(false);
+  const [services, setServices] = useState<string[]>([]);
+  const [optIn, setOptIn] = useState(false);
+
+  const toggleService = (s: string) => {
+    setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
+  };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +56,6 @@ const ContactPage = () => {
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim().slice(0, 100);
     const phone = String(data.get("phone") ?? "").trim();
-    const zip = String(data.get("zip") ?? "").trim();
     const message = String(data.get("message") ?? "").trim().slice(0, 2000);
 
     if (!name) {
@@ -52,18 +66,22 @@ const ContactPage = () => {
       toast({ title: "Invalid phone number", description: "Please enter a 10-digit US phone number.", variant: "destructive" });
       return;
     }
-    if (!/^\d{5}$/.test(zip)) {
-      toast({ title: "Invalid ZIP code", description: "ZIP must be 5 digits.", variant: "destructive" });
+    if (services.length === 0) {
+      toast({ title: "Select a service", description: "Pick at least one service you're interested in.", variant: "destructive" });
       return;
     }
     if (!message) {
       toast({ title: "Message required", description: "Please tell us briefly what's going on with your roof.", variant: "destructive" });
       return;
     }
+    if (!optIn) {
+      toast({ title: "Opt-in required", description: "Please confirm we can contact you about your request.", variant: "destructive" });
+      return;
+    }
 
     setSubmitting(true);
     const subject = `Free Roof Inspection Request — ${name}`;
-    const body = `Name: ${name}\nPhone: ${phone}\nZip: ${zip}\n\nWhat's going on with the roof:\n${message}`;
+    const body = `Name: ${name}\nPhone: ${phone}\nService Interest: ${services.join(", ")}\nOpt-in to contact: Yes\n\nWhat's going on with the roof:\n${message}`;
     const mailto = `mailto:shurdensroofing@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
     setTimeout(() => {
@@ -168,7 +186,24 @@ const ContactPage = () => {
               <div className="space-y-5">
                 <Field label="Full Name" name="name" type="text" required autoComplete="name" />
                 <Field label="Phone Number" name="phone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
-                <Field label="Zip Code" name="zip" type="text" required inputMode="numeric" maxLength={5} autoComplete="postal-code" placeholder="39759" />
+                <fieldset>
+                  <legend className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
+                    Service Interest
+                  </legend>
+                  <div className="grid grid-cols-2 gap-2">
+                    {SERVICE_OPTIONS.map((s) => (
+                      <label key={s} className="flex cursor-pointer items-center gap-2 rounded-md border border-white/10 bg-secondary/40 px-3 py-2 font-body text-sm text-dark-foreground hover:border-primary/50">
+                        <input
+                          type="checkbox"
+                          checked={services.includes(s)}
+                          onChange={() => toggleService(s)}
+                          className="h-4 w-4 accent-primary"
+                        />
+                        {s}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
                 <div>
                   <label htmlFor="message" className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
                     What's going on with your roof?
@@ -182,6 +217,15 @@ const ContactPage = () => {
                     placeholder="Storm damage, leak, full replacement..."
                   />
                 </div>
+                <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
+                  <input
+                    type="checkbox"
+                    checked={optIn}
+                    onChange={(e) => setOptIn(e.target.checked)}
+                    className="mt-0.5 h-4 w-4 accent-primary"
+                  />
+                  <span>I agree to be contacted by Shurden's Roofing about my request.</span>
+                </label>
                 <button
                   type="submit"
                   disabled={submitting}
