@@ -152,7 +152,7 @@ const Contact = () => {
               {submitting ? "Submitting..." : "Request My Free Inspection →"}
             </button>
             <p className="text-center font-body text-[11px] text-dark-foreground/75">
-              Submitting opens your email app with your request prefilled. We never share your info.
+              Your information stays private. We never sell or share your details — it's only used to follow up about your roof.
             </p>
           </div>
         </form>
