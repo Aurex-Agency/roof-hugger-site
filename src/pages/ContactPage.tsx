@@ -43,12 +43,10 @@ const SERVICE_OPTIONS = [
 
 const ContactPage = () => {
   const [submitting, setSubmitting] = useState(false);
-  const [services, setServices] = useState<string[]>([]);
+  const [service, setService] = useState<string>("");
   const [optIn, setOptIn] = useState(false);
 
-  const toggleService = (s: string) => {
-    setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
-  };
+
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -66,8 +64,8 @@ const ContactPage = () => {
       toast({ title: "Invalid phone number", description: "Please enter a 10-digit US phone number.", variant: "destructive" });
       return;
     }
-    if (services.length === 0) {
-      toast({ title: "Select a service", description: "Pick at least one service you're interested in.", variant: "destructive" });
+    if (!service) {
+      toast({ title: "Select a service", description: "Pick the service you're interested in.", variant: "destructive" });
       return;
     }
     if (!message) {
@@ -87,7 +85,7 @@ const ContactPage = () => {
         body: JSON.stringify({
           full_name: name,
           phone,
-          service_interest: services,
+          service_interest: service,
           message,
           opt_in: true,
           source: "shurdensroofing.com — Contact Page",
@@ -96,7 +94,7 @@ const ContactPage = () => {
       });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
       form.reset();
-      setServices([]);
+      setService("");
       setOptIn(false);
       toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-549-9165." });
     } catch (err) {
@@ -210,9 +208,11 @@ const ContactPage = () => {
                     {SERVICE_OPTIONS.map((s) => (
                       <label key={s} className="flex cursor-pointer items-center gap-2 rounded-md border border-white/10 bg-secondary/40 px-3 py-2 font-body text-sm text-dark-foreground hover:border-primary/50">
                         <input
-                          type="checkbox"
-                          checked={services.includes(s)}
-                          onChange={() => toggleService(s)}
+                          type="radio"
+                          name="service"
+                          value={s}
+                          checked={service === s}
+                          onChange={() => setService(s)}
                           className="h-4 w-4 accent-primary"
                         />
                         {s}
