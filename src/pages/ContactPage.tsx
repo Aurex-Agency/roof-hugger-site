@@ -186,7 +186,24 @@ const ContactPage = () => {
               <div className="space-y-5">
                 <Field label="Full Name" name="name" type="text" required autoComplete="name" />
                 <Field label="Phone Number" name="phone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
-                <Field label="Zip Code" name="zip" type="text" required inputMode="numeric" maxLength={5} autoComplete="postal-code" placeholder="39759" />
+                <fieldset>
+                  <legend className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
+                    Service Interest
+                  </legend>
+                  <div className="grid grid-cols-2 gap-2">
+                    {SERVICE_OPTIONS.map((s) => (
+                      <label key={s} className="flex cursor-pointer items-center gap-2 rounded-md border border-white/10 bg-secondary/40 px-3 py-2 font-body text-sm text-dark-foreground hover:border-primary/50">
+                        <input
+                          type="checkbox"
+                          checked={services.includes(s)}
+                          onChange={() => toggleService(s)}
+                          className="h-4 w-4 accent-primary"
+                        />
+                        {s}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
                 <div>
                   <label htmlFor="message" className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
                     What's going on with your roof?
@@ -200,6 +217,15 @@ const ContactPage = () => {
                     placeholder="Storm damage, leak, full replacement..."
                   />
                 </div>
+                <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
+                  <input
+                    type="checkbox"
+                    checked={optIn}
+                    onChange={(e) => setOptIn(e.target.checked)}
+                    className="mt-0.5 h-4 w-4 accent-primary"
+                  />
+                  <span>I agree to be contacted by Shurden's Roofing about my request.</span>
+                </label>
                 <button
                   type="submit"
                   disabled={submitting}
