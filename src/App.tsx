@@ -12,7 +12,6 @@ import ContactPage from "./pages/ContactPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import CityPage from "./pages/CityPage.tsx";
 import ServiceAreasPage from "./pages/ServiceAreasPage.tsx";
-import Redirect from "./pages/Redirect.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 
 const queryClient = new QueryClient();
@@ -32,9 +31,7 @@ const App = () => (
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/roofing/:slug" element={<CityPage />} />
-          <Route path="/about" element={<Redirect to="/" hash="#about" />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/privacy" element={<Redirect to="/privacy-policy" />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
