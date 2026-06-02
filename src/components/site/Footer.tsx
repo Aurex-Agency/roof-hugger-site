@@ -158,9 +158,9 @@ const Footer = () => {
           <ul className="flex flex-wrap items-center gap-x-5 gap-y-1">
             <li>Mississippi Licensed and Insured</li>
             <li>
-              <a href="#privacy" className="hover:text-primary">
+              <Link to="/privacy-policy" className="hover:text-primary">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
