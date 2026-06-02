@@ -223,6 +223,32 @@ export const cities: City[] = [
       },
     ],
   },
+  {
+    slug: "oxford-ms",
+    name: "Oxford",
+    state: "MS",
+    county: "Lafayette",
+    distanceFromHq: "About 75 miles northwest of our Maben office",
+    intro: [
+      "Oxford is a regular service area for us. From historic homes around the Square to newer construction out toward the Highway 7 corridor and the neighborhoods serving Ole Miss families, we've roofed a wide mix of Oxford properties. Lafayette County weather brings the same hail and wind events that hit the rest of North Mississippi, and Oxford homeowners deserve a roofer who shows up, documents the damage properly, and stands behind the work.",
+      "Most of our Oxford work is residential GAF shingle replacement and storm damage repair, but we also install commercial systems on offices, retail, and multi-tenant buildings throughout the area.",
+    ],
+    nearbyTowns: ["Taylor", "Abbeville", "Harmontown", "Paris", "Tula"],
+    faqs: [
+      {
+        q: "Do you travel to Oxford for roofing work?",
+        a: "Yes. Oxford and Lafayette County are part of our regular service area. We're on Oxford roofs throughout the year for both routine replacements and storm response.",
+      },
+      {
+        q: "Can you handle steep, complex roofs on older Oxford homes?",
+        a: "Yes. Our crew is set up for steep slope and multi-facet roofs, including the dormers, valleys, and complex rooflines common on older homes near the Square and in the historic neighborhoods.",
+      },
+      {
+        q: "Do you work with insurance carriers on Oxford storm claims?",
+        a: "Yes. We regularly meet adjusters from State Farm, Allstate, USAA, Farm Bureau, and Liberty Mutual and walk every hit on the roof so nothing gets missed in the scope.",
+      },
+    ],
+  },
 ];
 
 export const getCityBySlug = (slug: string): City | undefined =>
