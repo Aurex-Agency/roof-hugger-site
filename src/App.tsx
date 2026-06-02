@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound.tsx";
 import CityPage from "./pages/CityPage.tsx";
 import ServiceAreasPage from "./pages/ServiceAreasPage.tsx";
 import Redirect from "./pages/Redirect.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 
 const queryClient = new QueryClient();
 
