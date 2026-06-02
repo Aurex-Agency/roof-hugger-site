@@ -6,7 +6,7 @@ const citySlugMap = new Map(cityPages.map((c) => [c.name, c.slug]));
 
 const cities = [
   "Maben", "Starkville", "Tupelo", "Columbus", "West Point", "Louisville",
-  "Eupora", "Ackerman", "Houston", "Aberdeen", "Winona", "Grenada",
+  "Eupora", "Ackerman", "Oxford", "Houston", "Aberdeen", "Winona", "Grenada",
   "Mathiston", "Sturgis", "French Camp", "Walthall",
 ];
 
