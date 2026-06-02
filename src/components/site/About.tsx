@@ -17,8 +17,8 @@ const About = () => {
           <img
             src={aboutImg}
             alt="Shurden's Roofing crew working on a Mississippi residential roof"
-            width={1024}
-            height={1024}
+            width={1440}
+            height={1920}
             loading="lazy"
             className="h-72 w-full object-cover sm:h-96 md:h-full md:min-h-[640px]"
           />
