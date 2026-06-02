@@ -99,8 +99,8 @@ const ServicesPage = () => {
               <img
                 src={residentialImg}
                 alt="Architectural shingle residential roof installed by Shurden's Roofing in Starkville MS"
-                width={1200}
-                height={900}
+                width={1106}
+                height={1920}
                 className="h-72 w-full object-cover sm:h-96 md:h-full md:min-h-[560px]"
                 loading="lazy"
               />
@@ -174,8 +174,8 @@ const ServicesPage = () => {
               <img
                 src={commercialImg}
                 alt="Aerial view of a commercial roof Shurden's Roofing installed in North Mississippi"
-                width={480}
-                height={320}
+                width={1750}
+                height={985}
                 className="h-40 w-full rounded-md object-cover md:h-32 md:w-48"
                 loading="lazy"
               />

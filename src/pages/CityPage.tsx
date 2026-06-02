@@ -12,7 +12,12 @@ import g2 from "@/assets/gallery-2.jpg";
 import g4 from "@/assets/gallery-4.jpg";
 import g6 from "@/assets/gallery-6.jpg";
 
-const galleryRotation = [g1, g2, g4, g6];
+const galleryRotation: { src: string; w: number; h: number }[] = [
+  { src: g1, w: 1920, h: 1080 },
+  { src: g2, w: 1824, h: 1575 },
+  { src: g4, w: 1920, h: 885 },
+  { src: g6, w: 1280, h: 896 },
+];
 
 const services = [
   { icon: HomeIcon, title: "Residential Roof Replacement", body: "Full GAF Master Elite® shingle systems with deck inspection and registered warranty.", href: "/services#residential" },
@@ -160,13 +165,13 @@ const CityPage = () => {
               </Link>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {galleryRotation.map((src, i) => (
+              {galleryRotation.map((p, i) => (
                 <img
                   key={i}
-                  src={src}
+                  src={p.src}
                   alt={`Completed Shurden's Roofing project near ${fullName}`}
-                  width={1200}
-                  height={900}
+                  width={p.w}
+                  height={p.h}
                   className="aspect-[4/3] w-full rounded-md object-cover"
                   loading="lazy"
                 />
