@@ -258,7 +258,13 @@ const DormersGuide = () => {
           </div>
         </section>
 
-        <CtaBanner />
+        <CtaBanner
+          eyebrow="Free Dormer Inspection"
+          title="Spotted a Stain or a Lifted Shingle?"
+          body="We'll take a look, send you photos, and give you a straight answer — no pressure, no obligation."
+          buttonLabel="Schedule My Inspection"
+          to="/contact"
+        />
       </main>
       <Footer />
       <MobileCallBar />
