@@ -165,13 +165,13 @@ const CityPage = () => {
               </Link>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {galleryRotation.map((src, i) => (
+              {galleryRotation.map((p, i) => (
                 <img
                   key={i}
-                  src={src}
+                  src={p.src}
                   alt={`Completed Shurden's Roofing project near ${fullName}`}
-                  width={1200}
-                  height={900}
+                  width={p.w}
+                  height={p.h}
                   className="aspect-[4/3] w-full rounded-md object-cover"
                   loading="lazy"
                 />
