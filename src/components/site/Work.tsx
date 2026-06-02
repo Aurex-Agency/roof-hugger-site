@@ -9,11 +9,11 @@ import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 
 const gallery = [
-  { src: g1, alt: "Aerial drone shot of completed charcoal shingle roof on brick ranch home in Starkville MS", city: "Starkville, MS", span: "md:col-span-2 md:row-span-2" },
-  { src: g2, alt: "New architectural shingle roof on large two-story home with chimney in West Point MS", city: "West Point, MS", span: "md:col-span-2" },
-  { src: g3, alt: "Mid-installation shot showing new shingles replacing old roof on home in Columbus MS", city: "Columbus, MS", span: "md:col-span-1" },
-  { src: g4, alt: "Aerial view of completed light gray architectural shingle roof on fraternity house in Starkville MS", city: "Starkville, MS", span: "md:col-span-1" },
-  { src: g5, alt: "Aerial drone shot of completed dark shingle roof on large commercial brick building in Starkville MS", city: "Starkville, MS", span: "md:col-span-2" },
+  { src: g1, w: 1920, h: 1080, alt: "Aerial drone shot of completed charcoal shingle roof on brick ranch home in Starkville MS", city: "Starkville, MS", span: "md:col-span-2 md:row-span-2" },
+  { src: g2, w: 1824, h: 1575, alt: "New architectural shingle roof on large two-story home with chimney in West Point MS", city: "West Point, MS", span: "md:col-span-2" },
+  { src: g3, w: 1920, h: 858, alt: "Mid-installation shot showing new shingles replacing old roof on home in Columbus MS", city: "Columbus, MS", span: "md:col-span-1" },
+  { src: g4, w: 1920, h: 885, alt: "Aerial view of completed light gray architectural shingle roof on fraternity house in Starkville MS", city: "Starkville, MS", span: "md:col-span-1" },
+  { src: g5, w: 1750, h: 985, alt: "Aerial drone shot of completed dark shingle roof on large commercial brick building in Starkville MS", city: "Starkville, MS", span: "md:col-span-2" },
 ];
 
 const Work = () => {
