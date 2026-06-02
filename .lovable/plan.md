@@ -1,25 +1,27 @@
+Keep `/contact`, `/services`, `/gallery`, `/reviews` as real pages. Convert redirect-only routes to true server-side 301s via Vercel.
+
 ## Changes
 
-1. **Create `src/pages/PrivacyPolicy.tsx`** — full standard privacy policy page using existing `Navigation`, `PageHero`, `Footer`, `MobileCallBar`, and `SEO` components. Covers: introduction, info collected, how used, SMS/text consent, sharing, cookies/analytics (mentions GA + Meta Pixel for lead-ad compliance), user choices, security, children's privacy, changes, and contact section. Contact info: `4124 US Highway 82 East, Maben MS 39750`, phone `662-498-6629`.
+1. **Create `vercel.json`** at project root with permanent 301 redirects (Vercel handles these at the edge before the SPA loads, returning real `301` status codes — proper SEO signal):
+   - `/about` and `/about/` → `/#about`
+   - `/privacy` and `/privacy/` → `/privacy-policy`
+   - `/privacy-policy/` → `/privacy-policy` (trailing-slash normalize)
+   - `/contact/` → `/contact`
+   - `/services/` → `/services`
+   - `/gallery/` → `/gallery`
+   - `/reviews/` → `/reviews`
+   - `/service-areas/` → `/service-areas`
 
-2. **Wire route in `src/App.tsx`** — add `<Route path="/privacy-policy" element={<PrivacyPolicy />} />` above the catch-all. Repoint the existing `/privacy` redirect from `/contact` to `/privacy-policy` (and remove the now-redundant `/privacy-policy` redirect route).
+2. **Trim `src/App.tsx`** — remove the now-redundant `<Route path="/about">` and `<Route path="/privacy">` redirect routes. Vercel will intercept these before React Router ever sees them. Keep the real `/privacy-policy` route.
 
-3. **Footer link** — `src/components/site/Footer.tsx` currently links Privacy Policy to `#privacy`. Change to a `<Link to="/privacy-policy">`.
+3. **Delete `src/pages/Redirect.tsx`** — no longer imported anywhere.
 
-4. **Sitemap** — add `<url><loc>https://shurdensroofing.com/privacy-policy</loc>…</url>` entry to `public/sitemap.xml`.
+4. **Leave `public/sitemap.xml` as is.** Redirect sources (`/about`, `/privacy`) intentionally don't belong in the sitemap. The SEO scanner's warning about "missing entries" is a false positive for redirect routes — safe to ignore.
 
-5. **JSON-LD in `index.html`** — update the `RoofingContractor` block to add:
-   - `streetAddress: "4124 US Highway 82 East"`
-   - `geo` with lat/long for Maben MS
-   - `founder` (Josh Shurden) and `foundingDate: "2015"`
-   - `knowsAbout` services array
-   - `sameAs` Facebook URL
-   - `description` line
-   
-   Keep the existing `telephone: "+1-662-498-6629"`, opening hours `Mo-Sa 07:00-19:00`, and `aggregateRating` (matches what's shown on site).
+5. **Verify `BASE_URL` in sitemap is `https://shurdensroofing.com`** — already correct.
 
 ## Not changing
 
-- No `vercel.json` (Lovable hosting doesn't process it).
-- No SSR migration.
-- No edits to existing per-page `<SEO />` usage — already correct.
+- Real pages (`/contact`, `/services`, `/gallery`, `/reviews`, `/service-areas`, city pages) untouched.
+- `robots.txt` already correct.
+- JSON-LD already correct after previous turn.
