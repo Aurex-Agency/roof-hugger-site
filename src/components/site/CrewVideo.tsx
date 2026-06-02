@@ -20,7 +20,7 @@ const CrewVideo = ({
             <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
               {heading}
             </h2>
-            <p className="mt-6 font-body text-base text-dark-foreground/80 md:text-lg">
+            <p className="mt-6 font-body text-base text-dark-foreground/95 md:text-lg">
               {body}
             </p>
           </div>

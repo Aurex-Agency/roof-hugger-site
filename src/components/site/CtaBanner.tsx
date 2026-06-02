@@ -23,7 +23,7 @@ const CtaBanner = ({
           <p className="mb-3 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">{eyebrow}</p>
           <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">{title}</h2>
           {body && (
-            <p className="mt-5 max-w-2xl font-body text-base text-secondary-foreground/80 md:text-lg">{body}</p>
+            <p className="mt-5 max-w-2xl font-body text-base text-secondary-foreground/95 md:text-lg">{body}</p>
           )}
         </div>
         <Link

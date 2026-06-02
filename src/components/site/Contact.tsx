@@ -115,7 +115,7 @@ const Contact = () => {
             <Field label="Phone Number" name="phone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
 
             <fieldset>
-              <legend className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
+              <legend className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/95">
                 Service Interest
               </legend>
               <div className="grid grid-cols-2 gap-2">
@@ -136,7 +136,7 @@ const Contact = () => {
             </fieldset>
 
             <div>
-              <label htmlFor="message" className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
+              <label htmlFor="message" className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/95">
                 What's going on with your roof?
               </label>
               <textarea
@@ -144,7 +144,7 @@ const Contact = () => {
                 name="message"
                 rows={3}
                 required
-                className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/90 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                 placeholder="Storm damage, leak, full replacement..."
               />
             </div>
@@ -187,14 +187,14 @@ const Field = ({
   type: string;
 } & React.InputHTMLAttributes<HTMLInputElement>) => (
   <div>
-    <label htmlFor={name} className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
+    <label htmlFor={name} className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/95">
       {label}
     </label>
     <input
       id={name}
       name={name}
       type={type}
-      className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+      className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/90 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
       {...rest}
     />
   </div>

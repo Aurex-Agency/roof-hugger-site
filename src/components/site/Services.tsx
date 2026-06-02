@@ -35,7 +35,7 @@ const Services = () => {
                 <li>FeltBuster underlayment, Cobra ventilation, ridge & drip edge</li>
                 <li>Gold Pledge & Silver Pledge warranty options</li>
               </ul>
-              <p className="mt-auto pt-8 font-body text-sm text-dark-foreground/70">
+              <p className="mt-auto pt-8 font-body text-sm text-dark-foreground/90">
                 Complete GAF roof systems built for North Mississippi homes, installed by our own local crew.
               </p>
             </div>
@@ -86,7 +86,7 @@ const Services = () => {
                 <h3 className="font-display text-2xl font-bold leading-tight md:text-3xl">
                   Insurance Claim Assistance
                 </h3>
-                <p className="mt-3 font-body text-base text-secondary-foreground/80 md:text-lg">
+                <p className="mt-3 font-body text-base text-secondary-foreground/95 md:text-lg">
                   We handle the paperwork so you don't have to. Documentation, adjuster meetings, scope review, and a finished roof. Start to finish, with one local roofer.
                 </p>
                 <Link

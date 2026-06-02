@@ -42,14 +42,14 @@ const ShingleComparison = () => {
         <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight md:text-5xl">
           Pick the Roof That Fits the House, the Weather, and the Budget.
         </h2>
-        <p className="mt-5 max-w-2xl font-body text-base text-dark-foreground/80 md:text-lg">
+        <p className="mt-5 max-w-2xl font-body text-base text-dark-foreground/95 md:text-lg">
           We install the full GAF residential shingle lineup. Here is the short version of how the
           options compare on warranty and hail rating.
         </p>
 
         <div className="mt-10 overflow-hidden rounded-lg border border-white/10">
           {/* Header row */}
-          <div className="hidden grid-cols-[1.4fr_1.6fr_1.4fr_1fr] gap-4 border-b border-white/10 bg-secondary px-6 py-4 font-display text-xs font-bold uppercase tracking-wider text-dark-foreground/70 md:grid">
+          <div className="hidden grid-cols-[1.4fr_1.6fr_1.4fr_1fr] gap-4 border-b border-white/10 bg-secondary px-6 py-4 font-display text-xs font-bold uppercase tracking-wider text-dark-foreground/90 md:grid">
             <span>Shingle</span>
             <span>Best Fit</span>
             <span>Workmanship</span>
@@ -72,11 +72,11 @@ const ShingleComparison = () => {
                   </span>
                 )}
               </div>
-              <span className="font-body text-sm text-dark-foreground/80 md:text-base">
+              <span className="font-body text-sm text-dark-foreground/95 md:text-base">
                 <span className="md:hidden font-bold uppercase text-dark-foreground/75 mr-2 text-xs">Best Fit:</span>
                 {s.fit}
               </span>
-              <span className="font-body text-sm text-dark-foreground/80 md:text-base">
+              <span className="font-body text-sm text-dark-foreground/95 md:text-base">
                 <span className="md:hidden font-bold uppercase text-dark-foreground/75 mr-2 text-xs">Warranty:</span>
                 {s.coverage}
               </span>
@@ -88,7 +88,7 @@ const ShingleComparison = () => {
           ))}
         </div>
 
-        <p className="mt-6 max-w-3xl font-body text-sm text-dark-foreground/70 md:text-base">
+        <p className="mt-6 max-w-3xl font-body text-sm text-dark-foreground/90 md:text-base">
           We will walk you through the difference in appearance, warranty, hail rating, and cost
           before you pick a roof. No guessing. No pressure.
         </p>

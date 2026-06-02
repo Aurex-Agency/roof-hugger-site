@@ -19,14 +19,14 @@ const Field = ({
   type: string;
 } & React.InputHTMLAttributes<HTMLInputElement>) => (
   <div>
-    <label htmlFor={name} className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
+    <label htmlFor={name} className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/95">
       {label}
     </label>
     <input
       id={name}
       name={name}
       type={type}
-      className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+      className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/90 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
       {...rest}
     />
   </div>
@@ -148,7 +148,7 @@ const ContactPage = () => {
                     <Phone className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Phone</p>
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/95">Phone</p>
                     <p className="font-display text-2xl text-primary transition-colors group-hover:text-accent md:text-3xl">662-498-6629</p>
                   </div>
                 </a>
@@ -158,7 +158,7 @@ const ContactPage = () => {
                     <Mail className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Email</p>
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/95">Email</p>
                     <p className="font-display text-lg transition-colors group-hover:text-primary md:text-xl">shurdensroofing@gmail.com</p>
                   </div>
                 </a>
@@ -168,7 +168,7 @@ const ContactPage = () => {
                     <Clock className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Hours</p>
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/95">Hours</p>
                     <p className="font-body text-base">Mon to Sat: 7am to 7pm</p>
                     <p className="font-body text-sm text-primary">Emergency Roofing Service Available</p>
                   </div>
@@ -179,7 +179,7 @@ const ContactPage = () => {
                     <MapPin className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Headquarters</p>
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/95">Headquarters</p>
                     <p className="font-body text-base">Maben, MS 39750</p>
                     <p className="font-body text-sm text-secondary-foreground/85">Serving all of North Mississippi</p>
                   </div>
@@ -194,14 +194,14 @@ const ContactPage = () => {
             >
               <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Roof Inspection</p>
               <h3 className="mb-3 font-display text-2xl text-dark-foreground md:text-3xl">Request a Free Roof Inspection</h3>
-              <p className="mb-6 font-body text-sm text-dark-foreground/70">
+              <p className="mb-6 font-body text-sm text-dark-foreground/90">
                 Tell us where you are and what you are seeing. Leaks, missing shingles, hail damage, commercial roof issues, or a roof that is just old — we will help you sort it out.
               </p>
               <div className="space-y-5">
                 <Field label="Full Name" name="name" type="text" required autoComplete="name" />
                 <Field label="Phone Number" name="phone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
                 <fieldset>
-                  <legend className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
+                  <legend className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/95">
                     Service Interest
                   </legend>
                   <div className="grid grid-cols-2 gap-2">
@@ -221,7 +221,7 @@ const ContactPage = () => {
                   </div>
                 </fieldset>
                 <div>
-                  <label htmlFor="message" className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/80">
+                  <label htmlFor="message" className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/95">
                     What's going on with your roof?
                   </label>
                   <textarea
@@ -229,7 +229,7 @@ const ContactPage = () => {
                     name="message"
                     rows={4}
                     required
-                    className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/90 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                     placeholder="Storm damage, leak, full replacement..."
                   />
                 </div>
