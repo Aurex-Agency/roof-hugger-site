@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero-roof.jpg";
 import gafBadge from "@/assets/gaf-master-elite.webp";
 import { Phone } from "lucide-react";
 
