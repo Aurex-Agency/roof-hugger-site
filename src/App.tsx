@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound.tsx";
 import CityPage from "./pages/CityPage.tsx";
 import ServiceAreasPage from "./pages/ServiceAreasPage.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
+import DormersGuide from "./pages/DormersGuide.tsx";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/roofing/:slug" element={<CityPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/guides/roof-dormers" element={<DormersGuide />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
