@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero-roof.jpg";
 import gafBadge from "@/assets/gaf-master-elite.webp";
 import { Phone } from "lucide-react";
 
@@ -7,7 +6,7 @@ const Hero = () => {
   return (
     <section id="top" className="relative isolate overflow-hidden bg-dark text-dark-foreground">
       <img
-        src={heroImg}
+        src="/hero-roof.jpg"
         alt="Crew installing dark architectural shingle roof at golden hour in Starkville MS"
         width={1920}
         height={1080}
