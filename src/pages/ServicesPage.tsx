@@ -174,8 +174,8 @@ const ServicesPage = () => {
               <img
                 src={commercialImg}
                 alt="Aerial view of a commercial roof Shurden's Roofing installed in North Mississippi"
-                width={480}
-                height={320}
+                width={1750}
+                height={985}
                 className="h-40 w-full rounded-md object-cover md:h-32 md:w-48"
                 loading="lazy"
               />
