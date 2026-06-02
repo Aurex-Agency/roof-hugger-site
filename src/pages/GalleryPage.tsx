@@ -20,15 +20,15 @@ import g6 from "@/assets/gallery-6.jpg";
 
 type Category = "Residential" | "Commercial" | "Repair";
 
-const projects: { src: string; alt: string; city: string; category: Category }[] = [
-  { src: g1, alt: "Aerial drone shot of completed charcoal shingle roof on brick ranch home in Starkville MS", city: "Starkville, MS", category: "Residential" },
-  { src: g2, alt: "New architectural shingle roof on large two-story home with chimney in West Point MS", city: "West Point, MS", category: "Residential" },
-  { src: g3, alt: "Mid-installation shot showing new shingles replacing old roof on home in Columbus MS", city: "Columbus, MS", category: "Repair" },
-  { src: g4, alt: "Aerial view of completed light gray architectural shingle roof on fraternity house in Starkville MS", city: "Starkville, MS", category: "Commercial" },
-  { src: g5, alt: "Aerial drone shot of completed dark shingle roof on large commercial brick building in Starkville MS", city: "Starkville, MS", category: "Commercial" },
-  { src: g6, alt: "Architectural shingle roof installation completed by Shurden's Roofing in North Mississippi", city: "Maben, MS", category: "Residential" },
-  { src: g1, alt: "Repaired ridge cap and replaced shingles after wind damage in Louisville MS", city: "Louisville, MS", category: "Repair" },
-  { src: g2, alt: "Roof replacement on church building in Eupora MS", city: "Eupora, MS", category: "Commercial" },
+const projects: { src: string; alt: string; city: string; category: Category; w: number; h: number }[] = [
+  { src: g1, w: 1920, h: 1080, alt: "Aerial drone shot of completed charcoal shingle roof on brick ranch home in Starkville MS", city: "Starkville, MS", category: "Residential" },
+  { src: g2, w: 1824, h: 1575, alt: "New architectural shingle roof on large two-story home with chimney in West Point MS", city: "West Point, MS", category: "Residential" },
+  { src: g3, w: 1920, h: 858, alt: "Mid-installation shot showing new shingles replacing old roof on home in Columbus MS", city: "Columbus, MS", category: "Repair" },
+  { src: g4, w: 1920, h: 885, alt: "Aerial view of completed light gray architectural shingle roof on fraternity house in Starkville MS", city: "Starkville, MS", category: "Commercial" },
+  { src: g5, w: 1750, h: 985, alt: "Aerial drone shot of completed dark shingle roof on large commercial brick building in Starkville MS", city: "Starkville, MS", category: "Commercial" },
+  { src: g6, w: 1280, h: 896, alt: "Architectural shingle roof installation completed by Shurden's Roofing in North Mississippi", city: "Maben, MS", category: "Residential" },
+  { src: g1, w: 1920, h: 1080, alt: "Repaired ridge cap and replaced shingles after wind damage in Louisville MS", city: "Louisville, MS", category: "Repair" },
+  { src: g2, w: 1824, h: 1575, alt: "Roof replacement on church building in Eupora MS", city: "Eupora, MS", category: "Commercial" },
 ];
 
 const filters: ("All" | Category)[] = ["All", "Residential", "Commercial", "Repair"];
