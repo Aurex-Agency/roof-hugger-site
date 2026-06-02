@@ -17,8 +17,8 @@ const links = [
   { label: "Contact Us", to: "/contact" },
 ];
 
-const PHONE = "662-549-9165";
-const TEL = "tel:6625499165";
+const PHONE = "662-498-6629";
+const TEL = "tel:6624986629";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);

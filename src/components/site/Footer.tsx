@@ -104,10 +104,10 @@ const Footer = () => {
               Contact
             </h3>
             <a
-              href="tel:6625499165"
+              href="tel:6624986629"
               className="mt-3 block font-body text-sm text-dark-foreground/75 hover:text-primary"
             >
-              662-549-9165
+              662-498-6629
             </a>
             <p className="mt-1 font-body text-sm text-dark-foreground/75">Mon to Sat: 7am to 7pm</p>
             <p className="mt-1 font-body text-sm text-dark-foreground/75">Emergency service available</p>
