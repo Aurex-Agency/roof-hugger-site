@@ -29,10 +29,10 @@ const About = () => {
           <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
             A Mississippi Family Business Built on Honest Roofing Work Since 2010.
           </h2>
-          <p className="mt-6 font-body text-base text-dark-foreground/80 md:text-lg">
+          <p className="mt-6 font-body text-base text-dark-foreground/95 md:text-lg">
             Since 2010, Shurden's Roofing has protected homes and businesses across North Mississippi with roofing craftsmanship that lasts. Headquartered in Maben, we travel across North Mississippi to roof for our neighbors, and we are a locally owned, GAF Master Elite® certified roofing contractor, a designation held by less than 2% of roofers in North America.
           </p>
-          <p className="mt-4 font-body text-base text-dark-foreground/80 md:text-lg">
+          <p className="mt-4 font-body text-base text-dark-foreground/95 md:text-lg">
             From the first roof inspection to the final shingle, every roofing job is handled by our own crew with the care we would give our own homes. Whether you need a small repair in Starkville, a full replacement in West Point, a commercial roof in Columbus, or storm work out in Louisville, Eupora, or Tupelo, you get the same local roofer, the same crew, and the same standard of work.
           </p>
 
@@ -44,7 +44,7 @@ const About = () => {
                 </span>
                 <div>
                   <h3 className="font-display text-lg md:text-xl">{v.title}</h3>
-                  <p className="mt-1 font-body text-sm text-dark-foreground/70 md:text-base">{v.body}</p>
+                  <p className="mt-1 font-body text-sm text-dark-foreground/90 md:text-base">{v.body}</p>
                 </div>
               </li>
             ))}

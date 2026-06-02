@@ -194,7 +194,7 @@ const CityPage = () => {
             </div>
             <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {city.nearbyTowns.map((t) => (
-                <li key={t} className="flex items-center gap-2 rounded-md border border-white/10 bg-secondary/40 px-3 py-2 font-body text-sm text-secondary-foreground/90">
+                <li key={t} className="flex items-center gap-2 rounded-md border border-white/10 bg-secondary/40 px-3 py-2 font-body text-sm text-secondary-foreground/95">
                   <MapPin className="h-3.5 w-3.5 text-primary" /> {t}
                 </li>
               ))}

@@ -146,7 +146,7 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 font-body text-xs text-dark-foreground/80">
+              <p className="mt-3 font-body text-xs text-dark-foreground/95">
                 Mississippi licensed & fully insured. Roofing North Mississippi since 2015.
               </p>
             </div>

@@ -51,7 +51,7 @@ const ReviewsPage = () => {
               <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
                 Three Generations of Roofers, One Mississippi Family.
               </h2>
-              <div className="mt-6 space-y-5 font-body text-base text-foreground/80 md:text-lg">
+              <div className="mt-6 space-y-5 font-body text-base text-foreground md:text-lg">
                 <p>
                   Josh Shurden, owner of Shurden's Roofing LLC, has worked in the construction business for over 30 years. Around 2010 the business began transitioning to mostly roofing, and by 2012 it had become a full-service roofing company. The demand has continued to grow, and thanks to God's blessing and direction, so has our roofing business.
                 </p>
@@ -84,7 +84,7 @@ const ReviewsPage = () => {
               <p className="mt-6 font-display text-2xl leading-snug md:text-4xl">
                 "I personally stand behind our services 100%. I am confident that our team will serve you well."
               </p>
-              <p className="mt-5 font-body text-sm uppercase tracking-wider text-dark-foreground/70">— Josh Shurden, Owner</p>
+              <p className="mt-5 font-body text-sm uppercase tracking-wider text-dark-foreground/90">— Josh Shurden, Owner</p>
               <a
                 href="tel:6624986629"
                 className="mt-10 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-cta"
@@ -128,7 +128,7 @@ const ReviewsPage = () => {
             <div className="mx-auto max-w-2xl text-center">
               <p className="font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Staff</p>
               <h2 className="mt-3 font-display text-3xl font-bold leading-tight md:text-5xl">Meet Our Team</h2>
-              <p className="mt-5 font-body text-base text-secondary-foreground/80 md:text-lg">
+              <p className="mt-5 font-body text-base text-secondary-foreground/95 md:text-lg">
                 The same Mississippi family on every estimate, every install, and every final walkthrough.
               </p>
             </div>

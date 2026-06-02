@@ -47,7 +47,7 @@ const WarrantyBand = () => {
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {points.map((p) => (
-              <li key={p} className="flex items-start gap-3 font-body text-base text-secondary-foreground/90">
+              <li key={p} className="flex items-start gap-3 font-body text-base text-secondary-foreground/95">
                 <ShieldCheck className="mt-0.5 h-5 w-5 flex-none text-accent" />
                 <span>{p}</span>
               </li>

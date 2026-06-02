@@ -151,7 +151,7 @@ const ServicesPage = () => {
                   <h3 className="mt-5 font-display text-xl font-bold leading-tight text-dark-foreground md:text-2xl">
                     {s.name}
                   </h3>
-                  <p className="mt-3 font-body text-sm text-dark-foreground/80 md:text-base">{s.body}</p>
+                  <p className="mt-3 font-body text-sm text-dark-foreground/95 md:text-base">{s.body}</p>
                 </article>
               ))}
             </div>
@@ -268,7 +268,7 @@ const ServicesPage = () => {
                   <h3 className="mt-3 font-display text-lg font-bold leading-tight text-secondary-foreground">
                     {s.t}
                   </h3>
-                  <p className="mt-2 font-body text-sm text-secondary-foreground/80">{s.b}</p>
+                  <p className="mt-2 font-body text-sm text-secondary-foreground/95">{s.b}</p>
                 </li>
               ))}
             </ol>

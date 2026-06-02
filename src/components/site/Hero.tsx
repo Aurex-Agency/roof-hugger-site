@@ -18,7 +18,7 @@ const Hero = () => {
 
       <div className="container relative grid min-h-[88vh] items-end pb-44 pt-20 md:min-h-[92vh] md:items-center md:pb-32 md:pt-24">
         <div className="max-w-[55%] animate-hero-rise md:max-w-[55%] [@media(max-width:768px)]:max-w-full">
-          <p className="mb-5 inline-block rounded-sm border-l-4 border-primary bg-dark/70 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-[0.25em] text-dark-foreground/80">
+          <p className="mb-5 inline-block rounded-sm border-l-4 border-primary bg-dark/70 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-[0.25em] text-dark-foreground/95">
             Residential · Commercial · Storm Damage · GAF Master Elite®
           </p>
           <h1 className="font-display font-extrabold text-[44px] leading-[1.02] tracking-[0.02em] text-dark-foreground md:text-[64px] lg:text-[72px]">

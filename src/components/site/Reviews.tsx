@@ -65,7 +65,7 @@ const Reviews = () => {
         <h2 className="mt-3 font-display text-3xl font-bold uppercase leading-tight md:text-5xl">
           Your Neighbors Already Put Us on Their Roof.
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl font-body text-base text-primary-foreground/90 md:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl font-body text-base text-primary-foreground md:text-lg">
           Read what homeowners and business owners across Starkville, Maben, West Point, Columbus, Louisville, Eupora, and Tupelo say about Shurden's Roofing.
         </p>
         <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-dark/30 px-4 py-2 font-body text-sm font-bold leading-none">
