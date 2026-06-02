@@ -86,10 +86,10 @@ const ReviewsPage = () => {
               </p>
               <p className="mt-5 font-body text-sm uppercase tracking-wider text-dark-foreground/70">— Josh Shurden, Owner</p>
               <a
-                href="tel:6625499165"
+                href="tel:6624986629"
                 className="mt-10 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-cta"
               >
-                <Phone className="h-4 w-4" /> Call 662-549-9165
+                <Phone className="h-4 w-4" /> Call 662-498-6629
               </a>
             </div>
           </div>

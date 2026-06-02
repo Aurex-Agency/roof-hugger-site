@@ -36,13 +36,13 @@ const CityPage = () => {
   const path = `/roofing/${city.slug}`;
   const fullName = `${city.name}, ${city.state}`;
   const title = `Roofing in ${fullName} | Shurden's Roofing`;
-  const description = `GAF Master Elite® roofer serving ${fullName}. Residential, commercial, storm damage, and insurance claim support. Call 662-549-9165.`;
+  const description = `GAF Master Elite® roofer serving ${fullName}. Residential, commercial, storm damage, and insurance claim support. Call 662-498-6629.`;
 
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "RoofingContractor",
     name: "Shurden's Roofing LLC",
-    telephone: "+1-662-549-9165",
+    telephone: "+1-662-498-6629",
     priceRange: "$$",
     address: { "@type": "PostalAddress", addressLocality: "Maben", addressRegion: "MS", postalCode: "39750", addressCountry: "US" },
     areaServed: { "@type": "City", name: fullName, containedInPlace: { "@type": "AdministrativeArea", name: `${city.county} County, MS` } },
@@ -92,10 +92,10 @@ const CityPage = () => {
               ))}
             </ul>
             <a
-              href="tel:6625499165"
+              href="tel:6624986629"
               className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-cta"
             >
-              <Phone className="h-4 w-4" /> 662-549-9165
+              <Phone className="h-4 w-4" /> 662-498-6629
             </a>
           </div>
         </section>

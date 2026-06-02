@@ -38,10 +38,10 @@ const Hero = () => {
               Get a Free Roof Inspection
             </Link>
             <a
-              href="tel:6625499165"
+              href="tel:6624986629"
               className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-dark-foreground/90 bg-transparent px-7 py-4 font-display text-sm uppercase tracking-wide text-dark-foreground transition-all hover:scale-[1.03] hover:bg-dark-foreground hover:text-dark"
             >
-              <Phone className="h-4 w-4" /> Call 662-549-9165
+              <Phone className="h-4 w-4" /> Call 662-498-6629
             </a>
           </div>
         </div>

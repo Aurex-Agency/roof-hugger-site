@@ -96,9 +96,9 @@ const ContactPage = () => {
       form.reset();
       setService("");
       setOptIn(false);
-      toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-549-9165." });
+      toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-498-6629." });
     } catch (err) {
-      toast({ title: "Could not send request", description: "Please try again or call 662-549-9165.", variant: "destructive" });
+      toast({ title: "Could not send request", description: "Please try again or call 662-498-6629.", variant: "destructive" });
     } finally {
       setSubmitting(false);
     }
@@ -108,7 +108,7 @@ const ContactPage = () => {
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <SEO
         title="Contact Shurden's Roofing | Free Roof Inspection in North MS"
-        description="Call 662-549-9165 for a free roof inspection across North Mississippi. Residential, commercial, storm damage, and insurance claim support."
+        description="Call 662-498-6629 for a free roof inspection across North Mississippi. Residential, commercial, storm damage, and insurance claim support."
         path="/contact"
         jsonLd={{
           "@context": "https://schema.org",
@@ -143,13 +143,13 @@ const ContactPage = () => {
               </p>
 
               <div className="mt-10 space-y-6">
-                <a href="tel:6625499165" className="group flex items-start gap-4">
+                <a href="tel:6624986629" className="group flex items-start gap-4">
                   <span className="grid h-12 w-12 flex-none place-items-center rounded-md border border-primary/40 bg-primary/10 text-primary">
                     <Phone className="h-5 w-5" />
                   </span>
                   <div>
                     <p className="font-body text-xs font-bold uppercase tracking-wider text-secondary-foreground/80">Phone</p>
-                    <p className="font-display text-2xl text-primary transition-colors group-hover:text-accent md:text-3xl">662-549-9165</p>
+                    <p className="font-display text-2xl text-primary transition-colors group-hover:text-accent md:text-3xl">662-498-6629</p>
                   </div>
                 </a>
 

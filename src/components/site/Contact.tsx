@@ -66,9 +66,9 @@ const Contact = () => {
       form.reset();
       setService("");
       setOptIn(false);
-      toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-549-9165." });
+      toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-498-6629." });
     } catch (err) {
-      toast({ title: "Could not send request", description: "Please try again or call 662-549-9165.", variant: "destructive" });
+      toast({ title: "Could not send request", description: "Please try again or call 662-498-6629.", variant: "destructive" });
     } finally {
       setSubmitting(false);
     }
@@ -95,10 +95,10 @@ const Contact = () => {
           </p>
 
           <a
-            href="tel:6625499165"
+            href="tel:6624986629"
             className="mt-10 inline-flex items-center gap-3 font-display text-3xl text-primary transition-colors hover:text-accent md:text-4xl"
           >
-            <Phone className="h-7 w-7" /> 662-549-9165
+            <Phone className="h-7 w-7" /> 662-498-6629
           </a>
           <p className="mt-4 flex items-center gap-2 font-body text-sm text-secondary-foreground/85">
             <Clock className="h-4 w-4" /> Mon to Sat: 7am to 7pm · Emergency Roofing Service Available
