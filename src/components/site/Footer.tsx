@@ -59,7 +59,7 @@ const Footer = () => {
               Shurden's Roofing LLC
             </h3>
             <p className="mt-3 font-body text-sm text-dark-foreground/75">
-              Roofing North Mississippi since 2015.
+              Roofing North Mississippi since 2010.
             </p>
             <p className="mt-3 font-body text-sm text-dark-foreground/75">Maben, MS 39750</p>
           </div>
@@ -147,7 +147,7 @@ const Footer = () => {
                 ))}
               </ul>
               <p className="mt-3 font-body text-xs text-dark-foreground/95">
-                Mississippi licensed & fully insured. Roofing North Mississippi since 2015.
+                Mississippi licensed & fully insured. Roofing North Mississippi since 2010.
               </p>
             </div>
           </div>
