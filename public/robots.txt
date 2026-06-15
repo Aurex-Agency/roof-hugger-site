@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://shurdensroofing.com/sitemap.xml
+Sitemap: https://www.shurdensroofing.com/sitemap.xml
