@@ -69,19 +69,62 @@ const ServicesPage = () => {
         title="Roofing Services in North Mississippi | Shurden's Roofing"
         description="Residential roof replacements, commercial roofing systems, storm damage repair, and insurance claim support across North Mississippi. GAF Master Elite® crew."
         path="/services"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: [
-            { "@type": "Question", name: "How long does a typical roof replacement take?", acceptedAnswer: { "@type": "Answer", text: "Most single-family homes in North Mississippi are torn off, dried-in, and re-roofed in 1 to 2 days. Larger or more complex roofs take longer." } },
-            { "@type": "Question", name: "What does a new roof actually cost?", acceptedAnswer: { "@type": "Answer", text: "Pricing depends on square footage, pitch, deck condition, shingle line, and accessories. We provide a written, itemized quote after a free inspection." } },
-            { "@type": "Question", name: "Do you handle permits and HOA paperwork?", acceptedAnswer: { "@type": "Answer", text: "Yes. We pull permits when required and provide manufacturer samples and documentation for HOA color approval." } },
-            { "@type": "Question", name: "Is the GAF warranty transferable if I sell my house?", acceptedAnswer: { "@type": "Answer", text: "Yes. GAF warranties are transferable. We register your warranty in your name and provide the documentation you'll need at sale." } },
-            { "@type": "Question", name: "Do you do small repairs, or just full replacements?", acceptedAnswer: { "@type": "Answer", text: "Both. We replace pipe boots, repair flashing, fix leaks around chimneys and skylights, replace blown-off shingles, and tarp emergency damage." } },
-            { "@type": "Question", name: "What about commercial buildings — do you only do shingles?", acceptedAnswer: { "@type": "Answer", text: "No. We install SBS self-adhering systems, GAF Liberty, Mule-Hide TPO, metal, and shingle roofing on commercial buildings." } },
-          ],
-        }}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Residential Roof Replacement",
+            name: "Residential Roof Replacement",
+            description: "GAF Master Elite® shingle roof replacement with full deck inspection and registered warranty across North Mississippi.",
+            provider: { "@id": "https://shurdensroofing.com/#business" },
+            areaServed: { "@type": "AdministrativeArea", name: "North Mississippi" },
+            url: "https://shurdensroofing.com/services#residential",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Commercial Roofing",
+            name: "Commercial Roofing",
+            description: "SBS self-adhering, GAF Liberty, Mule-Hide TPO, metal, and shingle commercial roofing systems for churches, schools, retail, and warehouses.",
+            provider: { "@id": "https://shurdensroofing.com/#business" },
+            areaServed: { "@type": "AdministrativeArea", name: "North Mississippi" },
+            url: "https://shurdensroofing.com/services#commercial",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Storm Damage & Insurance Claims",
+            name: "Storm Damage & Insurance Claims",
+            description: "Drone-documented wind and hail damage inspections with full insurance claim support from first call to final invoice.",
+            provider: { "@id": "https://shurdensroofing.com/#business" },
+            areaServed: { "@type": "AdministrativeArea", name: "North Mississippi" },
+            url: "https://shurdensroofing.com/services#repair",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Roof Repair",
+            name: "Roof Repair",
+            description: "Pipe boot, flashing, valley, and blown-off shingle repair, plus emergency tarping across North Mississippi.",
+            provider: { "@id": "https://shurdensroofing.com/#business" },
+            areaServed: { "@type": "AdministrativeArea", name: "North Mississippi" },
+            url: "https://shurdensroofing.com/services#repair",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              { "@type": "Question", name: "How long does a typical roof replacement take?", acceptedAnswer: { "@type": "Answer", text: "Most single-family homes in North Mississippi are torn off, dried-in, and re-roofed in 1 to 2 days. Larger or more complex roofs take longer." } },
+              { "@type": "Question", name: "What does a new roof actually cost?", acceptedAnswer: { "@type": "Answer", text: "Pricing depends on square footage, pitch, deck condition, shingle line, and accessories. We provide a written, itemized quote after a free inspection." } },
+              { "@type": "Question", name: "Do you handle permits and HOA paperwork?", acceptedAnswer: { "@type": "Answer", text: "Yes. We pull permits when required and provide manufacturer samples and documentation for HOA color approval." } },
+              { "@type": "Question", name: "Is the GAF warranty transferable if I sell my house?", acceptedAnswer: { "@type": "Answer", text: "Yes. GAF warranties are transferable. We register your warranty in your name and provide the documentation you'll need at sale." } },
+              { "@type": "Question", name: "Do you do small repairs, or just full replacements?", acceptedAnswer: { "@type": "Answer", text: "Both. We replace pipe boots, repair flashing, fix leaks around chimneys and skylights, replace blown-off shingles, and tarp emergency damage." } },
+              { "@type": "Question", name: "What about commercial buildings — do you only do shingles?", acceptedAnswer: { "@type": "Answer", text: "No. We install SBS self-adhering systems, GAF Liberty, Mule-Hide TPO, metal, and shingle roofing on commercial buildings." } },
+            ],
+          },
+        ]}
       />
+
       <Navigation />
       <main>
         <PageHero
