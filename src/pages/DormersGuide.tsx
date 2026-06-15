@@ -88,17 +88,12 @@ const DormersGuide = () => {
     description:
       "Learn the different types of roof dormers (gabled, shed, hip) and the flashing and maintenance needed to keep them watertight during Mississippi storms.",
     author: {
-      "@type": "Organization",
-      name: "Shurden's Roofing LLC",
+      "@id": "https://shurdensroofing.com/#business",
     },
     publisher: {
-      "@type": "Organization",
-      name: "Shurden's Roofing LLC",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://shurdensroofing.com/og-image.jpg",
-      },
+      "@id": "https://shurdensroofing.com/#business",
     },
+
     datePublished: "2026-06-02",
     dateModified: "2026-06-02",
   };

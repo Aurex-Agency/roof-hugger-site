@@ -43,16 +43,16 @@ const CityPage = () => {
   const title = `Roofing in ${fullName} | Shurden's Roofing`;
   const description = `GAF Master Elite® roofer serving ${fullName}. Residential, commercial, storm damage, and insurance claim support. Call 662-498-6629.`;
 
-  const localBusiness = {
+  const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "RoofingContractor",
-    name: "Shurden's Roofing LLC",
-    telephone: "+1-662-498-6629",
-    priceRange: "$$",
-    address: { "@type": "PostalAddress", addressLocality: "Maben", addressRegion: "MS", postalCode: "39750", addressCountry: "US" },
+    "@type": "Service",
+    serviceType: "Roofing",
+    name: `Roofing Services in ${fullName}`,
+    provider: { "@id": "https://shurdensroofing.com/#business" },
     areaServed: { "@type": "City", name: fullName, containedInPlace: { "@type": "AdministrativeArea", name: `${city.county} County, MS` } },
     url: `https://shurdensroofing.com${path}`,
   };
+
 
   const breadcrumbs = {
     "@context": "https://schema.org",
@@ -76,7 +76,7 @@ const CityPage = () => {
 
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
-      <SEO title={title} description={description} path={path} jsonLd={[localBusiness, breadcrumbs, faqSchema]} />
+      <SEO title={title} description={description} path={path} jsonLd={[serviceSchema, breadcrumbs, faqSchema]} />
       <Navigation />
       <main>
         <PageHero

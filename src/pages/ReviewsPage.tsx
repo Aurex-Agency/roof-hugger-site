@@ -34,7 +34,14 @@ const ReviewsPage = () => {
         title="About Shurden's Roofing | Family-Owned Roofer in Maben, MS"
         description="Family-owned in Maben since 2015. Meet the Shurden family, GAF Master Elite® certified, serving North Mississippi homes and businesses."
         path="/reviews"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          url: "https://shurdensroofing.com/reviews",
+          mainEntity: { "@id": "https://shurdensroofing.com/#business" },
+        }}
       />
+
       <Navigation />
       <main>
         <PageHero
