@@ -116,9 +116,10 @@ const DormersGuide = () => {
   return (
     <>
       <SEO
-        title="What is a Dormer? A Mississippi Homeowner's Guide to Roof Dormers"
+        title="Mississippi Homeowner's Guide to Roof Dormers"
         description="Gabled, shed, and hip dormers explained — plus the flashing and maintenance every Mississippi homeowner needs to keep them watertight through storm season."
         path="/guides/roof-dormers"
+        ogType="article"
         jsonLd={[articleSchema, faqSchema]}
       />
       <Navigation />
