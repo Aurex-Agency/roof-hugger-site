@@ -7,9 +7,10 @@ interface SEOProps {
   description: string;
   path: string;
   jsonLd?: object | object[];
+  ogType?: "website" | "article";
 }
 
-const SEO = ({ title, description, path, jsonLd }: SEOProps) => {
+const SEO = ({ title, description, path, jsonLd, ogType = "website" }: SEOProps) => {
   const url = `${SITE_URL}${path}`;
   const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   return (
@@ -20,7 +21,7 @@ const SEO = ({ title, description, path, jsonLd }: SEOProps) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {schemas.map((s, i) => (
