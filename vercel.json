@@ -10,5 +10,8 @@
     { "source": "/gallery/", "destination": "/gallery", "permanent": true },
     { "source": "/reviews/", "destination": "/reviews", "permanent": true },
     { "source": "/service-areas/", "destination": "/service-areas", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
