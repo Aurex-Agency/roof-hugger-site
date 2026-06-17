@@ -10,7 +10,7 @@ const Hero = () => {
         alt="Crew installing dark architectural shingle roof at golden hour in Starkville MS"
         width={1920}
         height={1080}
-        fetchpriority="high"
+        fetchPriority="high"
         decoding="async"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
