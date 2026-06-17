@@ -13,6 +13,7 @@ export const routes: string[] = [
   "/gallery",
   "/reviews",
   "/guides/roof-dormers",
+  "/referral-join",
   "/privacy-policy",
   ...cities.map((c) => `/roofing/${c.slug}`),
 ];
