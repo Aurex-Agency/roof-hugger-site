@@ -60,11 +60,12 @@ const ReferralJoinPage = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") ?? "").trim().slice(0, 100);
+    const firstName = String(data.get("firstName") ?? "").trim().slice(0, 50);
+    const lastName = String(data.get("lastName") ?? "").trim().slice(0, 50);
     const phone = String(data.get("phone") ?? "").trim();
 
-    if (!name) {
-      toast({ title: "Name required", description: "Please enter your full name.", variant: "destructive" });
+    if (!firstName || !lastName) {
+      toast({ title: "Name required", description: "Please enter your first and last name.", variant: "destructive" });
       return;
     }
     if (!/^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(phone)) {
