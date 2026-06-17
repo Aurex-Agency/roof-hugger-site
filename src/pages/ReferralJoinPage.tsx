@@ -161,7 +161,10 @@ const ReferralJoinPage = () => {
                 Drop your name and number. We'll text you your referral details and update you whenever you level up a tier or earn cash.
               </p>
               <div className="space-y-5">
-                <Field label="Full Name" name="name" type="text" required autoComplete="name" />
+                <div className="grid grid-cols-2 gap-4">
+                  <Field label="First Name" name="firstName" type="text" required autoComplete="given-name" />
+                  <Field label="Last Name" name="lastName" type="text" required autoComplete="family-name" />
+                </div>
                 <Field label="Phone Number" name="phone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
                 <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
                   <input
