@@ -7,6 +7,7 @@ import MobileCallBar from "@/components/site/MobileCallBar";
 import PageHero from "@/components/site/PageHero";
 import FAQ from "@/components/site/FAQ";
 import { toast } from "@/hooks/use-toast";
+import { getReferralCode } from "@/lib/referral";
 
 const Field = ({
   label,
@@ -90,6 +91,7 @@ const ContactPage = () => {
           opt_in: true,
           source: "shurdensroofing.com — Contact Page",
           submitted_at: new Date().toISOString(),
+          referred_by_code: getReferralCode(),
         }),
       });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
