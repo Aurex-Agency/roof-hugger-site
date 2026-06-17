@@ -84,7 +84,8 @@ const ReferralJoinPage = () => {
         headers: { "Content-Type": "application/json" },
         mode: "no-cors",
         body: JSON.stringify({
-          full_name: name,
+          first_name: firstName,
+          last_name: lastName,
           phone,
           opt_in_referral_sms: true,
           source: "shurdensroofing.com — Referral Join",
