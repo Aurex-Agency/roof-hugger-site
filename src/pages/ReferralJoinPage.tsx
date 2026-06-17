@@ -78,9 +78,10 @@ const ReferralJoinPage = () => {
 
     setSubmitting(true);
     try {
-      const res = await fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/19e80ac4-a9b1-421e-8da5-042858ffedf3", {
+      await fetch("https://hooks.zapier.com/hooks/catch/22704410/43q6kus/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
         body: JSON.stringify({
           full_name: name,
           phone,
@@ -89,7 +90,6 @@ const ReferralJoinPage = () => {
           submitted_at: new Date().toISOString(),
         }),
       });
-      if (!res.ok) throw new Error(`Request failed (${res.status})`);
       form.reset();
       setSmsOptIn(false);
       toast({ title: "You're in!", description: "Thanks for joining. We'll text you updates and your referral details shortly." });
