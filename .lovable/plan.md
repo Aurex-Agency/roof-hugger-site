@@ -1,36 +1,43 @@
-## Plan: Strengthen LocalBusiness / RoofingContractor structured data
+## Goal
+Create a new `/referral-join` page (not linked in navigation) with a referral program signup form that collects name, phone, and SMS opt-in, and explains the gamified tier system.
 
-### 1. Add a canonical `@id` to the business entity
-In `index.html`, add `"@id": "https://shurdensroofing.com/#business"` to the RoofingContractor JSON-LD block. This gives Google a stable identifier to consolidate the entity across pages and schemas (Knowledge Graph hygiene).
+## Page Structure
+- Hero section with headline: "Earn $200 in cash every time you refer someone and they get a roof replacement!"
+- Left column: Gamified tier explanation
+  - Tier 1–3 progression based on number of successful referrals
+  - Each tier unlocks higher cash per referral + entry into extra prize drawings
+  - Visual tier cards or list showing "Level Up" progression
+- Right column: Signup form
+  - Full Name (text input)
+  - Phone Number (tel input)
+  - Checkbox: "I agree to receive text message updates about the referral program."
+  - Submit CTA: "Join the Referral Program"
+  - Privacy note below submit
 
-### 2. Upgrade `areaServed` to structured City objects
-Replace the flat string array in `index.html` with structured entries:
-```json
-"areaServed": [
-  { "@type": "City", "name": "Brandon", "containedInPlace": { "@type": "AdministrativeArea", "name": "Rankin County, MS" } },
-  { "@type": "City", "name": "Flowood", ... },
-  ...
-]
-```
-Covers all 15 existing cities/counties. Google parses these more reliably than plain strings.
+## Form Submission
+- Same webhook pattern as ContactPage (`POST` to LeadConnector webhook)
+- Payload fields: `full_name`, `phone`, `opt_in_referral_sms: true`, `source: "shurdensroofing.com — Referral Join"`
+- Client-side validation: name required, phone valid 10-digit US format, checkbox required
+- Toast confirmation on success/error
 
-### 3. Extend `SEO.tsx` to support per-page JSON-LD
-Add an optional `jsonLd?: object | object[]` prop to the `SEO` component. When provided, render `<script type="application/ld+json">` tags inside `<Helmet>`. Each per-page schema will reference the business via `"provider": { "@id": "https://shurdensroofing.com/#business" }` so they link back to the main entity rather than duplicating it.
+## Styling
+- Follows existing dark-theme ContactPage layout (container grid, dark card form, PageHero component)
+- Uses existing semantic design tokens (`bg-dark`, `border-white/5`, `text-primary`, etc.)
+- No new colors or custom styles outside the existing token system
 
-Then wire up page-specific schema on key routes:
-- **Services page** — `Service` schema for roof replacement, repair, inspection, etc., with `provider` → business `@id`
-- **Reviews page** — `AggregateRating` already on the business; add a few `Review` items here
-- **City pages** (e.g. `/brandon-ms-roofing`) — `Service` with `areaServed: { "@type": "City", "name": "Brandon" }` and `provider` → business `@id`
-- **DormersGuide / blog articles** — already `article` og:type; add `Article` JSON-LD with `publisher` → business `@id`
+## SEO
+- `<SEO>` component with title "Join Shurden's Roofing Referral Program | Earn $200 Per Referral"
+- Description mentioning $200 cash reward and North Mississippi service area
 
-### Files touched
-- `index.html` — add `@id`, restructure `areaServed`
-- `src/components/SEO.tsx` — add `jsonLd` prop, render in Helmet
-- `src/pages/Services.tsx`, `src/pages/Reviews.tsx`, city page(s), `src/pages/DormersGuide.tsx` — pass page-specific `jsonLd`
+## Routing
+- Add `<Route path="/referral-join" element={<ReferralJoinPage />} />` in `AppShell.tsx`
+- Add `/referral-join/` redirect in `vercel.json`
+- No Navigation or Footer changes needed (page intentionally hidden from menu)
 
-### Notes
-- All schema changes are static — no runtime/business-logic impact.
-- Google re-crawls on its own schedule; user can request re-indexing in Search Console after publish.
-- I'll validate the JSON-LD shape against schema.org before finalizing.
+## Files to Create/Edit
+- `src/pages/ReferralJoinPage.tsx` — new page component
+- `src/AppShell.tsx` — add route
+- `vercel.json` — add trailing-slash redirect
 
-Want me to proceed, or scope down to just steps 1 + 2 (index.html only, no per-page wiring)?
+## No Backend or Database Changes
+This is a purely frontend page that submits to the existing LeadConnector webhook. No Lovable Cloud, Supabase, or storage is required.
