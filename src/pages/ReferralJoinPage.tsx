@@ -60,11 +60,12 @@ const ReferralJoinPage = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") ?? "").trim().slice(0, 100);
+    const firstName = String(data.get("firstName") ?? "").trim().slice(0, 50);
+    const lastName = String(data.get("lastName") ?? "").trim().slice(0, 50);
     const phone = String(data.get("phone") ?? "").trim();
 
-    if (!name) {
-      toast({ title: "Name required", description: "Please enter your full name.", variant: "destructive" });
+    if (!firstName || !lastName) {
+      toast({ title: "Name required", description: "Please enter your first and last name.", variant: "destructive" });
       return;
     }
     if (!/^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(phone)) {
@@ -83,7 +84,8 @@ const ReferralJoinPage = () => {
         headers: { "Content-Type": "application/json" },
         mode: "no-cors",
         body: JSON.stringify({
-          full_name: name,
+          first_name: firstName,
+          last_name: lastName,
           phone,
           opt_in_referral_sms: true,
           source: "shurdensroofing.com — Referral Join",
@@ -159,7 +161,10 @@ const ReferralJoinPage = () => {
                 Drop your name and number. We'll text you your referral details and update you whenever you level up a tier or earn cash.
               </p>
               <div className="space-y-5">
-                <Field label="Full Name" name="name" type="text" required autoComplete="name" />
+                <div className="grid grid-cols-2 gap-4">
+                  <Field label="First Name" name="firstName" type="text" required autoComplete="given-name" />
+                  <Field label="Last Name" name="lastName" type="text" required autoComplete="family-name" />
+                </div>
                 <Field label="Phone Number" name="phone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
                 <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
                   <input
