@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Phone, Clock } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { getReferralCode } from "@/lib/referral";
 import contactBg from "@/assets/contact-bg.jpg";
 
 const SERVICE_OPTIONS = [
@@ -60,6 +61,7 @@ const Contact = () => {
           opt_in: true,
           source: "shurdensroofing.com — Home Contact",
           submitted_at: new Date().toISOString(),
+          referred_by_code: getReferralCode(),
         }),
       });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
