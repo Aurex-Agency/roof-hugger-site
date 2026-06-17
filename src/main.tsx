@@ -10,10 +10,10 @@ const app = (
   </HelmetProvider>
 );
 
-// Prerendered pages ship with server-rendered markup inside #root, so we
-// hydrate them. In dev (and any non-prerendered route) #root is empty and we
-// mount fresh.
-if (rootEl.hasChildNodes()) {
+// Prerendered pages ship with element markup inside #root, so hydrate only
+// when real SSR elements exist. In dev, Vite serves the raw <!--app-html-->
+// placeholder comment, which must mount fresh instead of hydrating.
+if (rootEl.children.length > 0) {
   hydrateRoot(rootEl, app);
 } else {
   createRoot(rootEl).render(app);
