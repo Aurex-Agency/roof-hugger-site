@@ -78,7 +78,7 @@ const ReferralJoinPage = () => {
 
     setSubmitting(true);
     try {
-      const res = await fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/ad482d83-e208-49d3-ba6e-54f49c4afcbd", {
+      const res = await fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/19e80ac4-a9b1-421e-8da5-042858ffedf3", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
