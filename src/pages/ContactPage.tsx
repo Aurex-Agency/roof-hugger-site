@@ -90,7 +90,7 @@ const ContactPage = () => {
         submitted_at: new Date().toISOString(),
         referred_by_code: getReferralCode(),
       };
-      const [res1, res2] = await Promise.all([
+      const results = await Promise.allSettled([
         fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/4c2e69fd-37d3-4a83-ad28-e07bcec714b9", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -98,11 +98,15 @@ const ContactPage = () => {
         }),
         fetch("https://hooks.zapier.com/hooks/catch/22704410/43n40yg/", {
           method: "POST",
+          mode: "no-cors",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         }),
       ]);
-      if (!res1.ok || !res2.ok) throw new Error(`Request failed (${res1.status}, ${res2.status})`);
+      const primary = results[0];
+      if (primary.status === "rejected" || !primary.value.ok) {
+        throw new Error("Primary webhook failed");
+      }
       form.reset();
       setService("");
       setOptIn(false);
