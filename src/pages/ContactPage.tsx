@@ -80,21 +80,29 @@ const ContactPage = () => {
 
     setSubmitting(true);
     try {
-      const res = await fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/4c2e69fd-37d3-4a83-ad28-e07bcec714b9", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          full_name: name,
-          phone,
-          service_interest: service,
-          message,
-          opt_in: true,
-          source: "shurdensroofing.com — Contact Page",
-          submitted_at: new Date().toISOString(),
-          referred_by_code: getReferralCode(),
+      const payload = {
+        full_name: name,
+        phone,
+        service_interest: service,
+        message,
+        opt_in: true,
+        source: "shurdensroofing.com — Contact Page",
+        submitted_at: new Date().toISOString(),
+        referred_by_code: getReferralCode(),
+      };
+      const [res1, res2] = await Promise.all([
+        fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/4c2e69fd-37d3-4a83-ad28-e07bcec714b9", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
         }),
-      });
-      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+        fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/0e363de5-01ce-4d95-967d-032b6d726e5c", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }),
+      ]);
+      if (!res1.ok || !res2.ok) throw new Error(`Request failed (${res1.status}, ${res2.status})`);
       form.reset();
       setService("");
       setOptIn(false);
