@@ -96,7 +96,7 @@ const ContactPage = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         }),
-        fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/0e363de5-01ce-4d95-967d-032b6d726e5c", {
+        fetch("https://hooks.zapier.com/hooks/catch/22704410/43n40yg/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
