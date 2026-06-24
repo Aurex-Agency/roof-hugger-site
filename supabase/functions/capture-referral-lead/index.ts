@@ -123,7 +123,7 @@ Deno.serve(async (req) => {
     try {
       const friendE164 = toE164(friend_phone ?? "");
       const friendGhlResponse = await fetch(
-        "https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/d0171b17-914a-4899-ac44-3e71ac52d2e6",
+        "https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/1053f111-1302-4928-8be6-9fb8875a0f01",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
