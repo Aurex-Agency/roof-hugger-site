@@ -22,6 +22,47 @@ function generateCode(firstName: string): string {
   return `${base}-${num}`;
 }
 
+function toE164(normalizedDigits: string): string {
+  if (normalizedDigits.length === 10) {
+    return `+1${normalizedDigits}`;
+  }
+  if (normalizedDigits.length === 11 && normalizedDigits.startsWith("1")) {
+    return `+${normalizedDigits}`;
+  }
+  return `+${normalizedDigits}`;
+}
+
+async function sendGhlConfirmation(
+  advocateName: string,
+  advocatePhone: string,
+  referralCode: string,
+): Promise<void> {
+  const shareUrl = `https://shurdensroofing.com/refer?code=${referralCode}`;
+  const body = {
+    advocate_name: advocateName,
+    advocate_phone: toE164(advocatePhone),
+    referral_code: referralCode,
+    is_new: true,
+    share_url: shareUrl,
+  };
+
+  try {
+    const resp = await fetch(
+      "https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/3fbac592-d9a7-4073-94e6-134265dc9e6c",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      },
+    );
+    if (!resp.ok) {
+      console.error(`GHL confirmation failed: ${resp.status} ${await resp.text()}`);
+    }
+  } catch (err) {
+    console.error(`GHL confirmation error: ${(err as Error).message}`);
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
