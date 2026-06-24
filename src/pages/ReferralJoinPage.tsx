@@ -208,14 +208,34 @@ const ReferralJoinPage = () => {
                   {submitting ? "Submitting..." : "Join the Referral Program →"}
                 </button>
                 {result && (
-                  <div className="rounded-md border border-primary/40 bg-primary/10 p-4 text-center">
-                    <p className="font-body text-xs font-bold uppercase tracking-wider text-primary">
-                      {result.isNew ? "Your Referral Code" : "Welcome Back — Your Code"}
-                    </p>
-                    <p className="mt-1 font-display text-2xl text-dark-foreground">{result.code}</p>
-                    <p className="mt-2 font-body text-xs text-dark-foreground/80">
-                      Share this code with friends and family. We'll text you whenever you earn a referral.
-                    </p>
+                  <div className="space-y-4 rounded-md border border-primary/40 bg-primary/10 p-4 text-center">
+                    <div>
+                      <p className="font-body text-xs font-bold uppercase tracking-wider text-primary">
+                        {result.isNew ? "Your Referral Code" : "Welcome Back — Your Code"}
+                      </p>
+                      <p className="mt-1 font-display text-2xl text-dark-foreground">{result.code}</p>
+                      <p className="mt-2 font-body text-xs text-dark-foreground/80">
+                        Share this code with friends and family. We'll text you whenever you earn a referral.
+                      </p>
+                    </div>
+                    <div className="rounded-md border border-white/10 bg-dark/60 p-3">
+                      <p className="mb-2 font-body text-[10px] font-bold uppercase tracking-wider text-primary">
+                        Your Share Link
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <p className="flex-1 truncate font-body text-sm text-dark-foreground" title={shareUrl}>
+                          {shareUrl}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={handleCopy}
+                          className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-2 font-body text-xs font-bold uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.02] hover:shadow-cta"
+                        >
+                          {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                          {copied ? "Copied!" : "Copy"}
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
                 <p className="text-center font-body text-[11px] text-dark-foreground/75">
