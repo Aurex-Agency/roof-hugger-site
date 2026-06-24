@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { Trophy, Gift, DollarSign, Sparkles } from "lucide-react";
+import { Trophy, Gift, DollarSign, Sparkles, Copy, Check } from "lucide-react";
 import SEO from "@/components/SEO";
 import Navigation from "@/components/site/Navigation";
 import Footer from "@/components/site/Footer";
