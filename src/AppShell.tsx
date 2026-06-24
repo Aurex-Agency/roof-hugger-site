@@ -15,6 +15,7 @@ import ServiceAreasPage from "./pages/ServiceAreasPage.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import DormersGuide from "./pages/DormersGuide.tsx";
 import ReferralJoinPage from "./pages/ReferralJoinPage.tsx";
+import ReferPage from "./pages/ReferPage.tsx";
 
 const queryClient = new QueryClient();
 
