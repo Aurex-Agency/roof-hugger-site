@@ -193,6 +193,17 @@ const ReferralJoinPage = () => {
                 >
                   {submitting ? "Submitting..." : "Join the Referral Program →"}
                 </button>
+                {result && (
+                  <div className="rounded-md border border-primary/40 bg-primary/10 p-4 text-center">
+                    <p className="font-body text-xs font-bold uppercase tracking-wider text-primary">
+                      {result.isNew ? "Your Referral Code" : "Welcome Back — Your Code"}
+                    </p>
+                    <p className="mt-1 font-display text-2xl text-dark-foreground">{result.code}</p>
+                    <p className="mt-2 font-body text-xs text-dark-foreground/80">
+                      Share this code with friends and family. We'll text you whenever you earn a referral.
+                    </p>
+                  </div>
+                )}
                 <p className="text-center font-body text-[11px] text-dark-foreground/75">
                   Your information stays private. We never sell or share your details — it's only used for the referral program.
                 </p>
