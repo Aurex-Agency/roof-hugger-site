@@ -52,9 +52,12 @@ const TIERS = [
   },
 ];
 
+const FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/register-or-fetch-advocate`;
+
 const ReferralJoinPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const [smsOptIn, setSmsOptIn] = useState(false);
+  const [result, setResult] = useState<{ code: string; isNew: boolean } | null>(null);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -79,24 +82,32 @@ const ReferralJoinPage = () => {
 
     setSubmitting(true);
     try {
-      await fetch("https://hooks.zapier.com/hooks/catch/22704410/43q6kus/", {
+      const res = await fetch(FUNCTION_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        mode: "no-cors",
-        body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
-          phone,
-          opt_in_referral_sms: true,
-          source: "shurdensroofing.com — Referral Join",
-          submitted_at: new Date().toISOString(),
-        }),
+        headers: {
+          "Content-Type": "application/json",
+          apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ first_name: firstName, last_name: lastName, phone }),
       });
+      const json = await res.json();
+      if (!res.ok) {
+        throw new Error(json?.error || "Submission failed");
+      }
+      setResult({ code: json.referral_code, isNew: !!json.is_new });
       form.reset();
       setSmsOptIn(false);
-      toast({ title: "You're in!", description: "Thanks for joining. We'll text you updates and your referral details shortly." });
+      toast({
+        title: json.is_new ? "You're in!" : "Welcome back!",
+        description: `Your referral code is ${json.referral_code}.`,
+      });
     } catch (err) {
-      toast({ title: "Could not submit", description: "Please try again or call 662-498-6629.", variant: "destructive" });
+      toast({
+        title: "Could not submit",
+        description: (err as Error).message || "Please try again or call 662-498-6629.",
+        variant: "destructive",
+      });
     } finally {
       setSubmitting(false);
     }
