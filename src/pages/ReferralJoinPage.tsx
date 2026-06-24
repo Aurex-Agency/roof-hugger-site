@@ -58,6 +58,9 @@ const ReferralJoinPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const [smsOptIn, setSmsOptIn] = useState(false);
   const [result, setResult] = useState<{ code: string; isNew: boolean } | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const shareUrl = result ? `www.shurdensroofing.com/refer?code=${result.code}` : "";
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
