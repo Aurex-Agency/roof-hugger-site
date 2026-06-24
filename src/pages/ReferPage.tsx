@@ -32,25 +32,19 @@ const Field = ({
   </div>
 );
 
-const SERVICE_OPTIONS = [
-  "Roof Replacement",
-  "Roof Repair",
-  "Storm Damage",
-  "Inspection",
-  "Gutter",
-  "Other",
-];
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+const FUNCTION_URL = `${SUPABASE_URL}/functions/v1/capture-referral-lead`;
 
 const ReferPage = () => {
   const [submitting, setSubmitting] = useState(false);
-  const [service, setService] = useState<string>("");
   const [optIn, setOptIn] = useState(false);
   const [referrer, setReferrer] = useState<string>("");
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const code = getReferralCode();
     if (code) {
-      // Format "JOHN-1234" → "John"
       const firstName = code.split("-")[0]?.toLowerCase() || "";
       setReferrer(firstName.charAt(0).toUpperCase() + firstName.slice(1));
     }
@@ -60,24 +54,22 @@ const ReferPage = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") ?? "").trim().slice(0, 100);
-    const phone = String(data.get("phone") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim().slice(0, 2000);
+    const friend_name = String(data.get("name") ?? "").trim().slice(0, 100);
+    const friend_phone = String(data.get("phone") ?? "").trim();
+    const friend_email = String(data.get("email") ?? "").trim().slice(0, 200);
+    const friend_address = String(data.get("address") ?? "").trim().slice(0, 300);
+    const advocate_referral_code = getReferralCode();
 
-    if (!name) {
+    if (!friend_name) {
       toast({ title: "Name required", description: "Please enter your full name.", variant: "destructive" });
       return;
     }
-    if (!/^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(phone)) {
+    if (friend_phone && !/^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(friend_phone)) {
       toast({ title: "Invalid phone number", description: "Please enter a 10-digit US phone number.", variant: "destructive" });
       return;
     }
-    if (!service) {
-      toast({ title: "Select a service", description: "Pick the service you're interested in.", variant: "destructive" });
-      return;
-    }
-    if (!message) {
-      toast({ title: "Message required", description: "Please tell us briefly what's going on with your roof.", variant: "destructive" });
+    if (!advocate_referral_code) {
+      toast({ title: "Missing referral code", description: "This link is missing a referral code. Please use the link your friend sent you.", variant: "destructive" });
       return;
     }
     if (!optIn) {
@@ -87,39 +79,31 @@ const ReferPage = () => {
 
     setSubmitting(true);
     try {
-      const payload = {
-        full_name: name,
-        phone,
-        service_interest: service,
-        message,
-        opt_in: true,
-        source: "shurdensroofing.com — Referral Landing Page",
-        submitted_at: new Date().toISOString(),
-        referred_by_code: getReferralCode(),
-      };
-      const results = await Promise.allSettled([
-        fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/4c2e69fd-37d3-4a83-ad28-e07bcec714b9", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+      const res = await fetch(FUNCTION_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          friend_name,
+          friend_phone,
+          friend_email,
+          friend_address,
+          advocate_referral_code,
         }),
-        fetch("https://hooks.zapier.com/hooks/catch/22704410/43n40yg/", {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }),
-      ]);
-      const primary = results[0];
-      if (primary.status === "rejected" || !primary.value.ok) {
-        throw new Error("Primary webhook failed");
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || !body?.success) {
+        throw new Error(body?.error || "Submission failed");
       }
       form.reset();
-      setService("");
       setOptIn(false);
+      setSubmitted(true);
       toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-498-6629." });
     } catch (err) {
-      toast({ title: "Could not send request", description: "Please try again or call 662-498-6629.", variant: "destructive" });
+      toast({ title: "Could not send request", description: (err as Error).message || "Please try again or call 662-498-6629.", variant: "destructive" });
     } finally {
       setSubmitting(false);
     }
