@@ -16,6 +16,14 @@ function normalizePhone(raw: string): string {
   return stripped.replace(/\D/g, "");
 }
 
+function toE164(raw: string): string {
+  const digits = normalizePhone(raw);
+  if (!digits || digits.length < 10) return "";
+  // US numbers — ensure leading +1
+  const us = digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits;
+  return `+1${us}`;
+}
+
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
