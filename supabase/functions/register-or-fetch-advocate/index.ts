@@ -130,6 +130,7 @@ Deno.serve(async (req) => {
         .single();
 
       if (!insertError && inserted?.referral_code) {
+        await sendGhlConfirmation(fullName, normalizedPhone, inserted.referral_code);
         return new Response(
           JSON.stringify({ referral_code: inserted.referral_code, is_new: true }),
           { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
