@@ -1,12 +1,12 @@
 import { useState, FormEvent, useEffect } from "react";
-import { Phone, Mail, Clock, MapPin, UserCheck } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Phone, Mail, Clock, MapPin, UserCheck, PartyPopper } from "lucide-react";
 import SEO from "@/components/SEO";
 import Navigation from "@/components/site/Navigation";
 import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
 import PageHero from "@/components/site/PageHero";
 import { toast } from "@/hooks/use-toast";
-import { getReferralCode } from "@/lib/referral";
 
 const Field = ({
   label,
