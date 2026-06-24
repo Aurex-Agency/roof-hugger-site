@@ -37,15 +37,19 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
 const FUNCTION_URL = `${SUPABASE_URL}/functions/v1/capture-referral-lead`;
 
 const ReferPage = () => {
+  const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const [optIn, setOptIn] = useState(false);
   const [referrer, setReferrer] = useState<string>("");
+  const [code, setCode] = useState<string>("");
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const code = getReferralCode();
-    if (code) {
-      const firstName = code.split("-")[0]?.toLowerCase() || "";
+    const params = new URLSearchParams(window.location.search);
+    const urlCode = params.get("code") || "";
+    setCode(urlCode);
+    if (urlCode) {
+      const firstName = urlCode.split("-")[0]?.toLowerCase() || "";
       setReferrer(firstName.charAt(0).toUpperCase() + firstName.slice(1));
     }
   }, []);
@@ -58,7 +62,6 @@ const ReferPage = () => {
     const friend_phone = String(data.get("phone") ?? "").trim();
     const friend_email = String(data.get("email") ?? "").trim().slice(0, 200);
     const friend_address = String(data.get("address") ?? "").trim().slice(0, 300);
-    const advocate_referral_code = getReferralCode();
 
     if (!friend_name) {
       toast({ title: "Name required", description: "Please enter your full name.", variant: "destructive" });
@@ -68,8 +71,13 @@ const ReferPage = () => {
       toast({ title: "Invalid phone number", description: "Please enter a 10-digit US phone number.", variant: "destructive" });
       return;
     }
-    if (!advocate_referral_code) {
-      toast({ title: "Missing referral code", description: "This link is missing a referral code. Please use the link your friend sent you.", variant: "destructive" });
+    if (!code) {
+      toast({
+        title: "Missing referral link",
+        description: "This page is missing a referral code. Please use the link your friend sent you, or contact us directly.",
+        variant: "destructive",
+      });
+      setTimeout(() => navigate("/contact"), 2500);
       return;
     }
     if (!optIn) {
@@ -91,7 +99,7 @@ const ReferPage = () => {
           friend_phone,
           friend_email,
           friend_address,
-          advocate_referral_code,
+          advocate_referral_code: code,
         }),
       });
       const body = await res.json().catch(() => ({}));
@@ -101,13 +109,66 @@ const ReferPage = () => {
       form.reset();
       setOptIn(false);
       setSubmitted(true);
-      toast({ title: "Request sent", description: "Thanks! We'll be in touch shortly. For urgent issues, call 662-498-6629." });
     } catch (err) {
       toast({ title: "Could not send request", description: (err as Error).message || "Please try again or call 662-498-6629.", variant: "destructive" });
     } finally {
       setSubmitting(false);
     }
   };
+
+  const thankYouBlock = (
+    <div className="self-start rounded-lg border border-white/5 bg-dark p-6 shadow-[var(--shadow-card)] md:p-8 text-center">
+      <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
+        <PartyPopper className="h-7 w-7" />
+      </div>
+      <p className="mb-2 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Thank You</p>
+      <h3 className="mb-3 font-display text-2xl text-dark-foreground md:text-3xl">We Have Received Your Request</h3>
+      <p className="font-body text-sm text-dark-foreground/90">
+        Thanks for reaching out{referrer ? `, and thanks to ${referrer} for the referral` : ""}! We will be in touch shortly to schedule your free roof inspection. For urgent issues, call{" "}
+        <a href="tel:6624986629" className="text-primary underline hover:text-accent">662-498-6629</a>.
+      </p>
+    </div>
+  );
+
+  const formBlock = (
+    <form
+      onSubmit={onSubmit}
+      className="self-start rounded-lg border border-white/5 bg-dark p-6 shadow-[var(--shadow-card)] md:p-8"
+      noValidate
+    >
+      <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Roof Inspection</p>
+      <h3 className="mb-3 font-display text-2xl text-dark-foreground md:text-3xl">Request Your Free Roof Inspection</h3>
+      <p className="mb-6 font-body text-sm text-dark-foreground/90">
+        Tell us where you are and what you are seeing. Leaks, missing shingles, hail damage, commercial roof issues, or a roof that is just old — we will help you sort it out.
+      </p>
+      <div className="space-y-5">
+        <Field label="Full Name" name="name" type="text" required autoComplete="name" />
+        <Field label="Phone Number" name="phone" type="tel" autoComplete="tel" placeholder="(662) 555-1234" />
+        <Field label="Email" name="email" type="email" autoComplete="email" placeholder="you@example.com" />
+        <Field label="Address" name="address" type="text" autoComplete="street-address" placeholder="123 Main St, City, MS" />
+
+        <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
+          <input
+            type="checkbox"
+            checked={optIn}
+            onChange={(e) => setOptIn(e.target.checked)}
+            className="mt-0.5 h-4 w-4 accent-primary"
+          />
+          <span>I agree to be contacted by Shurden's Roofing about my request.</span>
+        </label>
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full rounded-md bg-primary px-6 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.01] hover:shadow-cta disabled:opacity-70"
+        >
+          {submitting ? "Submitting..." : "Request My Free Inspection →"}
+        </button>
+        <p className="text-center font-body text-[11px] text-dark-foreground/75">
+          Your information stays private. We never sell or share your details — it's only used to follow up about your roof.
+        </p>
+      </div>
+    </form>
+  );
 
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
@@ -190,43 +251,7 @@ const ReferPage = () => {
               </div>
             </div>
 
-            <form
-              onSubmit={onSubmit}
-              className="self-start rounded-lg border border-white/5 bg-dark p-6 shadow-[var(--shadow-card)] md:p-8"
-              noValidate
-            >
-              <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Roof Inspection</p>
-              <h3 className="mb-3 font-display text-2xl text-dark-foreground md:text-3xl">Request Your Free Roof Inspection</h3>
-              <p className="mb-6 font-body text-sm text-dark-foreground/90">
-                Tell us where you are and what you are seeing. Leaks, missing shingles, hail damage, commercial roof issues, or a roof that is just old — we will help you sort it out.
-              </p>
-              <div className="space-y-5">
-                <Field label="Full Name" name="name" type="text" required autoComplete="name" />
-                <Field label="Phone Number" name="phone" type="tel" autoComplete="tel" placeholder="(662) 555-1234" />
-                <Field label="Email" name="email" type="email" autoComplete="email" placeholder="you@example.com" />
-                <Field label="Address" name="address" type="text" autoComplete="street-address" placeholder="123 Main St, City, MS" />
-
-                <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
-                  <input
-                    type="checkbox"
-                    checked={optIn}
-                    onChange={(e) => setOptIn(e.target.checked)}
-                    className="mt-0.5 h-4 w-4 accent-primary"
-                  />
-                  <span>I agree to be contacted by Shurden's Roofing about my request.</span>
-                </label>
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full rounded-md bg-primary px-6 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.01] hover:shadow-cta disabled:opacity-70"
-                >
-                  {submitting ? "Submitting..." : "Request My Free Inspection →"}
-                </button>
-                <p className="text-center font-body text-[11px] text-dark-foreground/75">
-                  Your information stays private. We never sell or share your details — it's only used to follow up about your roof.
-                </p>
-              </div>
-            </form>
+            {submitted ? thankYouBlock : formBlock}
           </div>
         </section>
       </main>
