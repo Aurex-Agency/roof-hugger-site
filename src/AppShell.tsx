@@ -40,6 +40,7 @@ const AppShell = () => (
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/guides/roof-dormers" element={<DormersGuide />} />
         <Route path="/referral-join" element={<ReferralJoinPage />} />
+        <Route path="/refer" element={<ReferPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
