@@ -80,7 +80,7 @@ Deno.serve(async (req) => {
       return json({ error: "Invalid referral code" }, 400);
     }
 
-    const { error: insertError } = await supabase
+    const { data: insertedLead, error: insertError } = await supabase
       .from("Referral Leads")
       .insert({
         friend_name: String(friend_name).trim(),
@@ -88,13 +88,15 @@ Deno.serve(async (req) => {
         friend_email: friend_email ? String(friend_email).trim() : null,
         friend_address: friend_address ? String(friend_address).trim() : null,
         advocate_referral_code: code,
-      });
+      })
+      .select("id")
+      .single();
 
     if (insertError) {
       return json({ error: "Insert failed", detail: insertError.message }, 500);
     }
 
-    // GHL webhook — fire-and-forget; failure does not break the lead save
+    // Advocate GHL webhook — fire-and-forget; failure does not break the lead save
     try {
       const advocateName = advocate.Name ? String(advocate.Name).trim() : "";
       const advocateE164 = toE164(advocate.Phone ?? "");
@@ -112,10 +114,53 @@ Deno.serve(async (req) => {
         },
       );
     } catch (ghlErr) {
-      console.error("GHL webhook failed:", (ghlErr as Error).message);
+      console.error("Advocate GHL webhook failed:", (ghlErr as Error).message);
     }
 
-    return json({ success: true });
+    // Friend GHL webhook
+    let friendGhlOk = false;
+    let friendGhlErrorText: string | null = null;
+    try {
+      const friendE164 = toE164(friend_phone ?? "");
+      const friendGhlResponse = await fetch(
+        "https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/d0171b17-914a-4899-ac44-3e71ac52d2e6",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            friend_name: String(friend_name).trim(),
+            friend_phone: friendE164,
+            friend_email: friend_email ? String(friend_email).trim() : null,
+            friend_address: friend_address ? String(friend_address).trim() : null,
+            advocate_referral_code: code,
+          }),
+        },
+      );
+      friendGhlOk = friendGhlResponse.ok;
+      if (!friendGhlOk) {
+        friendGhlErrorText = await friendGhlResponse.text();
+        console.error("Friend GHL webhook failed:", friendGhlResponse.status, friendGhlErrorText);
+      }
+    } catch (friendGhlErr) {
+      friendGhlErrorText = (friendGhlErr as Error).message;
+      console.error("Friend GHL webhook exception:", friendGhlErrorText);
+    }
+
+    // Update lead row with GHL sync status
+    if (insertedLead?.id) {
+      const { error: updateError } = await supabase
+        .from("Referral Leads")
+        .update({
+          ghl_synced: friendGhlOk,
+          ghl_error: friendGhlErrorText,
+        })
+        .eq("id", insertedLead.id);
+      if (updateError) {
+        console.error("Failed to update lead ghl_synced:", updateError.message);
+      }
+    }
+
+    return json({ success: true, ghl_synced: friendGhlOk });
   } catch (err) {
     return json({ error: "Unexpected error", detail: (err as Error).message }, 500);
   }
