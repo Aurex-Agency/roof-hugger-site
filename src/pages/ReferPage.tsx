@@ -56,6 +56,8 @@ const ReferPage = () => {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    e.stopPropagation();
+    (e.nativeEvent as Event).stopImmediatePropagation?.();
     const form = e.currentTarget;
     const data = new FormData(form);
     const friend_name = String(data.get("name") ?? "").trim().slice(0, 100);
@@ -135,6 +137,8 @@ const ReferPage = () => {
       onSubmit={onSubmit}
       className="self-start rounded-lg border border-white/5 bg-dark p-6 shadow-[var(--shadow-card)] md:p-8"
       noValidate
+      data-no-track="true"
+      data-lc-form-ignore="true"
     >
       <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Roof Inspection</p>
       <h3 className="mb-3 font-display text-2xl text-dark-foreground md:text-3xl">Request Your Free Roof Inspection</h3>
