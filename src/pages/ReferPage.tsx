@@ -202,40 +202,10 @@ const ReferPage = () => {
               </p>
               <div className="space-y-5">
                 <Field label="Full Name" name="name" type="text" required autoComplete="name" />
-                <Field label="Phone Number" name="phone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
-                <fieldset>
-                  <legend className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/95">
-                    Service Interest
-                  </legend>
-                  <div className="grid grid-cols-2 gap-2">
-                    {SERVICE_OPTIONS.map((s) => (
-                      <label key={s} className="flex cursor-pointer items-center gap-2 rounded-md border border-white/10 bg-secondary/40 px-3 py-2 font-body text-sm text-dark-foreground hover:border-primary/50">
-                        <input
-                          type="radio"
-                          name="service"
-                          value={s}
-                          checked={service === s}
-                          onChange={() => setService(s)}
-                          className="h-4 w-4 accent-primary"
-                        />
-                        {s}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
-                <div>
-                  <label htmlFor="message" className="mb-2 block font-body text-xs font-bold uppercase tracking-wider text-dark-foreground/95">
-                    What's going on with your roof?
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    className="w-full rounded-md border border-white/10 bg-secondary/40 px-4 py-3 font-body text-sm text-dark-foreground placeholder:text-dark-foreground/90 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
-                    placeholder="Storm damage, leak, full replacement..."
-                  />
-                </div>
+                <Field label="Phone Number" name="phone" type="tel" autoComplete="tel" placeholder="(662) 555-1234" />
+                <Field label="Email" name="email" type="email" autoComplete="email" placeholder="you@example.com" />
+                <Field label="Address" name="address" type="text" autoComplete="street-address" placeholder="123 Main St, City, MS" />
+
                 <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
                   <input
                     type="checkbox"
