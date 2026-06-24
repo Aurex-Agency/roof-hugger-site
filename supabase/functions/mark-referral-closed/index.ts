@@ -47,8 +47,8 @@ Deno.serve(async (req) => {
 
     const normalizedPhone = normalizePhone(friend_phone);
 
-    const supabaseUrl = Deno.env.get("SUPABASE_URL");
-    const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+    const supabaseUrl = Deno.env.get("ADVOCATES_SUPABASE_URL");
+    const serviceRoleKey = Deno.env.get("ADVOCATES_SUPABASE_SERVICE_ROLE_KEY");
     if (!supabaseUrl || !serviceRoleKey) {
       return json({ error: "Server not configured" }, 500);
     }
