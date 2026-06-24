@@ -116,6 +116,17 @@ const ReferralJoinPage = () => {
     }
   };
 
+  const handleCopy = async () => {
+    if (!shareUrl) return;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      toast({ title: "Copy failed", description: "Please select and copy the URL manually.", variant: "destructive" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <SEO
