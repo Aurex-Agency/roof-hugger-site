@@ -56,6 +56,8 @@ const ReferPage = () => {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    e.stopPropagation();
+    (e.nativeEvent as Event).stopImmediatePropagation?.();
     const form = e.currentTarget;
     const data = new FormData(form);
     const friend_name = String(data.get("name") ?? "").trim().slice(0, 100);
