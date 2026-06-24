@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
 
     const { data: advocate, error: lookupError } = await supabase
       .from("Advocates")
-      .select("referral_code")
+      .select("referral_code, Name, Phone")
       .eq("referral_code", code)
       .maybeSingle();
 
@@ -92,6 +92,27 @@ Deno.serve(async (req) => {
 
     if (insertError) {
       return json({ error: "Insert failed", detail: insertError.message }, 500);
+    }
+
+    // GHL webhook — fire-and-forget; failure does not break the lead save
+    try {
+      const advocateName = advocate.Name ? String(advocate.Name).trim() : "";
+      const advocateE164 = toE164(advocate.Phone ?? "");
+      await fetch(
+        "https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/eff8ef53-0556-434c-b1e1-659d55f56c08",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            advocate_name: advocateName,
+            advocate_phone: advocateE164,
+            advocate_referral_code: code,
+            friend_name: String(friend_name).trim(),
+          }),
+        },
+      );
+    } catch (ghlErr) {
+      console.error("GHL webhook failed:", (ghlErr as Error).message);
     }
 
     return json({ success: true });
