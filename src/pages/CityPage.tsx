@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowRight, Phone, MapPin, ShieldCheck, Award, Home as HomeIcon, Building2, CloudHail, Wrench, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Phone, MapPin, ShieldCheck, Award, Home as HomeIcon, Building2, CloudHail, Wrench, CheckCircle2, Star } from "lucide-react";
 import Navigation from "@/components/site/Navigation";
 import Footer from "@/components/site/Footer";
 import MobileCallBar from "@/components/site/MobileCallBar";
@@ -7,6 +7,7 @@ import PageHero from "@/components/site/PageHero";
 import CtaBanner from "@/components/site/CtaBanner";
 import SEO from "@/components/SEO";
 import { cities, getCityBySlug } from "@/data/cities";
+import { reviews } from "@/data/reviews";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g4 from "@/assets/gallery-4.jpg";
@@ -43,13 +44,24 @@ const CityPage = () => {
   const title = `Roofing in ${fullName} | Shurden's Roofing`;
   const description = `GAF Master Elite® roofer serving ${fullName}. Residential, commercial, storm damage, and insurance claim support. Call 662-498-6629.`;
 
+  // Rotate through the real review set so each city page shows a different
+  // (still genuine) combination rather than identical duplicate content.
+  const startIdx = Math.max(0, cities.findIndex((c) => c.slug === city.slug));
+  const cityReviews = Array.from({ length: 3 }, (_, i) => reviews[(startIdx + i) % reviews.length]);
+  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(fullName)}&z=11&output=embed`;
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: "Roofing",
     name: `Roofing Services in ${fullName}`,
     provider: { "@id": "https://shurdensroofing.com/#business" },
-    areaServed: { "@type": "City", name: fullName, containedInPlace: { "@type": "AdministrativeArea", name: `${city.county} County, MS` } },
+    areaServed: {
+      "@type": "City",
+      name: fullName,
+      containedInPlace: { "@type": "AdministrativeArea", name: `${city.county} County, MS` },
+      geo: { "@type": "GeoCoordinates", latitude: city.lat, longitude: city.lng },
+    },
     url: `https://shurdensroofing.com${path}`,
   };
 
@@ -180,6 +192,46 @@ const CityPage = () => {
           </div>
         </section>
 
+        {/* Reviews */}
+        <section className="bg-muted py-16 md:py-24">
+          <div className="container">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="mb-3 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Reviews</p>
+                <h2 className="font-display text-3xl font-bold leading-tight text-foreground md:text-[44px]">
+                  What {city.county} County Homeowners Say.
+                </h2>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 font-body text-sm font-bold leading-none">
+                <span className="text-primary">5.0</span>
+                <span className="text-primary" aria-hidden>★★★★★</span>
+                <span className="text-muted-foreground">on Google</span>
+              </div>
+            </div>
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              {cityReviews.map((r) => (
+                <article key={r.name} className="flex flex-col rounded-lg border border-border bg-card p-6">
+                  <div className="mb-3 flex items-center gap-1 text-primary" aria-label="5 star rating">
+                    {[0, 1, 2, 3, 4].map((i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary" />
+                    ))}
+                  </div>
+                  <p className="font-body text-[15px] italic leading-relaxed text-muted-foreground">"{r.quote}"</p>
+                  <p className="mt-4 font-display text-xs font-semibold uppercase tracking-wider text-foreground">{r.name}</p>
+                </article>
+              ))}
+            </div>
+            <a
+              href="https://www.google.com/search?q=shurdens+roofing#lrd=0x88813925dbdd0ebd:0xac6a4b451d99c379,1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all"
+            >
+              Read our Google reviews <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </section>
+
         {/* Nearby towns */}
         <section className="bg-secondary py-14 text-secondary-foreground md:py-20">
           <div className="container grid gap-10 md:grid-cols-[1fr_1.4fr] md:gap-16">
@@ -199,6 +251,33 @@ const CityPage = () => {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* Service-area map */}
+        <section className="bg-background py-16 md:py-24">
+          <div className="container">
+            <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">
+              Serving {city.name} &amp; {city.county} County
+            </p>
+            <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight text-foreground md:text-[44px]">
+              On {city.name} Roofs, Not Just Listed Online.
+            </h2>
+            <p className="mt-4 max-w-2xl font-body text-base text-muted-foreground md:text-lg">
+              Shurden's Roofing runs crews across {city.name} and the surrounding {city.county} County area from our
+              Maben, MS home base. {city.distanceFromHq}.
+            </p>
+            <div className="mt-8 overflow-hidden rounded-lg border border-border">
+              <iframe
+                title={`Map of Shurden's Roofing service area in ${fullName}`}
+                src={mapSrc}
+                width="100%"
+                height="360"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ border: 0 }}
+              />
+            </div>
           </div>
         </section>
 
