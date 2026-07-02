@@ -192,16 +192,16 @@ export const serviceDetails: ServiceDetail[] = [
     serviceType: "Commercial Roofing",
     metaTitle: "Commercial Roofing in North Mississippi | Shurden's Roofing",
     metaDescription:
-      "Commercial roofing for churches, schools, offices, retail, and warehouses across North Mississippi. SBS, GAF Liberty, Mule-Hide TPO, metal & shingle systems. 662-498-6629.",
+      "Commercial roofing for churches, schools, offices, retail, and warehouses across North Mississippi. SBS, GAF Liberty, Mule-Hide TPO & shingle systems. 662-498-6629.",
     heroEyebrow: "Commercial Roofing",
     heroTitle: "Commercial Roofs That Keep",
     heroHighlight: "the Doors Open",
     heroSubtitle:
-      "SBS self-adhering, GAF Liberty, Mule-Hide TPO, metal, and shingle systems for churches, schools, offices, retail, and multi-tenant buildings across North Mississippi.",
+      "SBS self-adhering, GAF Liberty, Mule-Hide TPO, and shingle systems for churches, schools, offices, retail, and multi-tenant buildings across North Mississippi.",
     introHeading: "A Leaking Business Roof Costs More Than the Repair.",
     intro: [
       "When a commercial roof leaks, the bill isn't just the roof. It's stained ceiling tiles in front of customers, wet inventory, interrupted services on Sunday morning, and tenants calling about drips. Commercial roofing in North Mississippi means picking the right system for the building — and installing it with a crew that shows up when scheduled and keeps the site clean while your business keeps running.",
-      "Shurden's Roofing installs and repairs the full range of commercial systems. For low-slope roofs we install SBS self-adhering systems and GAF Liberty — durable membranes with clean installation and strong waterproofing. For flat roofs that need energy-conscious, watertight protection, we install Mule-Hide TPO single-ply systems. And for buildings with sloped sections, transitions, or mixed rooflines, we handle metal and shingle systems with the same crew, so nothing falls between two contractors.",
+      "Shurden's Roofing installs and repairs the full range of commercial systems. For low-slope roofs we install SBS self-adhering systems and GAF Liberty — durable membranes with clean installation and strong waterproofing. For flat roofs that need energy-conscious, watertight protection, we install Mule-Hide TPO single-ply systems. And for buildings with sloped sections, transitions, or mixed rooflines, we handle shingle systems with the same crew, so nothing falls between two contractors.",
       "We roof churches, schools, retail storefronts, offices, warehouses, multi-tenant buildings, restaurants, and ag buildings throughout the region. Send us the building address and we'll inspect it, walk you through the system options, and quote it in writing.",
     ],
     bulletsHeading: "Commercial Systems We Install",
@@ -209,7 +209,6 @@ export const serviceDetails: ServiceDetail[] = [
       "SBS Self-Adhering Roofing System — durable low-slope waterproofing with a cleaner install",
       "GAF Liberty Roofing System — SBS self-adhering system built for low-slope roof areas",
       "Mule-Hide TPO — single-ply membrane for flat and low-slope buildings",
-      "Metal roofing systems for commercial and ag buildings",
       "Architectural shingle systems for sloped commercial sections",
       "Commercial repair, maintenance, and storm damage documentation",
     ],
@@ -233,13 +232,13 @@ export const serviceDetails: ServiceDetail[] = [
       {
         icon: "wind",
         title: "Ag & Farm Buildings",
-        body: "Metal roofs on barns, shops, and outbuildings — common across Clay, Webster, and Choctaw Counties, and right in our wheelhouse.",
+        body: "Barns, shops, and outbuildings across Clay, Webster, and Choctaw Counties — durable commercial and shingle systems, right in our wheelhouse.",
       },
     ],
     faqs: [
       {
         q: "Do you only do shingle roofs on commercial buildings?",
-        a: "No. We install SBS self-adhering systems, GAF Liberty, Mule-Hide TPO single-ply, metal, and shingle roofing. The building's slope, use, and budget determine the right system, and we'll walk you through the options.",
+        a: "No. We install SBS self-adhering systems, GAF Liberty, Mule-Hide TPO single-ply, and shingle roofing. The building's slope, use, and budget determine the right system, and we'll walk you through the options.",
       },
       {
         q: "Can you work around our business hours?",
@@ -262,83 +261,6 @@ export const serviceDetails: ServiceDetail[] = [
     ctaTitle: "Need a Quote on a Commercial Roof?",
     ctaBody:
       "Send us the building address and we'll inspect it, document the condition, and quote it in writing — system options included.",
-  },
-  {
-    slug: "metal-roofing",
-    name: "Metal Roofing",
-    serviceType: "Metal Roofing",
-    metaTitle: "Metal Roofing in North Mississippi | Shurden's Roofing",
-    metaDescription:
-      "Metal roofing for barns, shops, ag buildings, and commercial properties across North Mississippi — plus honest metal vs. shingle advice for your home. Call 662-498-6629.",
-    heroEyebrow: "Metal Roofing",
-    heroTitle: "Metal Roofs Built for",
-    heroHighlight: "Mississippi Weather",
-    heroSubtitle:
-      "Metal roofing for barns, shops, ag buildings, and commercial properties across North Mississippi — installed by the same local crew that handles our shingle work.",
-    introHeading: "Where Metal Makes Sense — and Where It Doesn't.",
-    intro: [
-      "Drive through Clay, Webster, or Choctaw County and you'll see why metal roofing is everywhere out here: barns, shops, equipment sheds, and ag buildings that need a roof to last decades with almost no maintenance. Metal sheds rain fast, stands up to wind, doesn't care about the summer heat that ages asphalt shingles, and handles the wide temperature swings North Mississippi throws at it.",
-      "We install metal roofing on outbuildings, shops, and ag structures throughout our service area, and metal systems on commercial buildings that need slope-specific sections and transitions handled by one crew. Because we install both metal and shingle systems, you get a straight answer about which one your building actually needs — not a pitch for whichever product a crew happens to sell.",
-      "Thinking about metal for your house? We'll give you the honest comparison: what metal costs versus an architectural shingle system, how each performs in hail, what your neighborhood and resale market look like, and what the warranty picture is for each. Sometimes metal is the right call. Sometimes a GAF shingle system delivers more roof for the money. We'll show you the math either way.",
-    ],
-    bulletsHeading: "Where We Install Metal",
-    bullets: [
-      "Barns, shops, and equipment sheds on rural properties",
-      "Ag and farm buildings across Clay, Webster, Choctaw, and surrounding counties",
-      "Commercial buildings needing metal sections, transitions, and repairs",
-      "Outbuildings and detached garages",
-      "Metal roof repair — fastener back-out, panel damage, ridge and trim issues",
-      "Honest metal vs. shingle comparisons for homeowners weighing both",
-    ],
-    cardsHeading: "Why Property Owners Choose Metal",
-    cards: [
-      {
-        icon: "shield",
-        title: "Decades of Service Life",
-        body: "A properly installed metal roof outlasts multiple shingle cycles on structures where longevity beats everything else.",
-      },
-      {
-        icon: "wind",
-        title: "Wind & Weather Resistance",
-        body: "Metal panels handle the straight-line winds and storms that roll across North Mississippi better than most roofing materials.",
-      },
-      {
-        icon: "wrench",
-        title: "Low Maintenance",
-        body: "No granule loss, no brittle tabs. Periodic fastener and trim checks are most of what a metal roof ever asks for.",
-      },
-      {
-        icon: "layers",
-        title: "One Crew, Both Systems",
-        body: "We install metal and shingle. That means the recommendation you get is based on your building — not on what we happen to sell.",
-      },
-    ],
-    faqs: [
-      {
-        q: "Do you install metal roofs on houses?",
-        a: "Our metal work centers on barns, shops, ag buildings, and commercial properties. If you're weighing metal for your home, we'll walk the roof, give you an honest metal vs. shingle comparison with real numbers, and point you to the right system for your situation.",
-      },
-      {
-        q: "Is metal or shingle better for North Mississippi?",
-        a: "It depends on the building. For barns, shops, and ag structures, metal usually wins on lifespan and maintenance. For most homes, a GAF architectural shingle system often delivers more value with strong warranty coverage. We install both, so you get a straight answer.",
-      },
-      {
-        q: "Can you repair an existing metal roof?",
-        a: "Yes. Backed-out fasteners, damaged panels, rusted trim, and ridge issues are common on older metal roofs, and most are repairable without replacing the whole roof.",
-      },
-      {
-        q: "Does hail damage metal roofs?",
-        a: "Large hail can dent metal panels — usually a cosmetic issue rather than a leak, though severe strikes can damage seams and fasteners. We document hail damage on metal roofs the same way we do on shingle: drone photos and a walk with your adjuster.",
-      },
-      {
-        q: "How long does a metal roof install take?",
-        a: "Most outbuildings and shops are completed in a few days depending on size and complexity. We give you a realistic timeline in the written quote before work starts.",
-      },
-    ],
-    ctaEyebrow: "Free Metal Roof Quote",
-    ctaTitle: "Metal Roof for the Barn, Shop, or Building?",
-    ctaBody:
-      "Free inspection and a written quote — plus a straight answer on whether metal or shingle is the right system for the structure.",
   },
   {
     slug: "storm-damage-insurance-claims",

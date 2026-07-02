@@ -86,10 +86,6 @@ const faqs = [
     q: "What if my claim is denied or the scope seems low?",
     a: "Denials and short scopes aren't the end. With proper photo documentation, your contractor can request a re-inspection and file supplements for missed items. This is exactly why documentation before and during the adjuster meeting matters so much.",
   },
-  {
-    q: "Does hail damage metal roofs too?",
-    a: "Large hail can dent metal panels. Often it's cosmetic, but severe strikes can damage seams, fasteners, and coatings. We document metal roof damage the same way — drone photos and a walk with your adjuster.",
-  },
 ];
 
 const HailClaimGuide = () => {

@@ -36,7 +36,7 @@ const commercialSystems = [
   { name: "SBS Self-Adhering Roofing System", body: "A durable low-slope option with a cleaner installation process and strong waterproofing performance." },
   { name: "GAF Liberty Roofing System", body: "An SBS self-adhering roofing system built for low-slope roof areas where shingles are not the right answer." },
   { name: "Mule-Hide TPO", body: "A single-ply commercial roofing system for flat and low-slope buildings that need energy-conscious, watertight protection." },
-  { name: "Metal & Shingle Systems", body: "For buildings that need slope-specific roof sections, transitions, and repairs handled by one crew." },
+  { name: "Shingle Systems", body: "For commercial buildings with sloped roof sections, transitions, and shingle repairs handled by one crew." },
 ];
 
 const buildingTypes = [
@@ -85,7 +85,7 @@ const ServicesPage = () => {
             "@type": "Service",
             serviceType: "Commercial Roofing",
             name: "Commercial Roofing",
-            description: "SBS self-adhering, GAF Liberty, Mule-Hide TPO, metal, and shingle commercial roofing systems for churches, schools, retail, and warehouses.",
+            description: "SBS self-adhering, GAF Liberty, Mule-Hide TPO, and shingle commercial roofing systems for churches, schools, retail, and warehouses.",
             provider: { "@id": "https://shurdensroofing.com/#business" },
             areaServed: { "@type": "AdministrativeArea", name: "North Mississippi" },
             url: "https://shurdensroofing.com/services#commercial",
@@ -119,7 +119,7 @@ const ServicesPage = () => {
               { "@type": "Question", name: "Do you handle permits and HOA paperwork?", acceptedAnswer: { "@type": "Answer", text: "Yes. We pull permits when required and provide manufacturer samples and documentation for HOA color approval." } },
               { "@type": "Question", name: "Is the GAF warranty transferable if I sell my house?", acceptedAnswer: { "@type": "Answer", text: "Yes. GAF warranties are transferable. We register your warranty in your name and provide the documentation you'll need at sale." } },
               { "@type": "Question", name: "Do you do small repairs, or just full replacements?", acceptedAnswer: { "@type": "Answer", text: "Both. We replace pipe boots, repair flashing, fix leaks around chimneys and skylights, replace blown-off shingles, and tarp emergency damage." } },
-              { "@type": "Question", name: "What about commercial buildings — do you only do shingles?", acceptedAnswer: { "@type": "Answer", text: "No. We install SBS self-adhering systems, GAF Liberty, Mule-Hide TPO, metal, and shingle roofing on commercial buildings." } },
+              { "@type": "Question", name: "What about commercial buildings — do you only do shingles?", acceptedAnswer: { "@type": "Answer", text: "No. We install SBS self-adhering systems, GAF Liberty, Mule-Hide TPO, and shingle roofing on commercial buildings." } },
             ],
           },
         ]}
@@ -245,9 +245,6 @@ const ServicesPage = () => {
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
               <Link to="/services/commercial-roofing" className="inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all">
                 More on commercial roofing <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/services/metal-roofing" className="inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all">
-                More on metal roofing <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
