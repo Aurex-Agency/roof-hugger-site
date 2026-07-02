@@ -5,9 +5,11 @@ import logo from "@/assets/shurdens-roofing-logo.svg";
 import gafBadge from "@/assets/gaf-master-elite.webp";
 
 const services = [
-  { label: "Residential Roofing", to: "/services#residential" },
-  { label: "Commercial Roofing", to: "/services#commercial" },
-  { label: "Roof Repair", to: "/services#repair" },
+  { label: "Roof Replacement", to: "/services/roof-replacement" },
+  { label: "Roof Repair", to: "/services/roof-repair" },
+  { label: "Commercial Roofing", to: "/services/commercial-roofing" },
+  { label: "Metal Roofing", to: "/services/metal-roofing" },
+  { label: "Storm & Insurance Claims", to: "/services/storm-damage-insurance-claims" },
 ];
 
 const links = [

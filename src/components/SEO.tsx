@@ -1,8 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://shurdensroofing.com";
-const OG_IMAGE =
-  "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/433d1734-f138-4035-8901-3271583ac464";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 interface SEOProps {
   title: string;

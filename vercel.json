@@ -1,5 +1,10 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.shurdensroofing.com" }],
+      "destination": "https://shurdensroofing.com/:path*",
+      "permanent": true
+    }
   ]
 }

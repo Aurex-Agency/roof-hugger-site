@@ -170,6 +170,14 @@ const ServicesPage = () => {
               >
                 Get a Free Roof Inspection <ArrowRight className="h-4 w-4" />
               </Link>
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+                <Link to="/services/roof-replacement" className="inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all">
+                  More on roof replacement <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link to="/services/roof-repair" className="inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all">
+                  More on roof repair <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -233,6 +241,14 @@ const ServicesPage = () => {
                   Request a Commercial Quote <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+              <Link to="/services/commercial-roofing" className="inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all">
+                More on commercial roofing <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/services/metal-roofing" className="inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all">
+                More on metal roofing <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </section>
@@ -315,6 +331,11 @@ const ServicesPage = () => {
                 </li>
               ))}
             </ol>
+            <div className="mt-8">
+              <Link to="/services/storm-damage-insurance-claims" className="inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all">
+                More on storm damage & insurance claims <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
 

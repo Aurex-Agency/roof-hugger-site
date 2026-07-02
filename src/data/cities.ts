@@ -224,6 +224,32 @@ export const cities: City[] = [
     ],
   },
   {
+    slug: "houston-ms",
+    name: "Houston",
+    state: "MS",
+    county: "Chickasaw",
+    distanceFromHq: "About 30 miles northeast of our Maben office",
+    intro: [
+      "Houston and Chickasaw County sit right in our regular route. We roof homes in town, out along the Highway 8 and Highway 15 corridors, and on the rural properties where a house, a shop, and a barn all need a roof that can take North Mississippi weather. The same storm systems that hammer Webster and Clay Counties roll straight through Chickasaw County, and Houston homeowners see their share of wind-lifted shingles and hail bruising every spring.",
+      "Most of our Houston work is residential GAF shingle replacement and storm damage repair with insurance claim support, but we also install metal roofs on ag buildings and commercial systems for businesses and churches around the square and throughout the county.",
+    ],
+    nearbyTowns: ["Okolona", "Vardaman", "Calhoun City", "Woodland", "Houlka"],
+    faqs: [
+      {
+        q: "Do you serve Houston and Chickasaw County regularly?",
+        a: "Yes. Houston is about 30 miles from our Maben office and part of our core service area. Our crew is on Chickasaw County roofs throughout the year.",
+      },
+      {
+        q: "Do you handle storm damage claims in Houston?",
+        a: "Yes. We document wind and hail damage with drone photos, meet your adjuster on the roof, and support the claim from first call to final invoice — the same process we use across North Mississippi.",
+      },
+      {
+        q: "Do you do metal roofs on barns and shops around Houston?",
+        a: "Yes. We install metal roofing on outbuildings, shops, and ag structures throughout Chickasaw County, alongside our residential and commercial shingle work.",
+      },
+    ],
+  },
+  {
     slug: "oxford-ms",
     name: "Oxford",
     state: "MS",

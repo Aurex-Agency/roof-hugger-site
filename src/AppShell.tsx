@@ -11,9 +11,12 @@ import ReviewsPage from "./pages/ReviewsPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import CityPage from "./pages/CityPage.tsx";
+import ServiceDetailPage from "./pages/ServiceDetailPage.tsx";
 import ServiceAreasPage from "./pages/ServiceAreasPage.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import DormersGuide from "./pages/DormersGuide.tsx";
+import RoofCostGuide from "./pages/RoofCostGuide.tsx";
+import HailClaimGuide from "./pages/HailClaimGuide.tsx";
 import ReferralJoinPage from "./pages/ReferralJoinPage.tsx";
 import ReferPage from "./pages/ReferPage.tsx";
 
@@ -32,6 +35,7 @@ const AppShell = () => (
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:slug" element={<ServiceDetailPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/contact" element={<ContactPage />} />
@@ -39,6 +43,8 @@ const AppShell = () => (
         <Route path="/roofing/:slug" element={<CityPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/guides/roof-dormers" element={<DormersGuide />} />
+        <Route path="/guides/roof-replacement-cost-mississippi" element={<RoofCostGuide />} />
+        <Route path="/guides/hail-damage-roof-insurance-claim-mississippi" element={<HailClaimGuide />} />
         <Route path="/referral-join" element={<ReferralJoinPage />} />
         <Route path="/refer" element={<ReferPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -2,6 +2,8 @@ import { Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/shurdens-roofing-logo.svg";
 import gafBadge from "@/assets/gaf-master-elite.webp";
+import { cities } from "@/data/cities";
+import { serviceDetails } from "@/data/services";
 
 const quickLinks = [
   { label: "Home", to: "/" },
@@ -12,16 +14,16 @@ const quickLinks = [
   { label: "Contact Us", to: "/contact" },
 ];
 
-const serviceAreaLinks = [
-  { label: "Starkville, MS", slug: "starkville-ms" },
-  { label: "Columbus, MS", slug: "columbus-ms" },
-  { label: "West Point, MS", slug: "west-point-ms" },
-  { label: "Tupelo, MS", slug: "tupelo-ms" },
-  { label: "Louisville, MS", slug: "louisville-ms" },
-  { label: "Eupora, MS", slug: "eupora-ms" },
-  { label: "Maben, MS", slug: "maben-ms" },
-  { label: "Ackerman, MS", slug: "ackerman-ms" },
+const guideLinks = [
+  { label: "Roof Cost Guide", to: "/guides/roof-replacement-cost-mississippi" },
+  { label: "Hail Claims Guide", to: "/guides/hail-damage-roof-insurance-claim-mississippi" },
+  { label: "Roof Dormers Guide", to: "/guides/roof-dormers" },
 ];
+
+const serviceAreaLinks = cities.map((c) => ({
+  label: `${c.name}, ${c.state}`,
+  slug: c.slug,
+}));
 
 const Footer = () => {
   return (
@@ -77,6 +79,18 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+            <h3 className="mt-8 font-display text-sm font-semibold uppercase tracking-widest text-primary">
+              Services
+            </h3>
+            <ul className="mt-3 space-y-2 font-body text-sm text-dark-foreground/75">
+              {serviceDetails.map((s) => (
+                <li key={s.slug}>
+                  <Link to={`/services/${s.slug}`} className="transition-colors hover:text-primary">
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>
@@ -96,6 +110,18 @@ const Footer = () => {
                   All North Mississippi areas
                 </Link>
               </li>
+            </ul>
+            <h3 className="mt-8 font-display text-sm font-semibold uppercase tracking-widest text-primary">
+              Homeowner Guides
+            </h3>
+            <ul className="mt-3 space-y-1 font-body text-sm text-dark-foreground/75">
+              {guideLinks.map((g) => (
+                <li key={g.to}>
+                  <Link to={g.to} className="transition-colors hover:text-primary">
+                    {g.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
