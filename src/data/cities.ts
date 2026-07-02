@@ -9,6 +9,8 @@ export interface City {
   state: string;
   county: string;
   distanceFromHq: string;
+  lat: number;
+  lng: number;
   intro: string[];
   nearbyTowns: string[];
   faqs: CityFAQ[];
@@ -21,6 +23,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Oktibbeha",
     distanceFromHq: "About 25 miles east of our Maben office",
+    lat: 33.4504,
+    lng: -88.8184,
     intro: [
       "Starkville roofs take a beating. Long Mississippi summers cook asphalt shingles, spring storms drive hail across Oktibbeha County, and the wind gusts that roll through campus and the Cotton District don't politely stop at neighborhood lines. We've been roofing Starkville homes and businesses since 2015 — from older brick ranches off Louisville Street to newer subdivisions out toward the Highway 25 corridor.",
       "Most Starkville roofs we replace are architectural asphalt shingles in the 18 to 25 year range that finally gave up after a hail event. We tear off, inspect every square foot of decking, install the full GAF Master Elite system, and register the warranty in your name. Same crew, start to finish.",
@@ -47,6 +51,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Lowndes",
     distanceFromHq: "About 50 miles east of our Maben office",
+    lat: 33.4957,
+    lng: -88.4273,
     intro: [
       "Columbus has a roofing mix you don't see everywhere — historic homes downtown with steep, complicated rooflines, midcentury ranches in the older neighborhoods, and newer construction stretching out toward the Air Force Base. Each one needs a different approach, and a roofer who has actually been on those kinds of roofs before.",
       "We work in Columbus year-round on both residential replacements and commercial systems. After a storm rolls through Lowndes County we're typically on Columbus roofs within a day, documenting wind and hail damage with drone photos so the insurance claim starts on the right foot.",
@@ -73,6 +79,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Clay",
     distanceFromHq: "About 35 miles east of our Maben office",
+    lat: 33.6076,
+    lng: -88.6503,
     intro: [
       "West Point sits right in our backyard. We've roofed homes in older neighborhoods near downtown, on properties along the Highway 45 corridor, and out into the rural parts of Clay County where pole barns, shops, and ag buildings are just as common as houses.",
       "Whether it's a residential shingle replacement, a metal roof on an outbuilding, or storm damage on a commercial property, we're a short drive away. That means faster inspections, faster tarping when it matters, and a crew that actually knows the area.",
@@ -99,6 +107,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Lee",
     distanceFromHq: "About 50 miles north of our Maben office",
+    lat: 34.2576,
+    lng: -88.7034,
     intro: [
       "Tupelo is a major service area for us. Lee County sees its share of severe weather every year, and Tupelo specifically has a long history with tornadoes and hail — including the storms that have caused widespread roof damage across the city in recent years. When that happens, homeowners need a roofer who can document the damage properly and stand with them through the insurance claim, not just put up a yard sign and disappear.",
       "We install full GAF Master Elite systems on Tupelo homes, handle commercial roofing for offices and retail, and walk every storm claim from first inspection to final invoice.",
@@ -125,6 +135,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Winston",
     distanceFromHq: "About 35 miles south of our Maben office",
+    lat: 33.1234,
+    lng: -89.0553,
     intro: [
       "Louisville and Winston County have seen some of the most destructive storms in North Mississippi history — the 2014 tornado is something every roofer in this region remembers. We've worked Louisville roofs through routine replacements and through major storm recovery, and we treat both the same way: full deck inspection, GAF Master Elite install, and the warranty registered in your name.",
       "Most of the work we do in Louisville is residential shingle replacement, but we also install commercial systems on churches, storefronts, and ag buildings throughout the area.",
@@ -151,6 +163,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Webster",
     distanceFromHq: "About 10 miles west of our Maben office",
+    lat: 33.5432,
+    lng: -89.267,
     intro: [
       "Eupora is right next door. Webster County is home for us, and most of our crew has roofed Eupora homes for years. That proximity matters: faster inspections, faster emergency response, and a roofer your neighbors can actually point to when you ask around.",
       "Most Eupora work is residential — full shingle replacements, repairs after wind events, and pipe boot and flashing fixes that stop slow leaks before they damage interior ceilings. We also handle commercial roofs for businesses along Highway 82 and throughout Webster County.",
@@ -177,6 +191,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Oktibbeha",
     distanceFromHq: "Our home — Shurden's Roofing is headquartered in Maben",
+    lat: 33.5573,
+    lng: -89.0853,
     intro: [
       "Maben is where Shurden's Roofing started and where we still work out of every day. We've roofed homes throughout town and across the rural parts of Oktibbeha and Webster Counties — long-time family homes, newer construction, ag buildings, and shops. When you call, you're calling someone in your own town.",
       "Most of our Maben work is residential GAF shingle replacement and storm damage repair, but we also handle commercial systems for churches and small businesses around the community.",
@@ -203,6 +219,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Choctaw",
     distanceFromHq: "About 20 miles southwest of our Maben office",
+    lat: 33.3118,
+    lng: -89.1734,
     intro: [
       "Ackerman and Choctaw County are part of our regular service area. We roof homes throughout town and out into the rural parts of the county where shingle roofs, metal roofs, and ag buildings all live on the same property.",
       "Whether it's a full GAF residential replacement, a metal roof on an outbuilding, or a commercial system on a small business or church, we're close enough to respond quickly and stand behind the work.",
@@ -229,6 +247,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Chickasaw",
     distanceFromHq: "About 30 miles northeast of our Maben office",
+    lat: 33.8987,
+    lng: -88.9987,
     intro: [
       "Houston and Chickasaw County sit right in our regular route. We roof homes in town, out along the Highway 8 and Highway 15 corridors, and on the rural properties where a house, a shop, and a barn all need a roof that can take North Mississippi weather. The same storm systems that hammer Webster and Clay Counties roll straight through Chickasaw County, and Houston homeowners see their share of wind-lifted shingles and hail bruising every spring.",
       "Most of our Houston work is residential GAF shingle replacement and storm damage repair with insurance claim support, but we also install metal roofs on ag buildings and commercial systems for businesses and churches around the square and throughout the county.",
@@ -255,6 +275,8 @@ export const cities: City[] = [
     state: "MS",
     county: "Lafayette",
     distanceFromHq: "About 75 miles northwest of our Maben office",
+    lat: 34.3665,
+    lng: -89.5192,
     intro: [
       "Oxford is a regular service area for us. From historic homes around the Square to newer construction out toward the Highway 7 corridor and the neighborhoods serving Ole Miss families, we've roofed a wide mix of Oxford properties. Lafayette County weather brings the same hail and wind events that hit the rest of North Mississippi, and Oxford homeowners deserve a roofer who shows up, documents the damage properly, and stands behind the work.",
       "Most of our Oxford work is residential GAF shingle replacement and storm damage repair, but we also install commercial systems on offices, retail, and multi-tenant buildings throughout the area.",
