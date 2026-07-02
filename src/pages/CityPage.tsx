@@ -6,7 +6,7 @@ import MobileCallBar from "@/components/site/MobileCallBar";
 import PageHero from "@/components/site/PageHero";
 import CtaBanner from "@/components/site/CtaBanner";
 import SEO from "@/components/SEO";
-import { getCityBySlug } from "@/data/cities";
+import { cities, getCityBySlug } from "@/data/cities";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g4 from "@/assets/gallery-4.jpg";
@@ -20,10 +20,10 @@ const galleryRotation: { src: string; w: number; h: number }[] = [
 ];
 
 const services = [
-  { icon: HomeIcon, title: "Residential Roof Replacement", body: "Full GAF Master Elite® shingle systems with deck inspection and registered warranty.", href: "/services#residential" },
-  { icon: Building2, title: "Commercial Roofing", body: "SBS self-adhering, GAF Liberty, Mule-Hide TPO, metal, and shingle systems.", href: "/services#commercial" },
-  { icon: CloudHail, title: "Storm & Hail Damage", body: "Drone-documented inspections and full insurance claim support from first call to final invoice.", href: "/services#repair" },
-  { icon: Wrench, title: "Repairs & Leak Stops", body: "Pipe boots, flashing, valley repairs, blown-off shingles, and emergency tarping.", href: "/services#repair" },
+  { icon: HomeIcon, title: "Residential Roof Replacement", body: "Full GAF Master Elite® shingle systems with deck inspection and registered warranty.", href: "/services/roof-replacement" },
+  { icon: Building2, title: "Commercial Roofing", body: "SBS self-adhering, GAF Liberty, Mule-Hide TPO, metal, and shingle systems.", href: "/services/commercial-roofing" },
+  { icon: CloudHail, title: "Storm & Hail Damage", body: "Drone-documented inspections and full insurance claim support from first call to final invoice.", href: "/services/storm-damage-insurance-claims" },
+  { icon: Wrench, title: "Repairs & Leak Stops", body: "Pipe boots, flashing, valley repairs, blown-off shingles, and emergency tarping.", href: "/services/roof-repair" },
 ];
 
 const trust = [
@@ -199,6 +199,34 @@ const CityPage = () => {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* Other service areas */}
+        <section className="bg-muted py-12 md:py-16">
+          <div className="container">
+            <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">
+              More North Mississippi Service Areas
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {cities
+                .filter((c) => c.slug !== city.slug)
+                .map((c) => (
+                  <Link
+                    key={c.slug}
+                    to={`/roofing/${c.slug}`}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-border bg-card px-4 py-2.5 font-display text-xs uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <MapPin className="h-3.5 w-3.5 text-primary" /> {c.name}, {c.state}
+                  </Link>
+                ))}
+              <Link
+                to="/service-areas"
+                className="inline-flex items-center gap-1 rounded-md border border-border bg-card px-4 py-2.5 font-display text-xs uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                All Service Areas <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
           </div>
         </section>
 
