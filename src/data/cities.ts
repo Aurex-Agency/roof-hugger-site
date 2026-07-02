@@ -65,7 +65,7 @@ export const cities: City[] = [
       },
       {
         q: "Can you help with commercial roofs in Columbus?",
-        a: "Yes. We install SBS, GAF Liberty, Mule-Hide TPO, metal, and shingle systems for offices, churches, retail, and multi-tenant buildings throughout Columbus and Lowndes County.",
+        a: "Yes. We install SBS, GAF Liberty, Mule-Hide TPO, and shingle systems for offices, churches, retail, and multi-tenant buildings throughout Columbus and Lowndes County.",
       },
       {
         q: "How long does a Columbus roof replacement take?",
@@ -83,13 +83,13 @@ export const cities: City[] = [
     lng: -88.6503,
     intro: [
       "West Point sits right in our backyard. We've roofed homes in older neighborhoods near downtown, on properties along the Highway 45 corridor, and out into the rural parts of Clay County where pole barns, shops, and ag buildings are just as common as houses.",
-      "Whether it's a residential shingle replacement, a metal roof on an outbuilding, or storm damage on a commercial property, we're a short drive away. That means faster inspections, faster tarping when it matters, and a crew that actually knows the area.",
+      "Whether it's a residential shingle replacement, a repair on an outbuilding, or storm damage on a commercial property, we're a short drive away. That means faster inspections, faster tarping when it matters, and a crew that actually knows the area.",
     ],
     nearbyTowns: ["Cedar Bluff", "Pheba", "Tibbee", "Montpelier"],
     faqs: [
       {
-        q: "Do you do metal roofs on barns and shops around West Point?",
-        a: "Yes. We install metal roofs on outbuildings, shops, and ag structures throughout Clay County, alongside our residential and commercial shingle work.",
+        q: "Do you handle roofs on rural properties outside West Point?",
+        a: "Yes. We roof homes, shops, and outbuildings throughout the rural parts of Clay County, not just in town. Being close by means faster inspections and storm response across the whole area.",
       },
       {
         q: "How quickly can you tarp a leaking roof in West Point?",
@@ -149,7 +149,7 @@ export const cities: City[] = [
       },
       {
         q: "Do you roof churches and commercial buildings in Louisville?",
-        a: "Yes. We install SBS, GAF Liberty, Mule-Hide TPO, metal, and shingle systems for churches, offices, and retail buildings throughout the Louisville area.",
+        a: "Yes. We install SBS, GAF Liberty, Mule-Hide TPO, and shingle systems for churches, offices, and retail buildings throughout the Louisville area.",
       },
       {
         q: "Is your warranty transferable if I sell my Louisville home?",
@@ -222,8 +222,8 @@ export const cities: City[] = [
     lat: 33.3118,
     lng: -89.1734,
     intro: [
-      "Ackerman and Choctaw County are part of our regular service area. We roof homes throughout town and out into the rural parts of the county where shingle roofs, metal roofs, and ag buildings all live on the same property.",
-      "Whether it's a full GAF residential replacement, a metal roof on an outbuilding, or a commercial system on a small business or church, we're close enough to respond quickly and stand behind the work.",
+      "Ackerman and Choctaw County are part of our regular service area. We roof homes throughout town and out into the rural parts of the county where houses, shops, and ag buildings all sit on the same property.",
+      "Whether it's a full GAF residential replacement, a repair on an outbuilding, or a commercial system on a small business or church, we're close enough to respond quickly and stand behind the work.",
     ],
     nearbyTowns: ["Weir", "French Camp", "Reform", "Sturgis"],
     faqs: [
@@ -232,8 +232,8 @@ export const cities: City[] = [
         a: "Yes. Choctaw County is one of our core service areas. Our crew is on Ackerman roofs throughout the year.",
       },
       {
-        q: "Do you do metal roofs in Choctaw County?",
-        a: "Yes. We install metal roofs on shops, barns, and outbuildings throughout the Ackerman area, alongside our residential and commercial shingle work.",
+        q: "Do you roof shops and outbuildings around Ackerman?",
+        a: "Yes. Along with residential replacements, we handle shingle roofs on shops, outbuildings, and small commercial buildings throughout the Ackerman and Choctaw County area.",
       },
       {
         q: "Is the inspection really free?",
@@ -251,7 +251,7 @@ export const cities: City[] = [
     lng: -88.9987,
     intro: [
       "Houston and Chickasaw County sit right in our regular route. We roof homes in town, out along the Highway 8 and Highway 15 corridors, and on the rural properties where a house, a shop, and a barn all need a roof that can take North Mississippi weather. The same storm systems that hammer Webster and Clay Counties roll straight through Chickasaw County, and Houston homeowners see their share of wind-lifted shingles and hail bruising every spring.",
-      "Most of our Houston work is residential GAF shingle replacement and storm damage repair with insurance claim support, but we also install metal roofs on ag buildings and commercial systems for businesses and churches around the square and throughout the county.",
+      "Most of our Houston work is residential GAF shingle replacement and storm damage repair with insurance claim support, but we also install commercial systems for businesses and churches around the square and throughout the county.",
     ],
     nearbyTowns: ["Okolona", "Vardaman", "Calhoun City", "Woodland", "Houlka"],
     faqs: [
@@ -264,8 +264,8 @@ export const cities: City[] = [
         a: "Yes. We document wind and hail damage with drone photos, meet your adjuster on the roof, and support the claim from first call to final invoice — the same process we use across North Mississippi.",
       },
       {
-        q: "Do you do metal roofs on barns and shops around Houston?",
-        a: "Yes. We install metal roofing on outbuildings, shops, and ag structures throughout Chickasaw County, alongside our residential and commercial shingle work.",
+        q: "Do you roof shops and outbuildings around Houston?",
+        a: "Yes. Along with residential replacements, we handle shingle roofs on shops, outbuildings, and small commercial buildings throughout Houston and Chickasaw County.",
       },
     ],
   },

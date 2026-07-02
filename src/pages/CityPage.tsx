@@ -22,7 +22,7 @@ const galleryRotation: { src: string; w: number; h: number }[] = [
 
 const services = [
   { icon: HomeIcon, title: "Residential Roof Replacement", body: "Full GAF Master Elite® shingle systems with deck inspection and registered warranty.", href: "/services/roof-replacement" },
-  { icon: Building2, title: "Commercial Roofing", body: "SBS self-adhering, GAF Liberty, Mule-Hide TPO, metal, and shingle systems.", href: "/services/commercial-roofing" },
+  { icon: Building2, title: "Commercial Roofing", body: "SBS self-adhering, GAF Liberty, Mule-Hide TPO, and shingle systems.", href: "/services/commercial-roofing" },
   { icon: CloudHail, title: "Storm & Hail Damage", body: "Drone-documented inspections and full insurance claim support from first call to final invoice.", href: "/services/storm-damage-insurance-claims" },
   { icon: Wrench, title: "Repairs & Leak Stops", body: "Pipe boots, flashing, valley repairs, blown-off shingles, and emergency tarping.", href: "/services/roof-repair" },
 ];

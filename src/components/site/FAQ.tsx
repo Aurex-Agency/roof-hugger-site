@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "What commercial systems do you install?",
-    a: "We install commercial SBS self-adhering roofing systems, the GAF Liberty Roofing System, Mule-Hide TPO, metal, and shingle systems for businesses, churches, offices, and low-slope roofs across North Mississippi.",
+    a: "We install commercial SBS self-adhering roofing systems, the GAF Liberty Roofing System, Mule-Hide TPO, and shingle systems for businesses, churches, offices, and low-slope roofs across North Mississippi.",
   },
   {
     q: "What makes GAF Master Elite® important?",

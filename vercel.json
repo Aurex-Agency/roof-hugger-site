@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/services/metal-roofing", "destination": "/services/commercial-roofing", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

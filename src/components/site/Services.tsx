@@ -69,7 +69,7 @@ const Services = () => {
               Commercial Roofing
             </h3>
             <p className="mt-3 font-body text-base text-muted-foreground">
-              SBS self-adhering systems, GAF Liberty Roofing System, Mule-Hide TPO, metal, and shingle work for storefronts, offices, churches, and multi-tenant buildings.
+              SBS self-adhering systems, GAF Liberty Roofing System, Mule-Hide TPO, and shingle work for storefronts, offices, churches, and multi-tenant buildings.
             </p>
           </article>
 

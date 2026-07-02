@@ -8,7 +8,6 @@ const services = [
   { label: "Roof Replacement", to: "/services/roof-replacement" },
   { label: "Roof Repair", to: "/services/roof-repair" },
   { label: "Commercial Roofing", to: "/services/commercial-roofing" },
-  { label: "Metal Roofing", to: "/services/metal-roofing" },
   { label: "Storm & Insurance Claims", to: "/services/storm-damage-insurance-claims" },
 ];
 

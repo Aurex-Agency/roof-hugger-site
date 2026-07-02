@@ -28,7 +28,7 @@ const items = [
   },
   {
     q: "What about commercial buildings — do you only do shingles?",
-    a: "No. We install SBS self-adhering systems, the GAF Liberty Roofing System, Mule-Hide TPO, metal, and shingle roofing on commercial buildings, including churches, retail, offices, and multi-tenant properties.",
+    a: "No. We install SBS self-adhering systems, the GAF Liberty Roofing System, Mule-Hide TPO, and shingle roofing on commercial buildings, including churches, retail, offices, and multi-tenant properties.",
   },
 ];
 
