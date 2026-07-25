@@ -17,6 +17,9 @@ const quickLinks = [
 const guideLinks = [
   { label: "Roof Cost Guide", to: "/guides/roof-replacement-cost-mississippi" },
   { label: "Hail Claims Guide", to: "/guides/hail-damage-roof-insurance-claim-mississippi" },
+  { label: "Roof Lifespan in Mississippi", to: "/guides/how-long-does-a-roof-last-in-mississippi" },
+  { label: "Repair vs. Replacement", to: "/guides/roof-repair-vs-replacement-mississippi" },
+  { label: "Black Streaks on Shingles", to: "/guides/black-streaks-on-roof-shingles" },
   { label: "Roof Dormers Guide", to: "/guides/roof-dormers" },
 ];
 

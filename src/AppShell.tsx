@@ -19,6 +19,9 @@ import RoofCostGuide from "./pages/RoofCostGuide.tsx";
 import HailClaimGuide from "./pages/HailClaimGuide.tsx";
 import ReferralJoinPage from "./pages/ReferralJoinPage.tsx";
 import ReferPage from "./pages/ReferPage.tsx";
+import RoofLifespanGuide from "./pages/RoofLifespanGuide.tsx";
+import RepairVsReplaceGuide from "./pages/RepairVsReplaceGuide.tsx";
+import RoofAlgaeGuide from "./pages/RoofAlgaeGuide.tsx";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +48,9 @@ const AppShell = () => (
         <Route path="/guides/roof-dormers" element={<DormersGuide />} />
         <Route path="/guides/roof-replacement-cost-mississippi" element={<RoofCostGuide />} />
         <Route path="/guides/hail-damage-roof-insurance-claim-mississippi" element={<HailClaimGuide />} />
+        <Route path="/guides/how-long-does-a-roof-last-in-mississippi" element={<RoofLifespanGuide />} />
+        <Route path="/guides/roof-repair-vs-replacement-mississippi" element={<RepairVsReplaceGuide />} />
+        <Route path="/guides/black-streaks-on-roof-shingles" element={<RoofAlgaeGuide />} />
         <Route path="/referral-join" element={<ReferralJoinPage />} />
         <Route path="/refer" element={<ReferPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
