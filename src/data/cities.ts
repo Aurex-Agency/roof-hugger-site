@@ -26,7 +26,7 @@ export const cities: City[] = [
     lat: 33.4504,
     lng: -88.8184,
     intro: [
-      "Starkville roofs take a beating. Long Mississippi summers cook asphalt shingles, spring storms drive hail across Oktibbeha County, and the wind gusts that roll through campus and the Cotton District don't politely stop at neighborhood lines. We've been roofing Starkville homes and businesses since 2015 — from older brick ranches off Louisville Street to newer subdivisions out toward the Highway 25 corridor.",
+      "Starkville roofs take a beating. Long Mississippi summers cook asphalt shingles, spring storms drive hail across Oktibbeha County, and the wind gusts that roll through campus and the Cotton District don't politely stop at neighborhood lines. We've been roofing Starkville homes and businesses since 2010 — from older brick ranches off Louisville Street to newer subdivisions out toward the Highway 25 corridor.",
       "Most Starkville roofs we replace are architectural asphalt shingles in the 18 to 25 year range that finally gave up after a hail event. We tear off, inspect every square foot of decking, install the full GAF Master Elite system, and register the warranty in your name. Same crew, start to finish.",
     ],
     nearbyTowns: ["Sturgis", "Mathiston", "Bradley", "Longview", "Adaton"],
@@ -201,7 +201,7 @@ export const cities: City[] = [
     faqs: [
       {
         q: "Are you really local to Maben?",
-        a: "Yes. We're not just serving Maben — we're based here. Family-owned and operated since 2015.",
+        a: "Yes. We're not just serving Maben — we're based here. Family-owned and operated since 2010.",
       },
       {
         q: "How fast can you get to my house in Maben?",

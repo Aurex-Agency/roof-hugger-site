@@ -30,7 +30,7 @@ const services = [
 const trust = [
   { icon: Award, label: "GAF Master Elite® Certified" },
   { icon: ShieldCheck, label: "Licensed & Insured in MS" },
-  { icon: HomeIcon, label: "Family Owned Since 2015" },
+  { icon: HomeIcon, label: "Family Owned Since 2010" },
 ];
 
 const CityPage = () => {

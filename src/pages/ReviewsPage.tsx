@@ -32,7 +32,7 @@ const ReviewsPage = () => {
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <SEO
         title="About Shurden's Roofing | Family-Owned Roofer in Maben, MS"
-        description="Family-owned in Maben since 2015. Meet the Shurden family, GAF Master Elite® certified, serving North Mississippi homes and businesses."
+        description="Family-owned in Maben since 2010. Meet the Shurden family, GAF Master Elite® certified, serving North Mississippi homes and businesses."
         path="/reviews"
         jsonLd={{
           "@context": "https://schema.org",
@@ -47,7 +47,7 @@ const ReviewsPage = () => {
         <PageHero
           eyebrow="About Shurden's Roofing"
           title={<>A Mississippi Family Business Built on <span className="text-primary">Honest Roofing Work</span>.</>}
-          subtitle="Locally owned in Maben since 2015, GAF Master Elite® certified, and trusted by homeowners and businesses across North Mississippi."
+          subtitle="Locally owned in Maben since 2010, GAF Master Elite® certified, and trusted by homeowners and businesses across North Mississippi."
         />
 
         {/* About the Business */}

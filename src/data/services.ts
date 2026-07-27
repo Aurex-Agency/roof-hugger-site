@@ -78,7 +78,7 @@ export const serviceDetails: ServiceDetail[] = [
       },
       {
         icon: "home",
-        title: "Local Since 2015",
+        title: "Local Since 2010",
         body: "We're based in Maben and we roof our neighbors' homes. When the warranty says decades, you want the company that installed it to still be down the road.",
       },
     ],

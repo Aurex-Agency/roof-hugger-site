@@ -21,7 +21,7 @@ const Index = () => {
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <SEO
         title="North Mississippi Roofing Company | Shurden's Roofing"
-        description="GAF Master Elite® roofing company serving North Mississippi since 2015. Roof replacement, roof repair, commercial roofing, and storm damage insurance claims. Call 662-498-6629."
+        description="GAF Master Elite® roofing company serving North Mississippi since 2010. Roof replacement, roof repair, commercial roofing, and storm damage insurance claims. Call 662-498-6629."
         path="/"
         jsonLd={{
           "@context": "https://schema.org",
