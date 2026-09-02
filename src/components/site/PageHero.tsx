@@ -7,9 +7,10 @@ interface PageHeroProps {
   subtitle?: string;
   image?: string;
   imageAlt?: string;
+  children?: ReactNode;
 }
 
-const PageHero = ({ eyebrow, title, subtitle, image = heroImg, imageAlt = "Shurden's Roofing crew at work in North Mississippi" }: PageHeroProps) => {
+const PageHero = ({ eyebrow, title, subtitle, image = heroImg, imageAlt = "Shurden's Roofing crew at work in North Mississippi", children }: PageHeroProps) => {
   return (
     <section className="relative isolate overflow-hidden bg-dark text-dark-foreground">
       <img
@@ -33,6 +34,7 @@ const PageHero = ({ eyebrow, title, subtitle, image = heroImg, imageAlt = "Shurd
               {subtitle}
             </p>
           )}
+          {children}
         </div>
       </div>
     </section>

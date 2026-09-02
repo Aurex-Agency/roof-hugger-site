@@ -12,6 +12,7 @@ const quickLinks = [
   { label: "Project Gallery", to: "/gallery" },
   { label: "About Us", to: "/reviews" },
   { label: "Contact Us", to: "/contact" },
+  { label: "Free Roof Giveaway", to: "/roof-giveaway" },
 ];
 
 const guideLinks = [
