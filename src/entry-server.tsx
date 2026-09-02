@@ -18,6 +18,7 @@ export const routes: string[] = [
   "/guides/hail-damage-roof-insurance-claim-mississippi",
   "/referral-join",
   "/refer",
+  "/roof-giveaway",
   "/privacy-policy",
   ...serviceDetails.map((s) => `/services/${s.slug}`),
   ...cities.map((c) => `/roofing/${c.slug}`),

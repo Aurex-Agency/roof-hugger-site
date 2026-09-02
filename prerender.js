@@ -61,13 +61,13 @@ function priorityFor(route) {
   if (route === "/") return "1.0";
   if (route === "/services" || route.startsWith("/services/")) return "0.9";
   if (route.startsWith("/roofing/")) return "0.8";
-  if (route === "/service-areas" || route === "/contact") return "0.8";
+  if (route === "/service-areas" || route === "/contact" || route === "/roof-giveaway") return "0.8";
   if (route === "/privacy-policy") return "0.3";
   return "0.7";
 }
 
 function changefreqFor(route) {
-  if (route === "/") return "weekly";
+  if (route === "/" || route === "/roof-giveaway") return "weekly";
   if (route === "/privacy-policy") return "yearly";
   return "monthly";
 }
