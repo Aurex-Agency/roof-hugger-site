@@ -24,6 +24,14 @@ afterEach(()=>{cleanup();vi.unstubAllGlobals();});
 for (const [label,Component,requests] of [['home',Contact,1],['contact',ContactPage,2]] as const) {
  describe(label+' request confirmation',()=>{
   function mount(){render(<HelmetProvider><MemoryRouter><Component /></MemoryRouter></HelmetProvider>);}
+  it('announces invalid input and focuses its associated field without delivery',()=>{
+   mount();fireEvent.submit(screen.getByRole('button',{name:/Request My Free Inspection/}).closest('form')!);
+   const name=screen.getByLabelText('Full Name');
+   expect(name).toHaveFocus();expect(name).toHaveAttribute('aria-invalid','true');
+   expect(name).toHaveAccessibleDescription('Please enter your full name.');
+   expect(screen.getByRole('alert')).toHaveTextContent('Please enter your full name.');
+   expect(fetch).not.toHaveBeenCalled();
+  });
   it('does not report a lead on rejected delivery and preserves the form',async()=>{
    vi.mocked(fetch).mockResolvedValue({ok:false,status:500} as Response);
    mount();fireEvent.submit(fill());

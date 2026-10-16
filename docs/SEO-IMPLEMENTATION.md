@@ -116,3 +116,19 @@ Weekly scorecard fields: period, Google clicks/impressions/CTR by priority page 
 Review the diff, legacy proof questions and an actual Vercel preview before merging. Preview contact delivery is intentionally disabled. Confirm Vercel uses `npm run build` and `dist`; settings in this branch pin both. Test direct loads of service/city/article pages, missing404, existing redirect, canonical host aliases, sitemap and the public verification file on the actual hosting preview. Do not send test leads to the client; use stubbed tests for success/failure.
 
 After authorized deployment, verify the same routes and real404, inspect lead delivery using an owner-approved controlled procedure, then submit approved sitemap/changed URLs. Monitor at7,14,28days without promising results. If routing regresses, revert this branch's deployment/commit to the previous known deployment. Do not restore a blanket homepage rewrite as a substitute for diagnosing a route mapping issue. No production state was changed in this task.
+
+## Pre-merge quality pass
+
+Latest `origin/main` fetched during the review remains `dd2c316`; the branch contains the original implementation plus this review. No merge or deployment was performed.
+
+Actionable findings fixed:
+
+- Contact form validation previously relied on a toast without associating the error with the field or moving focus. Both forms now render an inline alert, focus the invalid field and expose `aria-invalid` / `aria-describedby`. Invalid input produces no delivery request.
+- A stalled LeadConnector or secondary Zapier request could leave the submit button indefinitely pending. Each request now has a15-second AbortController timeout with timer cleanup, supported without relying on newer `AbortSignal.timeout` browser APIs. Failure retains input and does not count a lead. Server-side idempotency is not available through the existing webhook contract; an ambiguous timeout still needs operator reconciliation before treating a retry as a distinct lead.
+- The previous “never share” form copy contradicted the use of external delivery providers. It now accurately describes request handling and refers to the privacy policy.
+- Added reduced-motion CSS for inherited hero/utility animations and smooth scrolling.
+- Cleared all seven baseline ESLint errors without changing referral business logic: equivalent type aliases, literal terminal hyphens in regex character classes, typed Supabase error access and an ESM Tailwind plugin import.
+
+Validation: repository-wide lint passes with0 errors and7 existing Fast Refresh warnings; typecheck and production build pass;12 tests pass (including focused/associated errors, success/failure, duplicate in-flight prevention, preview delivery block, timeout abort/cleanup, safe event payloads and phone intent). All30 sitemap routes continue to pass static SEO/link checks. Existing Vite large-chunk and outdated browserslist notices remain diagnostics, not build failures.
+
+Verdict: branch code is ready for merge review. Production release still requires actual Vercel preview/alias verification, confirmation or neutralization of the previously documented legacy business-proof claims, and owner-controlled lead-delivery/GA4 checks. No Google/Bing ranking improvement is asserted from these code checks. Google/Bing external work and the90-day measurement period remain post-release tasks.

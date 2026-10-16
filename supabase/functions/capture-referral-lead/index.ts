@@ -7,7 +7,7 @@ const corsHeaders = {
 };
 
 function normalizePhone(raw: string): string {
-  const digits = String(raw ?? "").replace(/[\s().\-]/g, "");
+  const digits = String(raw ?? "").replace(/[\s().-]/g, "");
   const stripped = digits.startsWith("+1")
     ? digits.slice(2)
     : digits.startsWith("1") && digits.length === 11
