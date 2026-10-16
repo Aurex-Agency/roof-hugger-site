@@ -9,7 +9,7 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  { value: 17, plus: true, unit: "Years", label: "Roofing North Mississippi" },,
+  { value: 17, plus: true, unit: "Years", label: "Roofing North Mississippi" },
   { value: 4000, plus: true, unit: "Roofs", label: "Installed & Repaired" },
   { value: 40, plus: true, unit: "Cities", label: "Served Across North Mississippi" },
   { value: 5, symbol: "★", unit: "Stars", label: "Google Rating From Local Customers" },
@@ -17,12 +17,12 @@ const stats: Stat[] = [
 
 const Counter = ({ stat }: { stat: Stat }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [val, setVal] = useState(0);
+  const [val, setVal] = useState(stat.value);
   const started = useRef(false);
 
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
+    if (!node || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {

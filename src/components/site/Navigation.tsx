@@ -13,6 +13,7 @@ const services = [
 
 const links = [
   { label: "Home", to: "/" },
+  { label: "Roofing Guides", to: "/guides" },
   { label: "Project Gallery", to: "/gallery" },
   { label: "About", to: "/reviews" },
   { label: "Contact Us", to: "/contact" },

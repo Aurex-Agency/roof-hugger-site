@@ -1,13 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBWF7K40FZ"></script>
+    <!-- Keep analytics disabled on local and preview hosts. -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-KBWF7K40FZ');
+      if (window.location.hostname === 'shurdensroofing.com') {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){ window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-KBWF7K40FZ', { page_location: 'https://shurdensroofing.com' + window.location.pathname });
+        const tag = document.createElement('script');
+        tag.async = true;
+        tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-KBWF7K40FZ';
+        document.head.appendChild(tag);
+      }
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +21,6 @@
     <link rel="apple-touch-icon" href="/icon-512.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="/hero-roof.jpg" fetchpriority="high" />
     <meta name="author" content="Shurden's Roofing LLC" />
     <meta property="og:site_name" content="Shurden's Roofing" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -32,68 +36,140 @@
       "telephone": "+1-662-498-6629",
       "priceRange": "$$",
       "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "4124 US Highway 82 East",
-        "addressLocality": "Maben",
-        "addressRegion": "MS",
-        "postalCode": "39750",
-        "addressCountry": "US"
+            "@type": "PostalAddress",
+            "streetAddress": "4124 US Highway 82 East",
+            "addressLocality": "Maben",
+            "addressRegion": "MS",
+            "postalCode": "39750",
+            "addressCountry": "US"
       },
       "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 33.5573,
-        "longitude": -89.0853
+            "@type": "GeoCoordinates",
+            "latitude": 33.5573,
+            "longitude": -89.0853
       },
       "areaServed": [
-        { "@type": "AdministrativeArea", "name": "North Mississippi" },
-        { "@type": "City", "name": "Maben", "containedInPlace": { "@type": "AdministrativeArea", "name": "Oktibbeha County, MS" } },
-        { "@type": "City", "name": "Starkville", "containedInPlace": { "@type": "AdministrativeArea", "name": "Oktibbeha County, MS" } },
-        { "@type": "City", "name": "West Point", "containedInPlace": { "@type": "AdministrativeArea", "name": "Clay County, MS" } },
-        { "@type": "City", "name": "Columbus", "containedInPlace": { "@type": "AdministrativeArea", "name": "Lowndes County, MS" } },
-        { "@type": "City", "name": "Louisville", "containedInPlace": { "@type": "AdministrativeArea", "name": "Winston County, MS" } },
-        { "@type": "City", "name": "Ackerman", "containedInPlace": { "@type": "AdministrativeArea", "name": "Choctaw County, MS" } },
-        { "@type": "City", "name": "Eupora", "containedInPlace": { "@type": "AdministrativeArea", "name": "Webster County, MS" } },
-        { "@type": "City", "name": "Houston", "containedInPlace": { "@type": "AdministrativeArea", "name": "Chickasaw County, MS" } },
-        { "@type": "City", "name": "Tupelo", "containedInPlace": { "@type": "AdministrativeArea", "name": "Lee County, MS" } },
-        { "@type": "AdministrativeArea", "name": "Oktibbeha County, MS" },
-        { "@type": "AdministrativeArea", "name": "Webster County, MS" },
-        { "@type": "AdministrativeArea", "name": "Choctaw County, MS" },
-        { "@type": "AdministrativeArea", "name": "Clay County, MS" },
-        { "@type": "AdministrativeArea", "name": "Lowndes County, MS" }
+            {
+                  "@type": "AdministrativeArea",
+                  "name": "North Mississippi"
+            },
+            {
+                  "@type": "City",
+                  "name": "Maben",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Oktibbeha County, MS"
+                  }
+            },
+            {
+                  "@type": "City",
+                  "name": "Starkville",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Oktibbeha County, MS"
+                  }
+            },
+            {
+                  "@type": "City",
+                  "name": "West Point",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Clay County, MS"
+                  }
+            },
+            {
+                  "@type": "City",
+                  "name": "Columbus",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Lowndes County, MS"
+                  }
+            },
+            {
+                  "@type": "City",
+                  "name": "Louisville",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Winston County, MS"
+                  }
+            },
+            {
+                  "@type": "City",
+                  "name": "Ackerman",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Choctaw County, MS"
+                  }
+            },
+            {
+                  "@type": "City",
+                  "name": "Eupora",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Webster County, MS"
+                  }
+            },
+            {
+                  "@type": "City",
+                  "name": "Houston",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Chickasaw County, MS"
+                  }
+            },
+            {
+                  "@type": "City",
+                  "name": "Tupelo",
+                  "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Lee County, MS"
+                  }
+            },
+            {
+                  "@type": "AdministrativeArea",
+                  "name": "Oktibbeha County, MS"
+            },
+            {
+                  "@type": "AdministrativeArea",
+                  "name": "Webster County, MS"
+            },
+            {
+                  "@type": "AdministrativeArea",
+                  "name": "Choctaw County, MS"
+            },
+            {
+                  "@type": "AdministrativeArea",
+                  "name": "Clay County, MS"
+            },
+            {
+                  "@type": "AdministrativeArea",
+                  "name": "Lowndes County, MS"
+            }
       ],
       "openingHours": "Mo-Sa 07:00-19:00",
-      "hasCredential": {
-        "@type": "EducationalOccupationalCredential",
-        "name": "GAF Master Elite Certified Residential Roofing Contractor"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "47"
-      },
       "founder": {
-        "@type": "Person",
-        "name": "Josh Shurden"
+            "@type": "Person",
+            "name": "Josh Shurden"
       },
       "foundingDate": "2015",
-      "description": "Voted Starkville's best roofing business since 2015. Residential roofing, commercial roofing, storm damage insurance claims, and roof repair across North Mississippi.",
+      "description": "Roof replacement, roof repair, commercial roofing and storm damage assessment serving North Mississippi from Maben.",
       "knowsAbout": [
-        "Residential Roofing",
-        "Commercial Roofing",
-        "Roof Repair",
-        "Roof Replacement",
-        "Storm Damage Insurance Claims",
-        "Shingle Roofing",
-        "Chimney Repair",
-        "Flashing Repair"
+            "Residential Roofing",
+            "Commercial Roofing",
+            "Roof Repair",
+            "Roof Replacement",
+            "Storm Damage Insurance Claims",
+            "Shingle Roofing",
+            "Chimney Repair",
+            "Flashing Repair"
       ],
       "sameAs": [
-        "https://www.facebook.com/shurdensroofing",
-        "https://www.instagram.com/shurdensroofing",
-        "https://www.gaf.com/en-us/roofing-contractors/residential/shurden-s-roofing-llc-1106104"
+            "https://www.facebook.com/shurdensroofing",
+            "https://www.instagram.com/shurdensroofing",
+            "https://www.gaf.com/en-us/roofing-contractors/residential/shurden-s-roofing-llc-1106104"
       ],
       "url": "https://shurdensroofing.com/"
-    }
+}
     </script>
 
   <!--app-head-->
@@ -104,7 +180,7 @@
     <script type="module" src="/src/main.tsx"></script>
     <!-- VideoAsk Widget -->
     <script>
-      if (!window.matchMedia("(max-width: 768px)").matches) {
+      if (window.location.hostname === "shurdensroofing.com" && !window.matchMedia("(max-width: 768px)").matches) {
         window.VIDEOASK_EMBED_CONFIG = {
           "kind": "widget",
           "url": "https://www.videoask.com/fbc238zal",
@@ -123,7 +199,14 @@
         document.body.appendChild(videoAskScript);
       }
     </script>
-    <script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_de26ac23001941fca27da0504473ccc5"></script>
+    <script>
+      if (window.location.hostname === 'shurdensroofing.com') {
+        const tracking = document.createElement('script');
+        tracking.src = 'https://link.msgsndr.com/js/external-tracking.js';
+        tracking.dataset.trackingId = 'tk_de26ac23001941fca27da0504473ccc5';
+        document.body.appendChild(tracking);
+      }
+    </script>
   </body>
 </html>
 

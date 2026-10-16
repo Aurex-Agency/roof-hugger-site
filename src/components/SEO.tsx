@@ -18,6 +18,7 @@ const SEO = ({ title, description, path, jsonLd, ogType = "website", noindex = f
   return (
     <Helmet>
       <title>{title}</title>
+      {path === "/" && <link rel="preload" as="image" href="/hero-roof.jpg" {...{ fetchpriority: "high" }} />}
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       {noindex && <meta name="robots" content="noindex, follow" />}

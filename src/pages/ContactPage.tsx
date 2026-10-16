@@ -1,3 +1,6 @@
+import { roofingFaqs } from "@/data/roofing-faqs";
+import { trackAcceptedRequest } from "@/lib/analytics";
+import { useRef } from "react";
 import { useState, FormEvent } from "react";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
 import SEO from "@/components/SEO";
@@ -44,6 +47,7 @@ const SERVICE_OPTIONS = [
 
 const ContactPage = () => {
   const [submitting, setSubmitting] = useState(false);
+  const sending = useRef(false);
   const [service, setService] = useState<string>("");
   const [optIn, setOptIn] = useState(false);
 
@@ -51,6 +55,7 @@ const ContactPage = () => {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (sending.current) return;
     const form = e.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim().slice(0, 100);
@@ -78,6 +83,11 @@ const ContactPage = () => {
       return;
     }
 
+    if (window.location.hostname !== 'shurdensroofing.com' && import.meta.env.MODE !== 'test') {
+      toast({ title: "Preview only", description: "Requests are disabled on this preview. No information was sent." });
+      return;
+    }
+    sending.current = true;
     setSubmitting(true);
     try {
       const payload = {
@@ -107,6 +117,7 @@ const ContactPage = () => {
       if (primary.status === "rejected" || !primary.value.ok) {
         throw new Error("Primary webhook failed");
       }
+      trackAcceptedRequest("contact", service);
       form.reset();
       setService("");
       setOptIn(false);
@@ -114,6 +125,7 @@ const ContactPage = () => {
     } catch (err) {
       toast({ title: "Could not send request", description: "Please try again or call 662-498-6629.", variant: "destructive" });
     } finally {
+      sending.current = false;
       setSubmitting(false);
     }
   };
@@ -124,20 +136,7 @@ const ContactPage = () => {
         title="Contact Shurden's Roofing | Free Roof Inspection in North MS"
         description="Call 662-498-6629 for a free roof inspection across North Mississippi. Residential, commercial, storm damage, and insurance claim support."
         path="/contact"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: [
-            { "@type": "Question", name: "Does Shurden's Roofing handle insurance claims for storm damage?", acceptedAnswer: { "@type": "Answer", text: "Yes. We document wind and hail damage, take photos, review the scope, and help coordinate with your insurance adjuster from inspection to finished roof." } },
-            { "@type": "Question", name: "What areas do you serve?", acceptedAnswer: { "@type": "Answer", text: "We are headquartered in Maben and serve North Mississippi, including Starkville, West Point, Columbus, Louisville, Eupora, and Tupelo." } },
-            { "@type": "Question", name: "How much does a roof inspection cost?", acceptedAnswer: { "@type": "Answer", text: "Roof inspections are free and no-obligation. We use high-resolution drone photography to document every part of your roof." } },
-            { "@type": "Question", name: "What shingles do you install?", acceptedAnswer: { "@type": "Answer", text: "GAF systems including Timberline HDZ, UHDZ, Natural Shadow, Camelot II, and Slateline, with GAF underlayments, Cobra ventilation, and Master Flow flashing." } },
-            { "@type": "Question", name: "What commercial systems do you install?", acceptedAnswer: { "@type": "Answer", text: "SBS self-adhering systems, GAF Liberty, Mule-Hide TPO, and shingle systems for businesses, churches, and offices." } },
-            { "@type": "Question", name: "What makes GAF Master Elite® important?", acceptedAnswer: { "@type": "Answer", text: "GAF Master Elite® is held by less than 2% of roofers in North America, allowing us to offer Gold Pledge and Silver Pledge warranties." } },
-            { "@type": "Question", name: "How fast can you respond to leaks or storm damage?", acceptedAnswer: { "@type": "Answer", text: "Emergency roofing service is available; we typically respond the same day or next day." } },
-            { "@type": "Question", name: "Are you a licensed and insured roofer in Mississippi?", acceptedAnswer: { "@type": "Answer", text: "Yes. Shurden's Roofing LLC is fully licensed and insured to perform residential and commercial roofing work in Mississippi." } },
-          ],
-        }}
+        jsonLd={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: roofingFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }}
       />
       <Navigation />
       <main>

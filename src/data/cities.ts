@@ -25,25 +25,9 @@ export const cities: City[] = [
     distanceFromHq: "About 25 miles east of our Maben office",
     lat: 33.4504,
     lng: -88.8184,
-    intro: [
-      "Starkville roofs take a beating. Long Mississippi summers cook asphalt shingles, spring storms drive hail across Oktibbeha County, and the wind gusts that roll through campus and the Cotton District don't politely stop at neighborhood lines. We've been roofing Starkville homes and businesses since 2015 — from older brick ranches off Louisville Street to newer subdivisions out toward the Highway 25 corridor.",
-      "Most Starkville roofs we replace are architectural asphalt shingles in the 18 to 25 year range that finally gave up after a hail event. We tear off, inspect every square foot of decking, install the full GAF Master Elite system, and register the warranty in your name. Same crew, start to finish.",
-    ],
+    intro: ["Shurden’s Roofing lists Starkville in its North Mississippi service area, with the business based in Maben. If a Starkville roof is leaking, describe the room affected, when the water appears and any previous repair. Confirm the inspection appointment and access arrangements directly with the team.", "For a rental or occupied property, identify who can authorize work and arrange tenant access before the visit. A roof assessment should explain the observed condition and whether a repair or replacement is proposed. Ask for the scope, limitations and next steps in writing."],
     nearbyTowns: ["Sturgis", "Mathiston", "Bradley", "Longview", "Adaton"],
-    faqs: [
-      {
-        q: "How fast can you get out to look at a roof in Starkville?",
-        a: "Most Starkville inspections happen within 24 to 48 hours. After major storms we prioritize active leaks and tarping first.",
-      },
-      {
-        q: "Do you work with insurance carriers common in Starkville?",
-        a: "Yes. We regularly meet adjusters from State Farm, Allstate, USAA, Farm Bureau, and Liberty Mutual on Starkville roofs and walk every hit with them.",
-      },
-      {
-        q: "Do you do commercial roofs around Mississippi State?",
-        a: "Yes. We install commercial systems on offices, retail buildings, and Greek houses in the Starkville area, including SBS self-adhering, GAF Liberty, and Mule-Hide TPO.",
-      },
-    ],
+    faqs: [{"q": "Can you inspect a rental property in Starkville?", "a": "Contact the team about the property and arrange access with the owner or authorized manager. Confirm scheduling and any interior access requirements."}, {"q": "Does Shurden’s have a separate Starkville office?", "a": "The business information on this site identifies the office in Maben. This page describes service in Starkville, not a separate city office."}, {"q": "What should I prepare before requesting a repair?", "a": "Have the leak history and any safe photos available. Do not climb onto the roof. See the repair and inspection guides for questions to ask."}],
   },
   {
     slug: "columbus-ms",
@@ -53,25 +37,9 @@ export const cities: City[] = [
     distanceFromHq: "About 50 miles east of our Maben office",
     lat: 33.4957,
     lng: -88.4273,
-    intro: [
-      "Columbus has a roofing mix you don't see everywhere — historic homes downtown with steep, complicated rooflines, midcentury ranches in the older neighborhoods, and newer construction stretching out toward the Air Force Base. Each one needs a different approach, and a roofer who has actually been on those kinds of roofs before.",
-      "We work in Columbus year-round on both residential replacements and commercial systems. After a storm rolls through Lowndes County we're typically on Columbus roofs within a day, documenting wind and hail damage with drone photos so the insurance claim starts on the right foot.",
-    ],
+    intro: ["For a Columbus property, start a roof assessment request with the building type, the concern and any access restrictions. Shurden’s Roofing lists Columbus in its North Mississippi service area and is based in Maben. Confirm availability directly rather than assuming a particular travel or response time.", "If the property has additions, multiple roof sections or an occupied commercial space, ask the proposal to identify exactly which areas are included. Keep separate roof materials and operating constraints visible in the scope so competing estimates describe the same work."],
     nearbyTowns: ["Caledonia", "Steens", "Crawford", "Artesia", "New Hope"],
-    faqs: [
-      {
-        q: "Do you handle steep, complex roofs on older Columbus homes?",
-        a: "Yes. Our crew is set up for steep slope and multi-facet roofs, including the kind of dormers and valleys you see on older Columbus homes downtown and in the historic district.",
-      },
-      {
-        q: "Can you help with commercial roofs in Columbus?",
-        a: "Yes. We install SBS, GAF Liberty, Mule-Hide TPO, and shingle systems for offices, churches, retail, and multi-tenant buildings throughout Columbus and Lowndes County.",
-      },
-      {
-        q: "How long does a Columbus roof replacement take?",
-        a: "Most single-family homes are torn off, dried in, and re-roofed in 1 to 2 days. Larger or more complex roofs take longer, and we tell you the realistic timeline before we start.",
-      },
-    ],
+    faqs: [{"q": "What if my Columbus building has several roof sections?", "a": "Describe the sections and any known repair history. Ask the contractor to identify which areas are included and whether separate materials or assessments are needed."}, {"q": "Can I request a commercial assessment?", "a": "Contact the team with the building type, roof concerns and access contact. Confirm suitability, availability and the scope before authorizing work."}, {"q": "How long will replacement take?", "a": "Request a property-specific schedule after the work is defined. Access, roof complexity, weather and materials can affect timing."}],
   },
   {
     slug: "west-point-ms",
@@ -81,25 +49,9 @@ export const cities: City[] = [
     distanceFromHq: "About 35 miles east of our Maben office",
     lat: 33.6076,
     lng: -88.6503,
-    intro: [
-      "West Point sits right in our backyard. We've roofed homes in older neighborhoods near downtown, on properties along the Highway 45 corridor, and out into the rural parts of Clay County where pole barns, shops, and ag buildings are just as common as houses.",
-      "Whether it's a residential shingle replacement, a repair on an outbuilding, or storm damage on a commercial property, we're a short drive away. That means faster inspections, faster tarping when it matters, and a crew that actually knows the area.",
-    ],
+    intro: ["West Point is part of the North Mississippi service area listed by Shurden’s Roofing. The company is based in Maben. When requesting an assessment for a Clay County property, give the location and describe whether the concern affects a house, an attached structure or another building.", "For a property with several buildings, keep the requested work clear: identify the roof with the concern and any access limits. A separate structure should not be assumed to be included in a house-roof estimate. Confirm the proposed scope and any additional assessment with the team."],
     nearbyTowns: ["Cedar Bluff", "Pheba", "Tibbee", "Montpelier"],
-    faqs: [
-      {
-        q: "Do you handle roofs on rural properties outside West Point?",
-        a: "Yes. We roof homes, shops, and outbuildings throughout the rural parts of Clay County, not just in town. Being close by means faster inspections and storm response across the whole area.",
-      },
-      {
-        q: "How quickly can you tarp a leaking roof in West Point?",
-        a: "Usually same day or next morning. Maben is close enough that emergency response in West Point is one of our faster service areas.",
-      },
-      {
-        q: "Do you offer free roof inspections in West Point?",
-        a: "Yes. Every inspection is free. We climb the roof, take drone photos, and tell you whether you need a repair, a replacement, or no work at all.",
-      },
-    ],
+    faqs: [{"q": "Can an estimate include more than one building?", "a": "Ask the team about each structure. The written scope should identify the buildings and roof sections included rather than leave that to assumption."}, {"q": "How quickly can you respond in West Point?", "a": "Call with the location and immediate concern to confirm current availability. This page does not promise a response time."}, {"q": "What if damage followed a storm?", "a": "Follow safety guidance, keep safe observations and contact your insurer about its requirements. A roofing assessment does not guarantee coverage."}],
   },
   {
     slug: "tupelo-ms",
@@ -109,25 +61,9 @@ export const cities: City[] = [
     distanceFromHq: "About 50 miles north of our Maben office",
     lat: 34.2576,
     lng: -88.7034,
-    intro: [
-      "Tupelo is a major service area for us. Lee County sees its share of severe weather every year, and Tupelo specifically has a long history with tornadoes and hail — including the storms that have caused widespread roof damage across the city in recent years. When that happens, homeowners need a roofer who can document the damage properly and stand with them through the insurance claim, not just put up a yard sign and disappear.",
-      "We install full GAF Master Elite systems on Tupelo homes, handle commercial roofing for offices and retail, and walk every storm claim from first inspection to final invoice.",
-    ],
+    intro: ["Shurden’s Roofing lists Tupelo in its North Mississippi service area, with its office based in Maben. Contact the team to confirm the property location, scheduling and the roof concern before planning a visit. This service-area page does not represent a separate Tupelo office.", "When comparing a repair with replacement, ask each estimate to address the same roof sections and known concerns. Save earlier repair records and explain whether a leak is recurring. The proposed work should follow the condition of the roof rather than an online age rule or a generic regional price."],
     nearbyTowns: ["Saltillo", "Plantersville", "Verona", "Belden", "Mooreville"],
-    faqs: [
-      {
-        q: "Do you handle storm and hail damage claims in Tupelo?",
-        a: "Yes. We document every hit with high-resolution drone photography, meet your insurance adjuster on the roof, and walk through the scope line by line so nothing gets missed.",
-      },
-      {
-        q: "What shingles do you install on Tupelo homes?",
-        a: "We install the full GAF lineup — Timberline HDZ, Timberline UHDZ, Natural Shadow, Camelot II, and Slateline — with GAF underlayment, Cobra ventilation, and Master Flow flashing.",
-      },
-      {
-        q: "Are you GAF Master Elite® in Tupelo?",
-        a: "Yes. We're a GAF Master Elite® and President's Club contractor, which lets us offer Gold Pledge and Silver Pledge warranty options most local roofers can't.",
-      },
-    ],
+    faqs: [{"q": "How do I arrange an assessment in Tupelo?", "a": "Share the location, concern and access requirements through the contact page or by phone. Confirm scheduling directly."}, {"q": "Should I request repair or replacement?", "a": "Describe the problem and ask for an assessment. Request the evidence and reasoning behind the recommendation."}, {"q": "Do I need to climb up for photos?", "a": "No. Only provide observations from safe locations. Leave roof access and assessment to professionals."}],
   },
   {
     slug: "louisville-ms",

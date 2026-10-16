@@ -1,3 +1,5 @@
+import NotFound from "./NotFound";
+import GuideLinks from "@/components/site/GuideLinks";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowRight, Phone, MapPin, ShieldCheck, Award, Home as HomeIcon, Building2, CloudHail, Wrench, CheckCircle2, Star } from "lucide-react";
 import Navigation from "@/components/site/Navigation";
@@ -37,12 +39,12 @@ const CityPage = () => {
   const { slug = "" } = useParams<{ slug: string }>();
   const city = getCityBySlug(slug);
 
-  if (!city) return <Navigate to="/service-areas" replace />;
+  if (!city) return <NotFound />;
 
   const path = `/roofing/${city.slug}`;
   const fullName = `${city.name}, ${city.state}`;
   const title = `Roofing in ${fullName} | Shurden's Roofing`;
-  const description = `GAF Master Elite® roofer serving ${fullName}. Residential, commercial, storm damage, and insurance claim support. Call 662-498-6629.`;
+  const description = `Roof repair, replacement and commercial roofing serving ${fullName}. Based in Maben. Contact Shurden’s Roofing for an assessment.`;
 
   // Rotate through the real review set so each city page shows a different
   // (still genuine) combination rather than identical duplicate content.
@@ -94,7 +96,7 @@ const CityPage = () => {
         <PageHero
           eyebrow={`Roofing · ${fullName}`}
           title={<>Trusted Roofer in <span className="text-primary">{city.name}, {city.state}</span></>}
-          subtitle={`${city.distanceFromHq}. GAF Master Elite® residential and commercial roofing, storm damage, and insurance claim support across ${city.county} County.`}
+          subtitle={`Roof repair, replacement, commercial roofing and storm assessments in ${city.county} County. Contact our Maben-based team to confirm availability.`}
         />
 
         {/* Trust strip */}
@@ -169,7 +171,7 @@ const CityPage = () => {
               <div>
                 <p className="mb-3 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Recent Work</p>
                 <h2 className="font-display text-3xl font-bold leading-tight text-foreground md:text-[44px]">
-                  Roofs We've Finished Near {city.name}.
+                  Explore Our Roofing Gallery.
                 </h2>
               </div>
               <Link to="/gallery" className="inline-flex items-center gap-1 font-display text-sm uppercase tracking-wider text-primary hover:gap-2 transition-all">
@@ -181,7 +183,7 @@ const CityPage = () => {
                 <img
                   key={i}
                   src={p.src}
-                  alt={`Completed Shurden's Roofing project near ${fullName}`}
+                  alt={`Roofing project from the Shurden's Roofing gallery`}
                   width={p.w}
                   height={p.h}
                   className="aspect-[4/3] w-full rounded-md object-cover"
@@ -199,7 +201,7 @@ const CityPage = () => {
               <div>
                 <p className="mb-3 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Reviews</p>
                 <h2 className="font-display text-3xl font-bold leading-tight text-foreground md:text-[44px]">
-                  What {city.county} County Homeowners Say.
+                  Customer Reviews.
                 </h2>
               </div>
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 font-body text-sm font-bold leading-none">
@@ -340,6 +342,7 @@ const CityPage = () => {
           buttonLabel="Schedule My Inspection"
           to="/contact"
         />
+        <GuideLinks />
       </main>
       <Footer />
       <MobileCallBar />

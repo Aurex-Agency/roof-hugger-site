@@ -1,3 +1,5 @@
+import { trackAcceptedRequest } from "@/lib/analytics";
+import { useRef } from "react";
 import { useState, FormEvent } from "react";
 import { Phone, Clock } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
@@ -15,12 +17,14 @@ const SERVICE_OPTIONS = [
 
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
+  const sending = useRef(false);
   const [service, setService] = useState<string>("");
   const [optIn, setOptIn] = useState(false);
 
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (sending.current) return;
     const form = e.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim().slice(0, 100);
@@ -48,6 +52,11 @@ const Contact = () => {
       return;
     }
 
+    if (window.location.hostname !== 'shurdensroofing.com' && import.meta.env.MODE !== 'test') {
+      toast({ title: "Preview only", description: "Requests are disabled on this preview. No information was sent." });
+      return;
+    }
+    sending.current = true;
     setSubmitting(true);
     try {
       const res = await fetch("https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/4c2e69fd-37d3-4a83-ad28-e07bcec714b9", {
@@ -65,6 +74,7 @@ const Contact = () => {
         }),
       });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      trackAcceptedRequest("home", service);
       form.reset();
       setService("");
       setOptIn(false);
@@ -72,6 +82,7 @@ const Contact = () => {
     } catch (err) {
       toast({ title: "Could not send request", description: "Please try again or call 662-498-6629.", variant: "destructive" });
     } finally {
+      sending.current = false;
       setSubmitting(false);
     }
   };
