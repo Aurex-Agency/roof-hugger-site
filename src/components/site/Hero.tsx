@@ -10,7 +10,7 @@ const Hero = () => {
         alt="Crew installing dark architectural shingle roof at golden hour in Starkville MS"
         width={1920}
         height={1080}
-        {...({ fetchpriority: "high" } as any)}
+        {...{ fetchpriority: "high" }}
         decoding="async"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
@@ -26,7 +26,7 @@ const Hero = () => {
             <span className="block text-primary">Built to Take a Beating.</span>
           </h1>
           <p className="mt-6 max-w-xl font-body font-medium text-base text-dark-foreground/90 md:text-xl">
-            From hail-hit shingles in Starkville to flat commercial roofs in Columbus, Shurden's Roofing installs complete GAF roof systems, handles storm repairs, and backs the work with premium warranty options most roofers cannot offer.
+            Based in Maben, Shurden’s Roofing serves North Mississippi with roof repair, replacement, commercial roofing and storm-damage assessments. Tell us what you are seeing and we will discuss the next step.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

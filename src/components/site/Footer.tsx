@@ -7,6 +7,7 @@ import { serviceDetails } from "@/data/services";
 
 const quickLinks = [
   { label: "Home", to: "/" },
+  { label: "Roofing Guides", to: "/guides" },
   { label: "Roofing Services", to: "/services" },
   { label: "Service Areas", to: "/service-areas" },
   { label: "Project Gallery", to: "/gallery" },

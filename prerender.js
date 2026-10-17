@@ -41,7 +41,7 @@ for (const route of routes) {
   const outFile =
     route === "/"
       ? path.join(distDir, "index.html")
-      : path.join(distDir, route, "index.html");
+      : path.join(distDir, `${route}.html`);
   renderRoute(route, outFile);
   count += 1;
   console.log(`prerendered ${route} -> ${path.relative(distDir, outFile)}`);
@@ -72,12 +72,12 @@ function changefreqFor(route) {
   return "monthly";
 }
 
-const lastmod = new Date().toISOString().slice(0, 10);
+// Omit lastmod until each URL has a verified editorial modification date.
 const sitemapEntries = routes
   .filter((r) => !SITEMAP_EXCLUDE.has(r))
   .map(
     (r) =>
-      `  <url><loc>${SITE_URL}${r === "/" ? "/" : r}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreqFor(r)}</changefreq><priority>${priorityFor(r)}</priority></url>`
+      `  <url><loc>${SITE_URL}${r === "/" ? "/" : r}</loc><changefreq>${changefreqFor(r)}</changefreq><priority>${priorityFor(r)}</priority></url>`
   )
   .join("\n");
 

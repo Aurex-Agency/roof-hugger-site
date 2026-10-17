@@ -1,3 +1,4 @@
+import { guides } from "./data/guides";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
@@ -13,6 +14,8 @@ export const routes: string[] = [
   "/contact",
   "/gallery",
   "/reviews",
+  "/guides",
+  ...guides.map(g => `/guides/${g.slug}`),
   "/guides/roof-dormers",
   "/guides/roof-replacement-cost-mississippi",
   "/guides/hail-damage-roof-insurance-claim-mississippi",

@@ -1,3 +1,5 @@
+import NotFound from "./NotFound";
+import GuideLinks from "@/components/site/GuideLinks";
 import { useParams, Link, Navigate } from "react-router-dom";
 import {
   ArrowRight,
@@ -49,7 +51,7 @@ const ServiceDetailPage = () => {
   const { slug = "" } = useParams<{ slug: string }>();
   const service = getServiceBySlug(slug);
 
-  if (!service) return <Navigate to="/services" replace />;
+  if (!service) return <NotFound />;
 
   const path = `/services/${service.slug}`;
 
@@ -273,6 +275,7 @@ const ServiceDetailPage = () => {
           buttonLabel="Schedule My Inspection"
           to="/contact"
         />
+        <GuideLinks />
       </main>
       <Footer />
       <MobileCallBar />

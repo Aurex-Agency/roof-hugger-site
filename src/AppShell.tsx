@@ -1,3 +1,5 @@
+import GuidesPage from "./pages/GuidesPage";
+import GuidePage from "./pages/GuidePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -43,6 +45,8 @@ const AppShell = () => (
         <Route path="/service-areas" element={<ServiceAreasPage />} />
         <Route path="/roofing/:slug" element={<CityPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/guides" element={<GuidesPage />} />
+        <Route path="/guides/:slug" element={<GuidePage />} />
         <Route path="/guides/roof-dormers" element={<DormersGuide />} />
         <Route path="/guides/roof-replacement-cost-mississippi" element={<RoofCostGuide />} />
         <Route path="/guides/hail-damage-roof-insurance-claim-mississippi" element={<HailClaimGuide />} />

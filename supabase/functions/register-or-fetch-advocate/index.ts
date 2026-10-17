@@ -7,7 +7,7 @@ const corsHeaders = {
 };
 
 function normalizePhone(raw: string): string {
-  const digits = String(raw).replace(/[\s().\-]/g, "");
+  const digits = String(raw).replace(/[\s().-]/g, "");
   const stripped = digits.startsWith("+1")
     ? digits.slice(2)
     : digits.startsWith("1") && digits.length === 11
@@ -139,7 +139,7 @@ Deno.serve(async (req) => {
 
       // 23505 = unique_violation — retry on collision
       const msg = insertError?.message?.toLowerCase() ?? "";
-      const isCollision = (insertError as any)?.code === "23505" || msg.includes("duplicate") || msg.includes("unique");
+      const isCollision = insertError?.code === "23505" || msg.includes("duplicate") || msg.includes("unique");
       if (!isCollision) {
         return new Response(
           JSON.stringify({ error: "Insert failed", detail: insertError?.message }),
