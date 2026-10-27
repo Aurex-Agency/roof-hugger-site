@@ -1,6 +1,8 @@
-export interface Guide { slug: string; title: string; description: string; intro: string; sections: { title: string; paragraphs: string[] }[]; links: { label: string; to: string }[]; sources: { label: string; url: string }[] }
+import { octoberGuides } from "./october-guides";
+export interface Guide { date?: string; audience?: string; slug: string; title: string; description: string; intro: string; sections: { title: string; paragraphs: string[] }[]; links: { label: string; to: string }[]; sources: { label: string; url: string }[] }
 
 export const guides: Guide[] = [
+  ...octoberGuides,
   {
     "slug": "repair-or-replace-leaking-roof",
     "title": "Repair or Replace a Leaking Roof? A North Mississippi Guide",

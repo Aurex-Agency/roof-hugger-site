@@ -57,7 +57,7 @@ const claimSteps = [
 const residentialBullets = [
   "Most homes torn off, dried-in, and re-roofed in 1–2 days",
   "Full deck inspection — rotted decking replaced and itemized on the invoice",
-  "GAF Master Elite® install with Gold Pledge & Silver Pledge warranty options",
+  "GAF Master Elite® install with Golden Pledge & Silver Pledge warranty options",
   "Color and shingle profile selection from full GAF lineup (HDZ, UHDZ, Camelot II, Slateline)",
   "Magnet-sweep cleanup and same local crew from first knock to final walkthrough",
 ];

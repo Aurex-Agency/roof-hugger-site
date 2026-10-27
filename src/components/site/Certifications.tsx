@@ -30,8 +30,9 @@ const Certifications = () => {
               GAF Master Elite<sup className="text-base">®</sup> Certified Roofing Contractor
             </h2>
             <p className="mx-auto mt-5 max-w-2xl font-body text-base text-dark-foreground/85 md:mx-0 md:text-lg">
-              Shurden's Roofing is one of less than 2% of roofers in North America to earn GAF's highest factory certification. That means longer warranties on every roof we install, factory-trained roofing crews, and proven craftsmanship on every job across North Mississippi.
+              GAF lists Shurden's Roofing as a Master Elite® contractor and President's Club award recipient. Enhanced limited warranties are available for qualifying roof systems. Ask which products, installation requirements, registration and exclusions apply to your project.
             </p>
+            <a className="inline-block mt-4 underline py-2" href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/ms/maben/shurden%E2%80%99s-roofing-llc-1148160">View Shurden’s GAF contractor profile</a>
           </div>
         </div>
       </div>

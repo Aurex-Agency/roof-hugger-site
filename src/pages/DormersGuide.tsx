@@ -33,51 +33,51 @@ const dormerTypes = [
 
 const maintenanceItems = [
   {
-    title: "Inspect Step Flashing Every Spring",
-    body: "Step flashing — the small L-shaped metal pieces tucked under each shingle course along the dormer's side walls — is the single biggest source of dormer leaks in Mississippi. Look for rust, lifted edges, or any spot where caulk has cracked through. If you see daylight, it's already leaking.",
+    "title": "Ask about flashing condition",
+    "body": "Ask a roofer to assess the connections where the dormer meets the roof and walls. Describe visible interior stains and prior repairs. Do not climb onto the roof to inspect flashing."
   },
   {
-    title: "Check the Headwall and Apron Flashing",
-    body: "The front of the dormer (the headwall) gets hammered every time a storm rolls through. The apron flashing should be tucked up behind the siding and lapped over the shingles below — never the other way around. A flipped or short apron is a guaranteed leak within a few seasons.",
+    "title": "Document what you can see safely",
+    "body": "Take photographs from the ground or a safe indoor location. Record when a stain appears and whether rain or wind seems related. A photograph is useful context, not a diagnosis."
   },
   {
-    title: "Keep the Valleys and Roof-to-Wall Seams Clear",
-    body: "Pine needles, leaves, and pollen pile up fast where the dormer meets the main roof. That trapped debris holds moisture against your shingles and flashing, which rots the underlayment beneath. A quick blow-off twice a year prevents thousands in repair costs.",
+    "title": "Discuss debris and drainage with a professional",
+    "body": "Ask whether debris, drainage or nearby vegetation needs professional attention. Do not access a roof, use a blower on roofing or work near overhead wires to prepare for an inspection."
   },
   {
-    title: "Re-Caulk Trim and Window Seams as Needed",
-    body: "Sun, heat, and humidity break down sealant fast in North Mississippi. Inspect the caulk lines around dormer windows and corner trim each year. If you can press a fingernail into it and it crumbles, it's time to scrape and reseal with a high-grade polyurethane caulk.",
+    "title": "Confirm repair materials and scope",
+    "body": "Ask what will be repaired or replaced and how the materials connect to the existing roof. Sealant selection and flashing work should follow the applicable product instructions and professional assessment."
   },
   {
-    title: "Watch for Interior Warning Signs",
-    body: "Most dormer leaks show up as a small ceiling stain in an upstairs bedroom or hallway long before they become an emergency. If you spot a brown ring, blistered paint, or musty smell — get it looked at right away. Catching a dormer leak early often means one $300 flashing repair instead of $5,000 in framing and drywall.",
-  },
+    "title": "Respond to interior warning signs",
+    "body": "Report new stains, peeling finishes or active water promptly. Keep people away from sagging ceilings or wet electrical equipment and seek emergency help for immediate danger. Repair cost depends on the actual scope, not the size of a visible stain."
+  }
 ];
 
 const stormPrep = [
-  "Trim back any tree limbs hanging over dormers — falling branches are the #1 storm-damage cause we see in Oktibbeha and Webster counties.",
-  "Make sure all gutters and downspouts feeding off the dormer area are clear before hurricane and severe-weather season.",
-  "After any storm with winds over 50 mph or hail larger than a quarter, schedule a free inspection — dormer damage often isn't visible from the ground.",
-  "Photograph each dormer once a year from the ground. Comparing year-over-year photos makes it easy to spot a lifted shingle or new flashing gap.",
+  "Ask a qualified professional about tree limbs, drainage and maintenance concerns before severe weather.",
+  "Keep earlier repair records and safe ground-level photographs in one place.",
+  "After a storm, document visible changes from a safe location and contact a roofer if you have concerns. Do not enter an unsafe attic or access the roof.",
+  "Contact your insurer about reporting requirements when damage may involve a claim."
 ];
 
 const faqs = [
   {
-    q: "Do dormers leak more than the rest of the roof?",
-    a: "Yes — and not because dormers are flawed. They simply have more flashing seams, valleys, and roof-to-wall transitions than a plain roof plane. Done correctly, a dormer is just as watertight as the rest of your roof. Done poorly, it's usually the first place a homeowner sees water damage.",
+    "q": "Do dormers leak more than the rest of the roof?",
+    "a": "Dormers add roof-to-wall transitions and flashing details that deserve attention during an inspection. A leak requires an assessment of the actual condition; the presence of a dormer alone does not establish a problem."
   },
   {
-    q: "How often should a dormer roof be replaced?",
-    a: "The shingles on a dormer typically last as long as the main roof — 20 to 30 years for architectural shingles. But the flashing around a dormer often needs attention sooner, especially if the original install used cheap aluminum or was sealed primarily with caulk instead of proper step and counter flashing.",
+    "q": "How often should a dormer roof be replaced?",
+    "a": "Condition, materials, installation and maintenance all matter. Ask whether a defined repair is appropriate or replacement is supported by the findings. There is no universal replacement date for every dormer."
   },
   {
-    q: "Can I add a dormer to my existing Mississippi home?",
-    a: "Yes, and it's a popular renovation for adding upstairs headroom or natural light. The two things to get right: a structural review by a qualified contractor, and proper flashing detail at every roof-to-wall transition. Shurden's Roofing handles the roofing portion in coordination with your builder.",
+    "q": "Can I add a dormer to my existing Mississippi home?",
+    "a": "A qualified designer or builder must assess the structure, permits and project requirements. Discuss the roofing scope with Shurden’s Roofing before assuming it is included in a renovation proposal."
   },
   {
-    q: "Will my homeowner's insurance cover dormer storm damage?",
-    a: "Most policies in Mississippi cover sudden storm damage from wind, hail, or falling debris — including damage to dormers. We handle storm damage insurance claims regularly across North Mississippi and can document the damage properly so your claim isn't denied for 'pre-existing wear.'",
-  },
+    "q": "Will my homeowner's insurance cover dormer storm damage?",
+    "a": "Your insurer determines coverage under your policy. A roofer can document observed conditions and proposed work, but cannot guarantee claim approval or payment. Contact your insurer about its process and deadlines."
+  }
 ];
 
 const DormersGuide = () => {
@@ -95,7 +95,7 @@ const DormersGuide = () => {
     },
 
     datePublished: "2026-06-02",
-    dateModified: "2026-06-02",
+    dateModified: "2026-10-27",
   };
 
   const faqSchema = {

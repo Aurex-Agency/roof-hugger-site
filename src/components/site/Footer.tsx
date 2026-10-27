@@ -143,7 +143,7 @@ const Footer = () => {
 
           <div className="flex items-start gap-4">
             <a
-              href="https://www.gaf.com/en-us/roofing-contractors/residential/shurden-s-roofing-llc-1106104"
+              href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/ms/maben/shurden%E2%80%99s-roofing-llc-1148160"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View Shurden's Roofing on GAF, opens in new tab"
@@ -162,10 +162,10 @@ const Footer = () => {
                 GAF Master Elite<sup>®</sup>
               </h3>
               <p className="mt-3 font-body text-sm text-dark-foreground/75">
-                GAF President's Club Member · Gold Pledge & Silver Pledge warranty options.
+                GAF President's Club Member · Golden Pledge & Silver Pledge warranty options.
               </p>
               <ul className="mt-3 flex flex-wrap gap-2">
-                {["Gold Pledge", "Silver Pledge", "President's Club"].map((b) => (
+                {["Golden Pledge", "Silver Pledge", "President's Club"].map((b) => (
                   <li
                     key={b}
                     className="rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 font-display text-[10px] font-bold uppercase tracking-wider text-accent"

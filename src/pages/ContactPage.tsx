@@ -2,7 +2,7 @@ import { fetchWithTimeout } from "@/lib/request";
 import { roofingFaqs } from "@/data/roofing-faqs";
 import { trackAcceptedRequest } from "@/lib/analytics";
 import { useRef } from "react";
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
 import SEO from "@/components/SEO";
 import Navigation from "@/components/site/Navigation";
@@ -12,6 +12,8 @@ import PageHero from "@/components/site/PageHero";
 import FAQ from "@/components/site/FAQ";
 import { toast } from "@/hooks/use-toast";
 import { getReferralCode } from "@/lib/referral";
+
+import { useSearchParams } from "react-router-dom";
 
 const Field = ({
   label,
@@ -40,6 +42,7 @@ const Field = ({
 const SERVICE_OPTIONS = [
   "Roof Replacement",
   "Roof Repair",
+  "Commercial Roofing",
   "Storm Damage",
   "Inspection",
   "Gutter",
@@ -50,7 +53,10 @@ const ContactPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const sending = useRef(false);
   const [validationError, setValidationError] = useState<string | null>(null);
-  const [service, setService] = useState<string>("");
+  const [params] = useSearchParams();
+  const requestedService = new Map([["replacement", "Roof Replacement"], ["repair", "Roof Repair"], ["commercial", "Commercial Roofing"], ["inspection", "Inspection"]]).get(params.get("service") || "");
+  const [service, setService] = useState<string>(requestedService || "");
+  useEffect(() => { if (requestedService) setService(requestedService); }, [requestedService]);
   const [optIn, setOptIn] = useState(false);
 
 

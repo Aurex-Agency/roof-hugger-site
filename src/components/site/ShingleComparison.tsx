@@ -2,33 +2,33 @@ const shingles = [
   {
     name: "GAF Natural Shadow",
     fit: "Straightforward, dependable shingle work",
-    coverage: "No extra workmanship coverage from the manufacturer",
-    rating: "—",
+    coverage: "Confirm the qualifying system and written warranty",
+    rating: "Request the current product rating",
   },
   {
     name: "GAF Timberline HDZ",
     fit: "The go-to architectural shingle for Mississippi homes",
-    coverage: "25-year workmanship coverage",
-    rating: "Class 3 hail rating",
+    coverage: "Confirm the qualifying system and written warranty",
+    rating: "Request the current product rating",
     featured: true,
   },
   {
     name: "GAF Timberline UHDZ",
-    fit: "Ultra premium look with stronger storm protection",
-    coverage: "30-year workmanship coverage",
-    rating: "Class 4 hail rating",
+    fit: "Dimensional architectural appearance",
+    coverage: "Confirm the qualifying system and written warranty",
+    rating: "Request the current product rating",
   },
   {
     name: "GAF Camelot II",
     fit: "Designer shingle with a dimensional, upscale profile",
-    coverage: "30-year workmanship coverage",
-    rating: "Class 4 hail rating",
+    coverage: "Confirm the qualifying system and written warranty",
+    rating: "Request the current product rating",
   },
   {
     name: "GAF Slateline",
     fit: "Designer slate-look without the slate weight",
-    coverage: "30-year workmanship coverage",
-    rating: "Class 4 hail rating",
+    coverage: "Confirm the qualifying system and written warranty",
+    rating: "Request the current product rating",
   },
 ];
 
@@ -43,8 +43,8 @@ const ShingleComparison = () => {
           Pick the Roof That Fits the House, the Weather, and the Budget.
         </h2>
         <p className="mt-5 max-w-2xl font-body text-base text-dark-foreground/95 md:text-lg">
-          We install the full GAF residential shingle lineup. Here is the short version of how the
-          options compare on warranty and hail rating.
+          Discuss these GAF shingle options with the team and confirm current availability.
+          Warranty eligibility and impact ratings depend on the specific product and system.
         </p>
 
         <div className="mt-10 overflow-hidden rounded-lg border border-white/10">
@@ -68,7 +68,7 @@ const ShingleComparison = () => {
                 </span>
                 {s.featured && (
                   <span className="rounded-full bg-accent px-2 py-0.5 font-display text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                    Most Popular
+                    Architectural
                   </span>
                 )}
               </div>
@@ -90,7 +90,7 @@ const ShingleComparison = () => {
 
         <p className="mt-6 max-w-3xl font-body text-sm text-dark-foreground/90 md:text-base">
           We will walk you through the difference in appearance, warranty, hail rating, and cost
-          before you pick a roof. No guessing. No pressure.
+          before you pick a roof. Impact classifications are test ratings, not a guarantee against hail damage.
         </p>
       </div>
     </section>

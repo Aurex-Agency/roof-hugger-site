@@ -145,7 +145,7 @@ export const cities: City[] = [
       },
       {
         q: "Do you offer warranties on Maben roofs?",
-        a: "Yes. As a GAF Master Elite® and President's Club contractor, we offer Gold Pledge and Silver Pledge warranty options that protect your investment for decades.",
+        a: "Yes. As a GAF Master Elite® and President's Club contractor, we offer Golden Pledge and Silver Pledge limited warranty options for qualifying roof systems. Eligibility, coverage, registration and exclusions depend on the selected products and written terms.",
       },
     ],
   },
