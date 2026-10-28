@@ -3,11 +3,11 @@ import { ShieldCheck } from "lucide-react";
 import gafBadge from "@/assets/gaf-master-elite.webp";
 
 const points = [
-  "Lifetime shingles",
-  "50-year manufacturer warranty",
-  "25-year workmanship coverage",
-  "Unlimited wind-speed coverage for 15 years",
-  "Algae warranty up to 25 years",
+  "Selected roofing products and qualifying system components",
+  "Material and workmanship coverage periods in writing",
+  "Wind and algae coverage terms and exclusions",
+  "Registration responsibilities and deadlines",
+  "Transfer and maintenance requirements",
 ];
 
 const WarrantyBand = () => {
@@ -34,15 +34,15 @@ const WarrantyBand = () => {
 
         <div>
           <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-accent">
-            Warranty Options Most Roofers Cannot Offer
+            Understand the Written Warranty
           </p>
           <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
             The Warranty Difference Matters After the Crew Leaves.
           </h2>
           <p className="mt-6 max-w-2xl font-body text-base text-secondary-foreground/85 md:text-lg">
             Shurden's Roofing is a GAF Master Elite® contractor and GAF President's Club Member.
-            That gives our customers access to premium GAF warranty options, including Gold Pledge
-            and Silver Pledge coverage. Depending on the selected system, your new roof may include:
+            That gives our customers access to premium GAF warranty options, including Golden Pledge
+            and Silver Pledge limited warranties for qualifying roof systems. Coverage is not automatic or identical for every installation. Before choosing, confirm:
           </p>
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">

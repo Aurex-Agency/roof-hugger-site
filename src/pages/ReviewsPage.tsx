@@ -12,12 +12,12 @@ import parker from "@/assets/team/parker-shurden.jpg";
 import cameron from "@/assets/team/cameron-shurden.jpg";
 
 const reasons = [
-  { icon: Calendar, title: "Over 30 Years of Experience", body: "Three decades of hands-on roofing across North Mississippi homes and businesses." },
-  { icon: Users, title: "100+ Years Combined Experience", body: "A seasoned crew that has seen every roofing situation Mississippi weather can throw at it." },
+  { icon: Calendar, title: "Roofing Assessments", body: "Discuss the observed roof condition and the work recommended for your property." },
+  { icon: Users, title: "A Local Team", body: "Meet the people who coordinate your roofing questions and project." },
   { icon: HomeIcon, title: "Family Owned and Operated", body: "Built by Josh Shurden and his sons, Garrett, Parker, and Cameron, with Tosha and Kelly running the office." },
-  { icon: Award, title: "GAF Master Elite® Certified", body: "Top 2% of roofers in North America, with a protected 50-mile region for the Master Elite warranty." },
-  { icon: ShieldCheck, title: "25-Year Warranty", body: "Manufacturer warranty on materials and workmanship so your investment is covered for the long haul." },
-  { icon: MapPin, title: "Serving a 600-Mile Radius", body: "Headquartered in Maben, traveling across North Mississippi and beyond to roof for our neighbors." },
+  { icon: Award, title: "GAF Master Elite® Certified", body: "GAF lists Shurden’s Roofing as a Master Elite contractor and President’s Club award recipient." },
+  { icon: ShieldCheck, title: "Written Warranty Options", body: "Ask about qualifying systems, coverage, exclusions and registration before choosing a warranty." },
+  { icon: MapPin, title: "North Mississippi Service", body: "Based in Maben. Contact the team to confirm service and scheduling for your location." },
 ];
 
 const team = [
@@ -66,7 +66,7 @@ const ReviewsPage = () => {
                   In recent years, three of Josh's sons officially joined the team in the sales and service department. Garrett, Parker, and Cameron Shurden grew up on a roof with their dad and have seen and experienced just about every situation in the roofing industry, so it was a natural and welcomed addition to our company. Josh's wife, Tosha, and Parker's wife, Kelly, handle office managing and accounting.
                 </p>
                 <p>
-                  We continue to learn, evolve, and adapt to this ever-changing business. We are a GAF Master Elite® residential roofing contractor, a designation achieved by only 2% of roofing contractors in America. We specialize in residential shingle roofing and are also certified flat roof and membrane roof installers.
+                  We continue to learn, evolve, and adapt to this ever-changing business. We are a GAF Master Elite® residential roofing contractor. We specialize in residential shingle roofing and are also certified flat roof and membrane roof installers.
                 </p>
               </div>
             </div>

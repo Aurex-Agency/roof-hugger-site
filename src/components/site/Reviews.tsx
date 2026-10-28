@@ -42,9 +42,7 @@ const Reviews = () => {
           Read what homeowners and business owners across Starkville, Maben, West Point, Columbus, Louisville, Eupora, and Tupelo say about Shurden's Roofing.
         </p>
         <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-dark/30 px-4 py-2 font-body text-sm font-bold leading-none">
-          <span className="text-accent">5.0</span>
-          <span className="text-accent inline-flex items-center" aria-hidden>★★★★★</span>
-          <span className="text-primary-foreground/95">Rated on Google</span>
+          <span className="text-primary-foreground/95">Customer feedback</span>
         </div>
       </div>
 

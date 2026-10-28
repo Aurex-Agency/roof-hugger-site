@@ -205,9 +205,7 @@ const CityPage = () => {
                 </h2>
               </div>
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 font-body text-sm font-bold leading-none">
-                <span className="text-primary">5.0</span>
-                <span className="text-primary" aria-hidden>★★★★★</span>
-                <span className="text-muted-foreground">on Google</span>
+                <span className="text-muted-foreground">Customer feedback</span>
               </div>
             </div>
             <div className="mt-8 grid gap-5 md:grid-cols-3">

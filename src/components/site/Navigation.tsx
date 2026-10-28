@@ -91,7 +91,7 @@ const Navigation = () => {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="https://www.gaf.com/en-us/roofing-contractors/residential/shurden-s-roofing-llc-1106104"
+            href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/ms/maben/shurden%E2%80%99s-roofing-llc-1148160"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GAF Master Elite Certified, opens in new tab"

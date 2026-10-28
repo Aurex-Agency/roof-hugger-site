@@ -157,7 +157,7 @@ const ServiceDetailPage = () => {
               ))}
             </ul>
             <Link
-              to="/contact"
+              to={"/contact" + ({ "roof-repair": "?service=repair", "roof-replacement": "?service=replacement", "commercial-roofing": "?service=commercial" }[service.slug] || "")}
               className="mt-10 inline-flex items-center gap-2 rounded-md bg-primary px-7 py-4 font-display text-sm uppercase tracking-wide text-primary-foreground transition-all hover:scale-[1.03] hover:shadow-cta"
             >
               Get a Free Roof Inspection <ArrowRight className="h-4 w-4" />
@@ -273,7 +273,7 @@ const ServiceDetailPage = () => {
           title={service.ctaTitle}
           body={service.ctaBody}
           buttonLabel="Schedule My Inspection"
-          to="/contact"
+          to={"/contact" + ({ "roof-repair": "?service=repair", "roof-replacement": "?service=replacement", "commercial-roofing": "?service=commercial" }[service.slug] || "")}
         />
         <GuideLinks />
       </main>

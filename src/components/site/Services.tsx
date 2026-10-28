@@ -33,7 +33,7 @@ const Services = () => {
                 <li>Complete tear-offs and full deck inspection</li>
                 <li>GAF Timberline HDZ, UHDZ, Camelot II, Slateline shingles</li>
                 <li>FeltBuster underlayment, Cobra ventilation, ridge & drip edge</li>
-                <li>Gold Pledge & Silver Pledge warranty options</li>
+                <li>Golden Pledge & Silver Pledge warranty options</li>
               </ul>
               <p className="mt-auto pt-8 font-body text-sm text-dark-foreground/90">
                 Complete GAF roof systems built for North Mississippi homes, installed by our own local crew.

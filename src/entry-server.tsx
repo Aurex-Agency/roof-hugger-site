@@ -1,6 +1,6 @@
 import { guides } from "./data/guides";
 import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router-dom/server";
+import { StaticRouter } from "react-router-dom";
 import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import AppShell from "./AppShell";
 import { cities } from "./data/cities";

@@ -12,10 +12,10 @@ const existingGuides = [
 ];
 export default function GuidesPage() {
  return <div className="pb-16 md:pb-0">
-<SEO title="Roofing Guides for North Mississippi Homeowners" description="Prepare for roof inspections, compare replacement estimates and understand repair options with Shurden’s Roofing homeowner guides." path="/guides" />
+<SEO title="Roofing Guides for North Mississippi Properties" description="Prepare for roof inspections, compare replacement estimates and understand repair options with Shurden’s Roofing homeowner guides." path="/guides" />
 <Navigation />
 <main>
-<PageHero eyebrow="Homeowner resources" title="Make Your Next Roof Decision Clearer" subtitle="Practical questions, preparation checklists and explanations for North Mississippi homeowners." />
+<PageHero eyebrow="Roofing resources" title="Make Your Next Roof Decision Clearer" subtitle="Practical questions, preparation checklists and explanations for North Mississippi homeowners and building managers." />
 <section className="container py-14 grid gap-6 md:grid-cols-2">{[...guides,...existingGuides].map(g=>
 <article key={g.slug} className="rounded-lg border border-border p-6 bg-card">
 <h2 className="font-display text-2xl">

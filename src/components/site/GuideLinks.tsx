@@ -9,7 +9,7 @@ export default function GuideLinks() {
 <li key={g.slug}>
 <Link className="block rounded-md border border-border bg-card p-4 underline underline-offset-4" to={`/guides/${g.slug}`}>{g.title}</Link>
 </li>)}</ul>
-<Link className="inline-block underline mt-6 py-2" to="/guides">All homeowner guides</Link>
+<Link className="inline-block underline mt-6 py-2" to="/guides">All roofing guides</Link>
 </div>
 </section>;
 }
