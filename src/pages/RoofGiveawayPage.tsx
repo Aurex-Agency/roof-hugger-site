@@ -18,6 +18,7 @@ import {
   Check,
   PartyPopper,
   Phone,
+  CalendarClock,
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import Navigation from "@/components/site/Navigation";
@@ -44,6 +45,20 @@ const INSTAGRAM_URL = "https://www.instagram.com/shurdensroofing";
 const WEBHOOK_URL =
   "https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/4c2e69fd-37d3-4a83-ad28-e07bcec714b9";
 
+// Campaign timeline (2026). Entries run through the day before Thanksgiving,
+// finalists go up the Friday after, and the winner is announced the Monday
+// after that. Every date shown on the page reads from these values.
+const ENTRIES_CLOSE = "Wednesday, November 25";
+const ENTRIES_CLOSE_TIME = "11:59 PM Central";
+const FINALISTS_POSTED = "Friday, November 27";
+const WINNER_ANNOUNCED = "Monday, November 30";
+
+const keyDates = [
+  { label: "Entries Close", date: "Wed, Nov 25", detail: `${ENTRIES_CLOSE_TIME}, the day before Thanksgiving` },
+  { label: "Finalists Posted", date: "Fri, Nov 27", detail: "Three roofs go up on our Facebook page" },
+  { label: "Winner Announced", date: "Mon, Nov 30", detail: "The roof with the most votes wins" },
+];
+
 type Mode = "self" | "nominate";
 type Answer = "yes" | "no" | "unsure" | "";
 
@@ -57,7 +72,7 @@ const steps = [
   {
     icon: ClipboardCheck,
     title: "Sign Up Online",
-    body: "Enter your own home below, or nominate a friend, family member, or neighbor whose roof needs help. It takes about a minute.",
+    body: `Enter your own home below, or nominate a friend, family member, or neighbor whose roof needs help. It takes about a minute. Entries close ${ENTRIES_CLOSE}.`,
   },
   {
     icon: Search,
@@ -72,7 +87,7 @@ const steps = [
   {
     icon: Vote,
     title: "Vote and Win",
-    body: "We pick the three roughest roofs and put them to a public vote on our Facebook page. The roof with the most votes gets replaced for free.",
+    body: `On ${FINALISTS_POSTED}, we post the three roughest roofs to a public vote on our Facebook page. The roof with the most votes gets replaced for free, and we announce the winner ${WINNER_ANNOUNCED}.`,
   },
 ];
 
@@ -92,17 +107,22 @@ const doesNotQualify = [
 ];
 
 const finePrint = [
+  `Entries are accepted through this website from November 5, 2026 until ${ENTRIES_CLOSE_TIME} on ${ENTRIES_CLOSE}, 2026. Entries submitted after that time are not eligible.`,
   "Open to owner-occupied, single-family homes only. The entrant (or the nominated homeowner) must own the home and live in it as their primary residence.",
   "Rental properties, investment properties, and commercial buildings of any kind are not eligible.",
   "Roof size is limited to 30 squares (3,000 square feet of roof area). Larger roofs are not eligible for the giveaway but still qualify for a free inspection and estimate.",
   "To qualify, an entry must be submitted through this website and the home must receive a free roofing inspection from Shurden's Roofing. The inspection must show the roof needs a full replacement.",
-  "Shurden's Roofing selects three finalists from qualified entries. The winner is chosen by public vote on the Shurden's Roofing Facebook page.",
+  `Shurden's Roofing selects three finalists from qualified entries and posts them on the Shurden's Roofing Facebook page on ${FINALISTS_POSTED}, 2026. The winner is chosen by public vote: the finalist with the most votes wins. The winner will be announced on ${WINNER_ANNOUNCED}, 2026.`,
   "The giveaway covers a standard GAF shingle roof replacement. Structural or decking repairs beyond normal replacement scope will be discussed with the homeowner before any work begins.",
   "Finalists agree to have photos of their roof shared on Shurden's Roofing social media for the vote.",
   "Shurden's Roofing reserves the right to verify eligibility, ownership, and residency before awarding the roof.",
 ];
 
 const faqs = [
+  {
+    q: "When does the giveaway end?",
+    a: `Entries are open now through ${ENTRIES_CLOSE} (the day before Thanksgiving) at ${ENTRIES_CLOSE_TIME}. We post the three finalists on our Facebook page on ${FINALISTS_POSTED}, and we announce the winner on ${WINNER_ANNOUNCED}.`,
+  },
   {
     q: "Do I have to pay anything to enter?",
     a: "No. Entering is free, the roof inspection is free, and the winning roof is replaced at no cost to the homeowner.",
@@ -121,7 +141,7 @@ const faqs = [
   },
   {
     q: "How is the winner chosen?",
-    a: "After inspections, we pick the three worst roofs among qualified entries and post them on our Facebook page. Whoever gets the most votes wins the free roof.",
+    a: `After inspections, we pick the three worst roofs among qualified entries and post them on our Facebook page on ${FINALISTS_POSTED}. Whoever gets the most votes wins the free roof, and we announce the winner on ${WINNER_ANNOUNCED}.`,
   },
   {
     q: "I have an active leak right now. Should I wait for the giveaway?",
@@ -381,7 +401,7 @@ const RoofGiveawayPage = () => {
         <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-accent">
           Facebook
         </a>{" "}
-        to see the finalists and vote. Questions? Call{" "}
+        to see the finalists on {FINALISTS_POSTED} and vote. We announce the winner {WINNER_ANNOUNCED}. Questions? Call{" "}
         <a href="tel:6624986629" className="text-primary underline hover:text-accent">
           662-498-6629
         </a>
@@ -416,8 +436,14 @@ const RoofGiveawayPage = () => {
     >
       <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Free Roof Giveaway Entry</p>
       <h3 className="mb-3 font-display text-2xl text-dark-foreground md:text-3xl">Enter the Giveaway</h3>
-      <p className="mb-6 font-body text-sm text-dark-foreground/90">
+      <p className="mb-4 font-body text-sm text-dark-foreground/90">
         Signing up your own home, or know someone whose roof is in rough shape? Pick one to get started.
+      </p>
+      <p className="mb-6 flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-3 py-2 font-body text-sm text-dark-foreground">
+        <CalendarClock className="h-4 w-4 flex-none text-primary" />
+        <span>
+          Entries close <strong>{ENTRIES_CLOSE}</strong> at {ENTRIES_CLOSE_TIME}.
+        </span>
       </p>
 
       {/* Mode toggle */}
@@ -571,7 +597,7 @@ const RoofGiveawayPage = () => {
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <SEO
         title="Free Roof Giveaway | Win a New Roof from Shurden's Roofing"
-        description="Sign up for a chance to win a free roof replacement in North Mississippi. Enter your own home or nominate a neighbor, get a free inspection, and the community votes on the winner."
+        description="Enter by November 25 for a chance to win a free roof replacement in North Mississippi. Sign up your home or nominate a neighbor, get a free inspection, and the community votes."
         path={PAGE_PATH}
         jsonLd={faqSchema}
       />
@@ -584,7 +610,7 @@ const RoofGiveawayPage = () => {
               Got the Worst Roof in North Mississippi? <span className="text-primary">Let Us Replace It. Free.</span>
             </>
           }
-          subtitle="Sign up, get a free inspection, and if your roof needs replacing you're in the running. The three roughest roofs go to a public vote, and the winner gets a brand-new GAF roof on us."
+          subtitle={`Sign up by ${ENTRIES_CLOSE}, get a free inspection, and if your roof needs replacing you're in the running. The three roughest roofs go to a public vote, and the winner gets a brand-new GAF roof on us.`}
           image={heroImg}
           imageAlt="Storm-damaged shingle roof on a North Mississippi home"
         >
@@ -603,6 +629,20 @@ const RoofGiveawayPage = () => {
               <Users className="h-4 w-4" /> Nominate Someone
             </a>
           </div>
+          <dl className="mt-8 grid max-w-2xl gap-2 sm:grid-cols-3 sm:gap-3" aria-label="Giveaway key dates">
+            {keyDates.map(({ label, date, detail }) => (
+              <div
+                key={label}
+                className="flex items-baseline justify-between gap-3 rounded-md border border-white/15 bg-dark/70 px-4 py-3 sm:block"
+              >
+                <dt className="font-body text-[11px] font-bold uppercase tracking-[0.2em] text-primary">{label}</dt>
+                <dd className="font-display text-lg text-dark-foreground sm:mt-1 sm:text-xl">{date}</dd>
+                <dd className="sr-only sm:not-sr-only sm:mt-1 sm:block sm:font-body sm:text-xs sm:text-dark-foreground/75">
+                  {detail}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </PageHero>
 
         {/* How it works */}
@@ -681,7 +721,7 @@ const RoofGiveawayPage = () => {
                 The Community Picks the Winner.
               </h2>
               <p className="mt-6 max-w-2xl font-body text-base text-dark-foreground/80 md:text-lg">
-                Once inspections are done, we will post the three roughest qualifying roofs on our Facebook page. Friends, family, and neighbors vote, and the roof with the most votes gets replaced for free. Follow us so you don't miss the announcement.
+                On {FINALISTS_POSTED}, we will post the three roughest qualifying roofs on our Facebook page. Friends, family, and neighbors vote, and the roof with the most votes gets replaced for free. We announce the winner on {WINNER_ANNOUNCED}. Follow us so you don't miss it.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
