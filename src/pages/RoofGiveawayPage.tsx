@@ -70,12 +70,10 @@ const ELIGIBLE_COUNTIES: string[] = [];
 
 const serviceAreaRule =
   ELIGIBLE_COUNTIES.length > 0
-    ? `The home must be located in one of these Mississippi counties: ${ELIGIBLE_COUNTIES.join(", ")}.`
-    : "The home must be located in the Shurden's Roofing service area in North Mississippi.";
-const prizeValueRule =
-  PRIZE_ARV !== null
-    ? [`The approximate retail value of the prize is $${PRIZE_ARV.toLocaleString("en-US")}. The actual value depends on the size and condition of the winning roof.`]
-    : [];
+    ? `The home must be in one of these Mississippi counties: ${ELIGIBLE_COUNTIES.join(", ")}.`
+    : "The home must be in the Shurden's Roofing service area in North Mississippi.";
+const prizeValueSentence =
+  PRIZE_ARV !== null ? ` Approximate retail value: $${PRIZE_ARV.toLocaleString("en-US")}.` : "";
 
 // First-touch channel data for the entry. Fixed keys only; the referrer keeps
 // its origin and path, never its query string.
@@ -166,19 +164,17 @@ const finePrint = [
   "Sponsored by Shurden's Roofing, LLC, Maben, MS 39750. Questions about the giveaway: call 662-498-6629.",
   `Entries are accepted through this website from November 5, 2026 until ${ENTRIES_CLOSE_TIME} on ${ENTRIES_CLOSE}, 2026. Entries submitted after that time are not eligible.`,
   "Open to owner-occupied, single-family homes only. The entrant (or the nominated homeowner) must own the home and live in it as their primary residence.",
-  `The homeowner must be 18 or older. ${serviceAreaRule}`,
-  "Employees of Shurden's Roofing and members of their immediate households are not eligible.",
+  serviceAreaRule,
   "Rental properties, investment properties, and commercial buildings of any kind are not eligible.",
   "Roof size is limited to 30 squares (3,000 square feet of roof area). Larger roofs are not eligible for the giveaway but still qualify for a free inspection and estimate.",
   "To qualify, an entry must be submitted through this website and the home must receive a free roofing inspection from Shurden's Roofing. The inspection must show the roof needs a full replacement.",
-  `Shurden's Roofing selects three finalists from qualified entries and posts them on the Shurden's Roofing Facebook page on ${FINALISTS_POSTED}, 2026. The winner is chosen by public vote: the finalist with the most votes wins. The winner will be announced on ${WINNER_ANNOUNCED}, 2026.`,
-  "The giveaway covers a standard GAF shingle roof replacement. Structural or decking repairs beyond normal replacement scope will be discussed with the homeowner before any work begins.",
-  "Finalists agree to have photos of their roof shared on Shurden's Roofing social media for the vote.",
+  "Entries received by Sunday, November 22, 2026 are guaranteed a free inspection. Entries received November 23–25 are inspected as the schedule allows. A home must be inspected by noon Central on Friday, November 27, 2026 to be chosen as a finalist.",
+  `On ${FINALISTS_POSTED}, 2026, Shurden's Roofing posts the three finalists' roofs in one post on its Facebook page, labeled A, B and C. Each reaction on a finalist's photo is one vote for that finalist. Voting closes Sunday, November 29, 2026 at 11:59 PM Central. Comments, shares and tags don't count as votes, and reactions after the close don't count. Votes from fake or duplicate accounts are removed. The most votes wins, and a tie goes to the roof in worse condition at inspection. The winner is announced ${WINNER_ANNOUNCED}, 2026.`,
+  `The prize is a standard GAF shingle roof replacement, up to 30 squares, including tear-off, materials, labor and cleanup.${prizeValueSentence} It has no cash value and can't be transferred. Structural or decking repairs beyond normal replacement scope will be discussed with the homeowner before any work begins.`,
+  "The winner is responsible for any taxes on the prize. Before installation, the winner gives Shurden's Roofing a completed IRS Form W-9, and Shurden's Roofing issues a Form 1099 for the prize value.",
+  "Finalists sign a short photo release before the vote is posted and agree to have photos of their roof shared on Shurden's Roofing social media for the vote. If the winner can't be verified or declines the prize, the finalist with the next-most votes wins.",
   "Shurden's Roofing reserves the right to verify eligibility, ownership, and residency before awarding the roof.",
-  "Odds of becoming a finalist depend on the number and condition of qualified entries. Votes that appear automated or fraudulent may be removed, and a finalist who cannot be verified may be replaced with an alternate.",
-  ...prizeValueRule,
-  "The prize cannot be transferred or exchanged for cash. The winner is responsible for any taxes on the prize. Shurden's Roofing will ask the winner for a W-9 and will issue a Form 1099 if the prize value requires one.",
-  "This giveaway is not sponsored, endorsed, or administered by, or associated with, Facebook or Meta. By entering, you release Meta from any liability connected to the giveaway.",
+  "This giveaway is not sponsored, endorsed or run by, or connected to, Facebook or Meta. Everyone who enters or votes releases Meta from any claim related to the giveaway. Sharing the post is never required.",
 ];
 
 const faqs = [
