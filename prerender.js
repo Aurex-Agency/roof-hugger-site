@@ -55,7 +55,8 @@ console.log("prerendered NotFound -> 404.html");
 // --- sitemap.xml ------------------------------------------------------------
 // Utility/referral routes stay out of the sitemap; everything else is
 // generated from the same route list that drives prerendering.
-const SITEMAP_EXCLUDE = new Set(["/refer", "/referral-join"]);
+// /meet/* intro pages are linked from booking texts only and are noindex.
+const SITEMAP_EXCLUDE = new Set(["/refer", "/referral-join", ...routes.filter((r) => r.startsWith("/meet/"))]);
 
 function priorityFor(route) {
   if (route === "/") return "1.0";

@@ -5,6 +5,7 @@ import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import AppShell from "./AppShell";
 import { cities } from "./data/cities";
 import { serviceDetails } from "./data/services";
+import { teamIntros } from "./data/team-intros";
 
 // Every route that should be emitted as a static HTML file at build time.
 export const routes: string[] = [
@@ -22,6 +23,7 @@ export const routes: string[] = [
   "/referral-join",
   "/refer",
   "/roof-giveaway",
+  ...teamIntros.map((t) => `/meet/${t.slug}`),
   "/privacy-policy",
   ...serviceDetails.map((s) => `/services/${s.slug}`),
   ...cities.map((c) => `/roofing/${c.slug}`),
