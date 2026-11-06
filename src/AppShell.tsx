@@ -22,6 +22,7 @@ import HailClaimGuide from "./pages/HailClaimGuide.tsx";
 import ReferralJoinPage from "./pages/ReferralJoinPage.tsx";
 import ReferPage from "./pages/ReferPage.tsx";
 import RoofGiveawayPage from "./pages/RoofGiveawayPage.tsx";
+import MeetPage from "./pages/MeetPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const AppShell = () => (
         <Route path="/referral-join" element={<ReferralJoinPage />} />
         <Route path="/refer" element={<ReferPage />} />
         <Route path="/roof-giveaway" element={<RoofGiveawayPage />} />
+        <Route path="/meet/:slug" element={<MeetPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
