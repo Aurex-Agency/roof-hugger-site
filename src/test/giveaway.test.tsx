@@ -73,6 +73,16 @@ it('accepts entries at 11:59 PM Central on Nov 25',()=>{
  expect(screen.getByRole('button',{name:/Enter the Giveaway/})).toBeInTheDocument();
 });
 
+it('shows the official-rules basics and no prize value until one is set',()=>{
+ mount();
+ const rules=document.getElementById('rules')!;
+ expect(within(rules).getByText(/No purchase is necessary to enter or win/)).toBeInTheDocument();
+ expect(within(rules).getByText(/Sponsored by Shurden's Roofing, LLC, Maben, MS 39750/)).toBeInTheDocument();
+ expect(within(rules).getByText(/not sponsored, endorsed, or administered by, or associated with, Facebook or Meta/)).toBeInTheDocument();
+ expect(within(rules).getByText(/located in the Shurden's Roofing service area/)).toBeInTheDocument();
+ expect(within(rules).queryByText(/approximate retail value/i)).not.toBeInTheDocument();
+});
+
 it('closes the form at midnight Central and sends nothing',()=>{
  vi.useFakeTimers({toFake:['Date']});vi.setSystemTime(new Date('2026-11-26T06:00:00Z'));
  mount();

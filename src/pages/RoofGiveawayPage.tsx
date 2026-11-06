@@ -60,6 +60,23 @@ const WINNER_ANNOUNCED = "Monday, November 30";
 const ENTRIES_CLOSE_AT = Date.parse("2026-11-26T06:00:00Z");
 const entriesClosed = (now = Date.now()) => now >= ENTRIES_CLOSE_AT;
 
+// Official-rules values the owner still has to confirm. Each one renders
+// nothing (or a general fallback) until it is filled in, so the page never
+// shows a placeholder.
+// Approximate retail value of the prize in US dollars, e.g. 14500.
+const PRIZE_ARV = null as number | null;
+// Counties where a home must be located to enter, e.g. ["Oktibbeha", "Webster"].
+const ELIGIBLE_COUNTIES: string[] = [];
+
+const serviceAreaRule =
+  ELIGIBLE_COUNTIES.length > 0
+    ? `The home must be located in one of these Mississippi counties: ${ELIGIBLE_COUNTIES.join(", ")}.`
+    : "The home must be located in the Shurden's Roofing service area in North Mississippi.";
+const prizeValueRule =
+  PRIZE_ARV !== null
+    ? [`The approximate retail value of the prize is $${PRIZE_ARV.toLocaleString("en-US")}. The actual value depends on the size and condition of the winning roof.`]
+    : [];
+
 // First-touch channel data for the entry. Fixed keys only; the referrer keeps
 // its origin and path, never its query string.
 type Attribution = Record<"utm_source" | "utm_medium" | "utm_campaign" | "utm_content" | "utm_term" | "referrer" | "landing_page", string>;
@@ -145,8 +162,12 @@ const doesNotQualify = [
 ];
 
 const finePrint = [
+  "No purchase is necessary to enter or win. Buying anything from Shurden's Roofing does not improve your chances.",
+  "Sponsored by Shurden's Roofing, LLC, Maben, MS 39750. Questions about the giveaway: call 662-498-6629.",
   `Entries are accepted through this website from November 5, 2026 until ${ENTRIES_CLOSE_TIME} on ${ENTRIES_CLOSE}, 2026. Entries submitted after that time are not eligible.`,
   "Open to owner-occupied, single-family homes only. The entrant (or the nominated homeowner) must own the home and live in it as their primary residence.",
+  `The homeowner must be 18 or older. ${serviceAreaRule}`,
+  "Employees of Shurden's Roofing and members of their immediate households are not eligible.",
   "Rental properties, investment properties, and commercial buildings of any kind are not eligible.",
   "Roof size is limited to 30 squares (3,000 square feet of roof area). Larger roofs are not eligible for the giveaway but still qualify for a free inspection and estimate.",
   "To qualify, an entry must be submitted through this website and the home must receive a free roofing inspection from Shurden's Roofing. The inspection must show the roof needs a full replacement.",
@@ -154,6 +175,10 @@ const finePrint = [
   "The giveaway covers a standard GAF shingle roof replacement. Structural or decking repairs beyond normal replacement scope will be discussed with the homeowner before any work begins.",
   "Finalists agree to have photos of their roof shared on Shurden's Roofing social media for the vote.",
   "Shurden's Roofing reserves the right to verify eligibility, ownership, and residency before awarding the roof.",
+  "Odds of becoming a finalist depend on the number and condition of qualified entries. Votes that appear automated or fraudulent may be removed, and a finalist who cannot be verified may be replaced with an alternate.",
+  ...prizeValueRule,
+  "The prize cannot be transferred or exchanged for cash. The winner is responsible for any taxes on the prize. Shurden's Roofing will ask the winner for a W-9 and will issue a Form 1099 if the prize value requires one.",
+  "This giveaway is not sponsored, endorsed, or administered by, or associated with, Facebook or Meta. By entering, you release Meta from any liability connected to the giveaway.",
 ];
 
 const faqs = [
