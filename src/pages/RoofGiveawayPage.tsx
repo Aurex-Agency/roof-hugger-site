@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import {
   ClipboardCheck,
@@ -27,6 +27,8 @@ import MobileCallBar from "@/components/site/MobileCallBar";
 import PageHero from "@/components/site/PageHero";
 import { toast } from "@/hooks/use-toast";
 import { getReferralCode } from "@/lib/referral";
+import { fetchWithTimeout } from "@/lib/request";
+import { trackGiveawayEntry } from "@/lib/analytics";
 import heroImg from "@/assets/storm-damage.jpg";
 
 // ---------------------------------------------------------------------------
@@ -38,12 +40,13 @@ const PAGE_URL = `https://shurdensroofing.com${PAGE_PATH}`;
 const FACEBOOK_URL = "https://www.facebook.com/shurdensroofing";
 const INSTAGRAM_URL = "https://www.instagram.com/shurdensroofing";
 
-// Giveaway entries post to the same GHL inbound webhook the contact forms use,
-// tagged with a distinct `source` / `entry_type` so a GHL workflow can route
-// them into the giveaway pipeline. Swap this URL for a dedicated webhook if
-// one is created for the campaign.
+// Giveaway entries post to their own GHL inbound webhook ("Giveaway 2026 –
+// Intake"), not the shared contact-form webhook, so they never start the sales
+// sequence. The old shared URL still forwards giveaway posts to the intake for
+// any visitor holding a cached copy of the page.
 const WEBHOOK_URL =
-  "https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/4c2e69fd-37d3-4a83-ad28-e07bcec714b9";
+  "https://services.leadconnectorhq.com/hooks/QpLtWVK3YfPZ7e1MRBtO/webhook-trigger/233dd6ae-ba27-45e5-8c21-4b17133ec16a";
+const FORM_VERSION = "2026-11-giveaway-v2";
 
 // Campaign timeline (2026). Entries run through the day before Thanksgiving,
 // finalists go up the Friday after, and the winner is announced the Monday
@@ -52,6 +55,41 @@ const ENTRIES_CLOSE = "Wednesday, November 25";
 const ENTRIES_CLOSE_TIME = "11:59 PM Central";
 const FINALISTS_POSTED = "Friday, November 27";
 const WINNER_ANNOUNCED = "Monday, November 30";
+// The form stops accepting entries after 11:59:59 PM Central on Nov 25
+// (midnight CST = 06:00 UTC). Checked on load, on a timer, and again at submit.
+const ENTRIES_CLOSE_AT = Date.parse("2026-11-26T06:00:00Z");
+const entriesClosed = (now = Date.now()) => now >= ENTRIES_CLOSE_AT;
+
+// First-touch channel data for the entry. Fixed keys only; the referrer keeps
+// its origin and path, never its query string.
+type Attribution = Record<"utm_source" | "utm_medium" | "utm_campaign" | "utm_content" | "utm_term" | "referrer" | "landing_page", string>;
+const ATTRIBUTION_KEY = "shurdens_giveaway_attribution";
+const readAttribution = (): Attribution => {
+  try {
+    const saved = sessionStorage.getItem(ATTRIBUTION_KEY);
+    if (saved) return JSON.parse(saved) as Attribution;
+  } catch { /* Storage can be blocked; fall through to the current page. */ }
+  const params = new URLSearchParams(window.location.search);
+  const utm = (k: string) => (params.get(k) ?? "").trim().slice(0, 100);
+  let referrer = "";
+  try {
+    if (document.referrer) {
+      const r = new URL(document.referrer);
+      if (r.hostname !== window.location.hostname) referrer = `${r.origin}${r.pathname}`.slice(0, 200);
+    }
+  } catch { /* Ignore an unparseable referrer. */ }
+  const attribution: Attribution = {
+    utm_source: utm("utm_source"),
+    utm_medium: utm("utm_medium"),
+    utm_campaign: utm("utm_campaign"),
+    utm_content: utm("utm_content"),
+    utm_term: utm("utm_term"),
+    referrer,
+    landing_page: `${window.location.pathname}${window.location.search}`.slice(0, 300),
+  };
+  try { sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(attribution)); } catch { /* Not critical. */ }
+  return attribution;
+};
 
 const keyDates = [
   { label: "Entries Close", date: "Wed, Nov 25", detail: `${ENTRIES_CLOSE_TIME}, the day before Thanksgiving` },
@@ -241,7 +279,12 @@ const RoofGiveawayPage = () => {
   const [mode, setMode] = useState<Mode>("self");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [optIn, setOptIn] = useState(false);
+  const [rulesAccepted, setRulesAccepted] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
+  // Prerendered HTML always shows the open form; the client flips to the
+  // closed notice after the deadline (and at the deadline if the tab is open).
+  const [closed, setClosed] = useState(false);
+  const [attribution, setAttribution] = useState<Attribution | null>(null);
   const [owns, setOwns] = useState<Answer>("");
   const [primary, setPrimary] = useState<Answer>("");
   const [singleFamily, setSingleFamily] = useState<Answer>("");
@@ -250,6 +293,19 @@ const RoofGiveawayPage = () => {
 
   const isNominate = mode === "nominate";
 
+  useEffect(() => {
+    setAttribution(readAttribution());
+    if (entriesClosed()) {
+      setClosed(true);
+      return;
+    }
+    // setTimeout overflows past ~24.8 days, so only arm it when the close is near.
+    const msLeft = ENTRIES_CLOSE_AT - Date.now();
+    if (msLeft > 2_000_000_000) return;
+    const timer = setTimeout(() => setClosed(true), msLeft);
+    return () => clearTimeout(timer);
+  }, []);
+
   const switchMode = (next: Mode) => {
     if (next === mode) return;
     setMode(next);
@@ -257,7 +313,8 @@ const RoofGiveawayPage = () => {
     setPrimary("");
     setSingleFamily("");
     setLeaks("");
-    setOptIn(false);
+    setRulesAccepted(false);
+    setSmsConsent(false);
   };
 
   const copyLink = async () => {
@@ -276,8 +333,21 @@ const RoofGiveawayPage = () => {
     const data = new FormData(form);
     const get = (k: string, max = 200) => String(data.get(k) ?? "").trim().slice(0, max);
 
+    // Honeypot: people never see this field, bots fill it. Show the normal
+    // thank-you so the bot learns nothing, and send nothing.
+    if (get("company")) {
+      form.reset();
+      setSubmitted(true);
+      return;
+    }
+    if (entriesClosed()) {
+      setClosed(true);
+      return;
+    }
+
     const nominatorName = isNominate ? get("nominatorName", 100) : "";
     const nominatorPhone = isNominate ? get("nominatorPhone", 30) : "";
+    const nominatorEmail = isNominate ? get("nominatorEmail", 200) : "";
     const homeownerName = get("homeownerName", 100);
     const homeownerPhone = get("homeownerPhone", 30);
     const homeownerEmail = get("homeownerEmail", 200);
@@ -320,8 +390,13 @@ const RoofGiveawayPage = () => {
       });
       return;
     }
-    if (!optIn) {
-      toast({ title: "Consent required", description: "Please check the box so we can follow up about the giveaway.", variant: "destructive" });
+    if (!rulesAccepted) {
+      toast({ title: "Please accept the rules", description: "Check the box to confirm the details are accurate and you agree to the giveaway rules.", variant: "destructive" });
+      return;
+    }
+    // Preview and local builds must never create live GHL contacts or texts.
+    if (window.location.hostname !== "shurdensroofing.com" && import.meta.env.MODE !== "test") {
+      toast({ title: "Preview only", description: "Entries are disabled on this preview. No information was sent." });
       return;
     }
 
@@ -342,35 +417,43 @@ const RoofGiveawayPage = () => {
 
     setSubmitting(true);
     try {
-      const res = await fetch(WEBHOOK_URL, {
+      const entryType = isNominate ? "nomination" : "self";
+      // Empty optional fields go as "" (never null): GHL stores a null as the
+      // literal text "null".
+      const res = await fetchWithTimeout(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          // Fields shared with the contact forms so GHL maps the contact.
           full_name: homeownerName,
           phone: homeownerPhone,
-          email: homeownerEmail || null,
+          email: homeownerEmail,
           address,
           service_interest: "Roof Giveaway",
           message: summaryLines.join("\n"),
-          opt_in: true,
           source: "shurdensroofing.com — Roof Giveaway",
           submitted_at: new Date().toISOString(),
-          referred_by_code: getReferralCode(),
-          // Giveaway-specific fields.
-          entry_type: isNominate ? "nomination" : "self",
-          nominator_name: nominatorName || null,
-          nominator_phone: nominatorPhone || null,
-          nominator_relationship: relationship || null,
+          form_version: FORM_VERSION,
+          referred_by_code: getReferralCode() || "",
+          entry_type: entryType,
+          // Consent: the rules box is required; texting is a separate, optional
+          // choice. On a nomination it applies to the nominator's phone only.
+          rules_accepted: true,
+          sms_consent: smsConsent,
+          nominator_name: nominatorName,
+          nominator_phone: nominatorPhone,
+          nominator_email: nominatorEmail,
+          nominator_relationship: relationship,
           owns_home: owns,
           primary_residence: primary,
           single_family: singleFamily,
           active_leaks: leaks,
-          approx_home_sqft: sqft || null,
-          roof_notes: notes || null,
+          approx_home_sqft: sqft,
+          roof_notes: notes,
+          ...(attribution ?? readAttribution()),
         }),
       });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      trackGiveawayEntry(entryType);
       form.reset();
       setSubmitted(true);
     } catch {
@@ -428,6 +511,34 @@ const RoofGiveawayPage = () => {
     </div>
   );
 
+  const closedBlock = (
+    <div role="status" className="self-start rounded-lg border border-white/5 bg-dark p-6 text-center shadow-[var(--shadow-card)] md:p-8">
+      <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
+        <CalendarClock className="h-7 w-7" />
+      </div>
+      <p className="mb-2 font-body text-xs font-bold uppercase tracking-[0.25em] text-primary">Entries Closed</p>
+      <h3 className="mb-3 font-display text-2xl text-dark-foreground md:text-3xl">The Giveaway Is Closed to New Entries</h3>
+      <p className="font-body text-sm text-dark-foreground/90">
+        Entries closed {ENTRIES_CLOSE} at {ENTRIES_CLOSE_TIME}. Watch our{" "}
+        <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-accent">
+          Facebook page
+        </a>{" "}
+        for the finalists on {FINALISTS_POSTED}. We announce the winner {WINNER_ANNOUNCED}.
+      </p>
+      <p className="mt-4 font-body text-sm text-dark-foreground/90">
+        Still need a roof looked at?{" "}
+        <Link to="/contact" className="text-primary underline hover:text-accent">
+          Request a free inspection
+        </Link>{" "}
+        or call{" "}
+        <a href="tel:6624986629" className="text-primary underline hover:text-accent">
+          662-498-6629
+        </a>
+        .
+      </p>
+    </div>
+  );
+
   const formBlock = (
     <form
       onSubmit={onSubmit}
@@ -479,6 +590,7 @@ const RoofGiveawayPage = () => {
             <p className="font-body text-xs font-bold uppercase tracking-wider text-primary">About You</p>
             <Field label="Your Full Name" name="nominatorName" type="text" required autoComplete="name" />
             <Field label="Your Phone Number" name="nominatorPhone" type="tel" required autoComplete="tel" placeholder="(662) 555-1234" />
+            <Field label="Your Email (optional)" name="nominatorEmail" type="email" autoComplete="email" placeholder="you@example.com" />
             <Field label="How do you know them? (optional)" name="relationship" type="text" placeholder="Neighbor, mom, coworker..." />
           </div>
         )}
@@ -563,17 +675,52 @@ const RoofGiveawayPage = () => {
           />
         </div>
 
+        {/* Honeypot. Hidden from people and screen readers; bots fill it. */}
+        <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+          <label htmlFor="company">Company</label>
+          <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
+
         <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
           <input
             type="checkbox"
-            checked={optIn}
-            onChange={(e) => setOptIn(e.target.checked)}
-            className="mt-0.5 h-4 w-4 accent-primary"
+            name="rulesAccepted"
+            checked={rulesAccepted}
+            onChange={(e) => setRulesAccepted(e.target.checked)}
+            className="mt-0.5 h-4 w-4 flex-none accent-primary"
           />
           <span>
             {isNominate
-              ? "I have the homeowner's permission to share their information, and I agree that Shurden's Roofing may contact both of us about the giveaway and the free inspection."
-              : "I agree to be contacted by Shurden's Roofing about the giveaway and my free roof inspection, and I confirm the information above is accurate."}
+              ? "I agree to the giveaway rules and confirm this information is accurate to the best of my knowledge. Shurden's Roofing may call me and the homeowner about this nomination and a free inspection."
+              : "I agree to the giveaway rules and confirm the information above is accurate. Shurden's Roofing may call me about my entry and my free inspection."}{" "}
+            <a href="#rules" className="text-primary underline hover:text-accent">
+              Read the rules
+            </a>
+            .
+          </span>
+        </label>
+
+        <label className="flex cursor-pointer items-start gap-3 rounded-md border border-white/10 bg-secondary/40 px-3 py-3 font-body text-sm text-dark-foreground">
+          <input
+            type="checkbox"
+            name="smsConsent"
+            checked={smsConsent}
+            onChange={(e) => setSmsConsent(e.target.checked)}
+            className="mt-0.5 h-4 w-4 flex-none accent-primary"
+          />
+          <span>
+            <strong className="font-semibold">Optional:</strong>{" "}
+            {isNominate
+              ? "Text me (the nominator) updates about this nomination at the number above."
+              : "Text me giveaway and inspection updates at the number above."}{" "}
+            <span className="text-dark-foreground/80">
+              Texts come from Shurden's Roofing. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or
+              HELP for help. You don't have to agree to texts to enter. See our{" "}
+              <Link to="/privacy-policy" className="text-primary underline hover:text-accent">
+                Privacy Policy
+              </Link>
+              .
+            </span>
           </span>
         </label>
 
@@ -708,7 +855,7 @@ const RoofGiveawayPage = () => {
               </div>
             </div>
 
-            {submitted ? thankYou : formBlock}
+            {submitted ? thankYou : closed ? closedBlock : formBlock}
           </div>
         </section>
 
@@ -823,7 +970,7 @@ const RoofGiveawayPage = () => {
         </section>
 
         {/* Fine print */}
-        <section className="border-t border-border bg-muted py-14 md:py-16">
+        <section id="rules" className="scroll-mt-20 border-t border-border bg-muted py-14 md:py-16">
           <div className="container max-w-4xl">
             <p className="mb-4 font-body text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground">The Fine Print</p>
             <ol className="list-decimal space-y-2 pl-5 font-body text-sm text-muted-foreground">
